@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurship & Start-Ups Notes - Unit 2</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-indigo-200 selection:text-indigo-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2070" alt="Idea Generation and Planning" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 mb-6 drop-shadow-sm">
+                Business Ideas <br/> & Implementation
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-II. Prepared based on Full Syllabus + Previous Year Questions Analysis. Master the journey from an idea to a solid business plan.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-indigo-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#ideas" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-lightbulb text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 1. Ideas & Generation
+                    </a>
+                    <a href="#opportunities" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-magnifying-glass text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 2. Identifying Opportunities
+                    </a>
+                    <a href="#activity-map" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-sitemap text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 3. Visualizing & Activity Map
+                    </a>
+                    <a href="#business-plan" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-file-signature text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 4. The Business Plan
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-indigo prose-headings:font-bold prose-a:text-indigo-600">
+
+            <!-- Section 1 -->
+            <div id="ideas" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-amber-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Business Ideas and Idea Generation</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Meaning of business idea & idea generation. How are ideas generated? Sources of ideas. Techniques (Brainstorming).</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative overflow-hidden group hover:border-amber-200 transition-colors">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <span class="text-amber-600">A.</span> What is a Business Idea?
+                    </h3>
+                    <p class="text-slate-600">A Business Idea is a concept that can be used to generate financial gain. It is usually centered on a product or service that solves a problem, fulfills a need, or offers something new to the market. Not every idea is a business idea; an idea becomes a business idea only if it has commercial value (people are willing to pay for it).</p>
+                    
+                    <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                        <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                            <p class="text-purple-900 leading-relaxed">A business idea is that "Eureka!" or "Bulb-on" moment where you figure out a way to solve someone's problem and make money out of it.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                        <div class="bg-blue-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-microchip text-blue-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-blue-800 font-bold mb-1">Electronics Example</h4>
+                            <p class="text-blue-900 leading-relaxed">You notice your friends' phone cables break easily. Your idea: Manufacture braided, unbreakable charging cables.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <span class="text-indigo-600">B.</span> Idea Generation
+                    </h3>
+                    <p class="text-slate-600">Idea Generation is the creative process of thinking, discovering, developing, and communicating new business concepts. It is the very first step of entrepreneurship. It requires keeping an open mind and observing the world closely.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Sources of Business Ideas</h3>
+                <p class="mb-4 text-slate-600">Where do these ideas come from? Entrepreneurs usually look at two main sources:</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
+                        <h4 class="font-bold text-indigo-600 mb-3 flex items-center gap-2"><i class="fa-solid fa-user-gear"></i> 1. Internal Sources</h4>
+                        <p class="text-xs text-slate-400 mb-3 uppercase tracking-wider font-bold">From within the entrepreneur</p>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li><strong class="text-slate-800">Hobbies & Interests:</strong> Bill Gates loved coding, which became Microsoft.</li>
+                            <li><strong class="text-slate-800">Personal Skills & Experience:</strong> An electronics diploma holder starting a PCB (Printed Circuit Board) repair center because they are skilled at soldering.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
+                        <h4 class="font-bold text-emerald-600 mb-3 flex items-center gap-2"><i class="fa-solid fa-earth-americas"></i> 2. External Sources</h4>
+                        <p class="text-xs text-slate-400 mb-3 uppercase tracking-wider font-bold">From the outside world</p>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li><strong class="text-slate-800">Customers:</strong> Listening to customer complaints. (e.g., Customers complaining about heavy laptops led to the creation of ultra-thin notebooks).</li>
+                            <li><strong class="text-slate-800">Existing Products/Competitors:</strong> Finding faults in current products and making a better version.</li>
+                            <li><strong class="text-slate-800">Government Policies:</strong> When the government banned single-use plastic, it generated a business idea for making biodegradable bags.</li>
+                            <li><strong class="text-slate-800">Market Gaps:</strong> Finding out what is missing in the local market (e.g., a city with no good electronic component suppliers).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">D. Techniques of Generating Business Ideas</h3>
+            <p class="mb-6 text-slate-600">When entrepreneurs sit down to "invent" a business idea, they use specific techniques:</p>
+
+            <div class="space-y-6 mb-12">
+                <div class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white p-8 rounded-2xl shadow-md relative overflow-hidden">
+                    <i class="fa-solid fa-bolt absolute right-[20px] top-[20px] text-[8rem] text-white opacity-10"></i>
+                    <h4 class="text-xl font-bold text-amber-300 mb-4">1. Brainstorming <span class="text-sm font-bold text-white bg-red-500 px-3 py-1 rounded-full ml-2 align-middle">Very Important for PYQ</span></h4>
+                    <p class="text-indigo-100 mb-3"><strong class="text-white">What it is:</strong> A group discussion technique where people throw out as many ideas as possible to solve a specific problem.</p>
+                    <p class="text-indigo-100 mb-4"><strong class="text-white">How it helps:</strong> The golden rule of brainstorming is <span class="underline decoration-amber-300">"No Criticism."</span> Even crazy ideas are written down. Because nobody is judged, the brain thinks freely. Often, two "crazy" ideas combine to form one brilliant, practical business idea. It helps by generating quantity over quality at the first stage.</p>
+                    <div class="bg-black/30 p-4 rounded-xl text-sm border border-white/10 text-indigo-50">
+                        <strong class="text-amber-200"><i class="fa-solid fa-comment-dots mr-1"></i> Example:</strong> A team trying to make a new smart-fan might shout out: "Make it voice-controlled!", "Make it play music!", "Make it spray room freshener!" (Later, the best ones are selected).
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex gap-4">
+                    <div class="bg-slate-100 w-12 h-12 flex items-center justify-center rounded-full flex-shrink-0 text-slate-600 text-xl"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">2. Problem Inventory Analysis</h4>
+                        <p class="text-slate-600">Instead of thinking of new products, you give consumers a list of problems and ask them which ones bother them the most. Then, you build a product to solve the biggest problem.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex gap-4">
+                    <div class="bg-slate-100 w-12 h-12 flex items-center justify-center rounded-full flex-shrink-0 text-slate-600 text-xl"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">3. Focus Groups</h4>
+                        <p class="text-slate-600">A group of 8-12 potential customers are brought into a room and an expert asks them open questions about their lifestyle, needs, and habits to discover hidden business ideas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="opportunities" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Identifying Opportunities from Society's Needs</h2>
+            </div>
+            
+            <img 
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1000" 
+                alt="Analyzing Opportunities" 
+                class="w-full h-64 object-cover rounded-2xl shadow-sm mb-6"
+            />
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Factors involved in identifying opportunities. Justify "an opportunity may be derived from the needs and problems of the society".</p>
+                </div>
+            </div>
+
+            <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Justification: "Opportunity is derived from society's needs and problems"</h3>
+                <p class="text-xl text-indigo-900 mb-6 italic font-medium bg-indigo-100/50 p-4 rounded-lg border-l-4 border-indigo-400">"Where there is a problem, there is an opportunity."</p>
+                <p class="text-slate-700 mb-6">If society is perfectly happy and has no problems, there is no need for new businesses. A business only survives if it solves a pain point for society.</p>
+                
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-car text-amber-500"></i> Real-Life Justification 1 (Transportation)</h4>
+                        <p class="text-slate-600 text-sm">Society had a problem: finding a taxi was hard, and auto-rickshaws overcharged. <br/><strong class="text-slate-800">The Need:</strong> Reliable, fair-priced transport. <br/><strong class="text-slate-800">The Opportunity/Business:</strong> Ola and Uber were born.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-plug text-blue-500"></i> Electronics Real-Life Justification 2 (Power)</h4>
+                        <p class="text-slate-600 text-sm">In the 1990s and 2000s, Indian society faced massive power cuts. <br/><strong class="text-slate-800">The Need:</strong> Continuous electricity for fans and lights. <br/><strong class="text-slate-800">The Opportunity/Business:</strong> Companies like Luminous and Microtek made billions by manufacturing home inverters.</p>
+                    </div>
+                </div>
+                <div class="mt-6 bg-emerald-100 text-emerald-800 p-4 rounded-xl font-medium shadow-inner">
+                    <i class="fa-solid fa-check-circle mr-2 text-emerald-600"></i> Conclusion: Therefore, an entrepreneur doesn't invent things blindly; they observe society, spot the tears, and weave a business to fix them.
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Factors Involved in the Process of Identifying Opportunities</h3>
+            <p class="mb-6 text-slate-600">Just because you have an idea doesn't mean it's a good opportunity. An entrepreneur must check these factors:</p>
+
+            <div class="grid sm:grid-cols-2 gap-4 mb-12">
+                <div class="flex items-start gap-3 bg-white p-5 rounded-xl border border-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <i class="fa-solid fa-chart-line text-blue-500 text-2xl flex-shrink-0 mt-1 w-8 text-center"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Market Demand</h4>
+                        <p class="text-sm text-slate-600">Do people actually want this? Are there enough buyers?</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 bg-white p-5 rounded-xl border border-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <i class="fa-solid fa-microchip text-purple-500 text-2xl flex-shrink-0 mt-1 w-8 text-center"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Technical Feasibility</h4>
+                        <p class="text-sm text-slate-600">Do we have the technology to build this? (e.g., A time-machine is a great idea, but technically impossible).</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 bg-white p-5 rounded-xl border border-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <i class="fa-solid fa-sack-dollar text-emerald-500 text-2xl flex-shrink-0 mt-1 w-8 text-center"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Financial Feasibility</h4>
+                        <p class="text-sm text-slate-600">Will it cost too much to make? Can we sell it at a profit?</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 bg-white p-5 rounded-xl border border-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <i class="fa-solid fa-boxes-stacked text-amber-500 text-2xl flex-shrink-0 mt-1 w-8 text-center"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Availability of Resources</h4>
+                        <p class="text-sm text-slate-600">Do we have the raw materials, skilled labor, and machinery?</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 bg-white p-5 rounded-xl border border-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:col-span-2">
+                    <i class="fa-solid fa-scale-balanced text-red-500 text-2xl flex-shrink-0 mt-1 w-8 text-center"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Government Regulations</h4>
+                        <p class="text-sm text-slate-600">Is the product legal? (e.g., You can't start a business making banned radio jammers).</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="activity-map" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-sitemap"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Visualizing the Business & Activity Map</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Explain Activity map.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. Visualizing the Business</h3>
+                <p class="text-slate-600">Once an idea is selected, the entrepreneur must "see" it in their mind before spending money. This means imagining how the factory will look, how the product will be packed, who will buy it, and how it will reach the shop. It bridges the gap between imagination and reality.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">B. What is an Activity Map?</h3>
+            <p class="text-slate-600 mb-6">An Activity Map is a visual diagram (like a flowchart or a spider-web) that shows the core strategy of a business and all the interconnected activities required to execute that strategy successfully.</p>
+
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                    <p class="text-purple-900 leading-relaxed">Think of it like a treasure map or a circuit diagram for a business. It connects the "Main Goal" to all the daily "Actions" the company must do to reach that goal. It shows how the marketing team, production team, and delivery team are linked together.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
+                <h4 class="text-lg font-bold text-slate-800 mb-3">Why is it used?</h4>
+                <ul class="space-y-2 list-disc pl-5 marker:text-indigo-500 text-slate-600">
+                    <li>It helps the entrepreneur ensure that every single activity in the company supports the main goal.</li>
+                    <li>It identifies useless activities that waste time and money.</li>
+                </ul>
+            </div>
+
+            <!-- Visual Representation of Activity Map -->
+            <div class="bg-slate-900 text-white rounded-3xl p-8 shadow-xl relative overflow-hidden mb-12">
+                <h4 class="text-xl font-bold mb-6 text-center text-blue-300"><i class="fa-solid fa-helicopter mr-2"></i> Example of an Activity Map (For a Custom Drone Startup)</h4>
+                
+                <div class="flex flex-col items-center">
+                    <!-- Core Goal -->
+                    <div class="bg-gradient-to-br from-blue-600 to-indigo-600 p-5 rounded-xl text-center shadow-lg border border-blue-400 z-10 w-full max-w-sm mb-6 relative">
+                        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rotate-45"></div>
+                        <p class="text-xs text-blue-200 uppercase font-bold tracking-widest mb-1">Core Goal</p>
+                        <p class="font-bold text-xl">"Deliver custom-built drones within 7 days"</p>
+                    </div>
+                    
+                    <!-- Arrows down -->
+                    <div class="flex gap-4 sm:gap-16 w-full justify-center text-slate-500 mb-4 px-4">
+                        <i class="fa-solid fa-arrow-down text-blue-400"></i>
+                        <i class="fa-solid fa-arrow-down text-emerald-400 hidden sm:block"></i>
+                        <i class="fa-solid fa-arrow-down text-yellow-400 hidden sm:block"></i>
+                        <i class="fa-solid fa-arrow-down text-purple-400"></i>
+                    </div>
+
+                    <!-- Activities Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
+                        <div class="bg-white/10 p-5 rounded-xl border border-blue-400/30 text-center hover:bg-white/20 transition cursor-default">
+                            <i class="fa-solid fa-boxes-packing text-blue-400 text-3xl mb-3"></i>
+                            <p class="font-bold text-white mb-2 text-sm">Activity 1 (Procurement)</p>
+                            <p class="text-slate-300 text-xs">Tie up with fast local suppliers for motors and batteries.</p>
+                        </div>
+                        <div class="bg-white/10 p-5 rounded-xl border border-emerald-400/30 text-center hover:bg-white/20 transition cursor-default">
+                            <i class="fa-solid fa-industry text-emerald-400 text-3xl mb-3"></i>
+                            <p class="font-bold text-white mb-2 text-sm">Activity 2 (Production)</p>
+                            <p class="text-slate-300 text-xs">Have a 24-hour 3D printing setup for drone frames.</p>
+                        </div>
+                        <div class="bg-white/10 p-5 rounded-xl border border-yellow-400/30 text-center hover:bg-white/20 transition cursor-default">
+                            <i class="fa-solid fa-vial-circle-check text-yellow-400 text-3xl mb-3"></i>
+                            <p class="font-bold text-white mb-2 text-sm">Activity 3 (Testing)</p>
+                            <p class="text-slate-300 text-xs">Standardized checklist for rapid electronic circuit testing.</p>
+                        </div>
+                        <div class="bg-white/10 p-5 rounded-xl border border-purple-400/30 text-center hover:bg-white/20 transition cursor-default">
+                            <i class="fa-solid fa-truck-fast text-purple-400 text-3xl mb-3"></i>
+                            <p class="font-bold text-white mb-2 text-sm">Activity 4 (Shipping)</p>
+                            <p class="text-slate-300 text-xs">Contract with a premium courier service for 1-day delivery.</p>
+                        </div>
+                    </div>
+                    <p class="text-center mt-6 text-sm text-slate-400 italic bg-black/30 px-4 py-2 rounded-full">(All these arrows point towards the central goal, creating the "map")</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="business-plan" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-slate-700 to-slate-900 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. The Business Plan</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Define business plan. Why is it needed? Importance. Elements/Components of a business plan.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is a Business Plan?</h3>
+                <p class="text-slate-600">A Business Plan is a comprehensive, formal written document that describes in detail how a business—usually a startup—defines its objectives and how it is to go about achieving its goals. It lays out a written roadmap for the firm from marketing, financial, and operational standpoints.</p>
+            </div>
+
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                    <p class="text-purple-900 leading-relaxed">A business plan is the "Blueprint" or "Architecture Drawing" of your business. Just like you can't build a strong house without a blueprint, you can't build a successful business without a business plan.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 mt-10">B. Importance: Why is a Business Plan Needed?</h3>
+            
+            <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-money-bill-trend-up text-emerald-500"></i> To get Funding <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded uppercase">Most Important</span></h4>
+                    <p class="text-slate-600 text-sm">No bank will give you a loan, and no investor will give you money if you just verbally tell them your idea. They need a written plan showing how their money will be used and returned.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-map-location-dot text-blue-500"></i> Roadmap and Direction</h4>
+                    <p class="text-slate-600 text-sm">It keeps the entrepreneur focused on the main goal. When you get confused in the future, you read your plan to get back on track.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Identifying Potential Problems</h4>
+                    <p class="text-slate-600 text-sm">When you write things down, you realize mistakes. You might realize your electronics raw material costs more than your selling price before you actually start!</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-flag-checkered text-red-500"></i> Setting Goals and Milestones</h4>
+                    <p class="text-slate-600 text-sm">It sets targets (e.g., "Sell 1000 units by December"), so you can measure your success.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 sm:col-span-2">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-users text-purple-500"></i> Attracting Key Employees</h4>
+                    <p class="text-slate-600 text-sm">Smart engineers and managers will only join your startup if they see you have a solid, professional plan for the future.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Elements / Components of a Business Plan</h3>
+            <p class="mb-6 text-slate-600">A standard business plan contains the following key components (in this order):</p>
+
+            <div class="space-y-4 mb-16 relative">
+                <!-- Vertical Line connecting numbers -->
+                <div class="absolute left-8 top-4 bottom-4 w-0.5 bg-indigo-100 hidden sm:block"></div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10">
+                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">1</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Executive Summary</h4>
+                        <p class="text-slate-600 text-sm">This is the first page, but written last. It is a short summary of the entire plan. Investors read this first; if they don't like the summary, they won't read the rest.</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10">
+                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">2</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Company Description</h4>
+                        <p class="text-slate-600 text-sm">Who are you? What is your mission? What legal structure will you use? (Sole proprietorship, Partnership, etc. - relates to Unit 1!).</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10">
+                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">3</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Market Analysis</h4>
+                        <p class="text-slate-600 text-sm">Who are your competitors? Who are your customers? How big is the market? (e.g., "The demand for smart home electronics in India is growing by 20% yearly.")</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10">
+                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">4</div>
+                    <div class="w-full">
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Products and Services</h4>
+                        <p class="text-slate-600 text-sm mb-3">A detailed explanation of what you are selling.</p>
+                        <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-sm text-blue-900 flex items-start gap-3">
+                            <i class="fa-solid fa-microchip text-blue-500 mt-0.5 text-lg"></i>
+                            <div>
+                                <strong class="block mb-1">Electronics Example:</strong> "We are manufacturing a smart IoT-based water tank overflow alarm. It uses ultrasonic sensors and an ESP8266 Wi-Fi module."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10">
+                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">5</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Organization and Management</h4>
+                        <p class="text-slate-600 text-sm">Who runs the company? What is the team's background? (e.g., "The founders are two Sem-6 Electronics Diploma engineers").</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10">
+                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">6</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Marketing and Sales Strategy</h4>
+                        <p class="text-slate-600 text-sm">How will you sell the product? Will you sell it on Amazon, in local electronics shops, or via Instagram ads?</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10">
+                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">7</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Financial Plan & Projections</h4>
+                        <p class="text-slate-600 text-sm">This includes the budget. How much money do you need? What will be the cost of making one product? What will be the selling price? When will the company become profitable (Break-even point)?</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10">
+                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">8</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Appendix</h4>
+                        <p class="text-slate-600 text-sm">Extra documents like circuit diagrams, legal licenses, resumes of the founders, and market research graphs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-extrabold mb-4">End of Unit 2 Notes</h2>
+                    <p class="text-indigo-100 text-lg max-w-2xl mx-auto bg-black/20 p-4 rounded-xl border border-white/10 font-medium">
+                        <i class="fa-solid fa-lightbulb text-yellow-300 mr-2"></i> Make sure to clearly memorize the headings under the components of a Business Plan, as it is the most frequently asked long-answer question in your PYQs!
+                    </p>
+                </div>
+                <i class="fa-solid fa-rocket absolute bottom-[-20px] right-4 text-[12rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>

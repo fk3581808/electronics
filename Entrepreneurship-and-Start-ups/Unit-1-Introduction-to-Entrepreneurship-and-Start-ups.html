@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurship & Start-Ups Notes</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-indigo-200 selection:text-indigo-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=2070" alt="Startup workspace" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 mb-6 drop-shadow-sm">
+                Entrepreneurship <br/> & Start-Ups
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-I: Introduction. Prepared based on Full Syllabus + Previous Year Questions Analysis. Master the foundations of building an enterprise.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-indigo-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#core-definitions" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-book-open text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 1. Core Definitions
+                    </a>
+                    <a href="#skill-vs-knowledge" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-bolt text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 2. Skill vs. Knowledge
+                    </a>
+                    <a href="#role-economy" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-arrow-trend-up text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 3. Role in Economy
+                    </a>
+                    <a href="#types-entrepreneurs" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-users text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 4. Types of Entrepreneurs
+                    </a>
+                    <a href="#traits" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-star text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 5. Traits & Qualities
+                    </a>
+                    <a href="#motivation" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-bullseye text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 6. Entrepreneurial Motivation
+                    </a>
+                    <a href="#business-structures" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-building text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 7. Business Structures
+                    </a>
+                    <a href="#entrepreneur-vs-manager" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-briefcase text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 8. Entrepreneur vs Manager
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-indigo prose-headings:font-bold prose-a:text-indigo-600">
+            
+            <p class="text-xl text-slate-600 leading-relaxed font-medium">
+                To understand this subject, you first need to understand the <strong class="text-indigo-600">"Three E's"</strong>.
+            </p>
+
+            <!-- Section 1 -->
+            <div id="core-definitions" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Core Definitions: Enterprise, Entrepreneur, and Entrepreneurship</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <span class="text-indigo-600">A.</span> Who is an Entrepreneur?
+                    </h3>
+                    <p class="text-slate-600">An Entrepreneur is an individual who identifies a need in the market, takes the financial and psychological risk to start a business, and organizes resources (land, labor, capital) to create something of value. They are innovators and risk-takers.</p>
+                    
+                    <!-- Brain Card -->
+                    <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                        <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                            <p class="text-purple-900 leading-relaxed">An entrepreneur is the person who gets the "bulb-on" idea, takes the risk, and starts the business.</p>
+                        </div>
+                    </div>
+
+                    <!-- Example Card -->
+                    <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                        <div class="bg-blue-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-lightbulb text-blue-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-blue-800 font-bold mb-1">Real-Life Example</h4>
+                            <p class="text-blue-900 leading-relaxed">
+                                <strong>Real-Life:</strong> Ritesh Agarwal, who saw that finding cheap, clean hotels was hard, took the risk, and started OYO Rooms.<br/><br/>
+                                <strong>Electronics Example:</strong> Aman Gupta starting 'boAt' after realizing Indians needed affordable, stylish earphones.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative overflow-hidden group hover:border-emerald-200 transition-colors">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <span class="text-emerald-600">B.</span> What is an Enterprise?
+                    </h3>
+                    <p class="text-slate-600">An Enterprise is the actual business organization, project, or company that is created by the entrepreneur. It is the physical and operational manifestation of the entrepreneur's idea.</p>
+                    
+                    <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                        <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                            <p class="text-purple-900 leading-relaxed">The enterprise is the actual "shop," "company," or "app" that the entrepreneur builds.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                        <div class="bg-blue-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-lightbulb text-blue-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-blue-800 font-bold mb-1">Real-Life Example</h4>
+                            <p class="text-blue-900 leading-relaxed">OYO Rooms, Tata Motors, or a local mobile repair shop.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 text-center">C. What is Entrepreneurship?</h3>
+                <p class="text-slate-600 text-center max-w-2xl mx-auto mb-6">
+                    Entrepreneurship is the process of identifying opportunities, taking risks, organizing resources, and managing an enterprise to make a profit.
+                </p>
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                    <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed">Entrepreneurship is the "action" or the "journey" of building the business.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mt-6">
+                    <h4 class="font-bold text-slate-700 mb-4 flex items-center gap-2"><i class="fa-solid fa-arrow-right text-indigo-500"></i> Relationship Analogy</h4>
+                    <ul class="space-y-3 font-medium">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-users text-blue-500 w-5"></i> <span><strong>Entrepreneur</strong> = The Chef (Person)</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-gear text-orange-500 w-5"></i> <span><strong>Entrepreneurship</strong> = The art of cooking and managing the kitchen (Process)</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-building text-green-500 w-5"></i> <span><strong>Enterprise</strong> = The Restaurant (Outcome/Business)</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-pink-50 border border-pink-100 rounded-2xl p-8 mb-16">
+                <h3 class="text-2xl font-bold text-pink-800 mb-3">D. What is a Women Entrepreneur?</h3>
+                <p class="text-pink-900 mb-4">
+                    A Women Entrepreneur is defined as an enterprise owned and controlled by a woman having a minimum financial interest of 51% of the capital and giving at least 51% of the employment generated in the enterprise to women. Broadly, it refers to women who initiate, organize, and operate a business enterprise.
+                </p>
+                <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                    <div class="bg-blue-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-lightbulb text-blue-600 text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-blue-800 font-bold mb-1">Real-Life Example</h4>
+                        <p class="text-blue-900 leading-relaxed">Falguni Nayar, who started Nykaa, or Kiran Mazumdar-Shaw, who founded Biocon.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="skill-vs-knowledge" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Skill vs. Knowledge</h2>
+            </div>
+            
+            <img 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" 
+                alt="Electronics Lab - Application of Skill" 
+                class="w-full h-64 object-cover rounded-2xl shadow-sm mb-6"
+            />
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Define skill. Justify that skill is more important than knowledge.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-indigo-500">
+                    <h4 class="text-xl font-bold text-slate-800 flex items-center gap-2 mb-3"><i class="fa-solid fa-book-open text-indigo-500 w-5"></i> Knowledge</h4>
+                    <p class="text-slate-600">Theoretical understanding of a subject. It is gained through reading books, attending lectures, and gathering information.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-fuchsia-500">
+                    <h4 class="text-xl font-bold text-slate-800 flex items-center gap-2 mb-3"><i class="fa-solid fa-gear text-fuchsia-500 w-5"></i> Skill</h4>
+                    <p class="text-slate-600">The practical application of knowledge. It is the ability to actually do something effectively, gained through practice, experience, and training.</p>
+                </div>
+            </div>
+
+            <h4 class="text-xl font-bold text-slate-800 mb-4">Justification: Why is Skill more important than Knowledge?</h4>
+            <p class="mb-4 text-slate-600">While knowledge forms the foundation, it is useless without the skill to apply it. In entrepreneurship (and engineering), real-world problems are solved by doing, not just knowing.</p>
+            
+            <div class="space-y-4 mb-6">
+                <div class="flex gap-4 items-start">
+                    <div class="bg-indigo-100 p-1.5 rounded-full mt-1 w-8 h-8 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-circle-check text-indigo-600"></i></div>
+                    <div><strong class="text-slate-800">Execution over Ideas:</strong> Having knowledge about how an electronic circuit works is good, but having the skill to solder it and troubleshoot it makes you an engineer who can build a product.</div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="bg-indigo-100 p-1.5 rounded-full mt-1 w-8 h-8 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-circle-check text-indigo-600"></i></div>
+                    <div><strong class="text-slate-800">Adaptability:</strong> Knowledge can become outdated quickly, but the skill to learn, adapt, and solve problems remains forever.</div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="bg-indigo-100 p-1.5 rounded-full mt-1 w-8 h-8 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-circle-check text-indigo-600"></i></div>
+                    <div><strong class="text-slate-800">Revenue Generation:</strong> Customers pay for the final product or service (which requires skill to create), not just the theoretical idea in the creator's head.</div>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                    <p class="text-purple-900 leading-relaxed">Knowledge is knowing that a tomato is a fruit. Skill is knowing not to put it in a fruit salad! In business, knowing how to make a drone (knowledge) won't make money until you actually build it and fly it (skill).</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="role-economy" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. The Role of an Entrepreneur in the Economy & Employment</h2>
+            </div>
+            
+            <p class="text-xl text-slate-600 mb-8 italic">Entrepreneurs are called the <span class="font-bold text-indigo-600">"engines of economic growth."</span> Here is why they are vital:</p>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-2">A. Creation of Employment Opportunities</h3>
+                <p class="text-slate-600 mb-4">Entrepreneurs do not seek jobs; they create jobs. When a new business starts, it needs people to manage operations, manufacturing, sales, and IT.</p>
+                <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                    <div class="bg-blue-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-lightbulb text-blue-600 text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-blue-800 font-bold mb-1">Real-Life Example</h4>
+                        <p class="text-blue-900 leading-relaxed">When Zomato was founded, it didn't just enrich the founders; it created lakhs of jobs for delivery partners, software developers, customer care executives, and helped restaurants hire more cooks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Development of the Economy</h3>
+            <div class="grid sm:grid-cols-2 gap-6 mb-16">
+                <!-- Economic Cards -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 border bg-blue-50 text-blue-600 border-blue-200 text-xl">
+                        <i class="fa-solid fa-chart-simple"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">Capital Formation</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Entrepreneurs mobilize idle savings of the public through shares and investments, putting that money into productive use.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 border bg-emerald-50 text-emerald-600 border-emerald-200 text-xl">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">Regional Development</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">By setting up factories in backward areas (often due to government subsidies), they bring roads, electricity, and schools to those areas.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 border bg-purple-50 text-purple-600 border-purple-200 text-xl">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">Standard of Living</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">By creating innovative products (like affordable smartphones), they make life easier and better for the common man.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 border bg-amber-50 text-amber-600 border-amber-200 text-xl">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">Wealth Creation</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">They generate wealth not just for themselves, but for their investors, employees, and the government (via taxes).</p>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div id="types-entrepreneurs" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Types of Entrepreneurs</h2>
+            </div>
+            
+            <p class="mb-6 text-slate-600">Entrepreneurs are not all the same. Clarence Danhof classified them into four main types:</p>
+
+            <div class="space-y-6 mb-16">
+                <!-- Type Cards -->
+                <div class="border-l-4 border-indigo-500 bg-indigo-50 rounded-r-2xl p-6 shadow-sm">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">Innovative Entrepreneurs</h4>
+                    <p class="text-slate-700 mb-3">They introduce new products, new methods of production, or discover new markets. They are highly creative.</p>
+                    <div class="text-sm bg-white/60 p-3 rounded-lg border border-slate-200/50">
+                        <strong class="text-slate-800">Example:</strong> <span class="text-slate-600">Steve Jobs (Apple) introducing the touchscreen iPhone.</span>
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-blue-500 bg-blue-50 rounded-r-2xl p-6 shadow-sm">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">Imitative (or Adoptive) Entrepreneurs</h4>
+                    <p class="text-slate-700 mb-3">They do not invent things but copy successful innovations made by others. They are common in developing countries like India.</p>
+                    <div class="text-sm bg-white/60 p-3 rounded-lg border border-slate-200/50">
+                        <strong class="text-slate-800">Example:</strong> <span class="text-slate-600">Ola copying the business model of Uber in India, or local manufacturers making affordable smartwatches similar to the Apple Watch.</span>
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-amber-500 bg-amber-50 rounded-r-2xl p-6 shadow-sm">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">Fabian Entrepreneurs</h4>
+                    <p class="text-slate-700 mb-3">They are highly cautious and skeptical. They do not introduce changes unless they fear they will lose their business. They lack the will to adopt new methods.</p>
+                    <div class="text-sm bg-white/60 p-3 rounded-lg border border-slate-200/50">
+                        <strong class="text-slate-800">Example:</strong> <span class="text-slate-600">A traditional family-owned electronics shop that refuses to sell online until they realize they are losing all their customers to Amazon.</span>
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-red-500 bg-red-50 rounded-r-2xl p-6 shadow-sm">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">Drone Entrepreneurs</h4>
+                    <p class="text-slate-700 mb-3">They are completely traditional. They refuse to change their methods of production even if they are suffering losses.</p>
+                    <div class="text-sm bg-white/60 p-3 rounded-lg border border-slate-200/50">
+                        <strong class="text-slate-800">Example:</strong> <span class="text-slate-600">The makers of HMT watches or Nokia (in the early 2010s) who refused to switch to Android/modern designs and eventually lost the market.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div id="traits" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Traits and Qualities of an Entrepreneur</h2>
+            </div>
+            
+            <div class="relative rounded-2xl overflow-hidden mb-10 shadow-lg">
+                <img 
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000" 
+                    alt="Team collaborating" 
+                    class="w-full h-48 object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent flex items-end">
+                    <p class="text-white p-6 font-medium text-lg text-shadow">To be successful, an entrepreneur must possess certain characteristics:</p>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                <div class="flex gap-3 bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Risk-Taking Ability</h4>
+                        <p class="text-sm text-slate-600 leading-snug">They are ready to invest time and money into an unproven idea. (Calculated risk, not blind gambling).</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Innovation & Creativity</h4>
+                        <p class="text-sm text-slate-600 leading-snug">They constantly look for new ways to solve problems.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Visionary</h4>
+                        <p class="text-sm text-slate-600 leading-snug">They can see the future of the market and plan accordingly.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Leadership</h4>
+                        <p class="text-sm text-slate-600 leading-snug">They know how to motivate a team, manage conflicts, and lead people towards a common goal.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Self-Confidence & Optimism</h4>
+                        <p class="text-sm text-slate-600 leading-snug">They believe in their idea even when everyone else doubts it.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Hard Work & Perseverance</h4>
+                        <p class="text-sm text-slate-600 leading-snug">They work long hours and don't give up after the first failure.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-2xl flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Decision-Making Skill</h4>
+                        <p class="text-sm text-slate-600 leading-snug">They can make quick, effective decisions under pressure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                    <p class="text-purple-900 leading-relaxed">An entrepreneur is a brave captain of a ship who knows where to go (Vision), isn't afraid of storms (Risk), and keeps the crew happy and working (Leadership).</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="motivation" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. Entrepreneurial Motivation</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Motivation is a psychological concept. Explain role of higher-order needs and internal factors.</p>
+                </div>
+            </div>
+
+            <div class="space-y-8 mb-16">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is Motivation? (The Psychological Concept)</h3>
+                    <p class="text-slate-600">Motivation is a psychological concept because it originates inside the human mind. It is the inner urge, drive, or feeling that pushes a person to act in a certain way. You cannot "touch" motivation; you can only see its results. It is the mental spark that turns a thought into action.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">B. What is Entrepreneurial Motivation?</h3>
+                    <p class="text-slate-600">It is the process that activates and motivates the entrepreneur to exert a higher level of effort toward achieving their business goals.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-indigo-900 to-purple-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 opacity-10">
+                        <i class="fa-solid fa-bullseye text-[16rem] -mt-16 -mr-16"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 relative z-10">C. The Role of Higher-Order Needs</h3>
+                    <p class="mb-6 text-indigo-100 relative z-10">According to Abraham Maslow's Hierarchy of Needs, human needs range from basic (food, shelter) to higher-order. Entrepreneurs are heavily driven by Higher-Order Needs:</p>
+                    
+                    <div class="space-y-4 relative z-10">
+                        <div class="bg-white/10 backdrop-blur-md p-5 rounded-xl border border-white/20">
+                            <h4 class="font-bold text-pink-300 text-lg mb-1 flex items-center gap-2"><i class="fa-solid fa-star"></i> Esteem Needs</h4>
+                            <p class="text-sm text-indigo-50">The desire for reputation, prestige, recognition, and respect from society. An entrepreneur wants to be known as a "job creator" or a "successful businessperson."</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-5 rounded-xl border border-white/20">
+                            <h4 class="font-bold text-amber-300 text-lg mb-1 flex items-center gap-2"><i class="fa-solid fa-award"></i> Self-Actualization Needs</h4>
+                            <p class="text-sm text-indigo-50">This is the highest human need. It is the desire for self-fulfillment—to become everything that one is capable of becoming. Entrepreneurs start businesses to test their limits, turn their dreams into reality, and leave a legacy behind.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md text-slate-800">
+                            <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                                <p class="text-purple-900 leading-relaxed">A normal job fulfills the need for food and rent (lower needs). But starting a business fulfills the need to prove to the world "I am capable of greatness" (higher-order need).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">D. Internal Factors that Stimulate Motivation</h3>
+                    <p class="text-slate-600 mb-4">What pushes a person from inside to become an entrepreneur?</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-arrow-right text-indigo-500 mt-1"></i> <span><strong>Desire to be One's Own Boss:</strong> The strong urge to be independent and not work under someone else's rules.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-arrow-right text-indigo-500 mt-1"></i> <span><strong>Desire for Financial Independence:</strong> The drive to earn unlimited income rather than a fixed monthly salary.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-arrow-right text-indigo-500 mt-1"></i> <span><strong>Need for Achievement:</strong> A strong psychological drive to conquer challenges and succeed.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-arrow-right text-indigo-500 mt-1"></i> <span><strong>Educational Background:</strong> Sometimes, specialized knowledge (like your Electronics Diploma) creates a deep urge to build a product using that knowledge.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 7 -->
+            <div id="business-structures" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">7. Business and Types of Business Structures</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Define business. Explain structures. Sole proprietorship vs Partnership. Cooperative society objectives.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is a Business?</h3>
+                <p class="text-slate-600">Business refers to any economic activity involving the production, purchase, or sale of goods and services with the main objective of earning a profit, while satisfying human needs.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Types of Business Structures</h3>
+            <p class="mb-6 text-slate-600">When an entrepreneur decides to start a business, they must choose a legal structure. The main types are:</p>
+
+            <div class="space-y-8 mb-10">
+                <!-- Sole Proprietorship -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 p-4 border-b border-slate-200 flex items-center gap-3">
+                        <div class="bg-white p-2 rounded-lg shadow-sm w-10 h-10 flex items-center justify-center"><i class="fa-solid fa-user text-slate-700"></i></div>
+                        <h4 class="text-xl font-bold text-slate-800 m-0">1. Sole Proprietorship</h4>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <p class="mb-4">A business owned, managed, and controlled by a single individual.</p>
+                        <ul class="mb-4 space-y-2">
+                            <li><strong>Features:</strong> Single ownership, unlimited liability (the owner's personal property can be sold to pay business debts), owner keeps 100% of the profits.</li>
+                        </ul>
+                        <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                            <div class="bg-blue-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                <i class="fa-solid fa-lightbulb text-blue-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-blue-800 font-bold mb-1">Real-Life Example</h4>
+                                <p class="text-blue-900 leading-relaxed">A local neighborhood grocery store (Kirana shop) or a freelance PCB designer.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                            <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                                <p class="text-purple-900 leading-relaxed">One-man army. You do the work, you take the risk, you keep all the profit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partnership -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 p-4 border-b border-slate-200 flex items-center gap-3">
+                        <div class="bg-white p-2 rounded-lg shadow-sm w-10 h-10 flex items-center justify-center"><i class="fa-solid fa-users text-slate-700"></i></div>
+                        <h4 class="text-xl font-bold text-slate-800 m-0">2. Partnership</h4>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <p class="mb-4">A business owned by two or more persons (up to 50) who agree to share the profits and losses of a business. It is governed by the Indian Partnership Act, 1932.</p>
+                        <ul class="mb-4 space-y-2">
+                            <li><strong>Features:</strong> Agreement between partners, sharing of risk, division of labor.</li>
+                        </ul>
+                        <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                            <div class="bg-blue-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                <i class="fa-solid fa-lightbulb text-blue-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-blue-800 font-bold mb-1">Real-Life Example</h4>
+                                <p class="text-blue-900 leading-relaxed">Two diploma students opening an electronics repair and sales shop together, sharing the rent and profits 50-50.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cooperative Society -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 p-4 border-b border-slate-200 flex items-center gap-3">
+                        <div class="bg-white p-2 rounded-lg shadow-sm w-10 h-10 flex items-center justify-center"><i class="fa-solid fa-globe text-slate-700"></i></div>
+                        <h4 class="text-xl font-bold text-slate-800 m-0">3. Cooperative Society</h4>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <p class="mb-6">A voluntary association of persons who join together with the motive of the welfare of the members, rather than maximizing profit.</p>
+                        
+                        <h5 class="font-bold text-slate-800 mb-3">Objectives of Cooperative Society:</h5>
+                        <ul class="space-y-2 mb-6 list-disc pl-5 marker:text-indigo-500">
+                            <li>To protect the economic interests of weaker sections of society.</li>
+                            <li>To eliminate middlemen who take large profit margins.</li>
+                            <li>To provide goods and services at reasonable rates.</li>
+                            <li>To promote mutual help and self-help (All for one, one for all).</li>
+                        </ul>
+
+                        <h5 class="font-bold text-slate-800 mb-2">How it helps in Economic Betterment:</h5>
+                        <p class="mb-6 text-slate-600">Farmers or small producers often get exploited by big businessmen. By forming a cooperative, they pool their resources, sell products directly to the market, and share the profits equally. It provides them with cheap loans and better raw materials.</p>
+                        
+                        <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                            <div class="bg-blue-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                <i class="fa-solid fa-lightbulb text-blue-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-blue-800 font-bold mb-1">Real-Life Example</h4>
+                                <p class="text-blue-900 leading-relaxed"><strong>AMUL (Gujarat Cooperative Milk Marketing Federation).</strong> Milk farmers combined their resources to form a cooperative, eliminating middlemen, which made the farmers rich and provided cheap milk to the public.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="text-xl font-bold text-slate-800 mb-4">Difference between Sole Proprietorship and Partnership</h4>
+            <div class="overflow-x-auto shadow-sm rounded-2xl border border-slate-200 mb-16">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700">
+                            <th class="p-4 border-b border-slate-200 font-bold">Feature</th>
+                            <th class="p-4 border-b border-slate-200 font-bold text-indigo-700">Sole Proprietorship</th>
+                            <th class="p-4 border-b border-slate-200 font-bold text-fuchsia-700">Partnership</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-700">Number of Owners</td><td class="p-4 text-slate-600">Only One.</td><td class="p-4 text-slate-600">Minimum 2, Maximum 50.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-700">Capital (Money)</td><td class="p-4 text-slate-600">Limited to what one person can invest.</td><td class="p-4 text-slate-600">Larger capital as multiple partners invest.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-700">Decision Making</td><td class="p-4 text-slate-600">Very quick, as only one person decides.</td><td class="p-4 text-slate-600">Slower, requires agreement of all partners.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-700">Risk/Liability</td><td class="p-4 text-slate-600">Borne entirely by the single owner.</td><td class="p-4 text-slate-600">Shared among all partners.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-700">Profit Sharing</td><td class="p-4 text-slate-600">Owner keeps 100% of the profit.</td><td class="p-4 text-slate-600">Shared according to the partnership deed.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-700">Secrecy</td><td class="p-4 text-slate-600">High business secrecy is maintained.</td><td class="p-4 text-slate-600">Secrecy is shared among partners.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 8 -->
+            <div id="entrepreneur-vs-manager" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">8. Entrepreneur vs. Manager</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Note down similarity and difference between Entrepreneur and Manager.</p>
+                </div>
+            </div>
+            <p class="mb-8 text-slate-600">Many people confuse entrepreneurs with managers, but their roles are fundamentally different, even though they share some similarities.</p>
+
+            <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl mb-8">
+                <h4 class="text-xl font-bold text-slate-800 mb-4">Similarities between Entrepreneur and Manager</h4>
+                <ul class="grid sm:grid-cols-2 gap-4">
+                    <li class="flex gap-3"><i class="fa-solid fa-circle-check text-emerald-500 mt-1 text-xl flex-shrink-0"></i> <span><strong>Leadership:</strong> Both need to lead, guide, and motivate people to achieve business goals.</span></li>
+                    <li class="flex gap-3"><i class="fa-solid fa-circle-check text-emerald-500 mt-1 text-xl flex-shrink-0"></i> <span><strong>Decision Making:</strong> Both must make critical decisions daily (e.g., whom to hire, how to reduce costs).</span></li>
+                    <li class="flex gap-3"><i class="fa-solid fa-circle-check text-emerald-500 mt-1 text-xl flex-shrink-0"></i> <span><strong>Problem Solving:</strong> Both face daily challenges and must find solutions to keep the business running smoothly.</span></li>
+                    <li class="flex gap-3"><i class="fa-solid fa-circle-check text-emerald-500 mt-1 text-xl flex-shrink-0"></i> <span><strong>Resource Management:</strong> Both are responsible for effectively managing money, machines, and manpower.</span></li>
+                </ul>
+            </div>
+
+            <h4 class="text-xl font-bold text-slate-800 mb-4">Differences between Entrepreneur and Manager</h4>
+            <div class="overflow-x-auto shadow-sm rounded-2xl border border-slate-200 mb-8">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-4 font-bold rounded-tl-2xl">Feature</th>
+                            <th class="p-4 font-bold text-amber-300">Entrepreneur</th>
+                            <th class="p-4 font-bold text-sky-300 rounded-tr-2xl">Manager</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-800 bg-slate-50/50">Motive</td><td class="p-4 text-slate-700">To start a new venture and create wealth.</td><td class="p-4 text-slate-700">To render services to an already established enterprise.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-800 bg-slate-50/50">Status</td><td class="p-4 text-slate-700">Owner of the business.</td><td class="p-4 text-slate-700">Employee of the business.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-800 bg-slate-50/50">Risk Bearing</td><td class="p-4 text-slate-700">Bears all financial and psychological risks.</td><td class="p-4 text-slate-700">Does not bear financial risk; gets a fixed salary regardless of company loss.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-800 bg-slate-50/50">Reward</td><td class="p-4 text-slate-700">The reward is Profit (which can be highly variable or even negative).</td><td class="p-4 text-slate-700">The reward is Salary (which is fixed and guaranteed).</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-800 bg-slate-50/50">Innovation</td><td class="p-4 text-slate-700">Acts as an innovator, bringing new ideas to the market.</td><td class="p-4 text-slate-700">Executes the ideas of the entrepreneur; focuses on efficiency.</td></tr>
+                        <tr class="hover:bg-slate-50 transition-colors"><td class="p-4 font-medium text-slate-800 bg-slate-50/50">Skill Required</td><td class="p-4 text-slate-700">Requires vision, risk-taking ability, and high-order motivation.</td><td class="p-4 text-slate-700">Requires managerial skills, human relations, and specific operational knowledge.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                    <p class="text-purple-900 leading-relaxed">The Entrepreneur is the person who buys the bus and decides the route. The Manager is the driver hired to drive the bus safely on that route. The entrepreneur takes the risk of buying the bus; the manager just takes a salary for driving it.</p>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-extrabold mb-3">End of Unit 1 Notes</h2>
+                    <p class="text-indigo-100 text-lg max-w-2xl mx-auto">
+                        Best of luck with your Semester 6 exams! Focus on the differences and definitions, as they are heavily repeated in your PYQs.
+                    </p>
+                </div>
+                <i class="fa-solid fa-rocket absolute bottom-[-20px] right-4 text-[12rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>

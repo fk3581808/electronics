@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurship & Start-Ups Notes - Unit 3</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-indigo-200 selection:text-indigo-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2070" alt="Market Analysis and Startup Growth" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 mb-6 drop-shadow-sm">
+                Idea to Start-Up
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-III. Prepared based on Full Syllabus + Previous Year Questions Analysis. Master marketing, target audiences, competition, and risk analysis.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-indigo-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#market-marketing" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-bullhorn text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 1. Market & Marketing
+                    </a>
+                    <a href="#market-research" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-magnifying-glass-chart text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 2. Market Research
+                    </a>
+                    <a href="#target-market" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-crosshairs text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 3. Target Market
+                    </a>
+                    <a href="#competition" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-chess-knight text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 4. Competition & Strategy
+                    </a>
+                    <a href="#accounting" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-calculator text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 5. Marketing vs Accounting
+                    </a>
+                    <a href="#risk-analysis" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-shield-halved text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 6. Risk Analysis
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-indigo prose-headings:font-bold prose-a:text-indigo-600">
+
+            <!-- Section 1 -->
+            <div id="market-marketing" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Market and Marketing</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Define 'market'. Discuss the objective of marketing. Define marketing. Discuss the importance of marketing.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative overflow-hidden group hover:border-blue-200 transition-colors">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <span class="text-blue-600">A.</span> What is a 'Market'?
+                    </h3>
+                    <p class="text-slate-600">Traditionally, a Market is a physical place where buyers and sellers meet to exchange goods and services. However, in modern business, a market refers to the <strong>entire group of actual and potential buyers</strong> of a product or service.</p>
+                    
+                    <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl my-5 shadow-sm transform transition hover:-translate-y-1 hover:shadow-md">
+                        <div class="bg-purple-100 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-brain text-purple-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation</h4>
+                            <p class="text-purple-900 leading-relaxed text-sm">The market isn't just a building or a shop; it is all the people who have the money and the desire to buy your product. If you make gaming PCs, all PC gamers in India are your "market."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <span class="text-indigo-600">B.</span> What is 'Marketing'?
+                    </h3>
+                    <p class="text-slate-600">Marketing is the process of identifying, anticipating, and satisfying customer needs profitably. It involves everything a business does to acquire customers and maintain a relationship with them. It includes research, design, advertising, selling, and customer service.</p>
+                    
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl mt-4 text-sm text-amber-900 font-medium">
+                        <i class="fa-solid fa-triangle-exclamation mr-1 text-amber-600"></i> <strong>Important Note:</strong> Selling is just exchanging a product for money. Marketing starts way before the product is even made (finding out what people want) and continues after the sale (customer feedback).
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm mb-10">
+                <div class="bg-blue-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-heart text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-blue-800 font-bold mb-2">The Golden Rule of Marketing</h4>
+                    <p class="text-blue-900 leading-relaxed font-medium">Marketing is the art of making people fall in love with your product so much that selling becomes unnecessary.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b border-slate-200 pb-3">C. Objectives of Marketing</h3>
+                <p class="mb-6 text-slate-600 font-medium">Why do companies spend millions on marketing?</p>
+                
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
+                        <i class="fa-solid fa-magnifying-glass text-indigo-500 mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Discovering Customer Needs</strong>
+                            <p class="text-sm text-slate-600">To find out exactly what the customer wants (e.g., Do they want a wired earphone or a Bluetooth one?).</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
+                        <i class="fa-solid fa-chart-line text-emerald-500 mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Increasing Sales & Profit</strong>
+                            <p class="text-sm text-slate-600">The ultimate goal is to sell more units and make money.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
+                        <i class="fa-solid fa-bullseye text-amber-500 mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Building Brand Awareness</strong>
+                            <p class="text-sm text-slate-600">To make sure that when someone thinks of a product, they think of your company (e.g., thinking of "Maggi" instead of "noodles").</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
+                        <i class="fa-solid fa-gem text-purple-500 mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Creating Value & Retention</strong>
+                            <p class="text-sm text-slate-600">To provide a product that improves life and to keep old customers coming back to buy again.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">D. Importance of Marketing</h3>
+            <ul class="space-y-4 mb-12">
+                <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <i class="fa-solid fa-bridge text-indigo-500 text-xl flex-shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 text-lg">Connects Producer to Consumer:</strong>
+                        <p class="text-slate-600 text-sm mt-1">Without marketing, the best electronics product in the world will sit in a factory collecting dust. Marketing acts as the bridge.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <i class="fa-solid fa-lightbulb text-indigo-500 text-xl flex-shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 text-lg">Helps in Decision Making:</strong>
+                        <p class="text-slate-600 text-sm mt-1">It tells the entrepreneur what price to set, what features to add, and where to sell.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <i class="fa-solid fa-users text-indigo-500 text-xl flex-shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 text-lg">Generates Employment:</strong>
+                        <p class="text-slate-600 text-sm mt-1">Marketing creates jobs in advertising, sales, logistics, and digital media.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <i class="fa-solid fa-arrow-up-right-dots text-indigo-500 text-xl flex-shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 text-lg">Improves Standard of Living:</strong>
+                        <p class="text-slate-600 text-sm mt-1">By marketing new, efficient products, it educates society about better ways of living.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="market-research" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Market Analysis and Market Research</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Discuss importance of market analysis. Meaning of 'market research'. Explain steps involved in marketing research process.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10 mt-8">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-emerald-500"></i> A. Importance of Market Analysis
+                    </h3>
+                    <p class="text-slate-600 mb-4 font-medium">Market Analysis is a deep study of the market's size, trends, growth rate, and profitability.</p>
+                    <div class="bg-emerald-50 p-4 rounded-xl text-sm text-emerald-900">
+                        <strong>Why is it important?</strong> It acts as a reality check. Before an entrepreneur spends money on a startup, market analysis tells them if there is a real demand. It reduces the risk of failure, helps in understanding competitor strategies, and attracts investors.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-question text-teal-500"></i> B. What is Market Research?
+                    </h3>
+                    <p class="text-slate-600 mb-4 font-medium">Market Research is the systematic process of gathering, recording, and analyzing data about customers, competitors, and the market.</p>
+                    <div class="bg-purple-50 p-4 rounded-xl text-sm text-purple-900 mb-3 flex items-start gap-3">
+                        <i class="fa-solid fa-brain text-purple-500 mt-1"></i>
+                        <span>Market Research is like doing "detective work" before starting your business to find out if people will actually buy your product.</span>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-xl text-sm text-blue-900 flex items-start gap-3">
+                        <i class="fa-solid fa-microchip text-blue-500 mt-1"></i>
+                        <span><strong>Electronics Ex:</strong> Finding out if customers prefer a smart-bulb controlled via Wi-Fi or Bluetooth, and its ideal price point.</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">C. Steps Involved in the Marketing Research Process</h3>
+            <p class="text-red-600 font-bold text-sm uppercase tracking-wider mb-6 bg-red-50 inline-block px-3 py-1 rounded-full"><i class="fa-solid fa-thumbtack mr-1"></i> Memorize these steps in order for your exams</p>
+
+            <div class="space-y-4 mb-16 relative">
+                <!-- Vertical Line connecting numbers -->
+                <div class="absolute left-8 top-4 bottom-4 w-0.5 bg-emerald-100 hidden sm:block"></div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10 hover:border-emerald-300 transition-colors">
+                    <div class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">1</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Define the Problem and Objectives</h4>
+                        <p class="text-slate-600 text-sm">What exactly do you want to find out? (e.g., "Why are our electronics repair shop sales going down?")</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10 hover:border-emerald-300 transition-colors">
+                    <div class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">2</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Develop the Research Plan</h4>
+                        <p class="text-slate-600 text-sm">How will you collect the data? Will you use surveys, online polls, or face-to-face interviews?</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10 hover:border-emerald-300 transition-colors">
+                    <div class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">3</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Collect the Data</h4>
+                        <p class="text-slate-600 text-sm">This is the field work. You distribute surveys to customers or talk to them. (Gathering Primary and Secondary data).</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10 hover:border-emerald-300 transition-colors">
+                    <div class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">4</div>
+                    <div class="w-full">
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Analyze the Data</h4>
+                        <p class="text-slate-600 text-sm">You look at the collected information, put it into charts, and find patterns. (e.g., 80% of people said they want a home delivery repair service).</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10 hover:border-emerald-300 transition-colors">
+                    <div class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">5</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Present the Findings</h4>
+                        <p class="text-slate-600 text-sm">Make a report of what you discovered.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative z-10 hover:border-emerald-300 transition-colors">
+                    <div class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">6</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1 text-lg">Make the Decision</h4>
+                        <p class="text-slate-600 text-sm">Based on the report, the entrepreneur takes action. (e.g., Starting a home-pickup service for broken electronics).</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="target-market" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-red-500 to-pink-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-crosshairs"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Identifying the Target Market</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">What Questions help to identify the target market?</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">A. What is a Target Market?</h3>
+                <p class="text-slate-600 text-lg mb-4">Your product cannot be for "everybody." A Target Market is the specific group of customers at whom a company aims its products and marketing efforts.</p>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm text-sm">
+                    <strong class="text-slate-800"><i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i> Example:</strong> The target market for a high-end oscilloscope is electronics engineers and labs, not general households.
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Questions to Help Identify the Target Market <span class="text-sm font-bold text-white bg-red-500 px-3 py-1 rounded-full ml-2 align-middle">Crucial PYQ</span></h3>
+            <p class="mb-8 text-slate-600">To identify the exact target market, an entrepreneur must ask the following questions:</p>
+
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-users text-red-500 w-5"></i> Who are they? (Demographics)</h4>
+                    <p class="text-sm text-slate-600">What is their age, gender, education, and occupation?</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-location-dot text-red-500 w-5"></i> Where are they? (Geographics)</h4>
+                    <p class="text-sm text-slate-600">Do they live in cities, villages, or specific states? (e.g., AC stabilizers are targeted at areas with high voltage fluctuations).</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-wallet text-red-500 w-5"></i> What is their income level?</h4>
+                    <p class="text-sm text-slate-600">Can they afford a premium product, or do they need a budget-friendly option?</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-band-aid text-red-500 w-5"></i> What are their pain points?</h4>
+                    <p class="text-sm text-slate-600">What problem are they trying to solve that your product can fix?</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-cart-shopping text-red-500 w-5"></i> What are their buying habits?</h4>
+                    <p class="text-sm text-slate-600">Do they buy online (Amazon/Flipkart) or from physical electronics stores?</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-store text-red-500 w-5"></i> Who do they buy from?</h4>
+                    <p class="text-sm text-slate-600">Which competitor are they using right now, and why might they switch to you?</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="competition" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-chess-knight"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Competition Evaluation & Strategy</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-2">A. Competition Evaluation</h3>
+                    <p class="text-slate-600 mb-4">Before launching a startup, you must know who you are fighting against.</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="bg-amber-50 p-3 rounded-xl border border-amber-100">
+                            <strong class="text-amber-900 block mb-1"><i class="fa-solid fa-swords text-amber-500 w-5"></i> Direct Competitors</strong>
+                            <span class="text-sm text-amber-800">Businesses selling the exact same product. (e.g., Samsung vs. Apple).</span>
+                        </li>
+                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                            <strong class="text-slate-800 block mb-1"><i class="fa-solid fa-shuffle text-slate-500 w-5"></i> Indirect Competitors</strong>
+                            <span class="text-sm text-slate-600">Businesses selling different products that solve the same problem. (e.g., A cinema hall vs. Netflix).</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-6 bg-blue-50 p-4 rounded-xl text-sm border border-blue-100">
+                        <strong class="text-blue-900">How to evaluate:</strong> Entrepreneurs use <strong>SWOT Analysis</strong> (Strengths, Weaknesses, Opportunities, Threats) on their competitors to find out where the competitor is weak.
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-2">B. Strategy Development</h3>
+                    <p class="text-slate-600 mb-4">Once you know your competitors, how do you beat them? You develop a strategy:</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <div class="bg-emerald-100 w-10 h-10 rounded-full flex items-center justify-center text-emerald-600 flex-shrink-0"><i class="fa-solid fa-tag"></i></div>
+                            <div>
+                                <strong class="text-slate-800 block">Cost Leadership Strategy</strong>
+                                <p class="text-sm text-slate-600">Make your product the cheapest in the market by reducing manufacturing costs. (e.g., Xiaomi phones in their early days).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="bg-purple-100 w-10 h-10 rounded-full flex items-center justify-center text-purple-600 flex-shrink-0"><i class="fa-solid fa-star"></i></div>
+                            <div>
+                                <strong class="text-slate-800 block">Differentiation Strategy</strong>
+                                <p class="text-sm text-slate-600">Make your product unique or higher quality so people are willing to pay more. (e.g., Apple iPhone).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="bg-rose-100 w-10 h-10 rounded-full flex items-center justify-center text-rose-600 flex-shrink-0"><i class="fa-solid fa-compress"></i></div>
+                            <div>
+                                <strong class="text-slate-800 block">Niche/Focus Strategy</strong>
+                                <p class="text-sm text-slate-600">Focus on a very small, specific target market that big companies ignore. (e.g., Making specialized hearing aids for dogs).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="accounting" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Marketing and Accounting in Start-Ups</h2>
+            </div>
+            
+            <p class="text-xl text-slate-600 mb-8 font-medium">While marketing brings the money in, accounting keeps track of where the money goes.</p>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Role of Accounting in Start-ups</h3>
+                <p class="text-slate-600 mb-6">Accounting is the process of recording, classifying, summarizing, and analyzing financial transactions of a business. It is called the <strong>"Language of Business."</strong></p>
+                
+                <h4 class="font-bold text-slate-800 text-lg mb-4">Why it is needed:</h4>
+                <div class="grid sm:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 shadow-sm text-center">
+                        <i class="fa-solid fa-scale-unbalanced text-3xl text-emerald-500 mb-3"></i>
+                        <strong class="block text-slate-800 mb-2">1. Profit or Loss</strong>
+                        <p class="text-xs text-slate-600">It tells you if your startup is actually making money or burning cash.</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 shadow-sm text-center">
+                        <i class="fa-solid fa-money-bill-transfer text-3xl text-blue-500 mb-3"></i>
+                        <strong class="block text-slate-800 mb-2">2. Cash Flow</strong>
+                        <p class="text-xs text-slate-600">Startups often die because they run out of cash. Accounting tracks daily cash flow.</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 shadow-sm text-center">
+                        <i class="fa-solid fa-file-invoice text-3xl text-purple-500 mb-3"></i>
+                        <strong class="block text-slate-800 mb-2">3. Legal Needs</strong>
+                        <p class="text-xs text-slate-600">The government requires proper accounting for filing taxes (GST, Income Tax).</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Car Analogy)</h4>
+                        <p class="text-purple-900 leading-relaxed"><strong>Marketing</strong> is the engine that drives the car forward.<br/><strong>Accounting</strong> is the dashboard (speedometer and fuel gauge) that tells you if you have enough petrol (money) to reach your destination.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="risk-analysis" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-red-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. Risk Analysis</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">What is Risk Analysis in Business? Explain the purpose of risk analysis.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10 mt-8">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3">A. What is Risk Analysis?</h3>
+                    <p class="text-slate-600 mb-4">Risk Analysis is the process of identifying, evaluating, and estimating the potential risks and uncertainties that could negatively affect a business, and then finding ways to minimize or manage them.</p>
+                    
+                    <div class="bg-purple-50 p-4 rounded-xl text-sm text-purple-900 mb-3 flex items-start gap-3">
+                        <i class="fa-solid fa-brain text-purple-500 mt-1"></i>
+                        <span>It is asking the question: <strong>"What is the worst that could happen?"</strong> and then making a backup plan for it.</span>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-xl text-sm text-blue-900 flex items-start gap-3">
+                        <i class="fa-solid fa-microchip text-blue-500 mt-1"></i>
+                        <span><strong>Electronics Ex:</strong> Building a startup for Li-ion batteries. A massive risk is batteries catching fire due to a design flaw. Risk analysis identifies this danger early.</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">C. Types of Risks in Startups</h3>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-money-bill-wave text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Financial Risk</strong>
+                                <p class="text-sm text-slate-600">Running out of money, customers not paying on time.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-store-slash text-rose-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Market/Demand Risk</strong>
+                                <p class="text-sm text-slate-600">What if people simply don't like the product?</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-compact-disc text-blue-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Technology Risk</strong>
+                                <p class="text-sm text-slate-600">What if a new technology makes your product outdated overnight? (e.g., CDs became useless when Pen Drives arrived).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Purpose of Risk Analysis</h3>
+                <p class="mb-6 text-slate-600">Why do entrepreneurs spend time analyzing risks?</p>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 hover:-translate-y-1 transition-transform">
+                        <h4 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-sack-xmark text-red-500 mr-2"></i> To Prevent Financial Loss</h4>
+                        <p class="text-sm text-slate-600">By identifying risks early, a business saves millions. If a machine might break down, keep spare parts ready.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 hover:-translate-y-1 transition-transform">
+                        <h4 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-file-shield text-blue-500 mr-2"></i> Contingency Plans</h4>
+                        <p class="text-sm text-slate-600">If Plan A fails due to a risk, Risk Analysis ensures you have a Plan B (backup plan) ready to go immediately.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 hover:-translate-y-1 transition-transform">
+                        <h4 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-user-shield text-purple-500 mr-2"></i> Protect Brand Image</h4>
+                        <p class="text-sm text-slate-600">Releasing a faulty product destroys a brand. Risk analysis ensures strict quality checks are in place.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 hover:-translate-y-1 transition-transform">
+                        <h4 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-heart-pulse text-emerald-500 mr-2"></i> Ensure Survival</h4>
+                        <p class="text-sm text-slate-600">Startups often fail due to sudden shocks (policy changes, pandemics). Risk analysis prepares the business for survival.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 hover:-translate-y-1 transition-transform sm:col-span-2">
+                        <h4 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-handshake-angle text-amber-500 mr-2"></i> To Secure Investment</h4>
+                        <p class="text-sm text-slate-600">Investors will only give you money if they see that you have identified all the risks and have a solid plan to tackle them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-extrabold mb-4">End of Unit 3 Notes</h2>
+                    <p class="text-indigo-100 text-lg max-w-2xl mx-auto bg-black/20 p-4 rounded-xl border border-white/10 font-medium">
+                        <i class="fa-solid fa-star text-yellow-300 mr-2"></i> Pay special attention to the <strong>"Steps of Market Research"</strong> and <strong>"Questions to identify the target market"</strong>, as they are highly scoring long-answer PYQs!
+                    </p>
+                </div>
+                <i class="fa-solid fa-rocket absolute bottom-[-20px] right-4 text-[12rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>
