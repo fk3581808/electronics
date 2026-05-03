@@ -1,10 +1,564 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-4-Management</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 4 Management</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurship & Start-Ups Notes - Unit 4</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-indigo-200 selection:text-indigo-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070" alt="Business Management and Organization" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 mb-6 drop-shadow-sm">
+                Management
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-IV. Prepared based on Full Syllabus + Previous Year Questions Analysis. Master organizational structures, talent management, and business finance.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-indigo-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#org-structure" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-sitemap text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 1. Organization Structure
+                    </a>
+                    <a href="#talent-management" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-users-gear text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 2. Talent Management
+                    </a>
+                    <a href="#financial-management" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-coins text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 3. Financial Management
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-indigo prose-headings:font-bold prose-a:text-indigo-600">
+
+            <!-- Section 1 -->
+            <div id="org-structure" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-sitemap"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Company’s Organization Structure</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">What are the key elements of organizational structure? Discuss the different types of organizational structure.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-blue-600">A.</span> What is an Organizational Structure?
+                </h3>
+                <p class="text-slate-600 mb-6">An Organizational Structure is a system that outlines how certain activities are directed in order to achieve the goals of an organization. These activities include rules, roles, and responsibilities. It also determines how information flows between levels within the company.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Think of an organizational structure like a <strong>circuit schematic diagram</strong>. Just as a schematic shows how the battery, resistors, and LEDs are connected and how current flows between them, an org structure shows who is the boss, who reports to whom, and how decisions "flow" in the company.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Key Elements of Organizational Structure <span class="text-sm font-bold text-white bg-red-500 px-3 py-1 rounded-full ml-2 align-middle">Crucial PYQ</span></h3>
+            <p class="mb-6 text-slate-600">Before designing a structure, managers must consider these 6 key elements:</p>
+
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="bg-indigo-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-indigo-600"><i class="fa-solid fa-people-carry-box"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">1. Work Specialization</h4>
+                        <p class="text-sm text-slate-600 mb-2">Dividing the work into separate jobs.</p>
+                        <p class="text-xs text-slate-500 bg-slate-50 p-2 rounded"><strong>Ex:</strong> In an electronics factory, one person only solders components, another only tests the final PCB.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="bg-emerald-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-emerald-600"><i class="fa-solid fa-building-user"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">2. Departmentalization</h4>
+                        <p class="text-sm text-slate-600 mb-2">Grouping jobs together so common tasks can be coordinated.</p>
+                        <p class="text-xs text-slate-500 bg-slate-50 p-2 rounded"><strong>Ex:</strong> Marketing Dept, R&D Dept, Production Dept.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="bg-amber-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-amber-600"><i class="fa-solid fa-link"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">3. Chain of Command</h4>
+                        <p class="text-sm text-slate-600">The continuous line of authority that extends from the top of the organization to the lowest level. It clarifies "who reports to whom."</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="bg-rose-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-rose-600"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">4. Span of Control</h4>
+                        <p class="text-sm text-slate-600 mb-2">The number of employees a manager can efficiently and effectively direct.</p>
+                        <p class="text-xs text-slate-500 bg-slate-50 p-2 rounded"><strong>Ex:</strong> A floor supervisor managing 15 technicians.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform sm:col-span-2">
+                    <div class="bg-cyan-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-cyan-600"><i class="fa-solid fa-network-wired"></i></div>
+                    <div class="w-full">
+                        <h4 class="font-bold text-slate-800 mb-2">5. Centralization vs. Decentralization</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                <strong class="text-slate-800 text-sm">Centralization:</strong>
+                                <p class="text-sm text-slate-600">Decision-making is concentrated at the top level (the CEO makes all rules).</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                <strong class="text-slate-800 text-sm">Decentralization:</strong>
+                                <p class="text-sm text-slate-600">Decision-making is pushed down to the managers closest to the action.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform sm:col-span-2">
+                    <div class="bg-slate-100 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-slate-600"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">6. Formalization</h4>
+                        <p class="text-sm text-slate-600">The degree to which jobs within the organization are standardized and strictly follow rules and procedures.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Types of Organizational Structure <span class="text-sm font-bold text-white bg-red-500 px-3 py-1 rounded-full ml-2 align-middle">Crucial PYQ</span></h3>
+            <p class="mb-6 text-slate-600">Businesses use different structures based on their size and needs:</p>
+
+            <div class="space-y-6 mb-12">
+                <!-- Functional -->
+                <div class="border-l-4 border-indigo-500 bg-white p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
+                    <h4 class="text-xl font-bold text-indigo-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-layer-group text-indigo-500"></i> 1. Functional Structure</h4>
+                    <p class="text-slate-700 mb-3">The organization is divided into groups based on their specific functions or skills.</p>
+                    <p class="text-sm text-slate-600 mb-3 bg-slate-50 p-2 rounded"><strong>Example:</strong> A tech startup has separate departments for IT, HR, Finance, and Marketing.</p>
+                    <div class="flex gap-6 text-sm">
+                        <span class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> <strong>Pros:</strong> High specialization and efficiency.</span>
+                        <span class="text-rose-700 bg-rose-50 px-2 py-1 rounded"><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> <strong>Cons:</strong> Poor communication between different departments.</span>
+                    </div>
+                </div>
+
+                <!-- Divisional -->
+                <div class="border-l-4 border-emerald-500 bg-white p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
+                    <h4 class="text-xl font-bold text-emerald-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-cubes text-emerald-500"></i> 2. Divisional Structure</h4>
+                    <p class="text-slate-700 mb-3">The company is divided into semi-autonomous divisions based on products, services, or geographic locations.</p>
+                    <p class="text-sm text-slate-600 mb-3 bg-slate-50 p-2 rounded"><strong>Electronics Example:</strong> Samsung has a divisional structure: Mobile Division, Home Appliances Division (TVs/Fridges), and Semiconductor/Chip Division. Each division acts like its own mini-company.</p>
+                    <div class="flex gap-6 text-sm flex-wrap">
+                        <span class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> <strong>Pros:</strong> Great for large companies with many products.</span>
+                        <span class="text-rose-700 bg-rose-50 px-2 py-1 rounded"><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> <strong>Cons:</strong> Can lead to duplication of resources (e.g., three HR teams for three divisions).</span>
+                    </div>
+                </div>
+
+                <!-- Matrix -->
+                <div class="border-l-4 border-amber-500 bg-white p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
+                    <h4 class="text-xl font-bold text-amber-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-border-all text-amber-500"></i> 3. Matrix Structure</h4>
+                    <p class="text-slate-700 mb-3">A hybrid structure where employees report to two bosses: a functional manager and a project manager.</p>
+                    <p class="text-sm text-slate-600 mb-3 bg-slate-50 p-2 rounded"><strong>Example:</strong> An embedded engineer reports to the "Head of Engineering" (Functional Boss) but is currently working on the "Smart Watch Project" and also reports to the "Smart Watch Project Manager."</p>
+                    <div class="flex gap-6 text-sm flex-wrap">
+                        <span class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> <strong>Pros:</strong> Highly flexible and great for complex projects.</span>
+                        <span class="text-rose-700 bg-rose-50 px-2 py-1 rounded"><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> <strong>Cons:</strong> Causes confusion and power struggles because employees have two bosses.</span>
+                    </div>
+                </div>
+
+                <!-- Flat -->
+                <div class="border-l-4 border-sky-500 bg-white p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
+                    <h4 class="text-xl font-bold text-sky-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-grip-lines text-sky-500"></i> 4. Flat Structure</h4>
+                    <p class="text-slate-700 mb-3">There are very few or no levels of middle management between staff and executives.</p>
+                    <p class="text-sm text-slate-600 bg-slate-50 p-2 rounded"><strong>Example:</strong> A new startup with 10 engineers who all directly report to the founder.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="talent-management" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Recruitment and Management of Talent</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">Difference between recruitment and selection. Explain how 'talent management' is beneficial for organization. Significance for employees and organization.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Recruitment vs. Selection <span class="text-sm font-bold text-white bg-red-500 px-3 py-1 rounded-full ml-2 align-middle">Important Table</span></h3>
+            <p class="mb-6 text-slate-600">Many people think these two are the same, but they are opposite phases of the hiring process.</p>
+
+            <div class="overflow-x-auto shadow-lg rounded-3xl border border-slate-200 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold uppercase tracking-wider text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold uppercase tracking-wider text-sm text-emerald-300 border-r border-slate-700"><i class="fa-solid fa-bullhorn mr-2"></i> Recruitment</th>
+                            <th class="p-5 font-bold uppercase tracking-wider text-sm text-rose-300"><i class="fa-solid fa-filter mr-2"></i> Selection</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Definition</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200">The process of searching for prospective candidates and stimulating them to apply for jobs.</td>
+                            <td class="p-5 text-slate-700">The process of choosing the most suitable candidate from those who applied.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Nature of Process</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200"><span class="text-emerald-600 font-bold">Positive Process:</span> The goal is to get as many people as possible to apply.</td>
+                            <td class="p-5 text-slate-700"><span class="text-rose-600 font-bold">Negative Process:</span> The goal is to reject unsuitable candidates and keep only the best one.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Sequence</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200">It is the first step.</td>
+                            <td class="p-5 text-slate-700">It is the second step (starts after recruitment ends).</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Technique</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200">Advertising the job on LinkedIn, newspapers, or college campuses.</td>
+                            <td class="p-5 text-slate-700">Conducting written tests, technical interviews, and HR rounds.</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition-colors bg-blue-50/30">
+                            <td class="p-5 font-bold text-blue-900 border-r border-slate-200"><i class="fa-solid fa-microchip mr-2"></i> Electronics Ex.</td>
+                            <td class="p-5 text-blue-800 border-r border-slate-200">Putting up a poster: "We need 50 Diploma Electronics Engineers! Apply now!"</td>
+                            <td class="p-5 text-blue-800">Taking a soldering test and interview, rejecting 48 people, and hiring the best 2.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-emerald-600">B.</span> What is Talent Management?
+                </h3>
+                <p class="text-slate-600 mb-6">Talent Management is the continuous, strategic process of attracting, hiring, developing, retaining, and promoting the best employees in an organization. It is not just about hiring someone; it's about making sure they grow and stay with the company for a long time.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Tree Analogy)</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">If recruitment is <strong class="text-purple-950">"buying a good seed,"</strong> then talent management is <strong class="text-purple-950">"planting it, watering it, giving it fertilizer, and making sure it grows into a strong, fruit-bearing tree</strong> instead of dying or being stolen by a neighbor."</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Significance / Benefits of Talent Management</h3>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <!-- Organization Benefits -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h4 class="text-xl font-bold text-indigo-800 mb-4 border-b border-slate-200 pb-2"><i class="fa-solid fa-building mr-2"></i> 1. Benefits for Organization</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-lock text-indigo-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 text-sm block">Retaining Top Talent</strong>
+                                <p class="text-sm text-slate-600">Ensures your best employees don't quit and join competitors.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-chart-line text-indigo-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 text-sm block">Higher Productivity</strong>
+                                <p class="text-sm text-slate-600">Trained employees in matching roles dramatically increase output.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-piggy-bank text-indigo-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 text-sm block">Saves Cost</strong>
+                                <p class="text-sm text-slate-600">Hiring constantly is expensive. Retaining old employees saves money.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-trophy text-indigo-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 text-sm block">Competitive Advantage</strong>
+                                <p class="text-sm text-slate-600">Highly skilled staff will easily beat a competitor with average staff.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Employee Benefits -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h4 class="text-xl font-bold text-emerald-800 mb-4 border-b border-slate-200 pb-2"><i class="fa-solid fa-user-tie mr-2"></i> 2. Benefits for Employees</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrow-trend-up text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 text-sm block">Career Growth & Development</strong>
+                                <p class="text-sm text-slate-600">Employees receive training (like learning advanced IoT programming), making them more valuable.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-face-smile text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 text-sm block">Job Satisfaction</strong>
+                                <p class="text-sm text-slate-600">When management cares about their talent, employees feel respected and happy.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-fire text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 text-sm block">Motivation</strong>
+                                <p class="text-sm text-slate-600">Proper management includes performance bonuses/promotions, keeping them highly motivated.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="financial-management" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-coins"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Financial Organization and Management</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <p class="text-red-900 font-medium">What is financial Management? Objectives. Functions. Importance of finance. Define 'working capital' and its role.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-amber-500"><i class="fa-solid fa-wallet"></i></span> A. What is Financial Management?
+                </h3>
+                <p class="text-slate-600 mb-6">Financial Management refers to the planning, organizing, directing, and controlling of the financial activities of an enterprise. It means applying general management principles to the financial resources of the enterprise.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">It is the art of answering two questions: <strong>"Where will the money come from?"</strong> and <strong>"Where should the money be spent to make maximum profit?"</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Importance of Finance in Business</h3>
+            <p class="text-slate-600 mb-6 italic border-l-4 border-amber-500 pl-3 bg-amber-50 p-2">Finance is called the <strong>"Lifeblood of Business."</strong> Just as a human body cannot survive without blood, a business cannot survive without finance.</p>
+            
+            <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                    <i class="fa-solid fa-play text-blue-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 block text-sm">To start the business</strong>
+                        <p class="text-xs text-slate-600">Money is needed to buy land, build factories, and buy machinery (e.g., SMT machines for PCB manufacturing).</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                    <i class="fa-solid fa-calendar-day text-emerald-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 block text-sm">For Day-to-Day Operations</strong>
+                        <p class="text-xs text-slate-600">To pay salaries, electricity bills, and buy raw materials.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                    <i class="fa-solid fa-arrow-trend-up text-purple-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 block text-sm">For Growth and Expansion</strong>
+                        <p class="text-xs text-slate-600">To open a new branch or launch a new product line.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                    <i class="fa-solid fa-life-ring text-rose-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 block text-sm">To meet contingencies</strong>
+                        <p class="text-xs text-slate-600">To survive sudden crises (like a pandemic or a sudden breakdown of expensive machinery).</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Objectives of Financial Management</h3>
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-10">
+                <ul class="space-y-4 text-slate-700">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-money-bill-trend-up text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800">Profit Maximization:</strong> The traditional objective; earning the highest possible profit to ensure survival and growth.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-gem text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800">Wealth Maximization <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded uppercase">Crucial</span>:</strong> The modern objective; increasing the value of the company's shares, thereby increasing the wealth of the shareholders/owners.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-magnet text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800">Proper Mobilization of Funds:</strong> Gathering money from the right sources (loans vs. investors) at the lowest cost.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-droplet text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800">Ensuring Liquidity:</strong> Making sure the company always has enough cash on hand to pay its immediate bills.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">D. Functions of Financial Management</h3>
+            <p class="mb-6 text-slate-600">What does a Financial Manager actually do?</p>
+            
+            <div class="grid sm:grid-cols-2 gap-4 mb-12">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-calculator text-blue-500"></i> Estimating Capital Requirements</h4>
+                    <p class="text-sm text-slate-600">Calculating exactly how much money the startup needs to launch and survive the first year.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-chart-pie text-emerald-500"></i> Determining Capital Composition</h4>
+                    <p class="text-sm text-slate-600">Deciding the mix of "Debt" (bank loans) and "Equity" (founder's money + investor money).</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-hand-holding-dollar text-purple-500"></i> Choice of Sources of Funds</h4>
+                    <p class="text-sm text-slate-600">Deciding whether to take a loan from SBI, find an Angel Investor, or issue shares to the public.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-money-check-dollar text-amber-500"></i> Investment of Funds</h4>
+                    <p class="text-sm text-slate-600">(Capital Budgeting): Deciding which machines to buy or which projects to invest in so that returns are maximized.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-share-nodes text-rose-500"></i> Disposal of Surplus (Profit)</h4>
+                    <p class="text-sm text-slate-600">Deciding how much profit to keep in the company (Retained Earnings) and how much to distribute to owners (Dividends).</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-vault text-cyan-500"></i> Management of Cash</h4>
+                    <p class="text-sm text-slate-600">Monitoring cash flowing in and out daily to ensure the company never goes bankrupt.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 text-white rounded-3xl p-8 shadow-xl relative overflow-hidden mb-10">
+                <div class="absolute top-0 right-0 opacity-10">
+                    <i class="fa-solid fa-gears text-[15rem] -mt-10 -mr-10"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-4 relative z-10 text-amber-400">E. Working Capital and Its Role <span class="text-sm font-bold text-white bg-red-500 px-3 py-1 rounded-full ml-2 align-middle">Crucial PYQ</span></h3>
+                
+                <h4 class="font-bold text-xl mb-2 relative z-10">What is Working Capital?</h4>
+                <p class="mb-4 text-slate-300 relative z-10">Working Capital is the money required to finance the day-to-day operations of a business. It represents the short-term financial health of a company.</p>
+                
+                <div class="bg-white/10 p-4 rounded-xl text-center mb-6 relative z-10 border border-white/20">
+                    <p class="font-mono text-lg font-bold text-amber-300 tracking-wide">Working Capital = Current Assets - Current Liabilities</p>
+                </div>
+
+                <div class="flex items-start gap-4 bg-black/40 border border-white/10 p-5 rounded-2xl mb-8 relative z-10">
+                    <div class="bg-purple-900 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center border border-purple-500">
+                        <i class="fa-solid fa-car text-purple-200 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-300 font-bold mb-1">Easy Word Explanation</h4>
+                        <p class="text-slate-300 leading-relaxed text-sm"><strong>Fixed Capital</strong> is the money you use to buy the car (factory, machines). <br/><strong>Working Capital</strong> is the money you need daily to buy petrol and pay the driver (raw materials, electricity, wages). Without petrol, the expensive car is useless.</p>
+                    </div>
+                </div>
+
+                <h4 class="font-bold text-xl mb-4 relative z-10">Role in Smooth Functioning of an Enterprise:</h4>
+                <div class="space-y-3 relative z-10">
+                    <div class="flex gap-3 bg-white/5 p-3 rounded-lg border border-white/5">
+                        <i class="fa-solid fa-industry text-emerald-400 mt-1"></i>
+                        <p class="text-sm text-slate-200"><strong class="text-white">Uninterrupted Production:</strong> Ensures always enough money to buy raw materials (microcontrollers, solder paste) so the factory never stops.</p>
+                    </div>
+                    <div class="flex gap-3 bg-white/5 p-3 rounded-lg border border-white/5">
+                        <i class="fa-solid fa-users text-emerald-400 mt-1"></i>
+                        <p class="text-sm text-slate-200"><strong class="text-white">Paying Wages & Salaries:</strong> Ensures employees are paid on time, maintaining high morale and preventing strikes.</p>
+                    </div>
+                    <div class="flex gap-3 bg-white/5 p-3 rounded-lg border border-white/5">
+                        <i class="fa-solid fa-file-invoice text-emerald-400 mt-1"></i>
+                        <p class="text-sm text-slate-200"><strong class="text-white">Paying Routine Expenses:</strong> Used to pay rent, electricity, and transportation costs without delay.</p>
+                    </div>
+                    <div class="flex gap-3 bg-white/5 p-3 rounded-lg border border-white/5">
+                        <i class="fa-solid fa-handshake text-emerald-400 mt-1"></i>
+                        <p class="text-sm text-slate-200"><strong class="text-white">Maintaining Solvency & Goodwill:</strong> By paying suppliers on time, the company builds a strong reputation allowing them to buy materials on credit later.</p>
+                    </div>
+                    <div class="flex gap-3 bg-white/5 p-3 rounded-lg border border-white/5">
+                        <i class="fa-solid fa-basket-shopping text-emerald-400 mt-1"></i>
+                        <p class="text-sm text-slate-200"><strong class="text-white">Exploiting Favorable Market Conditions:</strong> If a raw material suddenly becomes cheap, a company with good working capital can buy it in bulk to save money later.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-extrabold mb-4">End of Unit 4 Notes</h2>
+                    <p class="text-indigo-100 text-lg max-w-2xl mx-auto bg-black/20 p-4 rounded-xl border border-white/10 font-medium">
+                        <i class="fa-solid fa-star text-yellow-300 mr-2"></i> Focus heavily on the <strong>"Recruitment vs Selection"</strong> difference table and the concept of <strong>"Working Capital"</strong>, as they are highly favored by examiners!
+                    </p>
+                </div>
+                <i class="fa-solid fa-rocket absolute bottom-[-20px] right-4 text-[12rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+    </script>
 </body>
 </html>
