@@ -1,10 +1,513 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-2-Digital-and-Analog-Transmission</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 2 Digital and Analog Transmission</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Networking Notes - Unit 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        /* Math specific styling */
+        .math-box { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-cyan-200 selection:text-cyan-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1614064641913-6b70fea8acb3?auto=format&fit=crop&q=80&w=2070" alt="Digital and Analog Signals" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-200 to-indigo-200 mb-6 drop-shadow-sm">
+                Digital & Analog <br/>Transmission
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-II. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#modes" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-right-left text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 1. Transmission Modes
+                    </a>
+                    <a href="#dig-trans" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-microchip text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 2. Digital Transmission
+                    </a>
+                    <a href="#adc" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-wave-square text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 3. ADC Conversion
+                    </a>
+                    <a href="#dac" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-chart-simple text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 4. DAC Conversion
+                    </a>
+                    <a href="#a2a" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-broadcast-tower text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 5. Analog-to-Analog
+                    </a>
+                    <a href="#numericals" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-calculator text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 6. PYQ Numericals
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-cyan prose-headings:font-bold prose-a:text-cyan-600">
+
+            <!-- Section 1 -->
+            <div id="modes" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-right-left"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Transmission Modes</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">Explain the transmission mode in brief. Describe in brief the full duplex transmission mode with a suitable diagram.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-cyan-600">A.</span> What is Transmission Mode?
+                </h3>
+                <p class="text-slate-600 mb-6">Transmission Mode (also known as Communication Mode) defines the direction of signal flow between two connected devices. It dictates how data is transmitted over the network.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Transmission mode is simply the "traffic rules" for the data highway. It decides whether cars (data) can go one way, both ways one-at-a-time, or both ways simultaneously.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Types of Transmission Modes</h3>
+            
+            <div class="space-y-6 mb-12">
+                <!-- Simplex -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-blue-400">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-arrow-right-long text-blue-500 w-6"></i> 1. Simplex Mode</h4>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Definition:</strong> Communication is strictly unidirectional (one-way). One device can only transmit, and the other can only receive.</p>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Electronics Example:</strong> A keyboard connected to a computer, or a traditional TV broadcast.</p>
+                    <p class="text-emerald-700 text-sm bg-emerald-50 p-2 rounded inline-block"><strong><i class="fa-solid fa-check mr-1"></i> Advantages:</strong> Uses the entire bandwidth of the channel.</p>
+                </div>
+
+                <!-- Half-Duplex -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-amber-400">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-arrows-left-right text-amber-500 w-6"></i> 2. Half-Duplex Mode</h4>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Definition:</strong> Communication is bidirectional, but <em>not at the same time</em>. Both devices can transmit and receive, but when one is sending, the other must only receive.</p>
+                    <p class="text-slate-600 text-sm"><strong>Electronics Example:</strong> Walkie-Talkies (you must say "Over" to let the other person know it's their turn to speak).</p>
+                </div>
+
+                <!-- Full-Duplex -->
+                <div class="bg-white p-6 rounded-2xl border-2 border-indigo-300 shadow-md relative overflow-hidden transform hover:-translate-y-1 transition-transform">
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider shadow-sm">Highly Important for Exams</span>
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-arrow-right-arrow-left text-indigo-600 w-6"></i> 3. Full-Duplex Mode</h4>
+                    <p class="text-slate-600 text-sm mb-3"><strong>Definition:</strong> Communication is bidirectional and occurs simultaneously. Both devices can transmit and receive data at the exact same time. The link contains two separate physical or logical channels—one for sending and one for receiving.</p>
+                    <p class="text-slate-600 text-sm mb-4"><strong>Electronics Example:</strong> A standard telephone network or a smartphone call. You can talk and listen at the same time.</p>
+                    
+                    <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-xl mb-3">
+                        <strong class="text-indigo-900 block mb-2"><i class="fa-solid fa-pen-nib mr-1"></i> 6-Mark Exam Diagram Description: (To draw in exam)</strong>
+                        <p class="text-indigo-800 text-xs leading-relaxed">Draw two computers (Device A and Device B). Draw two separate arrow lines between them. Top arrow points from A to B (labeled "Direction of data A to B"). Bottom arrow points from B to A (labeled "Direction of data B to A"). Write "Occurs simultaneously" below it.</p>
+                    </div>
+                    <p class="text-emerald-700 text-sm bg-emerald-50 p-2 rounded inline-block"><strong><i class="fa-solid fa-check mr-1"></i> Advantages:</strong> Maximum efficiency and zero delay since devices don't wait for their turn.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="dig-trans" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Digital Transmission & Conversion</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain Digital transmission. Write different ways of digital transmission. Explain Line coding and Block coding. Explain characteristics of any three line coding schemes.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is Digital Transmission?</h3>
+                <p class="text-slate-600 text-sm">Digital Transmission is the transmittal of digital signals between two or more points in a communication system. The data can be either digital (like computer files) or analog (like voice), but it must be converted into a digital signal (0s and 1s) before being sent over the channel.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">B. Digital-to-Digital Conversion</h3>
+            <p class="text-slate-600 mb-6">This is the process of representing digital data (the 1s and 0s generated by the computer) into digital signals (voltage pulses) that can be sent over a wire. It involves two main techniques: Line Coding and Block Coding.</p>
+
+            <div class="space-y-8 mb-12">
+                <!-- Line Coding -->
+                <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-wave-square text-indigo-500"></i> 1. Line Coding <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">PYQ Focus</span></h4>
+                    <p class="text-slate-600 mb-4"><strong>Definition:</strong> Line coding is the process of converting digital data (a sequence of bits) into a digital signal (a sequence of voltage pulses).</p>
+                    
+                    <div class="flex items-start gap-3 bg-purple-50 p-4 rounded-xl mb-6 border border-purple-100">
+                        <i class="fa-solid fa-brain text-purple-600 mt-1"></i>
+                        <div>
+                            <strong class="text-purple-800 block text-sm">Easy Word Explanation</strong>
+                            <p class="text-purple-900 text-xs">It is the language translation between the CPU and the wire. The CPU understands "1 and 0". The wire only understands "High Voltage (+5V) and Low Voltage (0V)". Line coding translates the 1s and 0s into +5V and 0V.</p>
+                        </div>
+                    </div>
+
+                    <h5 class="font-bold text-slate-800 text-lg mb-3">Characteristics of a Good Line Coding Scheme (PYQ):</h5>
+                    <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                        <li><strong class="text-slate-800">Signal Element vs Data Element:</strong> A good scheme minimizes the number of signal changes per bit to save bandwidth.</li>
+                        <li><strong class="text-slate-800">Self-Synchronization:</strong> The receiver's clock must be perfectly synchronized with the sender's clock. Good line coding includes "timing" pulses built into the signal.</li>
+                        <li><strong class="text-slate-800">No DC Component:</strong> Continuous 1s or 0s create a flat DC signal, which cannot pass through certain electronic components like transformers. Good coding avoids this.</li>
+                    </ul>
+
+                    <h5 class="font-bold text-slate-800 text-lg mb-3">Types of Line Coding:</h5>
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-indigo-700 block mb-1">A. Unipolar Encoding</strong>
+                            <p class="text-xs text-slate-600">Uses only one non-zero voltage level.</p>
+                            <p class="text-xs text-slate-500 mt-2"><strong>Ex:</strong> Unipolar NRZ. Logic 1 = +V, Logic 0 = 0V. Very simple but suffers from DC component issues.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-indigo-700 block mb-1">B. Polar Encoding</strong>
+                            <p class="text-xs text-slate-600">Uses two non-zero voltage levels (positive and negative).</p>
+                            <p class="text-xs text-slate-500 mt-2"><strong>Ex:</strong> Polar NRZ, RZ, and Manchester Coding. Logic 1 = +V, Logic 0 = -V.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-indigo-700 block mb-1">C. Bipolar Encoding</strong>
+                            <p class="text-xs text-slate-600">Uses three voltage levels: Positive, Negative, and Zero.</p>
+                            <p class="text-xs text-slate-500 mt-2"><strong>Ex:</strong> AMI. Logic 0 = 0V. Logic 1 alternates between +V and -V. Prevents DC components.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block Coding -->
+                <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-cubes text-blue-500"></i> 2. Block Coding <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">PYQ Focus</span></h4>
+                    <p class="text-slate-600 text-sm mb-3"><strong>Definition:</strong> Block coding changes a block of <i>m</i> bits into a block of <i>n</i> bits (where <i>n > m</i>) before line coding is applied. It is also called <i>mB/nB</i> encoding.</p>
+                    <p class="text-slate-600 text-sm mb-3"><strong>Why is it needed?</strong> To improve the performance of line coding. It adds extra, redundant bits to the data stream to ensure synchronization and provide error detection.</p>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-sm text-blue-900">
+                        <strong>Example:</strong> 4B/5B encoding. It takes 4 bits of user data and converts it into a 5-bit code. The extra bit ensures there are no long strings of continuous zeros, which would cause the receiver to lose clock synchronization.
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="adc" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Analog-to-Digital Conversion (ADC)</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define Sampling and Quantization. Describe the process of quantization. Explain the Analog to digital converter with suitable diagram and parameters. Explain the flash type ADC with conversion time.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">When we want to send an analog signal (like human voice or temperature) over a digital computer network, we must convert it into a digital signal. This is done using an Analog-to-Digital Converter (ADC). The conversion happens in three strict steps (collectively called Pulse Code Modulation or PCM).</p>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">A. The 3 Steps of ADC</h3>
+
+            <div class="space-y-6 mb-12">
+                <!-- Step 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden">
+                    <span class="absolute top-0 right-0 bg-red-100 text-red-700 text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider">PYQ</span>
+                    <h4 class="font-bold text-emerald-600 text-xl mb-2">1. Sampling</h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> Sampling is the process of measuring the instantaneous amplitude (voltage) of the continuous analog signal at discrete, regular time intervals.</p>
+                    <div class="bg-purple-50 p-3 rounded-xl text-xs text-purple-900 mb-4 flex gap-2 items-start">
+                        <i class="fa-solid fa-brain text-purple-600 mt-0.5"></i>
+                        <span><strong>Easy Ex:</strong> Imagine recording a video of a moving car. A video is just taking 30 still photographs (samples) every second. Sampling is taking "voltage photographs" of the wave very quickly.</span>
+                    </div>
+                    <div class="bg-slate-800 text-white p-4 rounded-xl font-mono text-sm shadow-inner">
+                        <strong class="text-emerald-400">Nyquist Sampling Theorem:</strong><br/>
+                        To accurately reproduce the signal, the sampling rate (<i>f<sub>s</sub></i>) must be at least twice the highest frequency (<i>f<sub>max</sub></i>) of the analog signal.<br/>
+                        <span class="text-cyan-300 text-lg mt-2 block">Formula: <i>f<sub>s</sub> &ge; 2 f<sub>max</sub></i></span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden">
+                    <span class="absolute top-0 right-0 bg-red-100 text-red-700 text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider">PYQ</span>
+                    <h4 class="font-bold text-blue-600 text-xl mb-2">2. Quantization</h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> Quantization is the process of mapping the continuous sampled voltage values to a set of discrete, predefined voltage levels.</p>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <strong class="text-slate-800 text-sm block mb-2">The Process:</strong>
+                        <ol class="list-decimal pl-5 text-sm text-slate-600 space-y-1">
+                            <li>The total voltage range is divided into a fixed number of zones (levels).</li>
+                            <li>When a sample is taken, its exact voltage (e.g., 3.14V) might not match a predefined level.</li>
+                            <li>The system rounds off or approximates the value to the nearest predefined level (e.g., rounds 3.14V down to 3.0V).</li>
+                            <li>This rounding off introduces a tiny error known as <strong>Quantization Error</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-indigo-600 text-xl mb-2">3. Encoding</h4>
+                    <p class="text-sm text-slate-600"><strong>Definition:</strong> The process of converting the quantized discrete voltage levels into binary codes (0s and 1s). For example, if level 3 was chosen, it is encoded as 011.</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-10">
+                <i class="fa-solid fa-microchip absolute right-[-20px] bottom-[-20px] text-[12rem] opacity-10"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-4 relative z-10">B. Flash Type Analog to Digital Converter <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 mb-6 relative z-10 text-sm">The Flash ADC is the fastest type of ADC available.</p>
+                
+                <div class="space-y-4 relative z-10 text-sm">
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-amber-200 block mb-1">Working Principle:</strong>
+                        <p class="text-slate-200">It uses a series of high-speed comparators that operate simultaneously (in parallel). The analog input voltage is fed to all comparators at once. A resistor ladder divides the reference voltage into different levels. The comparators compare the input with these levels and output a digital code instantly via a priority encoder.</p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-emerald-500/20 p-4 rounded-xl border border-emerald-400/30">
+                            <strong class="text-emerald-300 block mb-1">Conversion Time:</strong>
+                            <p class="text-slate-200">Because all comparisons happen in parallel simultaneously, the conversion time is incredibly fast, typically in the range of <strong>1 to 20 nanoseconds (ns)</strong>.</p>
+                        </div>
+                        <div class="bg-rose-500/20 p-4 rounded-xl border border-rose-400/30">
+                            <strong class="text-rose-300 block mb-1">Drawback:</strong>
+                            <p class="text-slate-200">Requires a huge number of comparators. For an <i>n</i>-bit ADC, it needs <strong>2<sup>n</sup> - 1</strong> comparators. (An 8-bit Flash ADC needs 255 comparators, making it expensive and bulky).</p>
+                        </div>
+                    </div>
+                    <div class="bg-black/30 p-3 rounded-lg border border-white/5 mt-2 text-xs italic text-slate-400">
+                        <i class="fa-solid fa-pen-nib mr-1"></i> <strong>Diagram Note for Exam:</strong> Draw a voltage divider resistor ladder on the left, connected to the negative terminals of multiple Op-Amp comparators. Connect the analog input to all positive terminals. The outputs go into a Priority Encoder block.
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-12">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">C. Parameters of an ADC <span class="bg-red-100 text-red-700 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li><strong class="text-slate-800">Resolution:</strong> The smallest change in the analog input voltage that can cause a change in the digital output code.</li>
+                    <li><strong class="text-slate-800">Conversion Time:</strong> The total time taken by the ADC to completely convert one analog sample into its equivalent digital code.</li>
+                    <li><strong class="text-slate-800">Accuracy:</strong> How close the actual digital output is to the theoretical expected output.</li>
+                </ul>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="dac" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Digital-to-Analog Conversion (DAC)</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain the parameters of a DAC. Calculate the resolution of 6-bit and 12-bit DAC using a 10V reference.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium">Digital-to-Analog Conversion (DAC) is the reverse process. It takes digital data (0s and 1s from the computer) and converts it back into a continuous analog voltage or current. (Example: Your phone's audio jack uses a DAC to convert MP3 files into electrical waves for your earphones).</p>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">A. Parameters of a DAC <span class="bg-red-100 text-red-700 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <ul class="space-y-4 text-sm text-slate-600">
+                    <li class="bg-slate-50 p-3 rounded-lg"><strong class="text-slate-800">Resolution:</strong> The number of different analog output voltage levels the DAC can produce. It is determined by the number of input bits (<i>n</i>). Total levels = <strong>2<sup>n</sup></strong>. The percentage resolution is the step size relative to the full scale.</li>
+                    <li class="bg-slate-50 p-3 rounded-lg"><strong class="text-slate-800">Settling Time:</strong> The time required for the analog output voltage to stabilize and settle within a specified error band after a digital input code changes.</li>
+                    <li class="bg-slate-50 p-3 rounded-lg"><strong class="text-slate-800">Linearity:</strong> Ideally, the relationship between the digital input and analog output should be a perfectly straight line. Deviation from this line is the linearity error.</li>
+                </ul>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. PYQ Numerical Solution: DAC Resolution</h3>
+            
+            <div class="bg-slate-900 text-slate-100 rounded-3xl p-8 shadow-xl math-box overflow-hidden relative">
+                <div class="absolute top-0 right-0 bg-rose-500 text-white px-4 py-1 rounded-bl-2xl font-sans font-bold text-xs uppercase tracking-widest shadow-md">Important Numerical</div>
+                
+                <h4 class="text-cyan-300 font-bold mb-4 text-lg border-b border-slate-700 pb-2">Question:</h4>
+                <p class="text-white mb-6">Calculate the resolution of i) 6-bit DAC and ii) 12-bit DAC in terms of percentage using a 10V reference.</p>
+                
+                <h4 class="text-amber-300 font-bold mb-3">Formulas Needed:</h4>
+                <ul class="list-disc pl-5 mb-8 text-slate-300 space-y-1">
+                    <li>Number of steps = 2<sup>n</sup> - 1 <span class="text-slate-500 text-sm">(where n is the number of bits)</span></li>
+                    <li>Step Size (Voltage Res) = V<sub>ref</sub> / (2<sup>n</sup> - 1) <span class="text-slate-500 text-sm">or V<sub>ref</sub> / 2<sup>n</sup> (Using 2<sup>n</sup> is standard for step size)</span></li>
+                    <li>Percentage Resolution = [1 / (2<sup>n</sup> - 1)] &times; 100%</li>
+                </ul>
+
+                <div class="space-y-6">
+                    <!-- Part i -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10">
+                        <strong class="text-emerald-400 block mb-2 text-lg">i) For a 6-bit DAC:</strong>
+                        <p>Number of bits (n) = 6</p>
+                        <p>Total steps = 2<sup>6</sup> - 1 = 64 - 1 = 63</p>
+                        <p class="text-emerald-300 mt-2 font-bold bg-emerald-900/40 inline-block px-3 py-1 rounded">Percentage Resolution = (1 / 63) &times; 100 = 1.587 %</p>
+                        <p class="text-slate-400 text-sm mt-2">(Optional Voltage Resolution) = 10V / 64 = 0.156 V per step.</p>
+                    </div>
+
+                    <!-- Part ii -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10">
+                        <strong class="text-emerald-400 block mb-2 text-lg">ii) For a 12-bit DAC:</strong>
+                        <p>Number of bits (n) = 12</p>
+                        <p>Total steps = 2<sup>12</sup> - 1 = 4096 - 1 = 4095</p>
+                        <p class="text-emerald-300 mt-2 font-bold bg-emerald-900/40 inline-block px-3 py-1 rounded">Percentage Resolution = (1 / 4095) &times; 100 = 0.0244 %</p>
+                        <p class="text-slate-400 text-sm mt-2">(Optional Voltage Resolution) = 10V / 4096 = 2.44 mV per step.</p>
+                    </div>
+                </div>
+                
+                <p class="text-cyan-200 mt-6 text-sm font-sans italic border-l-4 border-cyan-400 pl-3">(Note: The 12-bit DAC has a much smaller percentage, meaning it is highly precise and accurate compared to the 6-bit DAC).</p>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="a2a" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-broadcast-tower"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Analog-to-Analog Conversion</h2>
+            </div>
+            
+            <p class="text-slate-600 mb-6">Sometimes an analog signal (like voice) needs to be sent over an analog medium (like air) over long distances. Because low-frequency voice signals cannot travel far, we use <strong>Modulation</strong> (Analog-to-Analog conversion). The low-frequency data is mixed with a high-frequency "Carrier Wave".</p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-blue-600 mb-2 text-lg">Amplitude Modulation (AM)</h4>
+                    <p class="text-sm text-slate-600">The amplitude (height) of the high-frequency carrier wave is varied in accordance with the analog data signal.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-emerald-600 mb-2 text-lg">Frequency Modulation (FM)</h4>
+                    <p class="text-sm text-slate-600">The frequency of the carrier wave is varied in accordance with the analog data signal. (Highly resistant to noise, used in FM radio).</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:-translate-y-1 transition-transform">
+                    <h4 class="font-bold text-purple-600 mb-2 text-lg">Phase Modulation (PM)</h4>
+                    <p class="text-sm text-slate-600">The phase of the carrier wave is varied in accordance with the data signal.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="numericals" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-green-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. Important PYQ Numericals</h2>
+            </div>
+            
+            <p class="text-slate-600 mb-8 font-medium text-lg">Bandwidth & Sampling problems that frequently appear in exams.</p>
+
+            <div class="space-y-10 mb-12">
+                <!-- Numerical 1 -->
+                <div class="bg-slate-900 text-slate-100 rounded-3xl p-8 shadow-xl math-box overflow-hidden relative">
+                    <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-2xl font-sans font-bold text-xs uppercase tracking-widest shadow-md">Numerical 1</div>
+                    <h4 class="text-cyan-300 font-bold mb-4 text-xl border-b border-slate-700 pb-2">Minimum Sampling Rate</h4>
+                    
+                    <strong class="text-white block mb-2 font-sans">Question:</strong>
+                    <p class="text-slate-300 mb-6 bg-white/5 p-3 rounded-lg border border-white/10">A complex low-pass signal has a bandwidth of 200 kHz; calculate the minimum sampling rate for this signal.</p>
+                    
+                    <strong class="text-amber-300 block mb-3 font-sans">Solution:</strong>
+                    <p class="text-sm text-slate-400 mb-3 font-sans">According to the Nyquist Sampling Theorem, the minimum sampling rate (f<sub>s</sub>) must be twice the highest frequency (f<sub>max</sub>).</p>
+                    <p class="text-sm text-slate-400 mb-4 font-sans">For a low-pass signal, the bandwidth is equal to its maximum frequency.</p>
+                    
+                    <div class="space-y-2 text-lg">
+                        <p>f<sub>max</sub> = 200 kHz</p>
+                        <p>Minimum Sampling Rate (f<sub>s</sub>) = 2 &times; f<sub>max</sub></p>
+                        <p class="text-emerald-400 font-bold mt-2 bg-emerald-900/40 inline-block px-4 py-2 rounded-lg border border-emerald-500/50">f<sub>s</sub> = 2 &times; 200 kHz = 400 kHz <span class="text-sm text-emerald-200 font-sans font-normal ml-2">(or 400,000 samples per second)</span></p>
+                    </div>
+                </div>
+
+                <!-- Numerical 2 -->
+                <div class="bg-slate-900 text-slate-100 rounded-3xl p-8 shadow-xl math-box overflow-hidden relative">
+                    <div class="absolute top-0 right-0 bg-purple-500 text-white px-4 py-1 rounded-bl-2xl font-sans font-bold text-xs uppercase tracking-widest shadow-md">Numerical 2</div>
+                    <h4 class="text-cyan-300 font-bold mb-4 text-xl border-b border-slate-700 pb-2">Baud Rate and Levels</h4>
+                    
+                    <strong class="text-white block mb-2 font-sans">Question:</strong>
+                    <p class="text-slate-300 mb-6 bg-white/5 p-3 rounded-lg border border-white/10">Calculate the number of levels, baud rate, and bandwidth for sending 3 bits at 3 Mbps with a carrier frequency of 10 MHz.</p>
+                    
+                    <strong class="text-amber-300 block mb-3 font-sans">Solution:</strong>
+                    <div class="space-y-2 mb-6">
+                        <p>Number of bits sent per signal element (r) = 3 bits/baud.</p>
+                        <p>Data Rate / Bit Rate (N) = 3 Mbps = 3,000,000 bps.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                            <strong class="text-blue-300 font-sans block mb-1">1. Number of Levels (L):</strong>
+                            <p>L = 2<sup>r</sup> = 2<sup>3</sup> = <span class="text-emerald-400 font-bold bg-emerald-900/40 px-2 py-0.5 rounded">8 levels</span></p>
+                            <p class="text-xs text-slate-400 font-sans mt-1">(This means it's using an 8-level modulation scheme like 8-PSK or 8-QAM).</p>
+                        </div>
+                        
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                            <strong class="text-blue-300 font-sans block mb-1">2. Baud Rate (S):</strong>
+                            <p class="text-sm text-slate-400 font-sans mb-1">Baud rate is the number of signal elements sent per second. Formula: S = N / r.</p>
+                            <p>S = 3 Mbps / 3 = <span class="text-emerald-400 font-bold bg-emerald-900/40 px-2 py-0.5 rounded">1 MBaud</span></p>
+                            <p class="text-xs text-slate-400 font-sans mt-1">(1 Mega Baud or 1,000,000 signals/second).</p>
+                        </div>
+
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                            <strong class="text-blue-300 font-sans block mb-1">3. Minimum Bandwidth (B):</strong>
+                            <p class="text-sm text-slate-400 font-sans mb-1">For basic theoretical ASK/PSK transmission, Bandwidth is roughly equal to the Baud Rate.</p>
+                            <p>B &approx; S = <span class="text-emerald-400 font-bold bg-emerald-900/40 px-2 py-0.5 rounded">1 MHz</span></p>
+                            <p class="text-xs text-slate-400 font-sans mt-1">(The 10 MHz carrier frequency is just the frequency the signal sits on, it doesn't change the bandwidth calculation).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 2 Notes</h2>
+                    <p class="text-cyan-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Practice the <strong>DAC resolution</strong> and <strong>Nyquist sampling rate</strong> numericals thoroughly, as they are direct scoring questions in your exam!
+                    </p>
+                </div>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+    </script>
 </body>
 </html>
