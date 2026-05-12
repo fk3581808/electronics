@@ -13,10 +13,12 @@
 </head>
 <body class="bg-slate-50 font-sans selection:bg-cyan-200 selection:text-cyan-900">
 
+    <!-- Progress Bar -->
     <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
         <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 transition-all duration-150 ease-out" style="width: 0%"></div>
     </div>
 
+    <!-- Hero Header -->
     <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2070" alt="Server Room Networking" class="w-full h-full object-cover opacity-20" />
@@ -31,7 +33,7 @@
                 Data Communication & <br/>Computer Networks
             </h1>
             <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
-                Unit-I. Prepared based on Full Syllabus + Previous Year Questions Analysis. Master the foundations of how devices talk to each other.
+                Unit-I. Prepared based on Full Syllabus + Previous Year Questions Analysis (Specifically scaled for 6-Mark long-answer questions).
             </p>
             <div class="flex justify-center gap-4">
                 <a href="#start" class="px-8 py-4 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30 flex items-center gap-2">
@@ -41,8 +43,10 @@
         </div>
     </header>
 
+    <!-- Main Content Layout -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
         
+        <!-- Left Sidebar Navigation (Sticky) -->
         <aside class="hidden lg:block w-72 flex-shrink-0">
             <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                 <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
@@ -69,8 +73,10 @@
             </div>
         </aside>
 
+        <!-- Right Content Area -->
         <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-cyan prose-headings:font-bold prose-a:text-cyan-600">
 
+            <!-- Section 1 -->
             <div id="data-comm" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
                 <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
                     <i class="fa-solid fa-satellite-dish"></i>
@@ -78,10 +84,11 @@
                 <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Introduction to Data Communication</h2>
             </div>
 
+            <!-- PYQ Alert -->
             <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
                     <p class="text-red-900 font-medium">Draw the block diagram of data communication system and state the function of each block. Describe the computer network used in data communication.</p>
                 </div>
             </div>
@@ -91,7 +98,7 @@
                 <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
                     <span class="text-cyan-600">A.</span> What is Data Communication?
                 </h3>
-                <p class="text-slate-600 mb-6">Data Communication is the exchange of data (in the form of 1s and 0s) between two devices via some form of transmission medium (like a wire cable or wireless signal). For communication to occur, the communicating devices must be part of a communication system made up of a combination of hardware and software.</p>
+                <p class="text-slate-600 mb-6">Data Communication is formally defined as the exchange of data (in the form of digital 1s and 0s or analog signals) between two or more devices via some form of transmission medium (like a copper wire, optic cable, or wireless electromagnetic waves). For effective data communication to occur, the communicating devices must be part of a communication system made up of a combination of hardware (physical equipment) and software (programs).</p>
                 
                 <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
                     <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
@@ -104,55 +111,76 @@
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Block Diagram of a Data Communication System</h3>
-            <p class="mb-4 text-slate-600">A fundamental data communication system has 5 key components (Blocks):</p>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">B. Block Diagram of a Data Communication System <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">6-Mark Breakdown</span></h3>
+            <p class="mb-6 text-slate-600 italic border-l-4 border-cyan-500 pl-4 bg-cyan-50 p-3 rounded-r-lg">For a 6-mark question, always draw the block diagram first, followed by a detailed paragraph for each of the 5 components.</p>
             
             <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1200" alt="Data Communication System Block Diagram Representation" class="w-full h-64 object-cover rounded-2xl shadow-sm mb-8" />
 
             <div class="bg-slate-800 text-white p-6 rounded-2xl font-mono text-center shadow-lg mb-8 border-2 border-cyan-500 overflow-x-auto whitespace-nowrap">
-                [ SENDER ] ---> [ MESSAGE + PROTOCOL ] ---> [ MEDIUM ] ---> [ RECEIVER ]
+                [ SENDER ] ---> [ MESSAGE + PROTOCOL ] ---> [ TRANSMISSION MEDIUM ] ---> [ RECEIVER ]
             </div>
 
-            <div class="space-y-4 mb-12">
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
-                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600"><i class="fa-solid fa-envelope"></i></div>
+            <div class="space-y-6 mb-12">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-envelope-open-text"></i></div>
                     <div>
-                        <h4 class="font-bold text-slate-800 mb-1">Message</h4>
-                        <p class="text-sm text-slate-600">It is the information (data) to be communicated. <strong>Example:</strong> A text message, a JPEG photo, or an MP3 audio file.</p>
+                        <h4 class="font-bold text-slate-800 text-xl mb-2">Message</h4>
+                        <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                            <li>The message is the actual information or data to be communicated.</li>
+                            <li>It can consist of text, numbers, pictures, audio, or video, or any combination of these.</li>
+                            <li>In modern digital communication, this message is broken down into binary bits (0s and 1s) before transmission.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
-                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600"><i class="fa-solid fa-paper-plane"></i></div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-paper-plane"></i></div>
                     <div>
-                        <h4 class="font-bold text-slate-800 mb-1">Sender</h4>
-                        <p class="text-sm text-slate-600">The device that sends the data message. <strong>Example:</strong> Your smartphone, a computer, or an IoT temperature sensor.</p>
+                        <h4 class="font-bold text-slate-800 text-xl mb-2">Sender (Transmitter)</h4>
+                        <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                            <li>The sender is the physical device that generates the message and sends the data over the network.</li>
+                            <li>It comprises the hardware and software needed to encode the message into signals.</li>
+                            <li><strong>Electronics Example:</strong> A computer workstation, a smartphone, a CCTV camera, or an IoT temperature sensor.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
-                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600"><i class="fa-solid fa-inbox"></i></div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-inbox"></i></div>
                     <div>
-                        <h4 class="font-bold text-slate-800 mb-1">Receiver</h4>
-                        <p class="text-sm text-slate-600">The device that receives the message. <strong>Example:</strong> A server, a smart TV, or your friend's laptop.</p>
+                        <h4 class="font-bold text-slate-800 text-xl mb-2">Receiver</h4>
+                        <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                            <li>The receiver is the device that accepts the incoming signal, decodes it, and retrieves the original message sent by the sender.</li>
+                            <li>The receiver must be capable of processing the specific type of signal generated by the sender.</li>
+                            <li><strong>Electronics Example:</strong> A web server, a smart TV receiving a Netflix stream, or a printer receiving a print command.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
-                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600"><i class="fa-solid fa-route"></i></div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-route"></i></div>
                     <div>
-                        <h4 class="font-bold text-slate-800 mb-1">Transmission Medium</h4>
-                        <p class="text-sm text-slate-600">The physical path by which a message travels from sender to receiver. <strong>Example:</strong> Fiber optic cable, copper wire, or invisible Radio Waves (Wi-Fi).</p>
+                        <h4 class="font-bold text-slate-800 text-xl mb-2">Transmission Medium</h4>
+                        <p class="text-sm text-slate-600 mb-2">This is the physical or logical path by which a message travels from the sender to the receiver. It provides the "highway" for the data signals.</p>
+                        <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                            <li><strong>Guided Media (Wired):</strong> Twisted pair copper cable, Coaxial cable, or Fiber Optic cable.</li>
+                            <li><strong>Unguided Media (Wireless):</strong> Radio waves, Microwaves, or Infrared (Wi-Fi, Bluetooth).</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
-                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600"><i class="fa-solid fa-handshake"></i></div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-handshake-angle"></i></div>
                     <div>
-                        <h4 class="font-bold text-slate-800 mb-1">Protocol</h4>
-                        <p class="text-sm text-slate-600">A set of rules that govern data communication. Without a protocol, two devices may be connected but cannot understand each other. <strong>Example:</strong> Just like two people must speak the same language (e.g., Hindi or English) to understand each other, computers use protocols like TCP/IP.</p>
+                        <h4 class="font-bold text-slate-800 text-xl mb-2">Protocol</h4>
+                        <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                            <li>A protocol is a formal set of rules, conventions, and data structures that govern data communication.</li>
+                            <li>It represents an agreement between the communicating devices. Without a protocol, two devices may be physically connected but cannot understand each other's data (just like a person speaking only Japanese cannot communicate with a person speaking only French).</li>
+                            <li><strong>Example:</strong> TCP (Transmission Control Protocol), IP (Internet Protocol), HTTP.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <hr class="border-slate-200 my-12" />
 
+            <!-- Section 2 -->
             <div id="signals" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
                 <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
                     <i class="fa-solid fa-wave-square"></i>
@@ -163,77 +191,82 @@
             <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
                     <p class="text-red-900 font-medium">Differentiate between Analog and Digital signal using any four parameters. Explain with suitable waveforms.</p>
                 </div>
             </div>
 
-            <p class="mb-6 text-slate-600">Data must be converted into electromagnetic signals to travel across a network. These signals can be either Analog or Digital.</p>
+            <p class="mb-6 text-slate-600">Data (like voice, text, or video) must be converted into electromagnetic signals to travel across a network. These signals are strictly categorized into two types: Analog and Digital.</p>
 
             <img src="https://images.unsplash.com/photo-1614064641913-6b70fea8acb3?auto=format&fit=crop&q=80&w=1200" alt="Analog and Digital Signals Waveforms Representation" class="w-full h-64 object-cover rounded-2xl shadow-sm mb-8" />
 
             <div class="grid md:grid-cols-2 gap-8 mb-10">
                 <div class="bg-indigo-50 p-6 rounded-3xl border border-indigo-100 shadow-sm">
                     <h3 class="text-xl font-bold text-indigo-900 mb-3 flex items-center gap-2"><i class="fa-solid fa-water"></i> A. Analog Signals</h3>
-                    <p class="text-indigo-800 text-sm mb-4">An Analog Signal is a continuous wave that changes smoothly over time. It can have an infinite number of values within a range.</p>
+                    <p class="text-indigo-800 text-sm mb-4">An Analog Signal is a continuous, time-varying electromagnetic wave that changes smoothly over a given period. It can take on an infinite number of values within a specific continuous range.</p>
                     <ul class="space-y-2 text-sm text-indigo-900 mb-4">
-                        <li><strong>Waveform:</strong> It is typically represented by a Sine Wave (a smooth curve that goes up and down continuously).</li>
+                        <li><strong>Waveform Characteristics:</strong> It is typically represented by a Sine Wave. It has key characteristics like Amplitude (peak height), Frequency (number of cycles per second), and Phase (position of the wave at time zero).</li>
+                        <li><strong>Electronics Context:</strong> Older electronic systems, such as AM/FM radio broadcasting, traditional landline telephones, and CRT televisions, relied entirely on analog signals.</li>
                     </ul>
                     <div class="bg-white/60 p-3 rounded-xl border border-indigo-200 text-xs text-indigo-900">
-                        <strong><i class="fa-solid fa-brain text-purple-600 mr-1"></i> Easy Ex:</strong> Think of an analog clock with moving hands or a fan regulator (dimmer) where you can smoothly increase speed from 0 to 5.<br/>
-                        <strong>Real-Life:</strong> Human voice, temperature changes, old cassette tapes.
+                        <strong><i class="fa-solid fa-brain text-purple-600 mr-1"></i> Easy Ex:</strong> Think of an analog clock with continuously moving sweep hands, or a fan regulator where you can smoothly increase the speed to any micro-level between 0 and 5.
                     </div>
                 </div>
 
                 <div class="bg-cyan-50 p-6 rounded-3xl border border-cyan-100 shadow-sm">
                     <h3 class="text-xl font-bold text-cyan-900 mb-3 flex items-center gap-2"><i class="fa-solid fa-bars-staggered"></i> B. Digital Signals</h3>
-                    <p class="text-cyan-800 text-sm mb-4">A Digital Signal is a discrete signal that carries information in binary form (0s and 1s). It jumps suddenly between two voltage levels (e.g., +5V and 0V).</p>
+                    <p class="text-cyan-800 text-sm mb-4">A Digital Signal is a discrete, non-continuous signal that carries information in binary form (0s and 1s). It jumps suddenly and instantly between two distinct voltage levels (e.g., +5V for logic '1' and 0V for logic '0').</p>
                     <ul class="space-y-2 text-sm text-cyan-900 mb-4">
-                        <li><strong>Waveform:</strong> It is represented by a Square Wave (sharp, flat-topped steps).</li>
+                        <li><strong>Waveform Characteristics:</strong> It is represented by a Square Wave (sharp, flat-topped steps with sudden vertical drops/rises).</li>
+                        <li><strong>Electronics Context:</strong> Modern computers, microprocessors, fiber optic communications, and digital ICs process only digital signals because they are highly resistant to noise and easier to store.</li>
                     </ul>
                     <div class="bg-white/60 p-3 rounded-xl border border-cyan-200 text-xs text-cyan-900">
-                        <strong><i class="fa-solid fa-brain text-purple-600 mr-1"></i> Easy Ex:</strong> Think of a simple light switch. It is either completely ON (1) or completely OFF (0). There is no "in-between."<br/>
-                        <strong>Real-Life:</strong> Data stored in a hard drive, HDMI video signals, modern CPUs.
+                        <strong><i class="fa-solid fa-brain text-purple-600 mr-1"></i> Easy Ex:</strong> Think of a simple light switch. It is either completely ON (1) or completely OFF (0). There is no "in-between."
                     </div>
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Differences Between Analog and Digital Signals <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Differences Between Analog and Digital Signals <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">6-Mark PYQ Table</span></h3>
             
             <div class="overflow-x-auto shadow-lg rounded-2xl border border-slate-200 mb-12">
                 <table class="w-full text-left border-collapse bg-white">
                     <thead>
                         <tr class="bg-slate-800 text-white">
-                            <th class="p-4 font-bold text-sm border-r border-slate-700">Parameter</th>
-                            <th class="p-4 font-bold text-sm text-indigo-300 border-r border-slate-700">Analog Signal</th>
-                            <th class="p-4 font-bold text-sm text-cyan-300">Digital Signal</th>
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Parameter</th>
+                            <th class="p-5 font-bold text-sm text-indigo-300 border-r border-slate-700">Analog Signal</th>
+                            <th class="p-5 font-bold text-sm text-cyan-300">Digital Signal</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-200">
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">1. Nature</td>
-                            <td class="p-4 text-slate-700 border-r border-slate-200 text-sm">Continuous over time.</td>
-                            <td class="p-4 text-slate-700 text-sm">Discrete (jumps between 0 and 1) over time.</td>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">1. Nature of Signal</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Continuous over time. Values change smoothly.</td>
+                            <td class="p-5 text-slate-700 text-sm">Discrete over time. Jumps strictly between 0 and 1.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">2. Waveform</td>
-                            <td class="p-4 text-slate-700 border-r border-slate-200 text-sm">Represented by a continuous Sine Wave.</td>
-                            <td class="p-4 text-slate-700 text-sm">Represented by a step-like Square Wave.</td>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">2. Waveform Shape</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Represented by a continuous Sine Wave.</td>
+                            <td class="p-5 text-slate-700 text-sm">Represented by a step-like Square Wave.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">3. Noise Susceptibility</td>
-                            <td class="p-4 text-slate-700 border-r border-slate-200 text-sm">Highly affected by noise. Signal quality degrades over distance.</td>
-                            <td class="p-4 text-slate-700 text-sm">Less affected by noise. Easy to regenerate accurately.</td>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">3. Susceptibility to Noise</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Highly affected by noise. During transmission, external electromagnetic noise mixes with the wave, degrading quality severely.</td>
+                            <td class="p-5 text-slate-700 text-sm font-bold text-emerald-600">Less affected by noise. Even if slight noise is added, the hardware can easily distinguish between a high (+5V) and low (0V) state.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">4. Bandwidth</td>
-                            <td class="p-4 text-slate-700 border-r border-slate-200 text-sm">Requires less bandwidth.</td>
-                            <td class="p-4 text-slate-700 text-sm">Requires more bandwidth.</td>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">4. Bandwidth Requirement</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm font-bold text-emerald-600">Requires relatively less bandwidth for transmission.</td>
+                            <td class="p-5 text-slate-700 text-sm">Requires higher bandwidth because sudden square-wave transitions contain many high-frequency components.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">5. Example</td>
-                            <td class="p-4 text-slate-700 border-r border-slate-200 text-sm">Human voice, FM Radio signals.</td>
-                            <td class="p-4 text-slate-700 text-sm">Computers, CDs, Digital watches.</td>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">5. Storage and Processing</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Difficult to store data and requires complex analog circuitry (Op-Amps) to process.</td>
+                            <td class="p-5 text-slate-700 text-sm font-bold text-emerald-600">Extremely easy to store (on Hard Drives, SSDs, RAM) and easy to process using logic gates.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">6. Examples</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Human voice, Thermocouple output, FM Radio.</td>
+                            <td class="p-5 text-slate-700 text-sm">Data in PCs, HDMI video, Digital watches.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -241,21 +274,24 @@
 
             <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 mb-10">
                 <h3 class="text-2xl font-bold text-slate-800 mb-3"><i class="fa-solid fa-gauge-high text-cyan-500 mr-2"></i> D. What is Bandwidth?</h3>
-                <p class="text-slate-600 mb-6">Bandwidth is the maximum amount of data that can be transmitted over a network connection in a given amount of time. It is measured in Bits Per Second (bps), Mbps, or Gbps.</p>
-                
-                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl shadow-sm">
+                <p class="text-slate-600 mb-4">Bandwidth is defined as the difference between the highest and lowest frequencies contained in a signal. In the context of computer networking, bandwidth refers to the maximum data transfer rate of a network or internet connection. It measures how much data can be sent over a specific connection in a given amount of time.</p>
+                <ul class="list-disc pl-5 text-slate-600 mb-6 font-medium">
+                    <li><strong>Unit of Measurement:</strong> Bits Per Second (bps), Megabits per second (Mbps), or Gigabits per second (Gbps).</li>
+                </ul>
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
                     <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
                         <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
                     </div>
                     <div>
-                        <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation (The Water Pipe)</h4>
-                        <p class="text-purple-900 leading-relaxed text-sm">Think of bandwidth as a water pipe. A wider pipe (high bandwidth) allows more water (data) to flow through at once than a narrow pipe (low bandwidth). A 100 Mbps connection will download a movie much faster than a 10 Mbps connection.</p>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Water Pipe)</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Think of bandwidth as a water pipe. A wider pipe (high bandwidth) allows more water (data) to flow through simultaneously than a narrow pipe (low bandwidth). A 100 Mbps fiber connection will download a 1GB movie much faster than a 10 Mbps copper connection.</p>
                     </div>
                 </div>
             </div>
 
             <hr class="border-slate-200 my-12" />
 
+            <!-- Section 3 -->
             <div id="networks" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
                 <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
                     <i class="fa-solid fa-network-wired"></i>
@@ -266,61 +302,87 @@
             <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
                     <p class="text-red-900 font-medium">Define the computer network and brief different types. Explain Personal Area Networks and state two advantages and disadvantages.</p>
                 </div>
             </div>
 
             <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
                 <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is a Computer Network?</h3>
-                <p class="text-slate-600">A Computer Network is an interconnection of two or more computers or electronic devices so they can share resources (like printers, files, or an internet connection) and communicate with each other.</p>
+                <p class="text-slate-600">A Computer Network is a system of interconnected computers, peripheral devices (like printers, scanners), and networking hardware (like routers, switches) that are linked together to facilitate the sharing of data, hardware resources, and software applications. The connection can be established using physical wires or wireless radio waves.</p>
             </div>
 
             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" alt="Global Computer Network" class="w-full h-64 object-cover rounded-2xl shadow-sm mb-8" />
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Types of Computer Networks (Based on Geography)</h3>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">B. Types of Computer Networks (Based on Geographical Span)</h3>
+            <p class="mb-8 text-slate-600 italic border-l-4 border-emerald-500 pl-4 bg-emerald-50 p-3 rounded-r-lg">To score full marks, provide a definition, range, and pros/cons for the network types.</p>
 
             <div class="space-y-6 mb-12">
-                <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm border-l-8 border-l-red-400">
-                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-mobile-screen-button text-slate-400"></i> 1. PAN (Personal Area Network) <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2">PYQ Focus</span></h4>
-                    <p class="text-slate-600 text-sm mb-3"><strong>Definition:</strong> A network organized around an individual person within a very short range (typically within 10 meters).</p>
-                    <p class="text-slate-600 text-sm mb-4"><strong>Example:</strong> Connecting your wireless Bluetooth headphones to your smartphone, or a wireless mouse to a laptop.</p>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 text-sm text-emerald-900">
-                            <strong><i class="fa-solid fa-check text-emerald-600"></i> Advantages:</strong><br/> (1) Highly secure because of short range (hard to hack from afar).<br/> (2) Very low cost and no extra wiring needed.
+                <!-- PAN -->
+                <div class="bg-white p-8 rounded-3xl border border-red-100 shadow-lg border-l-8 border-l-red-500 relative overflow-hidden hover:-translate-y-1 transition-transform">
+                    <span class="absolute top-4 right-4 bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fa-solid fa-mobile-screen-button text-red-400"></i> 1. PAN (Personal Area Network)</h4>
+                    <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                        <li><strong>Definition:</strong> A network organized around an individual person within a very short range, used for connecting personal devices.</li>
+                        <li><strong>Range:</strong> Typically within 10 meters (30 feet).</li>
+                        <li><strong>Technologies used:</strong> Bluetooth, ZigBee, Infrared, USB.</li>
+                    </ul>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-200 text-sm text-emerald-900">
+                            <strong><i class="fa-solid fa-check-circle text-emerald-600 text-lg mb-2"></i> Advantages:</strong><br/> 
+                            (1) Highly secure because of the extremely short range (hard for hackers to intercept from far away).<br/> 
+                            (2) Very low cost, low power consumption, and no complex wiring required.
                         </div>
-                        <div class="bg-rose-50 p-3 rounded-lg border border-rose-100 text-sm text-rose-900">
-                            <strong><i class="fa-solid fa-xmark text-rose-600"></i> Disadvantages:</strong><br/> (1) Very limited range (works only in same room).<br/> (2) Slow data transfer speeds compared to LAN.
+                        <div class="bg-rose-50 p-5 rounded-xl border border-rose-200 text-sm text-rose-900">
+                            <strong><i class="fa-solid fa-times-circle text-rose-600 text-lg mb-2"></i> Disadvantages:</strong><br/> 
+                            (1) Extremely limited distance/coverage (only works in the same room).<br/> 
+                            (2) Very slow data transfer speeds compared to standard LANs.
                         </div>
                     </div>
                 </div>
 
+                <!-- LAN -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-8 border-l-emerald-400">
-                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-building text-slate-400"></i> 2. LAN (Local Area Network)</h4>
-                    <p class="text-slate-600 text-sm mb-2"><strong>Definition:</strong> A network designed to operate over a small physical area, like an office, school, or a single building.</p>
-                    <p class="text-slate-600 text-sm"><strong>Example:</strong> The computer lab in your diploma college where all computers are connected to one main server using Ethernet cables.</p>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-building text-slate-400"></i> 2. LAN (Local Area Network)</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><strong>Definition:</strong> A private network designed to operate over a small, localized physical area, such as a single office building, a school campus, or a home.</li>
+                        <li><strong>Characteristics:</strong> High data transfer rates (100 Mbps to 10 Gbps), privately owned by a single organization, and low error rates.</li>
+                        <li><strong>Technology used:</strong> Ethernet cables (Cat 6), Wi-Fi (WLAN), Network Switches.</li>
+                        <li><strong>Example:</strong> The computer lab in your diploma college where 50 computers are connected to one main server using Ethernet cables.</li>
+                    </ul>
                 </div>
 
+                <!-- MAN -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-8 border-l-blue-400">
-                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-city text-slate-400"></i> 3. MAN (Metropolitan Area Network)</h4>
-                    <p class="text-slate-600 text-sm mb-2"><strong>Definition:</strong> Covers a larger geographic area, such as a city or a large campus. It connects multiple LANs together.</p>
-                    <p class="text-slate-600 text-sm"><strong>Example:</strong> Your local Cable TV network spread across your city, or a city-wide free public Wi-Fi network.</p>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-city text-slate-400"></i> 3. MAN (Metropolitan Area Network)</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><strong>Definition:</strong> A network that covers a larger geographic area than a LAN, typically spanning an entire city or a large university campus. It essentially connects multiple LANs together.</li>
+                        <li><strong>Characteristics:</strong> Owned by a consortium of users or a single network provider who sells the service. Uses high-capacity backbone technologies like fiber optics.</li>
+                        <li><strong>Example:</strong> Your local Cable TV network spread across your city, or a city-wide municipal public Wi-Fi network.</li>
+                    </ul>
                 </div>
 
+                <!-- WAN -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-8 border-l-purple-400">
-                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-globe text-slate-400"></i> 4. WAN (Wide Area Network)</h4>
-                    <p class="text-slate-600 text-sm mb-2"><strong>Definition:</strong> Covers a large geographical area, such as a state, a country, or the world. Uses telecom links like satellites or deep-sea cables.</p>
-                    <p class="text-slate-600 text-sm"><strong>Example:</strong> The ATM network of the State Bank of India (all ATMs connected), or 4G/5G mobile networks.</p>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-globe text-slate-400"></i> 4. WAN (Wide Area Network)</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><strong>Definition:</strong> A vast telecommunications network that covers a large geographical area, such as a state, a country, or the entire globe.</li>
+                        <li><strong>Characteristics:</strong> Data speeds are generally slower than LANs due to massive distances. It heavily relies on public telecommunication infrastructure and leased lines. High error rates compared to LAN.</li>
+                        <li><strong>Technology used:</strong> Satellites, deep-sea submarine optic cables, microwave towers.</li>
+                        <li><strong>Example:</strong> The ATM network of the State Bank of India (all ATMs across India connected to Mumbai servers), or 4G/5G cellular mobile networks.</li>
+                    </ul>
                 </div>
 
+                <!-- Internetwork -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-8 border-l-slate-800">
-                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-earth-americas text-slate-400"></i> 5. Internetwork (The Internet)</h4>
-                    <p class="text-slate-600 text-sm"><strong>Definition:</strong> An "Internetwork" is formed when two or more distinct networks (like multiple LANs and WANs) are connected together using routers. The biggest example is the Internet itself.</p>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-earth-americas text-slate-400"></i> 5. Internetwork (The Internet)</h4>
+                    <p class="text-slate-600 text-sm"><strong>Definition:</strong> An "Internetwork" is formed when two or more distinct networks (like multiple LANs and WANs) are connected together using routers. The ultimate and largest example of an internetwork is the Internet itself, which connects billions of devices globally.</p>
                 </div>
             </div>
 
             <hr class="border-slate-200 my-12" />
 
+            <!-- Section 4 -->
             <div id="topologies" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
                 <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
                     <i class="fa-solid fa-circle-nodes"></i>
@@ -331,107 +393,126 @@
             <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks each)</h4>
                     <p class="text-red-900 font-medium">Describe different types in brief. Explain Mesh and Star topology. Explain Tree topology for a 3-storey building.</p>
                 </div>
             </div>
 
-            <p class="text-slate-600 mb-8 font-medium">Topology refers to the physical or logical layout/arrangement of a network. It is how computers (nodes) are wired together.</p>
+            <p class="text-slate-600 mb-8 font-medium">Topology refers to the physical geometric layout or the logical arrangement of a network. It defines how the nodes (computers/devices) are wired together and how data flows between them.</p>
 
             <img src="https://images.unsplash.com/photo-1520869562399-e772f042f422?auto=format&fit=crop&q=80&w=1200" alt="Network Topologies Connection Points" class="w-full h-64 object-cover rounded-2xl shadow-sm mb-8" />
 
             <div class="grid md:grid-cols-2 gap-6 mb-12 mt-8">
+                <!-- Bus -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h4 class="font-bold text-slate-800 text-lg mb-2">1. Point-to-Point Topology</h4>
-                    <p class="text-sm text-slate-600 mb-2">Contains exactly two hosts directly connected to each other using a single cable.</p>
-                    <p class="text-xs text-slate-500"><strong>Ex:</strong> Connecting two laptops directly with one LAN cable.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h4 class="font-bold text-slate-800 text-lg mb-2">2. Bus Topology</h4>
-                    <p class="text-sm text-slate-600 mb-2">All devices are connected to a single, central main cable (backbone or bus).</p>
-                    <div class="text-xs space-y-1">
-                        <p class="text-emerald-700"><i class="fa-solid fa-check mr-1 text-emerald-500"></i><strong>Pros:</strong> Very cheap and easy to install.</p>
-                        <p class="text-rose-700"><i class="fa-solid fa-xmark mr-1 text-rose-500"></i><strong>Cons:</strong> If main cable breaks, entire network crashes.</p>
+                    <h4 class="font-bold text-slate-800 text-xl mb-3">1. Bus Topology</h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Description:</strong> All network devices are connected to a single, continuous main cable (called the backbone or bus) with terminators at both ends. Data sent by one node travels along the bus until it reaches the target node.</p>
+                    <div class="text-sm space-y-2 border-t border-slate-100 pt-3">
+                        <p class="text-emerald-700"><i class="fa-solid fa-check mr-2 text-emerald-500"></i><strong>Advantages:</strong> Very cheap, requires the least amount of cable, and is easy to set up for small networks.</p>
+                        <p class="text-rose-700"><i class="fa-solid fa-xmark mr-2 text-rose-500"></i><strong>Disadvantages:</strong> If the main central cable breaks or is cut, the entire network crashes. Performance degrades drastically as more computers are added (due to data collisions).</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-indigo-200 relative">
-                    <span class="absolute top-2 right-2 bg-red-100 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase">PYQ</span>
-                    <h4 class="font-bold text-slate-800 text-lg mb-2">3. Star Topology</h4>
-                    <p class="text-sm text-slate-600 mb-2">All devices connected to a central hub or switch. No direct connection between computers; data goes through the switch.</p>
-                    <div class="text-xs space-y-1 mb-2">
-                        <p class="text-emerald-700"><i class="fa-solid fa-check mr-1 text-emerald-500"></i><strong>Pros:</strong> If one wire breaks, only that PC is lost. Easy to fix.</p>
-                        <p class="text-rose-700"><i class="fa-solid fa-xmark mr-1 text-rose-500"></i><strong>Cons:</strong> If central switch fails, the whole network goes down.</p>
+                <!-- Star -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-indigo-300 relative transform hover:-translate-y-1 transition-transform">
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider shadow-sm">Highly Important for Exams</span>
+                    <h4 class="font-bold text-slate-800 text-xl mb-3">2. Star Topology</h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Description:</strong> Every single device on the network has a dedicated point-to-point physical connection to a central controller device (usually a Hub or a Network Switch). Devices cannot talk to each other directly; data must flow through the central switch.</p>
+                    <div class="text-sm space-y-2 border-t border-slate-100 pt-3">
+                        <p class="text-emerald-700"><strong><i class="fa-solid fa-check mr-2 text-emerald-500"></i>Advantages:</strong></p>
+                        <ul class="list-disc pl-8 text-emerald-700 text-xs space-y-1">
+                            <li>Highly robust: If one cable connecting a computer breaks, only that specific computer is disconnected. The rest of the network continues to work perfectly.</li>
+                            <li>Easy to troubleshoot and identify faults.</li>
+                            <li>Easy to add or remove devices without disrupting the network.</li>
+                        </ul>
+                        <p class="text-rose-700 mt-2"><i class="fa-solid fa-xmark mr-2 text-rose-500"></i><strong>Disadvantages:</strong> If the central Hub/Switch fails, the entire network goes dead immediately. It requires more cable length than a Bus topology.</p>
                     </div>
-                    <p class="text-xs text-indigo-600 bg-indigo-50 p-2 rounded"><strong>Analogy:</strong> Like a bicycle wheel; center axle is the switch, spokes are cables.</p>
                 </div>
 
+                <!-- Ring -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h4 class="font-bold text-slate-800 text-lg mb-2">4. Ring Topology</h4>
-                    <p class="text-sm text-slate-600 mb-2">Each device is connected to exactly two other devices, forming a circle/ring. Data travels in one direction.</p>
-                    <p class="text-xs text-rose-700"><i class="fa-solid fa-xmark mr-1 text-rose-500"></i><strong>Cons:</strong> If one computer fails, the chain breaks and network stops.</p>
+                    <h4 class="font-bold text-slate-800 text-xl mb-3">3. Ring Topology</h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Description:</strong> Each device is connected to exactly two neighboring devices, forming a closed loop or physical circle. Data travels continuously in one direction (unidirectional) from node to node until it reaches its destination.</p>
+                    <div class="text-sm space-y-2 border-t border-slate-100 pt-3">
+                        <p class="text-emerald-700"><i class="fa-solid fa-check mr-2 text-emerald-500"></i><strong>Advantages:</strong> Orderly network where every device gets equal access to transmit data (using token passing).</p>
+                        <p class="text-rose-700"><i class="fa-solid fa-xmark mr-2 text-rose-500"></i><strong>Disadvantages:</strong> Highly vulnerable. If one computer crashes or one link breaks, the data chain is broken, and the entire network stops functioning.</p>
+                    </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-indigo-200 relative md:col-span-2">
-                    <span class="absolute top-2 right-2 bg-red-100 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase">PYQ</span>
-                    <h4 class="font-bold text-slate-800 text-lg mb-2">5. Mesh Topology</h4>
-                    <p class="text-sm text-slate-600 mb-3">Every single device is connected to every other device in the network directly.</p>
+                <!-- Mesh -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-indigo-300 relative transform hover:-translate-y-1 transition-transform">
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider shadow-sm">Highly Important for Exams</span>
+                    <h4 class="font-bold text-slate-800 text-xl mb-3">4. Mesh Topology</h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Description:</strong> A highly complex layout where every single device is connected to every other device in the network via dedicated point-to-point links. (Formula for links: n(n-1)/2).</p>
                     <div class="grid sm:grid-cols-2 gap-4 text-sm">
-                        <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100 text-emerald-900">
-                            <strong><i class="fa-solid fa-check text-emerald-600"></i> Features:</strong><br/> Highly reliable: If a cable breaks, many other paths exist. Highly secure.
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 text-emerald-900">
+                            <strong><i class="fa-solid fa-check-circle text-emerald-600 mb-1 block text-lg"></i> Advantages:</strong>
+                            <ul class="list-disc pl-4 mt-2 space-y-1 text-xs">
+                                <li><strong>Ultimate Reliability/Fault Tolerance:</strong> If one cable breaks, there are multiple alternative routing paths. The network almost never goes down.</li>
+                                <li><strong>High Security & Privacy:</strong> Dedicated links mean data goes only to intended recipient.</li>
+                            </ul>
                         </div>
-                        <div class="bg-rose-50 p-3 rounded-xl border border-rose-100 text-rose-900">
-                            <strong><i class="fa-solid fa-xmark text-rose-600"></i> Cons:</strong><br/> Extremely expensive and complex to wire due to massive number of cables.
+                        <div class="bg-rose-50 p-4 rounded-xl border border-rose-200 text-rose-900">
+                            <strong><i class="fa-solid fa-times-circle text-rose-600 mb-1 block text-lg"></i> Disadvantages:</strong><br/>
+                            <p class="text-xs mt-2">Extremely expensive and practically impossible to wire for large networks because it requires an massive amount of cabling and I/O ports.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-10">
-                <i class="fa-solid fa-network-wired absolute right-[-20px] top-[-20px] text-[10rem] opacity-10"></i>
-                <h4 class="text-2xl font-bold text-amber-400 mb-2 relative z-10 flex items-center gap-3">
-                    6. Tree Topology <span class="bg-red-500 text-white text-xs px-2 py-1 rounded uppercase tracking-wider font-bold shadow-md">PYQ Focus: 3-Storey Building</span>
+            <!-- Tree Topology Special Focus (6 Marks) -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-10 border border-slate-700">
+                <i class="fa-solid fa-network-wired absolute right-[-20px] top-[-20px] text-[15rem] opacity-10"></i>
+                <h4 class="text-3xl font-bold text-amber-400 mb-4 relative z-10 flex flex-wrap items-center gap-3">
+                    5. Tree Topology 
+                    <span class="bg-red-500 text-white text-sm px-3 py-1 rounded-full uppercase tracking-widest font-bold shadow-lg">6-Mark PYQ: 3-Storey Building</span>
                 </h4>
-                <p class="text-slate-300 mb-6 relative z-10 text-sm">Combination of Star and Bus topologies. Has a root node (main server) and all other nodes are connected in a hierarchy.</p>
+                <p class="text-slate-300 mb-8 relative z-10 text-lg leading-relaxed"><strong>Description:</strong> It is a hierarchical hybrid topology that combines characteristics of Star and Bus topologies. It has a root node (main server/router), and all other nodes are connected in a branching hierarchy.</p>
                 
-                <div class="bg-white/10 p-5 rounded-2xl border border-white/20 relative z-10 mb-4">
-                    <strong class="text-emerald-300 block mb-3 text-lg">Explanation for a 3-Storey Building:</strong>
-                    <ul class="space-y-4 text-sm text-slate-200">
-                        <li class="flex gap-3 items-start">
-                            <div class="bg-black/40 px-2 py-1 rounded font-mono text-xs w-28 text-center shrink-0">Ground Floor</div>
-                            <div>(Basement/Server Room): The main Server and the Main Router (Root Node) are placed here.</div>
+                <div class="bg-white/10 p-6 md:p-8 rounded-2xl border border-white/20 relative z-10 mb-6 backdrop-blur-sm">
+                    <h5 class="text-emerald-300 font-bold mb-6 text-xl border-b border-white/10 pb-3"><i class="fa-solid fa-building text-emerald-400 mr-2"></i> 6-Mark Exam Answer for 3-Storey Building:</h5>
+                    <p class="text-slate-200 mb-6 font-medium">To network a 3-storey office, a Tree Topology is the most efficient and practical choice.</p>
+                    
+                    <ul class="space-y-6 text-base text-slate-200">
+                        <li class="flex gap-4 items-start bg-black/20 p-4 rounded-xl border border-white/5">
+                            <div class="bg-indigo-600 px-3 py-1 rounded font-bold text-sm w-36 text-center shrink-0 shadow-md">Ground Floor</div>
+                            <div class="leading-relaxed"><strong>(Basement/Server Room):</strong> The main Server and the Main Building Router (The Root Node) are installed here. A high-speed vertical backbone cable (the "trunk" of the tree) runs from this router up through the building.</div>
                         </li>
-                        <li class="flex gap-3 items-start">
-                            <div class="bg-black/40 px-2 py-1 rounded font-mono text-xs w-28 text-center shrink-0">1st Floor</div>
-                            <div>A central switch is placed here, connected to the ground floor router. 20 computers on the 1st floor are connected to this switch in a Star arrangement.</div>
+                        <li class="flex gap-4 items-start bg-black/20 p-4 rounded-xl border border-white/5">
+                            <div class="bg-blue-600 px-3 py-1 rounded font-bold text-sm w-36 text-center shrink-0 shadow-md">1st Floor</div>
+                            <div class="leading-relaxed">A local Network Switch is placed here, connected directly to the vertical backbone. All 20 computers on the 1st floor are connected to this switch in a Star arrangement.</div>
                         </li>
-                        <li class="flex gap-3 items-start">
-                            <div class="bg-black/40 px-2 py-1 rounded font-mono text-xs w-28 text-center shrink-0">2nd Floor</div>
-                            <div>Another switch is placed here, connected to the ground floor router. Computers on this floor connect to this switch.</div>
+                        <li class="flex gap-4 items-start bg-black/20 p-4 rounded-xl border border-white/5">
+                            <div class="bg-cyan-600 px-3 py-1 rounded font-bold text-sm w-36 text-center shrink-0 shadow-md">2nd Floor</div>
+                            <div class="leading-relaxed">Another Network Switch is placed here, connected to the backbone. Computers on this floor connect to this local switch.</div>
                         </li>
-                        <li class="flex gap-3 items-start">
-                            <div class="bg-black/40 px-2 py-1 rounded font-mono text-xs w-28 text-center shrink-0">3rd Floor</div>
-                            <div>A third switch is placed here, connected down to the root router.</div>
+                        <li class="flex gap-4 items-start bg-black/20 p-4 rounded-xl border border-white/5">
+                            <div class="bg-teal-600 px-3 py-1 rounded font-bold text-sm w-36 text-center shrink-0 shadow-md">3rd Floor</div>
+                            <div class="leading-relaxed">A third Network Switch is placed here, connected to the backbone.</div>
                         </li>
                     </ul>
                 </div>
-                <p class="text-sm text-cyan-300 font-bold italic relative z-10">Why it's good: The building's network looks like a tree. If the 2nd-floor switch fails, only the 2nd floor loses the network. The 1st and 3rd floors keep working!</p>
+                <div class="bg-amber-500/20 border-l-4 border-amber-400 p-5 rounded-r-xl relative z-10">
+                    <strong class="text-amber-300 block text-lg mb-1"><i class="fa-solid fa-gavel mr-2"></i> Justification:</strong>
+                    <p class="text-slate-200">This structure looks like an inverted tree. It is highly fault-tolerant. If the 2nd-floor switch fails or power trips, only the 2nd floor loses its network. The 1st and 3rd floors will continue to work perfectly and can still communicate with the ground floor server.</p>
+                </div>
             </div>
 
-            <div class="grid sm:grid-cols-2 gap-4 mb-12">
-                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
-                    <strong class="text-slate-800 block mb-1">7. Daisy Chain Topology</strong>
-                    <p class="text-xs text-slate-600">Devices connected sequentially in a line (A -> B -> C -> D). Like a ring but not closed into a circle.</p>
+            <!-- Minor Topologies -->
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">6. Daisy Chain Topology</h4>
+                    <p class="text-sm text-slate-600"><strong>Description:</strong> Devices are connected sequentially, one right after the other in a linear line (A connects to B, B connects to C, C connects to D). Unlike a ring, the two ends are not connected back to each other.</p>
                 </div>
-                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
-                    <strong class="text-slate-800 block mb-1">8. Hybrid Topology</strong>
-                    <p class="text-xs text-slate-600">Combination of two or more different topologies (e.g., combining a Star topology in one dept and Ring in another).</p>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">7. Hybrid Topology</h4>
+                    <p class="text-sm text-slate-600"><strong>Description:</strong> A combination of two or more different standard topologies to form a larger, complex network (e.g., combining a Star topology in the HR department and a Ring topology in the Finance department, connected by a Bus backbone).</p>
                 </div>
             </div>
 
             <hr class="border-slate-200 my-12" />
 
+            <!-- Section 5 -->
             <div id="osi-tcp" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
                 <div class="bg-gradient-to-r from-purple-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
                     <i class="fa-solid fa-layer-group"></i>
@@ -439,90 +520,122 @@
                 <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Network Architecture Models: OSI and TCP/IP</h2>
             </div>
             
+            <!-- PYQ Alert -->
             <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
-                    <p class="text-red-900 font-medium">Compare OSI and TCP/IP. List the 7 layers of OSI and brief functions. Sketch layered architecture.</p>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">Compare OSI and TCP/IP. List the 7 layers of OSI and explain the function of each layer in brief. Sketch layered architecture.</p>
                 </div>
             </div>
 
-            <p class="text-slate-600 mb-8 font-medium">To allow computers from different companies (like Apple, Windows, Linux) to communicate, standard models were created.</p>
+            <p class="text-slate-600 mb-8 font-medium">To allow computers manufactured by different companies (like Apple, IBM, Microsoft) to communicate globally, standard networking models were created to govern how data is transmitted.</p>
 
             <h3 class="text-2xl font-bold text-slate-800 mb-4">A. The OSI Reference Model (Open Systems Interconnection)</h3>
-            <p class="text-slate-600 mb-4">Developed by ISO, it is a theoretical framework consisting of 7 distinct layers.</p>
+            <p class="text-slate-600 mb-6">Developed by ISO (International Organization for Standardization) in 1984, it is a theoretical, 7-layer framework that standardizes the functions of a telecommunication system.</p>
 
-            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-5 rounded-xl shadow-sm mb-8">
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-10">
                 <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
                     <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
                 </div>
                 <div>
-                    <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation (The Postal System)</h4>
-                    <p class="text-purple-900 leading-relaxed text-sm">Sending data is like sending a physical letter. The letter goes from you -> an envelope -> a post box -> a postman -> a truck -> an airplane -> the receiver. Each step does a specific job. The OSI model is the same, but for digital data.</p>
+                    <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Corporate Parcel)</h4>
+                    <p class="text-purple-900 leading-relaxed text-sm">Sending data is like sending a physical corporate parcel. The parcel goes from the Boss (App Layer) -> Translator (Presentation) -> Dispatch Manager (Session) -> Packaging Dept (Transport) -> Sorting Facility (Network) -> Local Delivery Van (Data Link) -> The physical road (Physical Layer). Each layer does exactly one specific job and passes it down.</p>
                 </div>
             </div>
 
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200" alt="OSI Model Layers Data Concept" class="w-full h-64 object-cover rounded-2xl shadow-sm mb-8" />
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200" alt="OSI Model Layers Data Concept" class="w-full h-64 object-cover rounded-2xl shadow-md mb-10" />
 
-            <div class="mb-12 max-w-3xl mx-auto">
-                <h4 class="text-center font-bold text-slate-600 mb-4 uppercase tracking-widest text-sm">The 7 Layers of OSI (Top to Bottom)</h4>
-                <div class="text-center mb-6">
-                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold border border-amber-200"><i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i> Mnemonic: Please Do Not Throw Sausage Pizza Away</span>
+            <!-- OSI 7 Layers Stack UI (Detailed for 6 marks) -->
+            <div class="mb-16 max-w-4xl mx-auto">
+                <h4 class="text-center font-black text-slate-800 mb-4 uppercase tracking-widest text-lg">The 7 Layers of OSI (Bottom to Top Explanation for Full Marks)</h4>
+                <div class="text-center mb-8">
+                    <span class="bg-amber-100 text-amber-900 px-4 py-2 rounded-full text-sm font-bold border border-amber-300 shadow-sm"><i class="fa-solid fa-lightbulb text-amber-500 mr-2"></i> Mnemonic: Please Do Not Throw Sausage Pizza Away</span>
                 </div>
                 
-                <div class="space-y-2 flex flex-col-reverse"> <div class="bg-gradient-to-r from-rose-500 to-rose-600 p-4 rounded-xl text-white shadow-md flex items-center gap-4 hover:-translate-x-2 transition-transform">
-                        <div class="font-black text-3xl opacity-50 w-8 text-center">7</div>
+                <div class="space-y-4 flex flex-col-reverse">
+                    <!-- Layer 7 -->
+                    <div class="bg-gradient-to-r from-rose-500 to-rose-600 p-6 rounded-2xl text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-x-2 transition-transform">
+                        <div class="font-black text-6xl opacity-30 w-16 text-center shrink-0">7</div>
                         <div>
-                            <strong class="text-lg block">Application Layer (Top)</strong>
-                            <p class="text-sm text-rose-100">Provides user interface. Layer the user interacts with (Chrome, WhatsApp). Protocols: HTTP, FTP, SMTP.</p>
+                            <strong class="text-2xl block mb-2 font-black tracking-tight">Application Layer (Top Layer)</strong>
+                            <p class="text-sm text-rose-50 mb-2"><strong>Function:</strong> The topmost layer. It provides the actual user interface and network services to the end-user's applications. It is the window through which users and application processes access network services.</p>
+                            <p class="text-sm text-rose-200 bg-black/20 p-2 rounded inline-block"><strong>Examples:</strong> Web browsing (HTTP), Email (SMTP), File Transfer (FTP).</p>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-4 rounded-xl text-white shadow-md flex items-center gap-4 hover:-translate-x-2 transition-transform">
-                        <div class="font-black text-3xl opacity-50 w-8 text-center">6</div>
+                    <!-- Layer 6 -->
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-6 rounded-2xl text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-x-2 transition-transform">
+                        <div class="font-black text-6xl opacity-30 w-16 text-center shrink-0">6</div>
                         <div>
-                            <strong class="text-lg block">Presentation Layer</strong>
-                            <p class="text-sm text-orange-100">Formats, encrypts, and compresses data. Translates JPEG, ASCII so receiver can read it.</p>
+                            <strong class="text-2xl block mb-2 font-black tracking-tight">Presentation Layer</strong>
+                            <p class="text-sm text-orange-50 mb-2"><strong>Function:</strong> It prepares the data for the Application layer. It acts as a data translator.</p>
+                            <ul class="text-sm text-orange-100 list-disc pl-5 space-y-1">
+                                <li><strong>Translation:</strong> Converts data from computer-specific formats into standard network formats (like ASCII).</li>
+                                <li><strong>Encryption/Decryption:</strong> Secures the data for privacy.</li>
+                                <li><strong>Compression:</strong> Reduces bits to save bandwidth (e.g., compressing raw video into MP4).</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-amber-500 to-amber-600 p-4 rounded-xl text-white shadow-md flex items-center gap-4 hover:-translate-x-2 transition-transform">
-                        <div class="font-black text-3xl opacity-50 w-8 text-center">5</div>
+                    <!-- Layer 5 -->
+                    <div class="bg-gradient-to-r from-amber-500 to-amber-600 p-6 rounded-2xl text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-x-2 transition-transform">
+                        <div class="font-black text-6xl opacity-30 w-16 text-center shrink-0">5</div>
                         <div>
-                            <strong class="text-lg block">Session Layer</strong>
-                            <p class="text-sm text-amber-100">Establishes, maintains, and ends communication sessions between computers (like phone call).</p>
+                            <strong class="text-2xl block mb-2 font-black tracking-tight">Session Layer</strong>
+                            <p class="text-sm text-amber-50 mb-2"><strong>Function:</strong> It acts as the network dialog controller. It establishes, maintains, synchronizes, and ultimately terminates the communication session between two computers.</p>
+                            <p class="text-sm text-amber-100"><strong>Key roles:</strong> Adding synchronization checkpoints (so if a 1GB download fails at 900MB, it resumes from 900MB, not 0MB).</p>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 p-4 rounded-xl text-white shadow-md flex items-center gap-4 hover:-translate-x-2 transition-transform">
-                        <div class="font-black text-3xl opacity-50 w-8 text-center">4</div>
+                    <!-- Layer 4 -->
+                    <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 p-6 rounded-2xl text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-x-2 transition-transform">
+                        <div class="font-black text-6xl opacity-30 w-16 text-center shrink-0">4</div>
                         <div>
-                            <strong class="text-lg block">Transport Layer</strong>
-                            <p class="text-sm text-emerald-100">Ensures complete data delivery. Breaks data into "Segments", retransmits lost data. Protocols: TCP, UDP.</p>
+                            <strong class="text-2xl block mb-2 font-black tracking-tight">Transport Layer</strong>
+                            <p class="text-sm text-emerald-50 mb-2"><strong>Function:</strong> It is the heart of the OSI model. It ensures complete end-to-end delivery of the entire message.</p>
+                            <ul class="text-sm text-emerald-100 list-disc pl-5 space-y-1">
+                                <li><strong>Segmentation:</strong> Divides large messages into smaller units called "Segments".</li>
+                                <li><strong>Connection Control:</strong> Establishes a logical connection (TCP for reliable, UDP for fast).</li>
+                                <li><strong>Flow Control:</strong> Ensures a fast sender doesn't overwhelm a slow receiver.</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-cyan-500 to-cyan-600 p-4 rounded-xl text-white shadow-md flex items-center gap-4 hover:-translate-x-2 transition-transform">
-                        <div class="font-black text-3xl opacity-50 w-8 text-center">3</div>
+                    <!-- Layer 3 -->
+                    <div class="bg-gradient-to-r from-cyan-500 to-cyan-600 p-6 rounded-2xl text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-x-2 transition-transform">
+                        <div class="font-black text-6xl opacity-30 w-16 text-center shrink-0">3</div>
                         <div>
-                            <strong class="text-lg block">Network Layer</strong>
-                            <p class="text-sm text-cyan-100">Routes data from source to destination across multiple networks using IP Addresses. Routers work here.</p>
+                            <strong class="text-2xl block mb-2 font-black tracking-tight">Network Layer</strong>
+                            <p class="text-sm text-cyan-50 mb-2"><strong>Function:</strong> Responsible for source-to-destination delivery of packets across multiple different networks.</p>
+                            <ul class="text-sm text-cyan-100 list-disc pl-5 space-y-1">
+                                <li><strong>Logical Addressing:</strong> Assigns unique IP addresses to sender and receiver.</li>
+                                <li><strong>Routing:</strong> Determines the best, shortest path for data to travel. (Routers work here).</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 rounded-xl text-white shadow-md flex items-center gap-4 hover:-translate-x-2 transition-transform">
-                        <div class="font-black text-3xl opacity-50 w-8 text-center">2</div>
+                    <!-- Layer 2 -->
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 rounded-2xl text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-x-2 transition-transform">
+                        <div class="font-black text-6xl opacity-30 w-16 text-center shrink-0">2</div>
                         <div>
-                            <strong class="text-lg block">Data Link Layer</strong>
-                            <p class="text-sm text-blue-100">Error-free transfer over physical layer. Packages bits into "Frames", uses MAC addresses. Switches work here.</p>
+                            <strong class="text-2xl block mb-2 font-black tracking-tight">Data Link Layer</strong>
+                            <p class="text-sm text-blue-50 mb-2"><strong>Function:</strong> Ensures node-to-node, error-free transfer of data over the physical layer.</p>
+                            <ul class="text-sm text-blue-100 list-disc pl-5 space-y-1">
+                                <li><strong>Framing:</strong> Breaks packets from Network layer into manageable units called "Frames".</li>
+                                <li><strong>Physical Addressing:</strong> Adds sender/receiver MAC addresses to the frame.</li>
+                                <li><strong>Error Control:</strong> Detects and retransmits damaged frames. (Switches work here).</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 p-4 rounded-xl text-white shadow-md flex items-center gap-4 hover:-translate-x-2 transition-transform">
-                        <div class="font-black text-3xl opacity-50 w-8 text-center">1</div>
+                    <!-- Layer 1 -->
+                    <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 p-6 rounded-2xl text-white shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-x-2 transition-transform">
+                        <div class="font-black text-6xl opacity-30 w-16 text-center shrink-0">1</div>
                         <div>
-                            <strong class="text-lg block">Physical Layer (Bottom)</strong>
-                            <p class="text-sm text-indigo-100">Deals with physical connection (cables, hubs). Converts digital 1s & 0s into electrical/optical signals over the wire.</p>
+                            <strong class="text-2xl block mb-2 font-black tracking-tight">Physical Layer (Bottom Layer)</strong>
+                            <p class="text-sm text-indigo-50 mb-2"><strong>Function:</strong> Deals with the mechanical and electrical specifications of the network. It receives raw data bits (0s and 1s) from the Data Link layer and converts them into physical signals (electrical voltage, light pulses, or radio waves) to be transmitted over the physical medium.</p>
+                            <p class="text-sm text-indigo-200"><strong>Key roles:</strong> Bit synchronization, defining the physical topology, and controlling the bit rate.</p>
                         </div>
                     </div>
 
@@ -531,51 +644,68 @@
 
             <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 mb-10">
                 <h3 class="text-2xl font-bold text-slate-800 mb-4">B. TCP/IP Reference Model</h3>
-                <p class="text-slate-600 mb-4">This is the practical model that the modern Internet actually uses. It squeezed the 7 OSI layers into just 4 layers:</p>
-                <ul class="space-y-3 text-sm text-slate-700">
-                    <li class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm"><strong class="text-indigo-600">Network Access Layer:</strong> Combines OSI's Physical and Data Link layers.</li>
-                    <li class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm"><strong class="text-cyan-600">Internet Layer:</strong> Equivalent to OSI's Network layer (Handles IP addressing and routing).</li>
-                    <li class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm"><strong class="text-emerald-600">Transport Layer:</strong> Equivalent to OSI's Transport layer (Handles TCP/UDP).</li>
-                    <li class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm"><strong class="text-rose-600">Application Layer:</strong> Combines OSI's Session, Presentation, and Application layers.</li>
-                </ul>
+                <p class="text-slate-600 mb-6">The TCP/IP model is the practical, real-world protocol suite that the modern Internet actually runs on. Developed by the US Department of Defense (DARPA), it condensed the theoretical 7 OSI layers into just 4 functional layers:</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm border-l-4 border-l-indigo-500">
+                        <strong class="text-indigo-800 text-lg block mb-1">1. Network Access Layer (Link Layer)</strong>
+                        <p class="text-sm text-slate-600">Combines the functions of OSI's Physical and Data Link layers. It handles hardware addressing and physical transmission.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm border-l-4 border-l-cyan-500">
+                        <strong class="text-cyan-800 text-lg block mb-1">2. Internet Layer</strong>
+                        <p class="text-sm text-slate-600">Equivalent to OSI's Network layer. It handles IP addressing and routing packets across the internet.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm border-l-4 border-l-emerald-500">
+                        <strong class="text-emerald-800 text-lg block mb-1">3. Transport Layer</strong>
+                        <p class="text-sm text-slate-600">Equivalent to OSI's Transport layer. It handles end-to-end communication using TCP (reliable) or UDP (fast).</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm border-l-4 border-l-rose-500">
+                        <strong class="text-rose-800 text-lg block mb-1">4. Application Layer</strong>
+                        <p class="text-sm text-slate-600">Combines OSI's Session, Presentation, and Application layers into one massive layer that handles all software protocols (HTTP, FTP, DNS).</p>
+                    </div>
+                </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">C. Comparison: OSI vs TCP/IP <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">C. Comparison: OSI vs TCP/IP <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">6-Mark PYQ</span></h3>
             
-            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+            <div class="overflow-x-auto shadow-2xl rounded-3xl border border-slate-800 mb-16">
                 <table class="w-full text-left border-collapse bg-white">
                     <thead>
                         <tr class="bg-slate-800 text-white">
-                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
-                            <th class="p-5 font-bold text-sm text-cyan-300 border-r border-slate-700">OSI Model</th>
-                            <th class="p-5 font-bold text-sm text-indigo-300">TCP/IP Model</th>
+                            <th class="p-5 font-bold text-base border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-base text-cyan-300 border-r border-slate-700">OSI Reference Model</th>
+                            <th class="p-5 font-bold text-base text-indigo-300">TCP/IP Reference Model</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-200">
-                        <tr class="hover:bg-slate-50">
+                        <tr class="hover:bg-slate-50 transition-colors">
                             <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Full Form</td>
                             <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Open Systems Interconnection.</td>
                             <td class="p-5 text-slate-700 text-sm">Transmission Control Protocol / Internet Protocol.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
+                        <tr class="hover:bg-slate-50 transition-colors">
                             <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Number of Layers</td>
-                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm font-bold text-cyan-600">Has 7 distinct layers.</td>
-                            <td class="p-5 text-slate-700 text-sm font-bold text-indigo-600">Has 4 layers.</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm font-bold text-cyan-600">Consists of exactly 7 well-defined layers.</td>
+                            <td class="p-5 text-slate-700 text-sm font-bold text-indigo-600">Consists of only 4 broad layers.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Nature</td>
-                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">It is a theoretical, reference model.</td>
-                            <td class="p-5 text-slate-700 text-sm">It is a practical, widely implemented model (the Internet uses this).</td>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Nature & Usage</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">It is a theoretical, conceptual reference model. Rarely used in practice today.</td>
+                            <td class="p-5 text-slate-700 text-sm font-bold text-emerald-600">It is a highly practical, implementation-based model. The entire modern Internet is based on it.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Development</td>
-                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Developed by ISO (International Org for Standardization).</td>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Development Origin</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Developed by ISO (International Organization for Standardization).</td>
                             <td class="p-5 text-slate-700 text-sm">Developed by DARPA (US Department of Defense).</td>
                         </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Strictness</td>
-                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Strict boundary between layers.</td>
-                            <td class="p-5 text-slate-700 text-sm">Looser boundaries; Application layer does many jobs.</td>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Layer Strictness</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Very strict boundaries between layers. Functions are clearly separated.</td>
+                            <td class="p-5 text-slate-700 text-sm">Looser boundaries; the Application layer handles multiple complex jobs simultaneously.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Delivery Guarantee</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Network layer guarantees both connection-oriented and connectionless services.</td>
+                            <td class="p-5 text-slate-700 text-sm">Internet layer only supports connectionless (IP) services. Delivery guarantee is pushed to the Transport layer (TCP).</td>
                         </tr>
                     </tbody>
                 </table>
@@ -583,6 +713,7 @@
 
             <hr class="border-slate-200 my-12" />
 
+            <!-- Section 6 -->
             <div id="media" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
                 <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
                     <i class="fa-solid fa-wifi"></i>
@@ -593,110 +724,123 @@
             <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
-                    <p class="text-red-900 font-medium">Explain various transmission media. Compare guided and unguided. Analyse special features of wired vs wireless connectivity.</p>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">Explain various transmission media. Compare guided and unguided media. Analyse special features of wired vs wireless connectivity with examples.</p>
                 </div>
             </div>
 
-            <p class="text-slate-600 mb-6 font-medium">Transmission media is the physical path carrying the data. It is divided into two categories:</p>
+            <p class="text-slate-600 mb-6 font-medium text-lg">Transmission media provides the physical path connecting the sender and receiver. It is broadly categorized into Guided (Wired) and Unguided (Wireless).</p>
 
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200" alt="Transmission Media Fiber Optics Router" class="w-full h-64 object-cover rounded-2xl shadow-sm mb-8" />
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200" alt="Transmission Media Fiber Optics Router" class="w-full h-72 object-cover rounded-3xl shadow-lg mb-10" />
 
-            <div class="grid md:grid-cols-2 gap-8 mb-10 mt-8">
-                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-network-wired text-blue-500"></i> A. Guided Media (Wired)</h3>
-                    <p class="text-sm text-slate-600 mb-4">Here, the signal is "guided" through a physical wire or cable.</p>
-                    <ul class="space-y-4 text-sm">
-                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                            <strong class="text-slate-800 block">Twisted Pair Cable</strong>
-                            <span class="text-slate-600">Two insulated copper wires twisted to cancel out electromagnetic interference. (Cat6 LAN cables).</span>
-                        </li>
-                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                            <strong class="text-slate-800 block">Coaxial Cable</strong>
-                            <span class="text-slate-600">Central copper core surrounded by insulator and braided metal shield. (Cable TV).</span>
-                        </li>
-                        <li class="bg-blue-50 p-3 rounded-xl border border-blue-100">
-                            <strong class="text-blue-900 block">Optical Fiber Cable (OFC)</strong>
-                            <span class="text-blue-800">Uses glass/plastic threads to transmit data using pulses of light instead of electricity. Extremely high bandwidth.</span>
-                        </li>
-                    </ul>
+            <div class="space-y-8 mb-12">
+                <!-- Guided -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fa-solid fa-network-wired text-blue-500"></i> A. Guided Media (Wired / Bound)</h3>
+                    <p class="text-slate-600 mb-6 font-medium">In guided media, the signal energy is strictly contained and guided through a solid physical conduit (wire or cable).</p>
+                    <div class="space-y-6">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">1. Twisted Pair Cable</h4>
+                            <p class="text-sm text-slate-600 mb-2"><strong>Construction:</strong> Consists of two insulated copper wires twisted around each other in a spiral pattern. Twisting is crucial because it cancels out Electromagnetic Interference (EMI) and "cross-talk" from adjacent wires.</p>
+                            <p class="text-sm text-slate-600 mb-2"><strong>Types:</strong> Unshielded Twisted Pair (UTP - common LAN cables like Cat5e/Cat6) and Shielded Twisted Pair (STP - has extra metal foil for industrial environments).</p>
+                            <p class="text-sm text-indigo-700 font-medium bg-indigo-50 p-2 rounded inline-block"><strong>Usage:</strong> Standard office LAN networks and old telephone lines.</p>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">2. Coaxial Cable</h4>
+                            <p class="text-sm text-slate-600 mb-2"><strong>Construction:</strong> Has a solid central copper core (which carries data), surrounded by a plastic insulator, which is then wrapped in a braided metal wire mesh shield (to block massive outside interference), covered by an outer plastic jacket.</p>
+                            <p class="text-sm text-indigo-700 font-medium bg-indigo-50 p-2 rounded inline-block"><strong>Usage:</strong> Used extensively for Cable TV networks and high-speed broadband internet lines.</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-200 shadow-md border-l-4 border-l-blue-500">
+                            <h4 class="text-xl font-bold text-blue-900 mb-2">3. Optical Fiber Cable (OFC)</h4>
+                            <p class="text-sm text-blue-800 mb-2"><strong>Construction:</strong> Uses ultra-pure glass or plastic threads (the core) surrounded by a reflective cladding.</p>
+                            <p class="text-sm text-blue-800 mb-2"><strong>Working:</strong> It transmits data using pulses of light instead of electrical voltage, utilizing the principle of Total Internal Reflection.</p>
+                            <p class="text-sm text-indigo-800 font-bold bg-white/60 p-3 rounded shadow-sm mt-2"><strong>Features:</strong> Offers incredibly high bandwidth (Gigabits to Terabits per second), is 100% immune to electrical interference, and can transmit data over hundreds of kilometers without losing signal strength.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-tower-broadcast text-purple-500"></i> B. Unguided Media (Wireless)</h3>
-                    <p class="text-sm text-slate-600 mb-4">Data is transmitted through the air (or vacuum) using electromagnetic waves without physical cables.</p>
-                    <ul class="space-y-4 text-sm">
-                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                            <strong class="text-slate-800 block">Radio Waves</strong>
-                            <span class="text-slate-600">Omnidirectional (travels in all directions). Penetrates walls easily. (FM Radio, Wi-Fi).</span>
-                        </li>
-                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                            <strong class="text-slate-800 block">Microwaves</strong>
-                            <span class="text-slate-600">Unidirectional (straight line). Sender/receiver must face each other. (Satellite comms, 5G).</span>
-                        </li>
-                        <li class="bg-purple-50 p-3 rounded-xl border border-purple-100">
-                            <strong class="text-purple-900 block">Infrared</strong>
-                            <span class="text-purple-800">Short-range. Cannot penetrate walls. (TV remote controls).</span>
-                        </li>
-                    </ul>
+                <!-- Unguided -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fa-solid fa-tower-broadcast text-purple-500"></i> B. Unguided Media (Wireless / Unbound)</h3>
+                    <p class="text-slate-600 mb-6 font-medium">In unguided media, data is transmitted through the air (or vacuum of space) using electromagnetic waves. No physical cabling is required.</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col h-full">
+                            <h4 class="text-lg font-bold text-slate-800 mb-2"><i class="fa-solid fa-radio text-rose-500 mr-2"></i> Radio Waves</h4>
+                            <p class="text-sm text-slate-600 mb-3 flex-grow"><strong>Features:</strong> Frequencies ranging from 3 kHz to 1 GHz. They are generally omnidirectional (travel in all directions from the antenna). They can easily penetrate through solid walls.</p>
+                            <p class="text-xs text-rose-800 font-medium bg-rose-50 p-2 rounded border border-rose-100 mt-auto"><strong>Usage:</strong> FM/AM Radio broadcasting, TV broadcasts, and Walkie-Talkies.</p>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col h-full">
+                            <h4 class="text-lg font-bold text-slate-800 mb-2"><i class="fa-solid fa-satellite text-cyan-500 mr-2"></i> Microwaves</h4>
+                            <p class="text-sm text-slate-600 mb-3 flex-grow"><strong>Features:</strong> Frequencies from 1 GHz to 300 GHz. They are strictly unidirectional (travel in a straight line). Sender and receiver antennas must be perfectly aligned (Line-of-Sight). Cannot penetrate heavy rain or thick walls easily.</p>
+                            <p class="text-xs text-cyan-800 font-medium bg-cyan-50 p-2 rounded border border-cyan-100 mt-auto"><strong>Usage:</strong> Satellite communication, Radar, and Mobile tower backhaul links.</p>
+                        </div>
+                        <div class="bg-purple-50 p-5 rounded-2xl border border-purple-200 shadow-sm flex flex-col h-full border-t-4 border-t-purple-500">
+                            <h4 class="text-lg font-bold text-purple-900 mb-2"><i class="fa-solid fa-mobile-screen text-purple-600 mr-2"></i> Infrared</h4>
+                            <p class="text-sm text-purple-800 mb-3 flex-grow"><strong>Features:</strong> Extremely high frequencies used for short-range communication. It absolutely cannot penetrate walls (which is highly beneficial for security to prevent signal leaking).</p>
+                            <p class="text-xs text-purple-900 font-bold bg-white/60 p-2 rounded border border-purple-100 mt-auto"><strong>Usage:</strong> TV remote controls, wireless keyboards, and short-range device sharing.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">C. Comparison: Guided vs Unguided Media <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
-            
-            <div class="overflow-x-auto shadow-sm rounded-2xl border border-slate-200 mb-10">
-                <table class="w-full text-left border-collapse bg-white">
-                    <thead>
-                        <tr class="bg-slate-100 text-slate-700">
-                            <th class="p-4 border-b border-slate-200 font-bold text-sm">Feature</th>
-                            <th class="p-4 border-b border-slate-200 font-bold text-sm text-blue-700"><i class="fa-solid fa-plug mr-1"></i> Guided (Wired)</th>
-                            <th class="p-4 border-b border-slate-200 font-bold text-sm text-purple-700"><i class="fa-solid fa-wifi mr-1"></i> Unguided (Wireless)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100">
-                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Physical Medium</td><td class="p-4 text-slate-600 text-sm">Uses physical cables (Copper, Glass).</td><td class="p-4 text-slate-600 text-sm">Uses air/vacuum to transmit waves.</td></tr>
-                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Direction</td><td class="p-4 text-slate-600 text-sm">Directed and point-to-point.</td><td class="p-4 text-slate-600 text-sm">Usually omnidirectional (broadcasts everywhere).</td></tr>
-                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Cost</td><td class="p-4 text-slate-600 text-sm">More expensive (cable costs, digging).</td><td class="p-4 text-slate-600 text-sm">Cheaper to deploy over large areas.</td></tr>
-                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Speed</td><td class="p-4 text-slate-600 text-sm font-bold text-emerald-600">Extremely high speed (Fiber Optics).</td><td class="p-4 text-slate-600 text-sm">Lower speeds compared to Fiber optics.</td></tr>
-                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Security</td><td class="p-4 text-slate-600 text-sm font-bold text-emerald-600">Highly secure. Harder to tap into wire.</td><td class="p-4 text-slate-600 text-sm font-bold text-rose-500">Less secure. Can be intercepted in air.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="bg-gradient-to-r from-slate-800 to-slate-900 p-8 rounded-3xl text-white shadow-xl">
-                <h3 class="text-xl font-bold text-cyan-300 mb-6 border-b border-slate-700 pb-3">D. Special Features: Wired vs Wireless</h3>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-10 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+                <i class="fa-solid fa-scale-balanced absolute right-[-20px] bottom-[-20px] text-[15rem] text-white opacity-5"></i>
+                <h3 class="text-3xl font-bold text-cyan-400 mb-8 border-b border-slate-700 pb-4 relative z-10">C. Special Features Analysis: Wired vs Wireless Connectivity <span class="bg-red-500 text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-wider ml-3 align-middle shadow-lg">6-Mark PYQ</span></h3>
                 
-                <div class="grid sm:grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-2 gap-10 relative z-10">
                     <div>
-                        <h4 class="font-bold text-white mb-3 flex items-center gap-2"><i class="fa-solid fa-ethernet text-blue-400"></i> Wired Features</h4>
-                        <ul class="space-y-3 text-sm text-slate-300">
-                            <li><strong class="text-blue-200">Immunity to interference:</strong> A fiber optic cable under the ocean is not affected by thunderstorms.</li>
-                            <li><strong class="text-blue-200">Reliability:</strong> Constant speed. Gamers and stock traders use wired LANs because it doesn't "drop out."</li>
+                        <h4 class="text-2xl font-black text-white mb-6 flex items-center gap-3"><i class="fa-solid fa-ethernet text-blue-400"></i> Features of Wired (Guided)</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                                <strong class="text-blue-300 text-lg block mb-1">Immunity to Environmental Interference</strong>
+                                <p class="text-sm text-slate-300 leading-relaxed">A buried fiber optic cable or a shielded Cat6 cable is largely unaffected by thunderstorms, heavy rain, or physical obstacles.</p>
+                            </li>
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                                <strong class="text-blue-300 text-lg block mb-1">Consistent Reliability and Speed</strong>
+                                <p class="text-sm text-slate-300 leading-relaxed">Provides dedicated, constant bandwidth. Serious gamers, server farms, and stock traders exclusively use wired Ethernet LANs because connections do not drop or fluctuate unexpectedly.</p>
+                            </li>
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                                <strong class="text-blue-300 text-lg block mb-1">High Security</strong>
+                                <p class="text-sm text-slate-300 leading-relaxed">To hack a wired network, a person must physically enter the building and tap the wire. It cannot be intercepted from the parking lot.</p>
+                            </li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-bold text-white mb-3 flex items-center gap-2"><i class="fa-solid fa-signal text-purple-400"></i> Wireless Features</h4>
-                        <ul class="space-y-3 text-sm text-slate-300">
-                            <li><strong class="text-purple-200">Mobility:</strong> Allows a user to walk around the building with their smartphone seamlessly.</li>
-                            <li><strong class="text-purple-200">Scalability:</strong> To add a new employee, just give the Wi-Fi password. (Wired requires physically running a new cable).</li>
+                        <h4 class="text-2xl font-black text-white mb-6 flex items-center gap-3"><i class="fa-solid fa-signal text-purple-400"></i> Features of Wireless (Unguided)</h4>
+                        <ul class="space-y-6">
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                                <strong class="text-purple-300 text-lg block mb-1">Ultimate Mobility (Greatest Feature)</strong>
+                                <p class="text-sm text-slate-300 leading-relaxed">Users can walk around a campus with a smartphone or laptop while continuously streaming a high-definition video without losing connection.</p>
+                            </li>
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                                <strong class="text-purple-300 text-lg block mb-1">Ease of Scalability & Deployment</strong>
+                                <p class="text-sm text-slate-300 leading-relaxed">If an office hires 10 new employees, the IT admin just gives them the Wi-Fi password. In a wired network, engineers would have to physically run 10 new cables through the ceiling to their desks, which is costly and time-consuming.</p>
+                            </li>
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                                <strong class="text-purple-300 text-lg block mb-1">Terrain Flexibility</strong>
+                                <p class="text-sm text-slate-300 leading-relaxed">Essential for mountainous, highly forested, or rural areas where digging deep trenches to lay physical cables is impossible or economically too expensive.</p>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
+            <!-- Footer Notes -->
             <div class="mt-20 p-10 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
                 <div class="relative z-10">
-                    <h2 class="text-3xl font-extrabold mb-4">End of Unit 1 Notes</h2>
-                    <p class="text-cyan-100 text-lg max-w-3xl mx-auto bg-black/20 p-4 rounded-xl border border-white/10 font-medium">
-                        <i class="fa-solid fa-star text-yellow-300 mr-2"></i> Focus heavily on the <strong>OSI 7-layer model</strong> and the differences between <strong>OSI/TCP-IP</strong> and <strong>Wired/Wireless</strong> as these repeat constantly in your PYQs!
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 1 Notes</h2>
+                    <p class="text-cyan-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        By studying these expanded 6-mark formats, especially the <strong>OSI Layer functions</strong>, <strong>Topology comparisons</strong>, and the <strong>Block Diagram</strong>, you are guaranteed to score maximum marks.
                     </p>
                 </div>
-                <i class="fa-solid fa-rocket absolute bottom-[-20px] right-4 text-[12rem] text-white opacity-10"></i>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
             </div>
 
         </article>
     </main>
 
+    <!-- Scroll Progress Script -->
     <script>
         window.addEventListener('scroll', () => {
             const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
