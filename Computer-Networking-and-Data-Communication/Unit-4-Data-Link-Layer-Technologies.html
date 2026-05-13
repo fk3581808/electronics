@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrepreneurship Notes - Unit 4</title>
+    <title>Computer Networking Notes - Unit 4</title>
     <!-- Tailwind CSS for Styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
@@ -11,34 +11,35 @@
     <style>
         html { scroll-behavior: smooth; }
         .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .math-box { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
     </style>
 </head>
-<body class="bg-slate-50 font-sans selection:bg-indigo-200 selection:text-indigo-900">
+<body class="bg-slate-50 font-sans selection:bg-cyan-200 selection:text-cyan-900">
 
     <!-- Progress Bar -->
     <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
-        <div id="progressBar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+        <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 transition-all duration-150 ease-out" style="width: 0%"></div>
     </div>
 
     <!-- Hero Header -->
     <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070" alt="Business Management and Organization" class="w-full h-full object-cover opacity-20" />
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2070" alt="Server Room Networking Switch" class="w-full h-full object-cover opacity-20" />
             <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
         </div>
         
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
-            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
                 Diploma Electronics Engineering - Sem 6
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 mb-6 drop-shadow-sm">
-                Management
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-200 to-indigo-200 mb-6 drop-shadow-sm">
+                Data Link & <br/>Network Layer
             </h1>
             <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
-                Unit-IV. Prepared based on Full Syllabus + Previous Year Questions Analysis. Master organizational structures, talent management, and business finance.
+                Unit-IV. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
             </p>
             <div class="flex justify-center gap-4">
-                <a href="#start" class="px-8 py-4 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-indigo-500/30 flex items-center gap-2">
+                <a href="#start" class="px-8 py-4 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30 flex items-center gap-2">
                     Start Learning <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -53,309 +54,221 @@
             <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                 <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
                 <nav class="space-y-3">
-                    <a href="#org-structure" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
-                        <i class="fa-solid fa-sitemap text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 1. Organization Structure
+                    <a href="#dll-functions" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-layer-group text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 1. DLL Functions
                     </a>
-                    <a href="#talent-management" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
-                        <i class="fa-solid fa-users-gear text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 2. Talent Management
+                    <a href="#error-control" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-shield-halved text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 2. Error Detection/Correction
                     </a>
-                    <a href="#financial-management" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
-                        <i class="fa-solid fa-coins text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 3. Financial Management
+                    <a href="#multiplexing" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-arrows-split-up-and-left text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 3. Multiplexing
+                    </a>
+                    <a href="#switching" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-random text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 4. Switching Techniques
+                    </a>
+                    <a href="#network-layer" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-globe text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 5. Network Layer & IP
+                    </a>
+                    <a href="#routing" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-route text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 6. Routing & Congestion
                     </a>
                 </nav>
             </div>
         </aside>
 
         <!-- Right Content Area -->
-        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-indigo prose-headings:font-bold prose-a:text-indigo-600">
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-cyan prose-headings:font-bold prose-a:text-cyan-600">
 
             <!-- Section 1 -->
-            <div id="org-structure" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
-                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
-                    <i class="fa-solid fa-sitemap"></i>
+            <div id="dll-functions" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-layer-group"></i>
                 </div>
-                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Company’s Organization Structure</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Data Link Layer (DLL) Functions</h2>
             </div>
 
             <!-- PYQ Alert -->
-            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm">
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
-                    <p class="text-red-900 font-medium">What are the key elements of organizational structure? Discuss the different types of organizational structure.</p>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">Illustrate the functions of the data link layer. Explain the different functions of Data Link Layer.</p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10"></div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
-                    <span class="text-blue-600">A.</span> What is an Organizational Structure?
-                </h3>
-                <p class="text-slate-600 mb-6">An Organizational Structure is a system that outlines how certain activities are directed in order to achieve the goals of an organization. These activities include rules, roles, and responsibilities. It also determines how information flows between levels within the company.</p>
-                
-                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
-                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
-                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
-                        <p class="text-purple-900 leading-relaxed text-sm">Think of an organizational structure like a <strong>circuit schematic diagram</strong>. Just as a schematic shows how the battery, resistors, and LEDs are connected and how current flows between them, an org structure shows who is the boss, who reports to whom, and how decisions "flow" in the company.</p>
-                    </div>
-                </div>
-            </div>
+            <p class="text-slate-600 mb-6 font-medium text-lg">The Data Link Layer (Layer 2 of the OSI Model) transforms the physical layer—a raw transmission facility—into a reliable link. It is responsible for node-to-node delivery.</p>
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Key Elements of Organizational Structure <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">Crucial PYQ</span></h3>
-            <p class="mb-6 text-slate-600">Before designing a structure, managers must consider these 6 key elements:</p>
-
-            <div class="grid sm:grid-cols-2 gap-6 mb-12">
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
-                    <div class="bg-indigo-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-indigo-600"><i class="fa-solid fa-people-carry-box"></i></div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-1">1. Work Specialization</h4>
-                        <p class="text-sm text-slate-600 mb-2">(Division of Labor): Dividing the work into separate jobs.</p>
-                        <p class="text-xs text-slate-500 bg-slate-50 p-2 rounded"><strong>Ex:</strong> In an electronics factory, one person only solders components, another only tests the final PCB.</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
-                    <div class="bg-emerald-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-emerald-600"><i class="fa-solid fa-building-user"></i></div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-1">2. Departmentalization</h4>
-                        <p class="text-sm text-slate-600 mb-2">Grouping jobs together so common tasks can be coordinated.</p>
-                        <p class="text-xs text-slate-500 bg-slate-50 p-2 rounded"><strong>Ex:</strong> Marketing Dept, R&D Dept, Production Dept.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
-                    <div class="bg-amber-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-amber-600"><i class="fa-solid fa-link"></i></div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-1">3. Chain of Command</h4>
-                        <p class="text-sm text-slate-600">The continuous line of authority that extends from the top of the organization to the lowest level. It clarifies "who reports to whom."</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
-                    <div class="bg-rose-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-rose-600"><i class="fa-solid fa-users-viewfinder"></i></div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-1">4. Span of Control</h4>
-                        <p class="text-sm text-slate-600 mb-2">The number of employees a manager can efficiently and effectively direct.</p>
-                        <p class="text-xs text-slate-500 bg-slate-50 p-2 rounded"><strong>Ex:</strong> A floor supervisor managing 15 technicians.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform sm:col-span-2">
-                    <div class="bg-cyan-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-cyan-600"><i class="fa-solid fa-network-wired"></i></div>
-                    <div class="w-full">
-                        <h4 class="font-bold text-slate-800 mb-2">5. Centralization vs. Decentralization</h4>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                <strong class="text-slate-800 text-sm">Centralization:</strong>
-                                <p class="text-sm text-slate-600">Decision-making is concentrated at the top level (the CEO makes all rules).</p>
-                            </div>
-                            <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                <strong class="text-slate-800 text-sm">Decentralization:</strong>
-                                <p class="text-sm text-slate-600">Decision-making is pushed down to the managers closest to the action.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform sm:col-span-2">
-                    <div class="bg-slate-100 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-slate-600"><i class="fa-solid fa-clipboard-check"></i></div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-1">6. Formalization</h4>
-                        <p class="text-sm text-slate-600">The degree to which jobs within the organization are standardized and strictly follow rules and procedures.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Types of Organizational Structure <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider ml-2 align-middle">Crucial PYQ</span></h3>
-            <p class="mb-6 text-slate-600">Businesses use different structures based on their size and needs:</p>
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">A. Core Functions of the Data Link Layer <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+            <p class="text-slate-500 mb-8 italic border-l-4 border-cyan-500 pl-3 bg-cyan-50 p-2">To score 6 marks, list and explain these 5 functions:</p>
 
             <div class="space-y-6 mb-12">
-                <!-- Functional -->
-                <div class="border-l-4 border-indigo-500 bg-white p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
-                    <h4 class="text-xl font-bold text-indigo-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-layer-group text-indigo-500"></i> 1. Functional Structure</h4>
-                    <p class="text-slate-700 mb-3">The organization is divided into groups based on their specific functions or skills.</p>
-                    <p class="text-sm text-slate-600 mb-3 bg-slate-50 p-2 rounded"><strong>Example:</strong> A tech startup has separate departments for IT, HR, Finance, and Marketing.</p>
-                    <div class="flex gap-6 text-sm">
-                        <span class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> <strong>Pros:</strong> High specialization and efficiency.</span>
-                        <span class="text-rose-700 bg-rose-50 px-2 py-1 rounded"><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> <strong>Cons:</strong> Poor communication between different departments.</span>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-box-open"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-xl mb-1">1. Framing</h4>
+                        <p class="text-sm text-slate-600">The DLL divides the stream of raw bits received from the Network Layer into manageable data units called <strong>Frames</strong>. It adds a header (source and destination addresses) and a trailer (error detection bits) to the data.</p>
                     </div>
                 </div>
 
-                <!-- Divisional -->
-                <div class="border-l-4 border-emerald-500 bg-white p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
-                    <h4 class="text-xl font-bold text-emerald-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-cubes text-emerald-500"></i> 2. Divisional Structure</h4>
-                    <p class="text-slate-700 mb-3">The company is divided into semi-autonomous divisions based on products, services, or geographic locations.</p>
-                    <p class="text-sm text-slate-600 mb-3 bg-slate-50 p-2 rounded"><strong>Electronics Example:</strong> Samsung has a divisional structure: Mobile Division, Home Appliances Division (TVs/Fridges), and Semiconductor/Chip Division. Each division acts like its own mini-company.</p>
-                    <div class="flex gap-6 text-sm flex-wrap">
-                        <span class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> <strong>Pros:</strong> Great for large companies with many products.</span>
-                        <span class="text-rose-700 bg-rose-50 px-2 py-1 rounded"><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> <strong>Cons:</strong> Can lead to duplication of resources (e.g., three HR teams for three divisions).</span>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-address-card"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-xl mb-1">2. Physical Addressing</h4>
+                        <p class="text-sm text-slate-600">If frames are to be distributed to different systems on the local network, the DLL adds a header defining the sender and receiver's physical <strong>MAC Address</strong> (Media Access Control address).</p>
                     </div>
                 </div>
 
-                <!-- Matrix -->
-                <div class="border-l-4 border-amber-500 bg-white p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
-                    <h4 class="text-xl font-bold text-amber-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-border-all text-amber-500"></i> 3. Matrix Structure</h4>
-                    <p class="text-slate-700 mb-3">A hybrid structure where employees report to two bosses: a functional manager and a project manager.</p>
-                    <p class="text-sm text-slate-600 mb-3 bg-slate-50 p-2 rounded"><strong>Example:</strong> An embedded engineer reports to the "Head of Engineering" (Functional Boss) but is currently working on the "Smart Watch Project" and also reports to the "Smart Watch Project Manager."</p>
-                    <div class="flex gap-6 text-sm flex-wrap">
-                        <span class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> <strong>Pros:</strong> Highly flexible and great for complex projects.</span>
-                        <span class="text-rose-700 bg-rose-50 px-2 py-1 rounded"><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> <strong>Cons:</strong> Causes confusion and power struggles because employees have two bosses.</span>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-water"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-xl mb-1">3. Flow Control</h4>
+                        <p class="text-sm text-slate-600">If the sender's transmission rate is much faster than the receiver's processing rate, the receiver will get overwhelmed and drop data. Flow control mechanisms dictate how much data can be sent before waiting for an acknowledgment.</p>
                     </div>
                 </div>
 
-                <!-- Flat -->
-                <div class="border-l-4 border-sky-500 bg-white p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
-                    <h4 class="text-xl font-bold text-sky-900 mb-2 flex items-center gap-2"><i class="fa-solid fa-grip-lines text-sky-500"></i> 4. Flat Structure</h4>
-                    <p class="text-slate-700 mb-3">There are very few or no levels of middle management between staff and executives.</p>
-                    <p class="text-sm text-slate-600 bg-slate-50 p-2 rounded"><strong>Example:</strong> A new startup with 10 engineers who all directly report to the founder.</p>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-shield-virus"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-xl mb-1">4. Error Control</h4>
+                        <p class="text-sm text-slate-600">The DLL ensures reliability by detecting and retransmitting damaged, lost, or corrupted frames. It uses a trailer called the <strong>FCS (Frame Check Sequence)</strong> to check for errors.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-traffic-light"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-xl mb-1">5. Access Control (MAC)</h4>
+                        <p class="text-sm text-slate-600">When two or more devices are connected to the same communication link, MAC protocols determine exactly which device has control over the link at any given time to prevent data collisions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-purple-50 to-fuchsia-50 p-6 rounded-3xl border border-purple-100 shadow-md flex items-start gap-5">
+                <div class="bg-purple-200 w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 text-purple-700 text-2xl shadow-sm"><i class="fa-solid fa-brain"></i></div>
+                <div>
+                    <strong class="text-purple-900 block mb-2 text-lg">Easy Word Explanation (The Factory Analogy)</strong>
+                    <p class="text-sm text-purple-800 leading-relaxed">Imagine a factory sending glass bottles. The Physical Layer is the truck driving. The <strong>Data Link Layer is the packaging department</strong>: they pack bottles into safe boxes <em>(Framing)</em>, write the local delivery address <em>(Physical Addressing)</em>, make sure the truck isn't overloaded <em>(Flow Control)</em>, and check for broken bottles upon arrival <em>(Error Control)</em>.</p>
                 </div>
             </div>
 
             <hr class="border-slate-200 my-12" />
 
             <!-- Section 2 -->
-            <div id="talent-management" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
-                <div class="bg-gradient-to-r from-emerald-500 to-teal-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
-                    <i class="fa-solid fa-users-gear"></i>
+            <div id="error-control" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
                 </div>
-                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Recruitment and Management of Talent</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Error Detection and Correction</h2>
             </div>
             
-            <!-- PYQ Alert -->
             <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
-                    <p class="text-red-900 font-medium">Difference between recruitment and selection. Explain how 'talent management' is beneficial for organization. Significance for employees and organization.</p>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain Checksum error detection with a suitable diagram/example. Explain CRC method of Error Detection with suitable example. Explain Hamming code correction technique with suitable example.</p>
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Recruitment vs. Selection <span class="text-sm font-bold text-white bg-red-500 px-3 py-1 rounded-full ml-2 align-middle">Important Table</span></h3>
-            <p class="mb-6 text-slate-600">Many people think these two are the same, but they are opposite phases of the hiring process.</p>
+            <p class="text-slate-600 mb-4">When data travels across a physical medium, electrical noise can flip a 0 to a 1, causing an error.</p>
+            <ul class="list-disc pl-5 mb-8 text-slate-700 text-sm bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <li><strong>Single-Bit Error:</strong> Only one bit of a given data unit is changed.</li>
+                <li><strong>Burst Error:</strong> Two or more bits in the data unit are changed (common in wireless networks).</li>
+            </ul>
 
-            <div class="overflow-x-auto shadow-lg rounded-3xl border border-slate-200 mb-12">
-                <table class="w-full text-left border-collapse bg-white">
-                    <thead>
-                        <tr class="bg-slate-800 text-white">
-                            <th class="p-5 font-bold uppercase tracking-wider text-sm border-r border-slate-700">Feature</th>
-                            <th class="p-5 font-bold uppercase tracking-wider text-sm text-emerald-300 border-r border-slate-700"><i class="fa-solid fa-bullhorn mr-2"></i> Recruitment</th>
-                            <th class="p-5 font-bold uppercase tracking-wider text-sm text-rose-300"><i class="fa-solid fa-filter mr-2"></i> Selection</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200">
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Definition</td>
-                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">The process of searching for prospective candidates and stimulating them to apply for jobs.</td>
-                            <td class="p-5 text-slate-700 text-sm">The process of choosing the most suitable candidate from those who applied.</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Nature of Process</td>
-                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm"><span class="text-emerald-600 font-bold">Positive Process:</span> The goal is to get as many people as possible to apply.</td>
-                            <td class="p-5 text-slate-700 text-sm"><span class="text-rose-600 font-bold">Negative Process:</span> The goal is to reject unsuitable candidates and keep only the best one.</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Sequence</td>
-                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">It is the first step.</td>
-                            <td class="p-5 text-slate-700 text-sm">It is the second step (starts after recruitment ends).</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Technique</td>
-                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Advertising the job on LinkedIn, newspapers, or college campuses.</td>
-                            <td class="p-5 text-slate-700 text-sm">Conducting written tests, technical interviews, and HR rounds.</td>
-                        </tr>
-                        <tr class="hover:bg-blue-50 transition-colors bg-blue-50/30">
-                            <td class="p-5 font-bold text-blue-900 border-r border-slate-200 text-sm"><i class="fa-solid fa-microchip mr-2"></i> Electronics Ex.</td>
-                            <td class="p-5 text-blue-800 border-r border-slate-200 text-sm">Putting up a poster: "We need 50 Diploma Electronics Engineers! Apply now!"</td>
-                            <td class="p-5 text-blue-800 text-sm">Taking a soldering test and interview, rejecting 48 people, and hiring the best 2.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Checksum -->
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Checksum Error Detection <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">Asked 3 Times</span></h3>
+            <p class="text-slate-600 mb-6">Checksum is a mathematical error detection mechanism based on binary addition.</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                    <h4 class="text-lg font-bold text-indigo-700 mb-3"><i class="fa-solid fa-paper-plane mr-2"></i> Sender Side Process</h4>
+                    <ol class="list-decimal pl-5 text-sm text-slate-600 space-y-2">
+                        <li>The data is divided into equal-sized segments (e.g., 8-bit or 16-bit blocks).</li>
+                        <li>All segments are added together using 1's complement arithmetic.</li>
+                        <li>The final sum is inverted (1's complement) to create the <strong>Checksum</strong>.</li>
+                        <li>The sender attaches this Checksum to the data and sends it.</li>
+                    </ol>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                    <h4 class="text-lg font-bold text-emerald-700 mb-3"><i class="fa-solid fa-inbox mr-2"></i> Receiver Side Process</h4>
+                    <ol class="list-decimal pl-5 text-sm text-slate-600 space-y-2">
+                        <li>The receiver divides the received message into the same segments.</li>
+                        <li>It adds all segments <strong>plus</strong> the received Checksum.</li>
+                        <li>If the final inverted result is ALL ZEROS (0000), the data is accepted. If there is even one '1', the data is corrupted and rejected.</li>
+                    </ol>
+                </div>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10"></div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
-                    <span class="text-emerald-600">B.</span> What is Talent Management?
-                </h3>
-                <p class="text-slate-600 mb-6">Talent Management is the continuous, strategic process of attracting, hiring, developing, retaining, and promoting the best employees in an organization. It is not just about hiring someone; it's about making sure they grow and stay with the company for a long time.</p>
+            <!-- Checksum Math Example -->
+            <div class="bg-slate-900 text-slate-100 rounded-3xl p-8 shadow-xl math-box overflow-hidden relative mb-12">
+                <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-2xl font-sans font-bold text-xs uppercase tracking-widest shadow-md">6-Mark Example</div>
+                <h4 class="text-cyan-300 font-bold mb-4 text-xl border-b border-slate-700 pb-2 font-sans">Checksum Example</h4>
                 
-                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
-                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
-                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                <p class="mb-4 text-slate-300">Let data be two 4-bit blocks: <strong>1010</strong> and <strong>0101</strong>.</p>
+                
+                <div class="grid sm:grid-cols-2 gap-8">
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <strong class="text-blue-300 font-sans block mb-2 border-b border-white/10 pb-1">SENDER</strong>
+                        <p class="mb-1">Addition: 1010 + 0101 = <span class="text-white font-bold bg-white/10 px-1 rounded">1111</span></p>
+                        <p class="mb-1">Checksum (Invert sum): <span class="text-emerald-400 font-bold bg-emerald-900/40 px-1 rounded">0000</span></p>
+                        <p class="mt-3 text-sm text-slate-400 font-sans">Send data + checksum: <br/><span class="text-white text-base font-mono">1010, 0101, 0000</span></p>
                     </div>
-                    <div>
-                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Tree Analogy)</h4>
-                        <p class="text-purple-900 leading-relaxed text-sm">If recruitment is <strong class="text-purple-950">"buying a good seed,"</strong> then talent management is <strong class="text-purple-950">"planting it, watering it, giving it fertilizer, and making sure it grows into a strong, fruit-bearing tree</strong> instead of dying or being stolen by a neighbor."</p>
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <strong class="text-emerald-300 font-sans block mb-2 border-b border-white/10 pb-1">RECEIVER</strong>
+                        <p class="mb-1">Receiver adds them:</p>
+                        <p class="mb-1 text-slate-300">1010 + 0101 + 0000 = <span class="text-white font-bold bg-white/10 px-1 rounded">1111</span></p>
+                        <p class="mb-1">Receiver inverts sum: <span class="text-emerald-400 font-bold bg-emerald-900/40 px-1 rounded">0000</span></p>
+                        <p class="mt-3 text-sm text-emerald-400 font-sans font-bold"><i class="fa-solid fa-check mr-1"></i> Result is 0, so NO ERROR.</p>
                     </div>
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Significance / Benefits of Talent Management</h3>
+            <!-- CRC -->
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">B. Cyclic Redundancy Check (CRC) <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 mb-6">CRC is a highly robust error detection method based on binary polynomial division.</p>
             
-            <div class="grid md:grid-cols-2 gap-8 mb-10">
-                <!-- Organization Benefits -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:-translate-y-1 transition-transform">
-                    <h4 class="text-xl font-bold text-indigo-800 mb-4 border-b border-slate-200 pb-2"><i class="fa-solid fa-building mr-2"></i> 1. Benefits for Organization</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-lock text-indigo-500 mt-1"></i>
-                            <div>
-                                <strong class="text-slate-800 text-sm block">Retaining Top Talent</strong>
-                                <p class="text-sm text-slate-600">Ensures your best employees don't quit and join competitors.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-chart-line text-indigo-500 mt-1"></i>
-                            <div>
-                                <strong class="text-slate-800 text-sm block">Higher Productivity</strong>
-                                <p class="text-sm text-slate-600">Trained employees in matching roles dramatically increase output.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-piggy-bank text-indigo-500 mt-1"></i>
-                            <div>
-                                <strong class="text-slate-800 text-sm block">Saves Cost</strong>
-                                <p class="text-sm text-slate-600">Hiring constantly is expensive. Retaining old employees saves money.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-trophy text-indigo-500 mt-1"></i>
-                            <div>
-                                <strong class="text-slate-800 text-sm block">Competitive Advantage</strong>
-                                <p class="text-sm text-slate-600">A company with highly skilled, motivated employees will easily beat a competitor with average, unmotivated staff.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm mb-6">
+                <strong class="text-slate-800 block mb-3 text-lg border-b pb-2">Process:</strong>
+                <ol class="list-decimal pl-5 text-sm text-slate-600 space-y-3">
+                    <li>A predetermined divisor (generator polynomial) is agreed upon by both sender and receiver (e.g., 1011).</li>
+                    <li>The sender appends <em>n-1</em> zeros to the data (where <em>n</em> is the length of the divisor).</li>
+                    <li>The sender performs binary division (using XOR operation) of the new data by the divisor.</li>
+                    <li>The remainder obtained is the <strong>CRC</strong>. The sender replaces the appended zeros with the CRC and sends the frame.</li>
+                    <li>The receiver performs the same division. If the remainder is 0, there is no error.</li>
+                </ol>
+            </div>
 
-                <!-- Employee Benefits -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:-translate-y-1 transition-transform">
-                    <h4 class="text-xl font-bold text-emerald-800 mb-4 border-b border-slate-200 pb-2"><i class="fa-solid fa-user-tie mr-2"></i> 2. Benefits for Employees</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-arrow-trend-up text-emerald-500 mt-1"></i>
-                            <div>
-                                <strong class="text-slate-800 text-sm block">Career Growth & Development</strong>
-                                <p class="text-sm text-slate-600">Employees receive training (like learning advanced IoT programming), making them more valuable.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-face-smile text-emerald-500 mt-1"></i>
-                            <div>
-                                <strong class="text-slate-800 text-sm block">Job Satisfaction</strong>
-                                <p class="text-sm text-slate-600">When management cares about their talent, employees feel respected and happy.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-fire text-emerald-500 mt-1"></i>
-                            <div>
-                                <strong class="text-slate-800 text-sm block">Motivation</strong>
-                                <p class="text-sm text-slate-600">Proper talent management includes performance-based bonuses and promotions, which keeps employees highly motivated.</p>
-                            </div>
-                        </li>
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-12">
+                <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-1">Easy Word Explanation (The Password)</h4>
+                    <p class="text-purple-900 leading-relaxed text-sm">The sender divides the data by a secret number. The remainder is attached like a password. The receiver divides the whole packet by the same secret number. If the math divides perfectly without a remainder, the data is uncorrupted.</p>
+                </div>
+            </div>
+
+            <!-- Hamming Code -->
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">C. Hamming Code Correction Technique <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 mb-6 font-medium">Error detection only tells you there is an error. Error <em>correction</em> tells you exactly which bit flipped so the receiver can fix it automatically without asking for retransmission.</p>
+
+            <div class="bg-slate-900 text-slate-100 rounded-3xl p-8 shadow-xl math-box relative overflow-hidden mb-10">
+                <i class="fa-solid fa-wrench absolute right-[-10px] bottom-[-10px] text-[8rem] text-white opacity-5"></i>
+                <div class="relative z-10">
+                    <p class="text-slate-300 font-sans mb-4 text-sm"><strong>The Concept:</strong> Hamming code adds multiple redundant bits (Parity bits: P<sub>1</sub>, P<sub>2</sub>, P<sub>4</sub>, etc.) to specific positions in the data block.</p>
+                    
+                    <div class="bg-indigo-900/40 border border-indigo-500/30 p-4 rounded-xl mb-6 flex flex-wrap items-center gap-4">
+                        <strong class="font-sans text-indigo-300 text-sm uppercase tracking-wider">Formula to find redundant bits (r):</strong>
+                        <span class="text-white text-xl font-bold bg-black/50 px-3 py-1 rounded">2<sup>r</sup> &ge; m + r + 1</span>
+                        <span class="text-slate-400 font-sans text-xs">(where m = number of data bits)</span>
+                    </div>
+
+                    <strong class="text-cyan-300 font-sans block mb-3 text-lg border-b border-slate-700 pb-1">Process Example (for 4-bit data 1011):</strong>
+                    <ul class="space-y-3 text-sm font-sans text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-cyan-500 mt-1"></i> We need m=4 bits. Using the formula, we find we need <strong>r=3</strong> parity bits (since 2<sup>3</sup> &ge; 4 + 3 + 1, i.e., 8 &ge; 8). Total bits = 7.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-cyan-500 mt-1"></i> Parity bits are placed at positions that are powers of 2 (Positions 1, 2, and 4). Data bits go in positions 3, 5, 6, 7.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-cyan-500 mt-1"></i> The parity bits are calculated based on even or odd parity of specific combinations of bits.</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-cyan-500 mt-1"></i> <span class="text-white">At the receiver, parity equations are checked again. If an error occurred, the results of the equations point to the exact decimal position of the wrong bit! The receiver simply flips that single bit to correct it.</span></li>
                     </ul>
                 </div>
             </div>
@@ -363,191 +276,369 @@
             <hr class="border-slate-200 my-12" />
 
             <!-- Section 3 -->
-            <div id="financial-management" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
-                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
-                    <i class="fa-solid fa-coins"></i>
+            <div id="multiplexing" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-arrows-split-up-and-left"></i>
                 </div>
-                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Financial Organization and Management</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Multiplexing: FDM, TDM, and CDMA</h2>
             </div>
             
             <!-- PYQ Alert -->
             <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
                 <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
                 <div>
-                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (Previous Year Question)</h4>
-                    <p class="text-red-900 font-medium">What is financial Management? Objectives. Functions. Importance of finance. Define 'working capital' and its role.</p>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">Analyse the need for multiplexing. Compare TDMA and FDMA. Write their advantages.</p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10">
-                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
-                    <span class="text-amber-500"><i class="fa-solid fa-wallet"></i></span> A. What is Financial Management?
-                </h3>
-                <p class="text-slate-600 mb-6">Financial Management refers to the planning, organizing, directing, and controlling of the financial activities of an enterprise. It means applying general management principles to the financial resources of the enterprise.</p>
-                
-                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
-                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
-                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
-                        <p class="text-purple-900 leading-relaxed text-sm">It is the art of answering two questions: <br/>1. <strong>"Where will the money come from?"</strong><br/>2. <strong>"Where should the money be spent to make maximum profit?"</strong></p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Importance of Finance in Business</h3>
-            <p class="text-slate-600 mb-6 italic border-l-4 border-amber-500 pl-3 bg-amber-50 p-2">Finance is called the <strong>"Lifeblood of Business."</strong> Just as a human body cannot survive without blood, a business cannot survive without finance.</p>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Need for Multiplexing <span class="bg-red-100 text-red-700 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 mb-4">In data communication, laying individual wires for every single device is incredibly expensive. Often, the bandwidth of a transmission medium (like an Optical Fiber) is much greater than the bandwidth required by a single device.</p>
             
-            <div class="grid sm:grid-cols-2 gap-4 mb-10">
-                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
-                    <i class="fa-solid fa-play text-blue-500 mt-1"></i>
-                    <div>
-                        <strong class="text-slate-800 block text-sm">To start the business</strong>
-                        <p class="text-xs text-slate-600">Money is needed to buy land, build factories, and buy machinery (e.g., SMT machines for PCB manufacturing).</p>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
-                    <i class="fa-solid fa-calendar-day text-emerald-500 mt-1"></i>
-                    <div>
-                        <strong class="text-slate-800 block text-sm">For Day-to-Day Operations</strong>
-                        <p class="text-xs text-slate-600">To pay salaries, electricity bills, and buy raw materials.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
-                    <i class="fa-solid fa-arrow-trend-up text-purple-500 mt-1"></i>
-                    <div>
-                        <strong class="text-slate-800 block text-sm">For Growth and Expansion</strong>
-                        <p class="text-xs text-slate-600">To open a new branch or launch a new product line.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
-                    <i class="fa-solid fa-life-ring text-rose-500 mt-1"></i>
-                    <div>
-                        <strong class="text-slate-800 block text-sm">To meet contingencies</strong>
-                        <p class="text-xs text-slate-600">To survive sudden crises (like a pandemic or a sudden breakdown of expensive machinery).</p>
-                    </div>
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8">
+                <p class="text-lg font-bold text-indigo-700 mb-3">Multiplexing is the technique of combining multiple signals into one single composite signal, which is then transmitted over a single shared physical link.</p>
+                <div class="flex gap-4 text-sm font-medium text-slate-700">
+                    <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Reduces cabling cost</span>
+                    <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Maximizes high-capacity channels</span>
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Objectives of Financial Management</h3>
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-10">
-                <ul class="space-y-4 text-slate-700">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-money-bill-trend-up text-amber-500 text-xl mt-1"></i>
-                        <div>
-                            <strong class="text-slate-800">Profit Maximization:</strong> The traditional objective; earning the highest possible profit to ensure survival and growth.
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-gem text-amber-500 text-xl mt-1"></i>
-                        <div>
-                            <strong class="text-slate-800">Wealth Maximization <span class="bg-red-100 text-red-700 text-[10px] px-2 py-0.5 rounded uppercase">Crucial</span>:</strong> The modern objective; increasing the value of the company's shares, thereby increasing the wealth of the shareholders/owners.
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-magnet text-amber-500 text-xl mt-1"></i>
-                        <div>
-                            <strong class="text-slate-800">Proper Mobilization of Funds:</strong> Gathering money from the right sources (loans vs. investors) at the lowest cost.
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-droplet text-amber-500 text-xl mt-1"></i>
-                        <div>
-                            <strong class="text-slate-800">Ensuring Liquidity:</strong> Making sure the company always has enough cash on hand to pay its immediate bills.
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">D. Functions of Financial Management</h3>
-            <p class="mb-6 text-slate-600">What does a Financial Manager actually do?</p>
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">B. Comparison: FDMA vs TDMA <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
             
-            <div class="grid sm:grid-cols-2 gap-4 mb-12">
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-calculator text-blue-500"></i> Estimating Capital Requirements</h4>
-                    <p class="text-sm text-slate-600">Calculating exactly how much money the startup needs to launch and survive the first year.</p>
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-8">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-cyan-300 border-r border-slate-700">FDMA (Frequency Division Multiple Access)</th>
+                            <th class="p-5 font-bold text-sm text-indigo-300">TDMA (Time Division Multiple Access)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Basic Concept</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">The total available bandwidth is divided into non-overlapping frequency bands. Each user is assigned a specific frequency.</td>
+                            <td class="p-5 text-slate-700 text-sm">The total bandwidth is shared, but divided into time slots. Each user gets the full bandwidth for a brief time fraction.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Usage of Link</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">All users share the link simultaneously, but use different frequencies.</td>
+                            <td class="p-5 text-slate-700 text-sm">Users take turns using the link, one after the other.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Interference</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Prone to "crosstalk" (adjacent channels mixing). Requires "Guard Bands" to separate them.</td>
+                            <td class="p-5 text-slate-700 text-sm">Prone to synchronization issues. Requires "Guard Times" between slots.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Example / Advantage</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">FM Radio, Cable TV.<br/><strong class="text-emerald-600">Advantage:</strong> Simple to implement, good for analog continuous signals.</td>
+                            <td class="p-5 text-slate-700 text-sm">2G GSM Mobile Networks.<br/><strong class="text-emerald-600">Advantage:</strong> Highly efficient for digital data; immune to frequency crosstalk.</td>
+                        </tr>
+                        <tr class="hover:bg-purple-50 transition-colors bg-purple-50/50">
+                            <td class="p-5 font-bold text-purple-900 border-r border-slate-200 text-sm"><i class="fa-solid fa-brain mr-2"></i> Easy Word</td>
+                            <td class="p-5 text-purple-800 border-r border-slate-200 text-sm">A 4-lane highway where each car gets its own dedicated lane to drive continuously.</td>
+                            <td class="p-5 text-purple-800 text-sm">A single-lane bridge where Cars A, B, and C take turns crossing it for 10 seconds each.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-sm text-slate-500 italic bg-slate-50 p-3 rounded-lg border border-slate-200">(Note: CDMA - Code Division Multiple Access allows all users to transmit at the same time and on the same frequency by assigning a unique mathematical code to each user).</p>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="switching" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-random"></i>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-chart-pie text-emerald-500"></i> Determining Capital Composition</h4>
-                    <p class="text-sm text-slate-600">Deciding the mix of "Debt" (bank loans) and "Equity" (founder's money + investor money).</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-hand-holding-dollar text-purple-500"></i> Choice of Sources of Funds</h4>
-                    <p class="text-sm text-slate-600">Deciding whether to take a loan from SBI, find an Angel Investor, or issue shares to the public.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-money-check-dollar text-amber-500"></i> Investment of Funds</h4>
-                    <p class="text-sm text-slate-600">(Capital Budgeting): Deciding which machines to buy or which projects to invest in so that returns are maximized.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-share-nodes text-rose-500"></i> Disposal of Surplus (Profit)</h4>
-                    <p class="text-sm text-slate-600">Deciding how much profit to keep in the company for future growth (Retained Earnings) and how much to distribute to owners (Dividends).</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h4 class="font-bold text-slate-800 mb-1 flex items-center gap-2"><i class="fa-solid fa-vault text-cyan-500"></i> Management of Cash</h4>
-                    <p class="text-sm text-slate-600">Monitoring cash flowing in and out daily to ensure the company never goes bankrupt.</p>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Switching Techniques</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">Discuss package (packet) switching and mention features. Compare packet switching and circuit switching and write the disadvantage of each.</p>
                 </div>
             </div>
 
-            <div class="bg-slate-800 text-white rounded-3xl p-8 md:p-10 shadow-xl relative overflow-hidden mb-10">
-                <div class="absolute top-0 right-0 opacity-10">
-                    <i class="fa-solid fa-gears text-[15rem] -mt-10 -mr-10"></i>
-                </div>
-                <h3 class="text-3xl font-bold mb-4 relative z-10 text-amber-400">E. Working Capital and Its Role <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full ml-2 align-middle shadow-sm">Crucial PYQ</span></h3>
-                
-                <h4 class="font-bold text-xl mb-2 relative z-10">What is Working Capital?</h4>
-                <p class="mb-4 text-slate-300 relative z-10 text-sm">Working Capital is the money required to finance the day-to-day operations of a business. It represents the short-term financial health of a company.</p>
-                
-                <div class="bg-white/10 p-4 rounded-xl text-center mb-6 relative z-10 border border-white/20">
-                    <p class="font-mono text-lg md:text-xl font-bold text-amber-300 tracking-wide">Working Capital = Current Assets - Current Liabilities</p>
-                </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Need for Switching</h3>
+            <p class="text-slate-600 mb-8 bg-slate-50 p-4 rounded-xl border border-slate-200">If we have 100 computers, connecting them directly with point-to-point cables would require thousands of wires (Mesh Topology). Instead, we connect them to a central "Switch" which dynamically routes data. This is switching.</p>
 
-                <div class="flex items-start gap-4 bg-black/40 border border-white/10 p-6 rounded-2xl mb-8 relative z-10">
-                    <div class="bg-purple-900 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center border border-purple-500">
-                        <i class="fa-solid fa-car text-purple-200 text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-purple-300 font-bold mb-1">Easy Word Explanation</h4>
-                        <p class="text-slate-300 leading-relaxed text-sm"><strong>Fixed Capital</strong> is the money you use to buy the car (factory, machines). <br/><strong>Working Capital</strong> is the money you need daily to buy petrol and pay the driver (raw materials, electricity, wages). Without petrol, the expensive car is useless.</p>
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <!-- Circuit Switching -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -z-10"></div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-phone text-amber-500"></i> B. Circuit Switching</h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> A dedicated, physical communication path is established between the sender and receiver before data transfer begins. The path remains reserved for the entire duration of the communication.</p>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Example:</strong> Traditional landline telephone networks.</p>
+                    <div class="bg-rose-50 p-4 rounded-xl text-sm border border-rose-100">
+                        <strong class="text-rose-800 block mb-1">Disadvantage <span class="bg-red-500 text-white px-2 py-0.5 rounded text-[10px] uppercase ml-1">PYQ</span></strong>
+                        <span class="text-rose-700">Highly inefficient for computer data. If the two computers pause transmitting for 5 seconds, the line remains blocked, and bandwidth is wasted because nobody else can use that physical wire.</span>
                     </div>
                 </div>
 
-                <h4 class="font-bold text-xl mb-4 relative z-10">Role in Smooth Functioning of an Enterprise:</h4>
-                <div class="space-y-3 relative z-10">
-                    <div class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                        <i class="fa-solid fa-industry text-emerald-400 mt-1 text-lg"></i>
-                        <p class="text-sm text-slate-200"><strong class="text-white">Uninterrupted Production:</strong> It ensures that there is always enough money to buy raw materials (like microcontrollers, solder paste) so the factory never stops.</p>
+                <!-- Packet Switching -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -z-10"></div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-cubes text-blue-500"></i> C. Packet Switching</h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> The data message is broken down into smaller chunks called Packets. Each packet is given a header containing the destination IP address. Packets travel independently through the network, taking different routes, and are reassembled at the destination.</p>
+                    
+                    <strong class="text-slate-800 block text-sm mb-2">Features:</strong>
+                    <ol class="list-decimal pl-4 text-xs text-slate-600 space-y-1 mb-4">
+                        <li>No dedicated path is required.</li>
+                        <li>Highly efficient because unused bandwidth is dynamically shared among many users.</li>
+                        <li>Robust: If one router goes down, packets automatically take a different route.</li>
+                    </ol>
+
+                    <p class="text-sm text-slate-600 mb-4"><strong>Example:</strong> The Internet.</p>
+                    
+                    <div class="bg-rose-50 p-4 rounded-xl text-sm border border-rose-100">
+                        <strong class="text-rose-800 block mb-1">Disadvantage <span class="bg-red-500 text-white px-2 py-0.5 rounded text-[10px] uppercase ml-1">PYQ</span></strong>
+                        <span class="text-rose-700">Packets may arrive out of order or get lost/delayed due to network congestion, making it less ideal for high-quality, real-time voice calls without special protocols.</span>
                     </div>
-                    <div class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                        <i class="fa-solid fa-users text-emerald-400 mt-1 text-lg"></i>
-                        <p class="text-sm text-slate-200"><strong class="text-white">Paying Wages & Salaries:</strong> It ensures employees are paid on time, maintaining high morale and preventing strikes.</p>
-                    </div>
-                    <div class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                        <i class="fa-solid fa-file-invoice text-emerald-400 mt-1 text-lg"></i>
-                        <p class="text-sm text-slate-200"><strong class="text-white">Paying Routine Expenses:</strong> It is used to pay rent, electricity, and transportation costs without delay.</p>
-                    </div>
-                    <div class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                        <i class="fa-solid fa-handshake text-emerald-400 mt-1 text-lg"></i>
-                        <p class="text-sm text-slate-200"><strong class="text-white">Maintaining Solvency & Goodwill:</strong> By paying suppliers on time, the company builds a strong reputation (goodwill) in the market, allowing them to buy materials on credit in the future.</p>
-                    </div>
-                    <div class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/5 hover:bg-white/10 transition-colors">
-                        <i class="fa-solid fa-basket-shopping text-emerald-400 mt-1 text-lg"></i>
-                        <p class="text-sm text-slate-200"><strong class="text-white">Exploiting Favorable Market Conditions:</strong> If a raw material suddenly becomes very cheap, a company with good working capital can immediately buy it in bulk to save money later.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">D. Comparison Table: Circuit vs Packet Switching <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            
+            <div class="overflow-x-auto shadow-sm rounded-2xl border border-slate-200 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700">
+                            <th class="p-4 border-b border-slate-200 font-bold text-sm">Feature</th>
+                            <th class="p-4 border-b border-slate-200 font-bold text-sm text-amber-700"><i class="fa-solid fa-phone mr-1"></i> Circuit Switching</th>
+                            <th class="p-4 border-b border-slate-200 font-bold text-sm text-blue-700"><i class="fa-solid fa-cubes mr-1"></i> Packet Switching</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Path Setup</td><td class="p-4 text-slate-600 text-sm">A dedicated physical path is required before transmission.</td><td class="p-4 text-slate-600 text-sm">No dedicated path is established.</td></tr>
+                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Data Transmission</td><td class="p-4 text-slate-600 text-sm">Data is sent as a continuous stream.</td><td class="p-4 text-slate-600 text-sm">Data is chopped into independent packets.</td></tr>
+                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Bandwidth Usage</td><td class="p-4 text-slate-600 text-sm font-bold text-rose-500">Poor efficiency. Bandwidth is reserved even if idle.</td><td class="p-4 text-slate-600 text-sm font-bold text-emerald-600">High efficiency. Bandwidth is shared dynamically.</td></tr>
+                        <tr class="hover:bg-slate-50"><td class="p-4 font-bold text-slate-700 text-sm">Reliability</td><td class="p-4 text-slate-600 text-sm">If the physical link fails, the connection drops entirely.</td><td class="p-4 text-slate-600 text-sm font-bold text-emerald-600">Highly reliable. Packets find alternate routes if a link fails.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="network-layer" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Network Layer & Internet Protocol (IP)</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Describe the features of the network layer and network layer protocols. Compare IPv4 and IPv6 addressing schemes and write the need for IPv6. Internetworking purpose.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">The Network Layer (Layer 3 of OSI) is responsible for the source-to-destination delivery of a packet across multiple networks (links).</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">A. Features & Functions <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-map-location-dot text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 block text-sm">Logical Addressing</strong>
+                                <p class="text-xs text-slate-600">The MAC address from DLL only works locally. Network layer adds an <strong>IP Address</strong> to uniquely identify devices globally across the internet.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-route text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 block text-sm">Routing</strong>
+                                <p class="text-xs text-slate-600">Determining the best, shortest, or most optimal path for a packet to travel from the source to the destination router.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-puzzle-piece text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-slate-800 block text-sm">Fragmentation</strong>
+                                <p class="text-xs text-slate-600">Breaking down packets into smaller fragments if the underlying Data Link Layer cannot handle large packet sizes (MTU limits).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">B. Network Layer Protocols <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="bg-blue-50 text-blue-700 font-bold px-2 py-1 rounded text-xs shrink-0 w-12 text-center">IP</div>
+                            <div>
+                                <strong class="text-slate-800 block text-sm">IPv4 / IPv6</strong>
+                                <p class="text-xs text-slate-600">The core protocol responsible for addressing and routing packets.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="bg-amber-50 text-amber-700 font-bold px-2 py-1 rounded text-xs shrink-0 w-12 text-center">ICMP</div>
+                            <div>
+                                <strong class="text-slate-800 block text-sm">Internet Control Message Protocol</strong>
+                                <p class="text-xs text-slate-600">Used by routers to send error messages and operational info (e.g., the <code>ping</code> command uses ICMP).</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="bg-purple-50 text-purple-700 font-bold px-2 py-1 rounded text-xs shrink-0 w-12 text-center">ARP</div>
+                            <div>
+                                <strong class="text-slate-800 block text-sm">Address Resolution Protocol</strong>
+                                <p class="text-xs text-slate-600">Used to map a logical IP address to a physical MAC address.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">C. Comparison: IPv4 vs IPv6 Addressing <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+            
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-8">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-cyan-300 border-r border-slate-700">IPv4</th>
+                            <th class="p-5 font-bold text-sm text-indigo-300">IPv6</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Address Length</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm font-mono bg-cyan-50/30">32-bit</td>
+                            <td class="p-5 text-slate-700 text-sm font-mono font-bold text-indigo-600 bg-indigo-50/30">128-bit</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Address Format</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Numeric format <br/><span class="text-xs text-slate-500">(e.g., 192.168.1.1)</span>.</td>
+                            <td class="p-5 text-slate-700 text-sm">Alphanumeric Hexadecimal <br/><span class="text-xs text-slate-500">(e.g., 2001:0db8:85a3::8a2e)</span>.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Total Addresses</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Supports approx 4.3 billion unique addresses (2<sup>32</sup>).</td>
+                            <td class="p-5 text-slate-700 text-sm">Supports an astronomically large number (2<sup>128</sup>).</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Security (IPsec)</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Security is optional and must be added.</td>
+                            <td class="p-5 text-emerald-700 font-bold text-sm">IPsec is built-in and mandatory.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-5 rounded-r-2xl mb-12">
+                <strong class="text-indigo-900 block mb-2 text-lg"><i class="fa-solid fa-arrow-trend-up mr-2"></i> The Need for IPv6 (PYQ Focus):</strong>
+                <p class="text-sm text-indigo-800 leading-relaxed">The primary reason IPv6 was created is <strong>IPv4 Address Exhaustion</strong>. With the explosion of smartphones, smart TVs, and IoT devices, the 4.3 billion IPv4 addresses ran out. IPv6 provides enough addresses for every atom on the surface of the earth, ensuring the Internet can keep expanding.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">D. Internetworking & Subnetting <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-10">
+                <p class="text-slate-600 mb-4 text-sm"><strong>Define Internetworking:</strong> It is the practice of connecting multiple distinct computer networks (like LANs, WANs, and MANs) together using hardware like Routers and Gateways, allowing them to communicate seamlessly.</p>
+                <p class="text-slate-600 text-sm"><strong>Purpose of Internetworking:</strong> To break geographical boundaries. It allows a computer in a local LAN in India to pull down a webpage hosted on a LAN in New York. The ultimate internetwork is the Internet.</p>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="routing" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. Routing and Congestion Control</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define Routing and types. Define dynamic routing and 2 advantages. Define Congestion control and state its effects.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <!-- Routing -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2"><i class="fa-solid fa-code-branch text-blue-500 mr-2"></i> A. Routing and its Types</h3>
+                    <p class="text-sm text-slate-600 mb-4">Routing is the process of selecting a path for traffic in a network across multiple networks. A Router uses a "Routing Table" to decide where to forward the packet next.</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <strong class="text-slate-800 block text-sm">Static Routing</strong>
+                            <span class="text-xs text-slate-600">The network administrator manually types the routes into the router. It is highly secure but impossible to maintain for large networks.</span>
+                        </li>
+                        <li class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm">
+                            <strong class="text-blue-900 block text-sm mb-1">Dynamic Routing <span class="bg-red-500 text-white px-2 py-0.5 rounded text-[10px] uppercase ml-1">PYQ</span></strong>
+                            <span class="text-xs text-blue-800 block mb-2">The routers use intelligent algorithms (like OSPF or BGP) to automatically discover the network and update their routing tables dynamically by talking to other routers.</span>
+                            <strong class="text-xs text-blue-900 block mb-1">Advantages:</strong>
+                            <ol class="list-decimal pl-4 text-xs text-blue-800 space-y-1">
+                                <li><strong>Automatic Failover:</strong> If a cable breaks, router automatically calculates new path.</li>
+                                <li><strong>Scalability:</strong> Very easy to expand network; new routers detected automatically.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Congestion -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2"><i class="fa-solid fa-traffic-light text-rose-500 mr-2"></i> B. Congestion Control</h3>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Definition:</strong> Congestion occurs when the number of packets being transmitted through a network is greater than the capacity of the network to handle them (Traffic > Bandwidth). Congestion control is a set of techniques used to monitor and regulate the traffic entering the network to prevent a collapse.</p>
+                    
+                    <strong class="text-slate-800 block text-sm mb-3">Effects of Congestion <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-1">PYQ</span></strong>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-clock-rotate-left text-rose-500 mt-1"></i>
+                            <div>
+                                <strong class="text-sm block">Packet Delay</strong>
+                                <span class="text-xs text-slate-600">The queue in the router's memory fills up, causing massive delays.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-trash-can text-rose-500 mt-1"></i>
+                            <div>
+                                <strong class="text-sm block">Packet Loss</strong>
+                                <span class="text-xs text-slate-600">Once router's memory buffer is 100% full, it must drop new arriving packets.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-rotate-right text-rose-500 mt-1"></i>
+                            <div>
+                                <strong class="text-sm block">Deadlock & Retransmissions</strong>
+                                <span class="text-xs text-slate-600">Dropped packets cause senders to re-transmit, pouring even more traffic into the jammed network, causing total collapse.</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="bg-gradient-to-br from-purple-50 to-fuchsia-50 p-4 rounded-xl border border-purple-100 flex items-start gap-3">
+                        <i class="fa-solid fa-brain text-purple-600 mt-1"></i>
+                        <div>
+                            <strong class="text-purple-900 text-sm block">Easy Explanation (Traffic Jam)</strong>
+                            <p class="text-xs text-purple-800">It is exactly like a massive traffic jam on a bridge. Too many cars (packets) enter. Cars slow down (Delay). Eventually, cars have to be pushed off the bridge (Packet Loss).</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Footer Notes -->
-            <div class="mt-20 p-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+            <div class="mt-20 p-10 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
                 <div class="relative z-10">
-                    <h2 class="text-3xl font-extrabold mb-4">End of Unit 4 Notes</h2>
-                    <p class="text-indigo-100 text-lg max-w-2xl mx-auto bg-black/20 p-5 rounded-xl border border-white/10 font-medium shadow-inner">
-                        <i class="fa-solid fa-star text-yellow-300 mr-2 text-xl align-middle"></i> 
-                        Focus heavily on the <strong>"Recruitment vs Selection"</strong> difference table and the concept of <strong>"Working Capital"</strong>, as they are highly favored by examiners!
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 4 Notes</h2>
+                    <p class="text-cyan-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Please pay high attention to the <strong>Checksum Example, CRC, Hamming Code</strong>, and <strong>IPv4 vs IPv6</strong> as they are standard 6-mark definitive questions for this unit!
                     </p>
                 </div>
-                <i class="fa-solid fa-rocket absolute bottom-[-20px] right-4 text-[12rem] text-white opacity-10"></i>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
             </div>
 
         </article>
@@ -577,11 +668,11 @@
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
                         navLinks.forEach(link => {
-                            link.classList.remove('bg-indigo-50', 'text-indigo-600');
+                            link.classList.remove('bg-cyan-50', 'text-cyan-600');
                             link.classList.add('text-slate-600');
                             if (link.getAttribute('href') === `#${id}`) {
                                 link.classList.remove('text-slate-600');
-                                link.classList.add('bg-indigo-50', 'text-indigo-600');
+                                link.classList.add('bg-cyan-50', 'text-cyan-600');
                             }
                         });
                     }
