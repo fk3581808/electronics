@@ -1,10 +1,673 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-3-Wireless-Communication</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 3 Wireless Communication</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Networking Notes - Unit 3</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-cyan-200 selection:text-cyan-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544626154-b633004b3ab3?auto=format&fit=crop&q=80&w=2070" alt="Wireless Telecommunications Tower" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-200 to-indigo-200 mb-6 drop-shadow-sm">
+                Wireless <br/>Communication
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-III. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#wireless-media" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-broadcast-tower text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 1. Transmission Media
+                    </a>
+                    <a href="#standards" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-wifi text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 2. Wireless Standards
+                    </a>
+                    <a href="#channel" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-wave-square text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 3. Wireless Channel
+                    </a>
+                    <a href="#receiver" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-satellite-dish text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 4. Receiver Techniques
+                    </a>
+                    <a href="#mobile-ip" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-mobile-screen-button text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 5. Mobile IP
+                    </a>
+                    <a href="#manets" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-diagram-project text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 6. MANETs & Routing
+                    </a>
+                    <a href="#clusters" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-network-wired text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 7. Cluster Techniques
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-cyan prose-headings:font-bold prose-a:text-cyan-600">
+
+            <!-- Section 1 -->
+            <div id="wireless-media" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-broadcast-tower"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Wireless Transmission Media</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Describe microwave transmission and its features/advantages. Differentiate between radio, microwave, and infrared transmission (4 points).</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">When we cannot use physical wires, we use unguided (wireless) transmission media to send electromagnetic waves through the air.</p>
+
+            <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80&w=1200" alt="Wireless Signals and Waves" class="w-full h-64 object-cover rounded-2xl shadow-sm mb-8" />
+
+            <div class="space-y-6 mb-12">
+                <!-- Radio -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-cyan-400">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-radio text-cyan-500 w-6"></i> A. Radio Transmission</h4>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Definition:</strong> Radio waves are electromagnetic waves with frequencies ranging from 3 kHz to 1 GHz.</p>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Features:</strong> They are omnidirectional, meaning they travel in all directions from the transmitting antenna. They can easily penetrate solid walls.</p>
+                    <div class="bg-blue-50 border border-blue-100 p-3 rounded-lg text-sm text-blue-900 mt-3 inline-block">
+                        <strong><i class="fa-solid fa-microchip text-blue-600"></i> Electronics Example:</strong> FM/AM Radio broadcasts, Walkie-Talkies, and Maritime communication.
+                    </div>
+                </div>
+
+                <!-- Microwave -->
+                <div class="bg-white p-6 rounded-2xl border-2 border-indigo-300 shadow-md relative overflow-hidden transform hover:-translate-y-1 transition-transform">
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-satellite text-indigo-600 w-6"></i> B. Microwave Transmission</h4>
+                    <p class="text-slate-600 text-sm mb-3"><strong>Definition:</strong> Microwaves are higher frequency electromagnetic waves ranging from 1 GHz to 300 GHz.</p>
+                    <p class="text-slate-600 text-sm mb-4"><strong>Features:</strong> They are strictly unidirectional (Line-of-Sight). The sending and receiving antennas must be perfectly aligned facing each other.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-sm">
+                            <strong class="text-emerald-800 block mb-1"><i class="fa-solid fa-check-circle text-emerald-600"></i> Advantages:</strong>
+                            <ol class="list-decimal pl-4 text-emerald-700 space-y-1">
+                                <li>High bandwidth (can carry large amounts of data, like multiple video streams).</li>
+                                <li>Highly cost-effective for long distances over difficult terrain (mountains) where laying fiber optic cables is impossible.</li>
+                            </ol>
+                        </div>
+                        <div class="bg-rose-50 border border-rose-100 p-4 rounded-xl text-sm">
+                            <strong class="text-rose-800 block mb-1"><i class="fa-solid fa-times-circle text-rose-600"></i> Disadvantages:</strong>
+                            <ol class="list-decimal pl-4 text-rose-700 space-y-1">
+                                <li><strong>Rain Fade:</strong> High-frequency microwaves are easily absorbed by rain, snow, or fog, causing signal loss.</li>
+                                <li>Cannot penetrate solid obstacles (buildings, hills), requiring tall antenna towers.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <p class="text-indigo-800 text-sm bg-indigo-50 p-2 rounded inline-block"><strong><i class="fa-solid fa-microchip text-indigo-600"></i> Electronics Example:</strong> Satellite television (DTH), mobile network backhaul towers, and GPS.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Infrared -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-purple-400">
+                        <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-purple-500 w-6"></i> C. Infra-red (IR)</h4>
+                        <p class="text-slate-600 text-sm mb-2"><strong>Definition:</strong> High-frequency waves ranging from 300 GHz to 400 THz.</p>
+                        <p class="text-slate-600 text-sm mb-2"><strong>Features:</strong> Used strictly for short-range communication. They travel in a straight line and cannot penetrate solid objects like walls.</p>
+                        <p class="text-purple-800 text-sm bg-purple-50 p-2 rounded mt-2"><strong>Ex:</strong> TV Remotes, Wireless mice, or old mobile data transfers.</p>
+                    </div>
+
+                    <!-- Light -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-400">
+                        <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-lightbulb text-amber-500 w-6"></i> D. Light (Li-Fi)</h4>
+                        <p class="text-slate-600 text-sm mb-2"><strong>Definition:</strong> Uses visible or unguided laser light to transmit data. Requires strict line-of-sight and is blocked by physical objects.</p>
+                        <p class="text-amber-800 text-sm bg-amber-50 p-2 rounded mt-2"><strong>Ex:</strong> Li-Fi (Light Fidelity) uses LED bulbs flickering at high speeds to transmit internet data inside a room.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">E. Differentiate: Radio vs Microwave vs Infrared <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ Table</span></h3>
+            
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-cyan-300 border-r border-slate-700">Radio Waves</th>
+                            <th class="p-5 font-bold text-sm text-indigo-300 border-r border-slate-700">Microwaves</th>
+                            <th class="p-5 font-bold text-sm text-purple-300">Infrared</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Frequency Range</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">3 kHz to 1 GHz</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">1 GHz to 300 GHz</td>
+                            <td class="p-5 text-slate-700 text-sm">300 GHz to 400 THz</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Directionality</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm font-bold text-cyan-600">Omnidirectional (travels everywhere)</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm font-bold text-indigo-600">Unidirectional (Line of Sight)</td>
+                            <td class="p-5 text-slate-700 text-sm font-bold text-purple-600">Highly directional (Line of Sight)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Wall Penetration</td>
+                            <td class="p-5 text-emerald-600 font-bold border-r border-slate-200 text-sm">Easily penetrates solid walls.</td>
+                            <td class="p-5 text-amber-600 font-bold border-r border-slate-200 text-sm">Cannot penetrate walls easily.</td>
+                            <td class="p-5 text-rose-600 font-bold text-sm">Blocked completely by any solid object.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Primary Usage</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">FM/AM Broadcasting.</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Satellite links, Cellular towers.</td>
+                            <td class="p-5 text-slate-700 text-sm">TV Remotes, short-range device sharing.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="standards" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-wifi"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Wireless Communication Standards & Systems</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain the IEEE standards for Bluetooth and Wi-Fi. Compare various wireless systems and explain which is best.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <!-- Wi-Fi -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -z-10"></div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-wifi text-blue-500"></i> A. Wi-Fi <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-sm">(IEEE 802.11)</span>
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-6">
+                        <li><strong>Definition:</strong> Wi-Fi represents Wireless Local Area Network (WLAN) technologies. The standard governing it is IEEE 802.11.</li>
+                        <li><strong>Frequency:</strong> Operates in the 2.4 GHz and 5 GHz ISM (Industrial, Scientific, and Medical) radio bands.</li>
+                        <li><strong>Range & Speed:</strong> Typical range is 50-100 meters. Speeds range from 54 Mbps (802.11g) to over 9.6 Gbps (802.11ax / Wi-Fi 6).</li>
+                    </ul>
+                    <div class="bg-purple-50 p-4 rounded-xl text-xs text-purple-900 flex items-start gap-2">
+                        <i class="fa-solid fa-brain text-purple-600 mt-0.5"></i>
+                        <span><strong>Easy Explanation:</strong> It is the invisible internet bubble inside your house that lets your laptop browse the web without a LAN cable.</span>
+                    </div>
+                </div>
+
+                <!-- Bluetooth -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 rounded-bl-full -z-10"></div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fa-brands fa-bluetooth text-indigo-500"></i> B. Bluetooth <span class="bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded text-sm">(IEEE 802.15.1)</span>
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-6">
+                        <li><strong>Definition:</strong> Bluetooth is a standard for Wireless Personal Area Networks (WPAN). The standard governing it is IEEE 802.15.1.</li>
+                        <li><strong>Frequency:</strong> Also operates in the 2.4 GHz band but uses a technique called <em>frequency-hopping spread spectrum</em> to avoid interfering with Wi-Fi.</li>
+                        <li><strong>Range & Speed:</strong> Short range (typically up to 10 meters). Low speed (up to 3 Mbps).</li>
+                        <li><strong>Usage:</strong> Pairing wireless earphones to a smartphone or sending a small file to a nearby laptop.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
+                <i class="fa-solid fa-trophy absolute right-[-20px] top-[-20px] text-[10rem] opacity-10"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-4 relative z-10">C. Which Wireless System is the Best? <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider ml-2 shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 mb-6 relative z-10 text-sm italic">There is no single "best" system; it depends entirely on the application:</p>
+                
+                <div class="space-y-4 relative z-10">
+                    <div class="flex items-start gap-4 bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                        <div class="bg-indigo-500 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 shadow-md"><i class="fa-solid fa-headphones"></i></div>
+                        <div>
+                            <strong class="text-indigo-300 block mb-1">For Personal, short-range (0-10m):</strong>
+                            <p class="text-sm text-slate-200"><strong>Bluetooth</strong> is best due to low power consumption and easy pairing.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 shadow-md"><i class="fa-solid fa-house-laptop"></i></div>
+                        <div>
+                            <strong class="text-blue-300 block mb-1">For Building/Campus (10-100m):</strong>
+                            <p class="text-sm text-slate-200"><strong>Wi-Fi</strong> is best because it provides high broadband speeds for multiple users simultaneously.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                        <div class="bg-cyan-500 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 shadow-md"><i class="fa-solid fa-city"></i></div>
+                        <div>
+                            <strong class="text-cyan-300 block mb-1">For Nationwide/Citywide (Long Range):</strong>
+                            <p class="text-sm text-slate-200"><strong>4G/5G Cellular Mobile Networks</strong> or Microwave systems are best because they offer extensive coverage and high-speed mobility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="channel" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-wave-square"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Characterization of the Wireless Channel</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Write the Characterization of the Wireless Channel. List any four characteristics of a wireless channel.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">Unlike a physical copper wire which is stable and predictable, the "air" (wireless channel) is chaotic and unpredictable.</p>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Characteristics of a Wireless Channel <span class="text-sm font-bold text-white bg-red-500 px-3 py-1 rounded-full ml-2 align-middle">List of 4 for Exam</span></h3>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <!-- Characteristic 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="text-rose-500 text-2xl mt-1"><i class="fa-solid fa-signal-slash"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-2">1. Path Loss (Attenuation)</h4>
+                        <p class="text-sm text-slate-600">As the radio signal travels away from the transmitter, its strength weakens (attenuates) over distance.</p>
+                    </div>
+                </div>
+
+                <!-- Characteristic 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="text-blue-500 text-2xl mt-1"><i class="fa-solid fa-building-circle-arrow-right"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-2">2. Multipath Fading</h4>
+                        <p class="text-sm text-slate-600 mb-3">When a signal is transmitted, it bounces off buildings, mountains, and cars. These bounced signals arrive at the receiver at slightly different times, colliding with each other and causing the signal to distort or "fade".</p>
+                        <div class="bg-purple-50 p-3 rounded-lg text-xs text-purple-900">
+                            <strong><i class="fa-solid fa-brain mr-1 text-purple-600"></i> Easy Ex:</strong> Imagine shouting in an empty, echoing hall. Your friend hears your original voice plus multiple echoes slightly delayed. It becomes confusing to understand.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Characteristic 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="text-amber-500 text-2xl mt-1"><i class="fa-solid fa-tower-broadcast"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-2">3. Interference</h4>
+                        <p class="text-sm text-slate-600">The wireless channel is shared by everyone. Signals from other nearby networks (Co-channel interference) or different devices like microwaves (Adjacent-channel interference) can corrupt the data.</p>
+                    </div>
+                </div>
+
+                <!-- Characteristic 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="text-emerald-500 text-2xl mt-1"><i class="fa-solid fa-train"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-2">4. Doppler Shift</h4>
+                        <p class="text-sm text-slate-600">If the receiver (e.g., a person in a fast-moving train) is moving rapidly relative to the cell tower, the frequency of the received signal shifts, causing communication errors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="receiver" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-satellite-dish"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Receiver Techniques & Space-Time Coding</h2>
+            </div>
+            
+            <p class="text-slate-600 mb-8 font-medium">Because the wireless channel is chaotic (as seen above), the receiver must use special mathematical techniques to "clean up" the received signal.</p>
+
+            <div class="space-y-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4">
+                    <div class="bg-emerald-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-emerald-600 text-xl"><i class="fa-solid fa-filter"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-xl mb-2">1. Equalization</h4>
+                        <p class="text-sm text-slate-600">A mathematical filter at the receiver that attempts to reverse the distortion caused by multipath fading. It cancels out "Inter-Symbol Interference" (ISI) so 1s and 0s don't blur together.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-tower-cell"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-xl mb-2">2. Diversity Techniques</h4>
+                        <p class="text-sm text-slate-600">The receiver uses multiple antennas or frequencies to capture the signal. If one antenna gets a bad, faded signal, the other antenna might get a clear one.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-indigo-200 shadow-md border-t-8 border-t-indigo-500 relative overflow-hidden">
+                    <h4 class="text-2xl font-bold text-indigo-900 mb-3 flex items-center gap-3"><i class="fa-solid fa-clock-rotate-left"></i> 3. Space-Time Coding (STC)</h4>
+                    <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                        <li><strong>Definition:</strong> A technique used in MIMO (Multiple-Input Multiple-Output) systems (like modern Wi-Fi routers with 4 antennas).</li>
+                        <li><strong>How it works:</strong> It transmits multiple copies of the data stream across a number of antennas (Space) and across different time slots (Time).</li>
+                    </ul>
+                    
+                    <div class="bg-gradient-to-r from-purple-50 to-fuchsia-50 p-6 rounded-2xl border border-purple-100 flex items-start gap-4">
+                        <div class="bg-purple-200 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-purple-700 text-xl"><i class="fa-solid fa-truck-fast"></i></div>
+                        <div>
+                            <strong class="text-purple-900 block mb-1">Easy Word Explanation (The Courier Analogy)</strong>
+                            <p class="text-sm text-purple-800">If you want to make sure an urgent physical letter reaches your friend, you send the exact same letter through 3 different courier companies (<strong>Space</strong>) on 2 different days (<strong>Time</strong>). Even if 5 letters get lost, 1 will definitely survive. STC does this with data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="mobile-ip" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Mobility Management & Mobile IP</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain mobility management. Explain mobile IP with a suitable diagram.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Mobility Management in Wireless Networks</h3>
+                <p class="text-slate-600 mb-6 text-sm"><strong>Definition:</strong> Mobility management refers to the mechanisms used by cellular networks to track the physical location of a mobile subscriber and maintain their connection seamlessly as they move from one geographical area to another.</p>
+                
+                <h4 class="font-bold text-slate-800 text-lg mb-3">Importance/Functions:</h4>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm">
+                        <strong class="text-indigo-600 flex items-center gap-2 mb-2"><i class="fa-solid fa-location-crosshairs"></i> Location Management (Roaming)</strong>
+                        <p class="text-sm text-slate-600">Tracking where your phone is located so the network knows which tower to send an incoming WhatsApp call to.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm">
+                        <strong class="text-emerald-600 flex items-center gap-2 mb-2"><i class="fa-solid fa-car-side"></i> Handoff / Handover Management</strong>
+                        <p class="text-sm text-slate-600">When travelling in a bus, your phone moves out of range of Tower A to Tower B. Handoff ensures your ongoing call shifts from A to B without dropping.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">B. Mobile IP (Internet Protocol)</h3>
+            <p class="text-slate-600 mb-6"><strong>Definition:</strong> Standard IP addresses are fixed to a location. If you move, your IP address changes, and your downloads will fail. Mobile IP is a protocol that allows a mobile node (like a laptop or smartphone) to keep the same continuous IP address even when it travels to different networks.</p>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-10">
+                <h4 class="font-bold text-slate-800 text-lg mb-4 border-b pb-2">Key Components:</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center gap-3"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded w-32 text-center shrink-0">Mobile Node (MN)</span> <span class="text-slate-600">The smartphone or laptop.</span></li>
+                    <li class="flex items-center gap-3"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded w-32 text-center shrink-0">Home Agent (HA)</span> <span class="text-slate-600">A router on your permanent home network.</span></li>
+                    <li class="flex items-center gap-3"><span class="bg-purple-100 text-purple-800 font-bold px-2 py-1 rounded w-32 text-center shrink-0">Foreign Agent (FA)</span> <span class="text-slate-600">A router on the new network you are visiting.</span></li>
+                    <li class="flex items-center gap-3"><span class="bg-amber-100 text-amber-800 font-bold px-2 py-1 rounded w-32 text-center shrink-0">Care-of Address</span> <span class="text-slate-600">(CoA): A temporary IP address given to you by the Foreign Agent.</span></li>
+                </ul>
+            </div>
+
+            <!-- 6-Mark Diagram Process UI -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden mb-12 border-l-8 border-l-amber-400">
+                <i class="fa-solid fa-route absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h4 class="text-2xl font-bold text-amber-400 mb-6 relative z-10 flex items-center gap-3">
+                    <i class="fa-solid fa-pen-nib"></i> 6-Mark Diagram Description
+                </h4>
+                
+                <div class="bg-black/30 p-4 rounded-xl border border-white/10 mb-6 relative z-10 font-mono text-sm text-amber-200">
+                    <strong>Draw:</strong> Box 1 [Home Network] containing [Home Agent]. Box 2 [Foreign Network] containing [Foreign Agent] and [Mobile Node].
+                </div>
+
+                <div class="space-y-4 relative z-10">
+                    <strong class="text-white text-lg block mb-2 border-b border-slate-700 pb-2">The Process:</strong>
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/5">
+                        <div class="bg-indigo-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">1</div>
+                        <p class="text-sm text-slate-300">The Mobile Node leaves its Home Network and connects to a Foreign Network (e.g., airport Wi-Fi).</p>
+                    </div>
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/5">
+                        <div class="bg-indigo-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">2</div>
+                        <p class="text-sm text-slate-300">The Foreign Agent gives the Mobile Node a temporary "Care-of Address".</p>
+                    </div>
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/5">
+                        <div class="bg-indigo-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">3</div>
+                        <p class="text-sm text-slate-300">The Mobile Node tells its Home Agent: "I am travelling. Here is my Care-of Address."</p>
+                    </div>
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/5">
+                        <div class="bg-indigo-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">4</div>
+                        <p class="text-sm text-slate-300">Now, if Google sends a packet to your device, it arrives at your Home Agent. The Home Agent intercepts the packet, puts it inside a new envelope (called <strong>Tunneling</strong>), and forwards it directly to your Foreign Agent, which delivers it to you.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gradient-to-r from-purple-900/80 to-fuchsia-900/80 p-5 rounded-2xl border border-purple-500/30 flex items-start gap-4 relative z-10 shadow-inner">
+                    <div class="bg-purple-200 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-purple-800 text-xl"><i class="fa-solid fa-hotel"></i></div>
+                    <div>
+                        <strong class="text-purple-200 block mb-1">Easy Word Explanation (The Hotel Analogy)</strong>
+                        <p class="text-sm text-purple-100">It’s like moving to a hotel in Delhi for a week. You tell your local Patna post office (Home Agent) your hotel address (Care-of Address). Whenever a letter arrives in Patna, the postmaster puts it in a bigger envelope and forwards it to your Delhi hotel (Foreign Agent).</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="manets" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. Mobile Ad-Hoc Networks (MANETs) & Routing</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Describe Ad-Hoc Networks Routing Protocols. Describe the performance of Dynamic Source Routing (DSR) and Cluster-Based Routing Protocol (CBRP).</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">A. What is a Mobile Ad-Hoc Network (MANET)?</h3>
+                <p class="text-sm text-slate-600 mb-3">A MANET is a temporary, decentralized wireless network. There is no central router, switch, or Wi-Fi hotspot. Instead, every single mobile device (node) acts as a router itself and forwards data for other devices.</p>
+                <p class="text-sm text-indigo-700 bg-indigo-50 p-2 rounded inline-block"><strong><i class="fa-solid fa-jet-fighter mr-1"></i> Example:</strong> Military tanks in a desert connecting to each other directly because there are no cell towers.</p>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">B. Ad-Hoc Routing Protocols</h3>
+                <p class="text-sm text-slate-600 mb-6">Because devices are constantly moving, finding a route for data is very difficult. Protocols are divided into two types:</p>
+                
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
+                        <strong class="text-blue-700 text-lg block mb-2"><i class="fa-solid fa-table-list mr-1"></i> Proactive (Table-Driven)</strong>
+                        <p class="text-sm text-slate-600">Every node maintains a routing table of the whole network and updates it constantly, even if no data is being sent. <em>(High battery waste).</em></p>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
+                        <strong class="text-emerald-700 text-lg block mb-2"><i class="fa-solid fa-bolt mr-1"></i> Reactive (On-Demand)</strong>
+                        <p class="text-sm text-slate-600">Routes are only created when a node actually wants to send data. <em>(Saves battery, but causes initial delay).</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Performance Analysis of DSR and CBRP <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle">PYQ Focus</span></h3>
+            
+            <div class="space-y-8 mb-12">
+                <!-- DSR -->
+                <div class="bg-white border-2 border-indigo-100 p-8 rounded-3xl shadow-sm">
+                    <h4 class="text-2xl font-bold text-indigo-900 mb-4 border-b border-slate-100 pb-3">1. Dynamic Source Routing (DSR)</h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>How it works:</strong> It is a reactive protocol. The sender (Source) determines the entire route path from source to destination and attaches this complete list of hops in the header of the data packet. Intermediate nodes just read the header and forward it.</p>
+                    
+                    <strong class="text-slate-800 block mb-3 text-lg">Performance Analysis:</strong>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-sm">
+                            <strong class="text-emerald-800 block mb-1"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Pros:</strong>
+                            <span class="text-emerald-900">Excellent for networks with low mobility. Nodes don't need to waste battery updating tables constantly.</span>
+                        </div>
+                        <div class="bg-rose-50 p-4 rounded-xl border border-rose-100 text-sm">
+                            <strong class="text-rose-800 block mb-1"><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> Cons:</strong>
+                            <span class="text-rose-900">In highly dynamic networks with large data traffic, DSR performs poorly. Since the entire route is written inside the packet header, the header becomes very large, wasting bandwidth (Byte Overhead).</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CBRP -->
+                <div class="bg-white border-2 border-cyan-100 p-8 rounded-3xl shadow-sm">
+                    <h4 class="text-2xl font-bold text-cyan-900 mb-4 border-b border-slate-100 pb-3">2. Cluster-Based Routing Protocol (CBRP)</h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>How it works:</strong> Instead of every node trying to talk to every node, nodes are grouped into geographic "Clusters". One node is elected as the Cluster Head (CH). If Node A wants to talk to Node Z in a different cluster, Node A just gives the data to its CH, which routes it to Node Z's CH.</p>
+                    
+                    <strong class="text-slate-800 block mb-3 text-lg">Performance Analysis:</strong>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-sm">
+                            <strong class="text-emerald-800 block mb-1"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Pros:</strong>
+                            <span class="text-emerald-900">Extremely scalable for massive networks. Reduces routing overhead significantly because only Cluster Heads perform complex routing tasks, saving battery of normal nodes.</span>
+                        </div>
+                        <div class="bg-rose-50 p-4 rounded-xl border border-rose-100 text-sm">
+                            <strong class="text-rose-800 block mb-1"><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> Cons:</strong>
+                            <span class="text-rose-900">If the Cluster Head moves away or its battery dies, the entire cluster breaks down temporarily until a new head is elected.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 7 -->
+            <div id="clusters" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">7. Cluster Techniques & Incremental Maintenance</h2>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">A. Cluster Techniques in MANETs</h3>
+                <p class="text-slate-600 text-sm mb-6">Clustering divides a massive Ad-hoc network into smaller, manageable, overlapping sub-networks (clusters).</p>
+                
+                <h4 class="font-bold text-slate-800 text-lg mb-4 border-b pb-2">Nodes Roles:</h4>
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100 text-center shadow-sm">
+                        <i class="fa-solid fa-crown text-indigo-500 text-3xl mb-2"></i>
+                        <strong class="text-indigo-900 block text-sm mb-1">Cluster Head</strong>
+                        <p class="text-xs text-indigo-800">The leader of the cluster. Manages routing.</p>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-center shadow-sm">
+                        <i class="fa-solid fa-bridge text-emerald-500 text-3xl mb-2"></i>
+                        <strong class="text-emerald-900 block text-sm mb-1">Cluster Gateway</strong>
+                        <p class="text-xs text-emerald-800">Sits on the boundary of two clusters and acts as a bridge between them.</p>
+                    </div>
+                    <div class="bg-slate-100 p-4 rounded-xl border border-slate-200 text-center shadow-sm">
+                        <i class="fa-solid fa-users text-slate-500 text-3xl mb-2"></i>
+                        <strong class="text-slate-800 block text-sm mb-1">Cluster Member</strong>
+                        <p class="text-xs text-slate-600">Normal nodes that just send and receive their own data.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-gears absolute right-[-20px] bottom-[-20px] text-[12rem] opacity-10"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-6 relative z-10">B. Incremental Cluster Maintenance Scheme</h3>
+                
+                <div class="space-y-4 relative z-10 text-sm">
+                    <div class="bg-rose-500/20 p-5 rounded-2xl border border-rose-400/30">
+                        <strong class="text-rose-300 block mb-2 text-lg"><i class="fa-solid fa-triangle-exclamation mr-2"></i> The Problem:</strong>
+                        <p class="text-slate-200">In a MANET, devices (nodes) are always moving (e.g., cars or drones). If a node moves out of a cluster, recalculating and forming the entire cluster system from scratch consumes massive CPU power and battery.</p>
+                    </div>
+                    
+                    <div class="bg-emerald-500/20 p-5 rounded-2xl border border-emerald-400/30">
+                        <strong class="text-emerald-300 block mb-2 text-lg"><i class="fa-solid fa-wrench mr-2"></i> The Solution (Incremental Maintenance):</strong>
+                        <p class="text-slate-200">When the network topology changes (a node leaves or joins), we do not recalculate the entire network. Instead, the clustering algorithm only performs <strong>local, incremental updates</strong>.</p>
+                    </div>
+                    
+                    <div class="bg-purple-900/40 p-5 rounded-2xl border border-purple-500/30 mt-4 flex items-start gap-4">
+                        <div class="bg-purple-200 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-purple-800 text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div>
+                            <strong class="text-purple-300 block mb-1 text-base">Easy Word Explanation (The Classroom Analogy)</strong>
+                            <p class="text-slate-300">If one student leaves a class of 50, the principal doesn't dissolve the whole class and reassign everyone to new sections. They just update the attendance register to remove that one student locally. This saves massive amounts of time and energy (bandwidth).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 3 Notes</h2>
+                    <p class="text-cyan-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Pay highly specific attention to the <strong>Mobile IP diagram process</strong> and the difference between <strong>Microwave/Radio waves</strong>, as these are the most frequently asked 6-Mark questions!
+                    </p>
+                </div>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-cyan-50', 'text-cyan-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-cyan-50', 'text-cyan-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
