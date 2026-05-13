@@ -1,10 +1,706 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-5-Transmission-Media-and-TCP</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 5 Transmission Media and TCP</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Networking Notes - Unit 5</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-cyan-200 selection:text-cyan-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=2070" alt="Fiber Optic Cables and Networking" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-200 to-indigo-200 mb-6 drop-shadow-sm">
+                Transmission Media <br/>& TCP
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-V. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                
+                <h4 class="text-cyan-700 font-bold text-sm mb-2 mt-4 border-b border-cyan-100 pb-1">Part 1: Media</h4>
+                <nav class="space-y-2 mb-4">
+                    <a href="#magnetic" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-floppy-disk text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 1. Magnetic Media
+                    </a>
+                    <a href="#twisted" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-network-wired text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 2. Twisted Pair
+                    </a>
+                    <a href="#coaxial" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-circle-dot text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 3. Coaxial Cable
+                    </a>
+                    <a href="#plc" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-plug text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 4. Power Lines (PLC)
+                    </a>
+                    <a href="#fiber" class="flex items-center gap-3 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-bolt text-slate-400 group-hover:text-cyan-600 w-4 text-center"></i> 5. Fiber Optic Cable
+                    </a>
+                </nav>
+
+                <h4 class="text-indigo-700 font-bold text-sm mb-2 mt-6 border-b border-indigo-100 pb-1">Part 2: TCP</h4>
+                <nav class="space-y-2">
+                    <a href="#tcp-intro" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-handshake text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 1-2. What is TCP?
+                    </a>
+                    <a href="#tcp-functions" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gears text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 3. Key Functions
+                    </a>
+                    <a href="#crash-recovery" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-triangle-exclamation text-slate-400 group-hover:text-indigo-600 w-4 text-center"></i> 4. Crash Recovery
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-cyan prose-headings:font-bold prose-a:text-cyan-600">
+
+            <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-lg mb-10 text-center border-b-4 border-cyan-500 uppercase tracking-widest font-black text-2xl">
+                PART 1: TRANSMISSION MEDIA
+            </div>
+
+            <!-- Section 1 -->
+            <div id="magnetic" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Magnetic Media</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">List six devices that use magnetic media.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6">Before cables and wireless waves, the most common way to transfer massive amounts of data was physically writing it to magnetic media and transporting it via trucks or couriers (often jokingly called the "Sneakernet"). Even today, physically transporting a box of hard drives offers higher bandwidth (data per hour) than a slow internet connection.</p>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-xl font-bold text-slate-800 mb-6 border-b pb-3">List of 6 Devices that use Magnetic Media:</h3>
+                
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-cyan-300 transition-colors">
+                        <div class="text-cyan-600 text-2xl w-8 text-center"><i class="fa-solid fa-hard-drive"></i></div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Hard Disk Drives (HDD)</strong>
+                            <span class="text-xs text-slate-600">Used in desktop computers and servers.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-cyan-300 transition-colors">
+                        <div class="text-blue-600 text-2xl w-8 text-center"><i class="fa-solid fa-server"></i></div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Magnetic Tapes</strong>
+                            <span class="text-xs text-slate-600">Used heavily in enterprise servers for mass data backup and archiving.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-cyan-300 transition-colors">
+                        <div class="text-indigo-600 text-2xl w-8 text-center"><i class="fa-solid fa-floppy-disk"></i></div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Floppy Disks</strong>
+                            <span class="text-xs text-slate-600">Legacy removable storage.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-cyan-300 transition-colors">
+                        <div class="text-emerald-600 text-2xl w-8 text-center"><i class="fa-solid fa-credit-card"></i></div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Magnetic Stripe Cards</strong>
+                            <span class="text-xs text-slate-600">The black stripe on the back of ATM / Credit cards and hotel key cards.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-cyan-300 transition-colors">
+                        <div class="text-amber-600 text-2xl w-8 text-center"><i class="fa-solid fa-cassette-tape"></i></div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Audio Cassette Tapes</strong>
+                            <span class="text-xs text-slate-600">Legacy audio recording media.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-cyan-300 transition-colors">
+                        <div class="text-rose-600 text-2xl w-8 text-center"><i class="fa-solid fa-video"></i></div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">VCR / Videotapes (VHS)</strong>
+                            <span class="text-xs text-slate-600">Legacy video recording media.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="twisted" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Twisted Pair Cable</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">Explain the structural diagram of twisted pair cable and write its features. Compare coaxial cable and twisted pair cable.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">A. Structural Diagram & Description</h3>
+                <p class="text-sm text-cyan-600 italic bg-cyan-50 p-2 rounded mb-6 inline-block"><i class="fa-solid fa-pen-nib mr-1"></i> For your exam, draw this structure linearly from inside to outside.</p>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-amber-100 w-8 h-8 rounded-full flex items-center justify-center text-amber-700 font-bold flex-shrink-0">1</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Inner Copper Conductor:</strong>
+                            <p class="text-sm text-slate-600">The solid copper wire that actually carries the electrical data signal.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center text-blue-700 font-bold flex-shrink-0">2</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Color-Coded Plastic Insulation:</strong>
+                            <p class="text-sm text-slate-600">A plastic coating over the copper wire to prevent electrical short circuits.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-indigo-100 w-8 h-8 rounded-full flex items-center justify-center text-indigo-700 font-bold flex-shrink-0">3</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">The Twist:</strong>
+                            <p class="text-sm text-slate-600">Two insulated wires are twisted around each other in a helical (spiral) pattern.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center text-slate-700 font-bold flex-shrink-0">4</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Outer Protective Jacket:</strong>
+                            <p class="text-sm text-slate-600">A tough plastic/PVC outer sheath holding multiple twisted pairs together.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-2xl border border-amber-200 mb-8 shadow-inner">
+                    <h4 class="text-lg font-bold text-amber-900 mb-2"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-2"></i> B. Why are they twisted? (Crucial Concept)</h4>
+                    <p class="text-amber-800 text-sm leading-relaxed">Twisting the wires cancels out <strong>Electromagnetic Interference (EMI)</strong> and <strong>Crosstalk</strong> from adjacent wires. If noise hits the cable, the twist ensures both wires are equally affected, allowing the receiver's differential amplifier to easily cancel the noise out.</p>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-800 mb-4">C. Features of Twisted Pair Cable:</h3>
+                <ul class="grid sm:grid-cols-2 gap-4">
+                    <li class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm"><strong class="text-slate-800"><i class="fa-solid fa-money-bill-wave text-emerald-500 mr-2"></i> Cost:</strong> Cheapest and most widely used.</li>
+                    <li class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm"><strong class="text-slate-800"><i class="fa-solid fa-globe text-blue-500 mr-2"></i> Usage:</strong> Ethernet LAN networks (Cat5e/Cat6) and old landlines.</li>
+                    <li class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm"><strong class="text-slate-800"><i class="fa-solid fa-plug text-indigo-500 mr-2"></i> Connectors:</strong> Uses RJ-45 (LAN) and RJ-11 (telephones).</li>
+                    <li class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm"><strong class="text-slate-800"><i class="fa-solid fa-arrow-down-wide-short text-rose-500 mr-2"></i> Attenuation:</strong> High attenuation; signals degrade quickly, requiring repeaters every 100 meters.</li>
+                </ul>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="coaxial" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-circle-dot"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Coaxial Cable</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain the structural diagram of coaxial cable and write its features.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">A. Structural Diagram & Description</h3>
+                <p class="text-sm text-indigo-600 italic bg-indigo-50 p-2 rounded mb-6 inline-block"><i class="fa-solid fa-pen-nib mr-1"></i> Draw 4 concentric circular layers in your exam.</p>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-amber-100 w-8 h-8 rounded-full flex items-center justify-center text-amber-700 font-bold flex-shrink-0">1</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Inner Conductor (Solid Copper Core):</strong>
+                            <p class="text-sm text-slate-600">A stiff, solid copper wire in the dead center that carries the main electrical signal.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-white w-8 h-8 rounded-full flex items-center justify-center text-slate-700 font-bold flex-shrink-0 border border-slate-300">2</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Dielectric Insulator:</strong>
+                            <p class="text-sm text-slate-600">A thick layer of solid or foam plastic surrounding the inner core to prevent it from touching the shield.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-slate-300 w-8 h-8 rounded-full flex items-center justify-center text-slate-800 font-bold flex-shrink-0">3</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Metallic Braid / Shield:</strong>
+                            <p class="text-sm text-slate-600">A woven copper mesh or aluminum foil wrapped around the insulator. It acts as the second wire (ground) and provides massive protection against outside electromagnetic noise.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Outer Plastic Jacket:</strong>
+                            <p class="text-sm text-slate-600">A tough PVC covering to protect against physical damage and weather.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-slate-800 mb-4">B. Features of Coaxial Cable:</h3>
+                <ul class="grid sm:grid-cols-3 gap-4">
+                    <li class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm"><strong class="text-slate-800 block mb-1"><i class="fa-solid fa-gauge-high text-indigo-500 mr-2"></i> High Bandwidth:</strong> <span class="text-sm text-slate-600">Much higher bandwidth and data rate compared to Twisted Pair.</span></li>
+                    <li class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm"><strong class="text-slate-800 block mb-1"><i class="fa-solid fa-shield text-emerald-500 mr-2"></i> Noise Immunity:</strong> <span class="text-sm text-slate-600">Excellent immunity against crosstalk and EMI because of the metallic shield.</span></li>
+                    <li class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm"><strong class="text-slate-800 block mb-1"><i class="fa-solid fa-tv text-cyan-500 mr-2"></i> Usage:</strong> <span class="text-sm text-slate-600">Extensively used for Cable TV networks (Dish TV cables) and high-speed broadband internet.</span></li>
+                </ul>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">C. Comparison: Coaxial Cable vs. Twisted Pair Cable <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+            
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-cyan-300 border-r border-slate-700">Twisted Pair Cable</th>
+                            <th class="p-5 font-bold text-sm text-indigo-300">Coaxial Cable</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Structure</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Two insulated wires twisted together.</td>
+                            <td class="p-5 text-slate-700 text-sm">Central core, insulator, and a metallic braided shield.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Bandwidth</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Lower bandwidth (Standard LAN speeds).</td>
+                            <td class="p-5 text-emerald-700 font-bold text-sm">Higher bandwidth (Can carry hundreds of TV channels simultaneously).</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Noise Immunity</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Moderate. Vulnerable to high-level EMI.</td>
+                            <td class="p-5 text-emerald-700 font-bold text-sm">Excellent. The metal shield blocks external noise effectively.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Cost</td>
+                            <td class="p-5 text-emerald-700 font-bold border-r border-slate-200 text-sm">Very cheap and affordable.</td>
+                            <td class="p-5 text-slate-700 text-sm">Relatively more expensive than twisted pair.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Installation</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Very thin, highly flexible, and easy to bend/install.</td>
+                            <td class="p-5 text-slate-700 text-sm">Thicker, stiffer, and slightly harder to bend around tight corners.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Application</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Local Area Networks (Ethernet) and Telephones.</td>
+                            <td class="p-5 text-slate-700 text-sm">Cable TV networks and long-distance analog transmission.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="plc" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-plug"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Power Lines (PLC)</h2>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-12">
+                <p class="text-slate-600 mb-6 text-lg"><strong>Definition:</strong> Power Line Communication uses existing electrical power wires (the same wires that power your fans and lights) to simultaneously carry digital data.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-6">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">You plug a special adapter into your normal wall socket. The internet signal rides on top of the 220V AC electrical current, turning your entire house's electrical wiring into a massive LAN cable.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-sm text-blue-900">
+                    <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-lightbulb text-blue-600"></i> Application</strong>
+                    Smart grids, remote meter reading, and HomePlug adapters (extending Wi-Fi to a dead zone using electrical sockets).
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="fiber" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Fiber Optic Cable</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                    <p class="text-red-900 font-medium">Explain the working principle of optical fiber with diagram + modes. Structural diagram + functions. State four advantages compared to copper.</p>
+                </div>
+            </div>
+
+            <p class="text-xl text-slate-600 mb-8 font-medium">Optical fibers use pulses of light to transmit data rather than electrical voltage.</p>
+
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1200" alt="Fiber Optic Cables Glowing" class="w-full h-64 object-cover rounded-3xl shadow-lg mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">A. Structural Diagram & Functions <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <p class="text-sm text-cyan-600 italic bg-cyan-50 p-2 rounded mb-6 inline-block"><i class="fa-solid fa-pen-nib mr-1"></i> Draw 3 to 4 cylindrical layers in your exam.</p>
+                
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-cyan-100 w-8 h-8 rounded-full flex items-center justify-center text-cyan-700 font-bold flex-shrink-0">1</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Core:</strong>
+                            <p class="text-sm text-slate-600">The ultra-thin, pure glass (or plastic) center where the light actually travels. <strong class="text-cyan-700">Function:</strong> To carry the light signal.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center text-blue-700 font-bold flex-shrink-0">2</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Cladding:</strong>
+                            <p class="text-sm text-slate-600">Another layer of glass surrounding the core. Its Refractive Index is strictly less than the core. <strong class="text-blue-700">Function:</strong> To act like a mirror, reflecting light back into the core and preventing it from escaping.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-indigo-100 w-8 h-8 rounded-full flex items-center justify-center text-indigo-700 font-bold flex-shrink-0">3</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Buffer Coating:</strong>
+                            <p class="text-sm text-slate-600">A plastic coating over the cladding. <strong class="text-indigo-700">Function:</strong> To protect the fragile glass from moisture and physical shock.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+                        <div>
+                            <strong class="text-slate-800 block text-sm">Outer Jacket:</strong>
+                            <p class="text-sm text-slate-600">Made of Kevlar or tough PVC. <strong class="text-slate-800">Function:</strong> Protects the cable from being cut, crushed, or chewed by animals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl shadow-xl text-white relative overflow-hidden mb-10">
+                <i class="fa-solid fa-lightbulb absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-10"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-4 relative z-10 flex items-center gap-2">B. Working Principle <span class="bg-red-500 text-white px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider ml-2 shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 mb-4 relative z-10 text-lg">Optical fibers work on the principle of <strong>Total Internal Reflection (TIR)</strong>.</p>
+                
+                <ul class="list-disc pl-5 space-y-3 text-slate-200 relative z-10 text-sm">
+                    <li>When a light ray traveling in the denser <strong>Core</strong> hits the boundary of the rarer <strong>Cladding</strong> at an angle greater than the "Critical Angle", the light does not pass through. Instead, it acts like a mirror and reflects 100% of the light back into the core.</li>
+                    <li>The light bounces zig-zag down the entire length of the cable at incredible speeds without leaking out.</li>
+                </ul>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Different Modes of Optical Fiber <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <div class="grid md:grid-cols-2 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-cyan-500">
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">Single-Mode Fiber (SMF)</h4>
+                    <p class="text-sm text-slate-600 mb-3">Has an extremely thin core (approx. 9 microns). It only allows one single straight beam of laser light to pass through.</p>
+                    <p class="text-xs text-cyan-800 bg-cyan-50 p-2 rounded font-medium"><strong>Used for:</strong> Very long distances (e.g., submarine cables under oceans) because there is no signal dispersion.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-indigo-500">
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">Multi-Mode Fiber (MMF)</h4>
+                    <p class="text-sm text-slate-600 mb-3">Has a thicker core (50-62.5 microns). Multiple beams of light (usually from LEDs) bounce through at different angles simultaneously.</p>
+                    <p class="text-xs text-indigo-800 bg-indigo-50 p-2 rounded font-medium"><strong>Used for:</strong> Shorter distances (e.g., within a university campus or data center).</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">D. Four Advantages Compared to Copper Cable <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <div class="grid sm:grid-cols-2 gap-4 mb-16">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                    <i class="fa-solid fa-gauge-high text-emerald-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 block text-sm mb-1">Infinite Bandwidth</strong>
+                        <p class="text-xs text-slate-600">Fiber can carry gigabits to terabits of data per second, far exceeding copper's limits.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                    <i class="fa-solid fa-shield-halved text-emerald-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 block text-sm mb-1">Zero EMI</strong>
+                        <p class="text-xs text-slate-600">Since it uses light, it is 100% immune to electrical storms, high-voltage lines, and magnets.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                    <i class="fa-solid fa-lock text-emerald-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 block text-sm mb-1">Extremely Secure</strong>
+                        <p class="text-xs text-slate-600">You cannot easily tap or "listen in" on a fiber optic cable without breaking the glass, making it highly secure.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                    <i class="fa-solid fa-feather text-emerald-500 mt-1"></i>
+                    <div>
+                        <strong class="text-slate-800 block text-sm mb-1">Lighter and Thinner</strong>
+                        <p class="text-xs text-slate-600">A single thin fiber optic cable can replace hundreds of heavy copper wires, saving massive space.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-300 border-2 my-16" />
+
+            <div class="bg-gradient-to-r from-indigo-900 to-slate-900 text-white p-8 rounded-2xl shadow-xl mb-12 text-center border-b-4 border-indigo-400 uppercase tracking-widest font-black text-2xl">
+                PART 2: TRANSMISSION CONTROL PROTOCOL (TCP)
+            </div>
+
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-10">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain the working of the TCP. Role of addressing. Process of crash recovery.</p>
+                </div>
+            </div>
+
+            <div id="tcp-intro" class="scroll-mt-24">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">1. What is a Protocol?</h3>
+                <p class="text-slate-600 mb-8 bg-white p-5 rounded-xl border border-slate-200 shadow-sm">A Protocol is a standard set of rules and procedures that dictate how data is formatted, transmitted, and received across a computer network.</p>
+
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">2. Working of TCP <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 mb-6">TCP is the most important protocol of the Transport Layer. It provides reliable, ordered, and error-checked delivery of a stream of bytes between applications running on hosts communicating via an IP network.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-8">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Registered Post)</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">If IP (Internet Protocol) is the postman who just drops the letter and runs away (unreliable), TCP is the <strong>registered speed-post service</strong>. TCP forces the receiver to sign a receipt (Acknowledgment). If the receipt isn't returned, TCP automatically prints a new letter and sends it again.</p>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 mb-12">
+                    <h4 class="font-bold text-indigo-900 mb-3 text-lg">Features of TCP:</h4>
+                    <ul class="space-y-3 text-sm text-indigo-800">
+                        <li><strong><i class="fa-solid fa-link w-5"></i> Connection-Oriented:</strong> Before sending any real data, TCP establishes a strict logical connection between sender and receiver.</li>
+                        <li><strong><i class="fa-solid fa-shield-check w-5"></i> Reliability:</strong> Guarantees 100% data delivery without loss or duplication.</li>
+                        <li><strong><i class="fa-solid fa-stream w-5"></i> Byte-Stream Service:</strong> Data is sent as a continuous stream of bytes, not just individual chunks.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="tcp-functions" class="scroll-mt-24">
+                <h3 class="text-3xl font-extrabold text-slate-800 mb-8 border-b pb-2">3. Key Functions of TCP</h3>
+
+                <div class="space-y-8 mb-16">
+                    <!-- A. Addressing -->
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+                        <span class="absolute top-0 right-0 bg-red-100 text-red-700 text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider">PYQ Focus</span>
+                        <h4 class="text-xl font-bold text-indigo-700 mb-3 flex items-center gap-2"><i class="fa-solid fa-address-book"></i> A. Role of Addressing</h4>
+                        <p class="text-sm text-slate-600 mb-2"><strong>Importance:</strong> While IP addresses identify the specific Computer/Device, TCP needs to know exactly which Application inside that computer should get the data (e.g., WhatsApp, Chrome, or Email?).</p>
+                        <p class="text-sm text-slate-600 mb-3"><strong>How TCP Addresses it:</strong> TCP uses <strong>Port Numbers</strong> (a 16-bit address).</p>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm text-slate-700">
+                            <strong>Example:</strong> When data arrives at your laptop (IP Address), TCP checks the Port Number. If port=80, it goes to Web Browser. If port=25, it goes to Email. Without Port addressing, data delivery to the correct software is impossible.
+                        </div>
+                    </div>
+
+                    <!-- B. Connection Management -->
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                        <h4 class="text-xl font-bold text-indigo-700 mb-3 flex items-center gap-2"><i class="fa-solid fa-handshake"></i> B. Connection Management (3-Way Handshake)</h4>
+                        <p class="text-sm text-slate-600 mb-3">TCP creates a connection using three steps:</p>
+                        <ul class="space-y-2 text-sm text-slate-700 font-mono bg-slate-900 text-green-400 p-4 rounded-xl">
+                            <li><span class="text-blue-400">1. SYN:</span> Client sends "Synchronize" packet -> "Can we talk?"</li>
+                            <li><span class="text-purple-400">2. SYN-ACK:</span> Server replies -> "Yes, I acknowledge you, let's talk."</li>
+                            <li><span class="text-rose-400">3. ACK:</span> Client replies -> "Great, acknowledging your yes. Sending data now."</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- C. Error/Flow Control -->
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                            <h4 class="text-lg font-bold text-indigo-700 mb-3"><i class="fa-solid fa-traffic-light"></i> C. Error & Flow Control</h4>
+                            <p class="text-sm text-slate-600 mb-2"><strong>Error Control:</strong> TCP adds a mathematical Checksum. Receiver calculates it. If mismatch = discarded. TCP expects an ACK for every packet. If an ACK is lost, TCP retransmits.</p>
+                            <p class="text-sm text-slate-600"><strong>Flow Control:</strong> Uses Sliding Window Protocol. Receiver says, "I only have 5MB space." Sender strictly sends 5MB and pauses, preventing receiver overwhelm.</p>
+                        </div>
+                        
+                        <!-- D. Multiplexing -->
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                            <h4 class="text-lg font-bold text-indigo-700 mb-3"><i class="fa-solid fa-layer-group"></i> D. Multiplexing</h4>
+                            <p class="text-sm text-slate-600">TCP allows multiple applications on the same computer to send data over a single IP network connection simultaneously by assigning different Port Numbers to each app.</p>
+                        </div>
+
+                        <!-- E. Congestion Control -->
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                            <h4 class="text-lg font-bold text-indigo-700 mb-3"><i class="fa-solid fa-road-barrier"></i> E. Congestion Control</h4>
+                            <p class="text-sm text-slate-600">If network routers are jammed, TCP detects this (ACKs are delayed). It uses an algorithm called <strong>Slow Start</strong>, drastically slowing transmission speed, then slowly increasing it until stable.</p>
+                        </div>
+
+                        <!-- F. Timer Management -->
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                            <h4 class="text-lg font-bold text-indigo-700 mb-3"><i class="fa-solid fa-stopwatch"></i> F. Timer Management</h4>
+                            <p class="text-sm text-slate-600">TCP relies on timers. The most important is the <strong>Retransmission Timer (RTO)</strong>. Sends a packet -> starts stopwatch. If no ACK arrives before zero, it assumes loss and resends.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <div id="crash-recovery" class="scroll-mt-24">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-gradient-to-r from-rose-500 to-red-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Crash Recovery in TCP</h2>
+                </div>
+
+                <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                    <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus (6 Marks)</h4>
+                        <p class="text-red-900 font-medium">Describe the process of crash recovery.</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-600 mb-8 font-medium text-lg">Computers and routers can crash due to power failures or hardware faults. TCP must handle these crashes gracefully without breaking the entire network system.</p>
+
+                <div class="space-y-8 mb-16">
+                    <!-- Scenario 1 -->
+                    <div class="bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-700 text-white relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-24 h-24 bg-rose-600/20 rounded-bl-full"></div>
+                        <h4 class="text-2xl font-bold text-rose-400 mb-4 flex items-center gap-3"><i class="fa-solid fa-laptop-medical"></i> Scenario 1: Receiving Host Crashes & Reboots</h4>
+                        
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 mb-4">
+                            <strong class="text-rose-200 block mb-1">The Problem:</strong>
+                            <p class="text-sm text-slate-300">Sender A is sending data to Receiver B. Suddenly, B loses power, crashes, reboots, and loses all its memory of the active TCP connection.</p>
+                        </div>
+                        
+                        <strong class="text-emerald-400 block mb-3 text-lg">The Recovery Process:</strong>
+                        <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-200">
+                            <li>Sender A does not know B crashed. A sends the next packet of data.</li>
+                            <li>Receiver B receives this packet but has no active connection for it in its memory.</li>
+                            <li>Receiver B immediately replies with a special TCP flag called <strong>RST (Reset)</strong>.</li>
+                            <li>When Sender A receives the RST flag, it realizes B crashed. Sender A immediately aborts the old connection and tells the application to start a fresh connection from scratch.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Scenario 2 -->
+                    <div class="bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-700 text-white relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-24 h-24 bg-amber-600/20 rounded-bl-full"></div>
+                        <h4 class="text-2xl font-bold text-amber-400 mb-4 flex items-center gap-3"><i class="fa-solid fa-server"></i> Scenario 2: The Sender Host Crashes</h4>
+                        
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 mb-4">
+                            <strong class="text-amber-200 block mb-1">The Problem:</strong>
+                            <p class="text-sm text-slate-300">Sender A crashes while Receiver B is patiently waiting for the next packet.</p>
+                        </div>
+                        
+                        <strong class="text-emerald-400 block mb-3 text-lg">The Recovery Process:</strong>
+                        <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-200">
+                            <li>Receiver B waits. However, TCP utilizes a <strong>Keep-Alive Timer</strong>.</li>
+                            <li>If Receiver B hears nothing for a long time (e.g., 2 hours), the Keep-Alive timer expires.</li>
+                            <li>Receiver B sends "probe" packets asking "Are you still there?"</li>
+                            <li>If Sender A doesn't respond to the probes, Receiver B assumes A is dead and safely closes the connection, freeing up its memory resources.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Scenario 3 -->
+                    <div class="bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-700 text-white relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-24 h-24 bg-cyan-600/20 rounded-bl-full"></div>
+                        <h4 class="text-2xl font-bold text-cyan-400 mb-4 flex items-center gap-3"><i class="fa-solid fa-route"></i> Scenario 3: A Network Router Crashes</h4>
+                        <div class="bg-white/5 p-5 rounded-xl border border-white/10">
+                            <p class="text-sm text-slate-200 leading-relaxed">If an intermediate router crashes, the packets are lost. The sender's Retransmission Timer expires. The sender simply resends the packet. The IP network will automatically find a new, alternate router path to bypass the crashed router, and TCP will ensure the missing data is delivered successfully without the user ever noticing the crash.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 5 Notes</h2>
+                    <p class="text-cyan-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Focus deeply on the diagrams of the cables, the working of optical fibers (TIR), and TCP's connection/crash recovery mechanisms, as they carry significant weight in the final exam!
+                    </p>
+                </div>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-cyan-50', 'text-cyan-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-cyan-50', 'text-cyan-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
