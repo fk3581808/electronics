@@ -1,10 +1,573 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-5-Pneumatic-System</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 5 Pneumatic System</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechatronics Notes - Unit 5</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .math-box { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-teal-200 selection:text-teal-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Pneumatics / Factory Background Image -->
+            <img src="https://images.unsplash.com/photo-1513828742140-ccaa15f4039f?auto=format&fit=crop&q=80&w=2070" alt="Industrial Automation and Pneumatics" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-emerald-200 to-cyan-200 mb-6 drop-shadow-sm">
+                Pneumatic Systems
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-V. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-teal-600 hover:bg-teal-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-teal-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#intro" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-wind text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 1. Intro to Pneumatics
+                    </a>
+                    <a href="#components" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-cogs text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 2. System Components
+                    </a>
+                    <a href="#preparation" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-filter text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 3. Air Preparation & FRL
+                    </a>
+                    <a href="#actuators" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-arrows-up-down-left-right text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 4. Pneumatic Actuators
+                    </a>
+                    <a href="#symbols" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-shapes text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 5. Standard Symbols
+                    </a>
+                    <a href="#circuit" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-code-branch text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 6. Circuit Design
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-teal prose-headings:font-bold prose-a:text-teal-600">
+
+            <!-- Section 1 -->
+            <div id="intro" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-wind"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Introduction to Pneumatic Systems</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Describe pneumatic system. State the advantages, limitations and applications of pneumatic system. Discuss advantages of pneumatic systems over hydraulic systems. Explain the different components of a pneumatic system.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-teal-600">A.</span> What is a Pneumatic System? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span>
+                </h3>
+                <p class="text-slate-600 mb-6 text-base">A Pneumatic System is a fluid power system that uses compressed air (or inert gases) to transmit force and motion. Unlike hydraulic systems that use liquid (oil), pneumatic systems suck in normal atmospheric air, compress it, and use that high-pressure air to push mechanical parts.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-6">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Balloon Analogy)</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Think of a balloon. When you blow air into it and let it go, the escaping air has the power to push the balloon forward. A pneumatic system harnesses this "push" of compressed air in a controlled way to do physical work.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-sm text-blue-900">
+                    <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-bus text-blue-600"></i> Real-Life Examples:</strong>
+                    The automatic doors on a city bus (you can hear the "hiss" sound of air), the high-speed drill used by a dentist, and pneumatic nail guns used by carpenters.
+                </div>
+            </div>
+
+            <!-- Components -->
+            <div id="components" class="scroll-mt-24">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">B. Different Components of a Pneumatic System <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+                
+                <div class="grid sm:grid-cols-2 gap-4 mb-12">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-fan text-indigo-500 w-6"></i> Air Compressor</strong>
+                        <p class="text-sm text-slate-600">The machine that sucks in atmospheric air and compresses it to a high pressure.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-database text-cyan-500 w-6"></i> Air Receiver / Tank</strong>
+                        <p class="text-sm text-slate-600">A large tank that stores the compressed air so the compressor doesn't have to run continuously.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-filter text-amber-500 w-6"></i> FRL Unit (Air Treatment)</strong>
+                        <p class="text-sm text-slate-600">Cleans, regulates, and lubricates the air before it enters the delicate machine parts.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-traffic-light text-rose-500 w-6"></i> Direction Control Valves</strong>
+                        <p class="text-sm text-slate-600">Directs the flow of compressed air to the correct part of the actuator.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-arrows-up-down-left-right text-emerald-500 w-6"></i> Pneumatic Actuator</strong>
+                        <p class="text-sm text-slate-600">Converts the compressed air energy into physical mechanical movement (Cylinders/Motors).</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-arrow-up-from-bracket text-slate-500 w-6"></i> Exhaust</strong>
+                        <p class="text-sm text-slate-600">A port that vents the used air safely back into the atmosphere (causing the classic "hissing" sound).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantages / Disadvantages -->
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Advantages and Limitations of Pneumatic Systems <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-emerald-50/50 p-6 rounded-3xl border border-emerald-100 shadow-sm">
+                    <h4 class="text-xl font-bold text-emerald-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Advantages</h4>
+                    <ul class="space-y-3 text-sm text-emerald-900">
+                        <li><strong>Availability of Fluid:</strong> Air is available everywhere for free and in infinite quantities.</li>
+                        <li><strong>Cleanliness:</strong> If a pipe leaks, it just blows air. No messy, dangerous oil spills. (Crucial for food/pharma).</li>
+                        <li><strong>Safety:</strong> Compressed air is non-explosive and non-flammable, making it safe in high fire-risk areas.</li>
+                        <li><strong>High Speed:</strong> Air is very light, allowing cylinders to move at extremely high speeds.</li>
+                        <li><strong>Simple Exhaust:</strong> Used air is simply dumped back into the room. No return pipes needed.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-rose-50/50 p-6 rounded-3xl border border-rose-100 shadow-sm">
+                    <h4 class="text-xl font-bold text-rose-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> Limitations</h4>
+                    <ul class="space-y-3 text-sm text-rose-900">
+                        <li><strong>Low Force:</strong> Because air is compressible (squishy), pneumatic systems cannot lift massively heavy loads like hydraulic systems can.</li>
+                        <li><strong>Noise:</strong> The exhaust of high-pressure air into the atmosphere is very loud.</li>
+                        <li><strong>Uneven Movement:</strong> Because air compresses and expands, the movement of the cylinder can sometimes be jerky, not smooth.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pneumatic vs Hydraulic -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12 border-b-4 border-cyan-400">
+                <i class="fa-solid fa-scale-balanced absolute right-[-20px] top-[-20px] text-[10rem] opacity-5"></i>
+                <h3 class="text-2xl font-bold text-cyan-300 mb-6 relative z-10 flex items-center gap-3">D. Advantages of Pneumatic over Hydraulic <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider shadow-sm">PYQ Comparison</span></h3>
+                
+                <div class="space-y-4 relative z-10">
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 flex items-start gap-4">
+                        <i class="fa-solid fa-soap text-cyan-400 mt-1 text-xl w-6"></i>
+                        <p class="text-slate-200 text-base"><strong class="text-white">Pneumatics is Cleaner:</strong> No messy oil leaks.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 flex items-start gap-4">
+                        <i class="fa-solid fa-gauge-high text-cyan-400 mt-1 text-xl w-6"></i>
+                        <p class="text-slate-200 text-base"><strong class="text-white">Pneumatics is Faster:</strong> Air travels through pipes faster than thick oil.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 flex items-start gap-4">
+                        <i class="fa-solid fa-shield-virus text-cyan-400 mt-1 text-xl w-6"></i>
+                        <p class="text-slate-200 text-base"><strong class="text-white">Pneumatics is Safer:</strong> No risk of hydraulic oil fires.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 flex items-start gap-4">
+                        <i class="fa-solid fa-coins text-cyan-400 mt-1 text-xl w-6"></i>
+                        <p class="text-slate-200 text-base"><strong class="text-white">Pneumatics is Cheaper to build:</strong> Air is free, and the system doesn't require expensive heavy-duty return pipes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="preparation" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-filter"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Production, Distribution, & Conditioning</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Stages of air treatment. Block diagram of three stages of preparation. Draw and explain the FRL unit. Purpose of a lubricator.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">Compressed air straight from the atmosphere is dirty, wet, and hot. If sent directly to a machine, it will destroy the valves and cylinders. Therefore, it goes through <strong>Three Stages of Preparation</strong>.</p>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">A. Three Stages of Preparation of Compressed Air <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            
+            <div class="bg-white p-6 rounded-3xl border-2 border-indigo-100 shadow-sm mb-8">
+                <strong class="text-indigo-800 block mb-3 text-lg"><i class="fa-solid fa-pen-nib mr-2"></i> Block Diagram (To draw in Exam):</strong>
+                <div class="overflow-x-auto whitespace-nowrap bg-slate-50 p-4 rounded-xl border border-slate-200 math-box text-sm text-slate-800 font-bold flex flex-wrap gap-2 items-center justify-center">
+                    <span class="bg-rose-100 px-3 py-2 rounded border border-rose-200">[ Stage 1: Production (Compressor & Cooler) ]</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="bg-blue-100 px-3 py-2 rounded border border-blue-200">[ Stage 2: Distribution & Drying ]</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="bg-emerald-100 px-3 py-2 rounded border border-emerald-200">[ Stage 3: Conditioning (FRL Unit) ]</span>
+                </div>
+            </div>
+
+            <div class="space-y-6 mb-12">
+                <!-- Stage 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-rose-500">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-industry text-rose-500"></i> Stage 1: Production and Primary Treatment</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><strong>Air Filter:</strong> Sucks in atmospheric air and removes large dust particles.</li>
+                        <li><strong>Compressor:</strong> Squashes the air to high pressure. This process makes the air extremely hot.</li>
+                        <li><strong>After-Cooler:</strong> Cools the hot compressed air down to room temperature. Cooling the air causes the invisible water vapor in it to turn into liquid water drops (condensation).</li>
+                    </ul>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-blue-500">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-droplet-slash text-blue-500"></i> Stage 2: Distribution and Secondary Treatment</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><strong>Moisture Separator:</strong> Removes the liquid water drops created by the cooler.</li>
+                        <li><strong>Air Receiver (Tank):</strong> Stores the air and allows remaining water to settle at the bottom.</li>
+                        <li><strong>Air Dryer:</strong> Uses chemicals or refrigeration to remove the last tiny bits of invisible moisture from the air. <em class="text-rose-600 font-bold">(Water causes internal rust, so it must be removed!)</em></li>
+                    </ul>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-emerald-500">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-gears text-emerald-500"></i> Stage 3: Air Conditioning (The FRL Unit)</h4>
+                    <p class="text-sm text-slate-600">This happens right before the air enters the machine. (Explained in detail below).</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden mb-12 border-2 border-teal-500">
+                <i class="fa-solid fa-filter-circle-xmark absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-3xl font-bold text-teal-300 mb-6 relative z-10 flex items-center gap-3">
+                    B. The FRL Unit (Filter, Regulator, Lubricator) <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                </h3>
+                <p class="text-slate-300 mb-6 relative z-10 text-lg">The FRL unit is the final, most crucial stage of air conditioning.</p>
+                
+                <div class="bg-black/40 p-5 rounded-xl border border-white/10 mb-8 text-sm relative z-10">
+                    <strong class="text-amber-300 block mb-3 text-lg"><i class="fa-solid fa-pen-nib mr-1"></i> Diagram Description (For Exam):</strong>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                        <li>Draw a pipe entering a box labeled <strong>Filter</strong> (draw a funnel shape inside to show dirt falling to a bottom bowl).</li>
+                        <li>Connect it to a box labeled <strong>Regulator</strong> (draw a spring with an adjusting knob on top and a pressure gauge dial).</li>
+                        <li>Connect it to a box labeled <strong>Lubricator</strong> (draw a small tube dropping a single drop of oil into the air stream).</li>
+                    </ul>
+                </div>
+
+                <div class="relative z-10">
+                    <h4 class="text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">Working Principle of FRL:</h4>
+                    <div class="space-y-4 text-sm text-slate-300">
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                            <strong class="text-teal-200 text-base block mb-1">1. Filter:</strong>
+                            The air enters a spinning bowl. Centrifugal force throws the remaining fine dust and tiny water droplets to the walls, where they fall to the bottom and are drained out.
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                            <strong class="text-teal-200 text-base block mb-1">2. Regulator:</strong>
+                            Air pressure from the compressor fluctuates. The regulator uses a spring and diaphragm to ensure the air coming out is at a constant, steady, smooth pressure (e.g., strictly 5 bar), protecting delicate valves from bursting.
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 border-l-4 border-l-amber-400">
+                            <strong class="text-amber-300 text-base block mb-1">3. Lubricator (Crucial PYQ):</strong>
+                            Compressed air is completely dry and will cause metal valves and cylinders to scrape against each other, causing extreme friction and wear. The Lubricator injects a microscopic mist of lubricating oil into the air stream. The air carries this oil mist into the machine, continuously oiling the moving parts from the inside.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-amber-500/20 border border-amber-400/50 p-5 rounded-2xl relative z-10 shadow-inner">
+                    <strong class="text-amber-300 block mb-2 text-lg"><i class="fa-solid fa-pencil mr-2"></i> Exam Answer for "Purpose of Lubricator":</strong>
+                    <p class="text-slate-200 font-medium leading-relaxed">To reduce internal friction, prevent rust, minimize wear and tear of sliding seals, and increase the lifespan of pneumatic actuators and valves by providing automatic internal oiling via the air stream.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="actuators" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-arrows-up-down-left-right"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Pneumatic Actuators</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">What do you mean by pneumatic actuator? Classify actuators. Describe single acting cylinder with neat diagram. Explain end position cushioning.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">A. What is a Pneumatic Actuator? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1">PYQ</span></h3>
+                    <p class="text-sm text-slate-600">A Pneumatic Actuator is the "muscle" of the system. It is a mechanical device that converts the potential energy of compressed air into kinetic energy (physical mechanical motion and force).</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">B. Classification of Actuators <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1">PYQ</span></h3>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li><strong>Linear Actuators (Cylinders):</strong> Produce straight-line push/pull motion. (Single-Acting & Double-Acting).</li>
+                        <li><strong>Rotary Actuators (Air Motors):</strong> Produce continuous spinning motion (like a pneumatic drill).</li>
+                        <li><strong>Limited Angle Actuators:</strong> Produce a twisting motion up to a certain angle (e.g., 90&deg; or 180&deg;).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-12">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">C. Single Acting Cylinder <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-sm">
+                        <strong class="text-indigo-800 block mb-2 text-base"><i class="fa-solid fa-pen-nib mr-1"></i> Diagram Description:</strong>
+                        <ul class="list-disc pl-4 text-slate-600 space-y-2">
+                            <li>Draw a horizontal rectangular tube (the cylinder barrel).</li>
+                            <li>Inside, draw a vertical block (the Piston) with a long horizontal rod (the Piston Rod) coming out of the right side.</li>
+                            <li>On the left side of the cylinder, draw a small hole/pipe for "Air IN".</li>
+                            <li>On the right side, inside the barrel, draw a coiled spring pushing against the piston.</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4 text-sm">
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                            <strong class="text-blue-900 block mb-1">Extension:</strong>
+                            <p class="text-slate-700">When high-pressure air enters the left port, it pushes the piston to the right, compressing the spring. The rod extends and pushes a load.</p>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                            <strong class="text-emerald-900 block mb-1">Retraction:</strong>
+                            <p class="text-slate-700">When the air supply is turned off and the left port is opened to the atmosphere (exhaust), the trapped compressed air escapes. The mechanical spring automatically pushes the piston back to its original starting position.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 bg-purple-50 p-3 rounded-lg border border-purple-100 text-sm text-purple-900 inline-block">
+                    <strong><i class="fa-solid fa-stamp mr-1"></i> Application:</strong> Clamping a piece of wood on a table, or punching a hole in paper.
+                </div>
+            </div>
+
+            <!-- End Position Cushioning -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-mattress-pillow absolute right-[-20px] top-[-20px] text-[10rem] opacity-10"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-6 relative z-10 flex items-center gap-3">D. End Position Cushioning <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider shadow-sm">PYQ Focus</span></h3>
+                
+                <div class="space-y-4 relative z-10 text-sm">
+                    <div class="bg-rose-500/20 p-5 rounded-2xl border border-rose-400/30">
+                        <strong class="text-rose-300 block mb-2 text-lg"><i class="fa-solid fa-triangle-exclamation mr-2"></i> The Problem:</strong>
+                        <p class="text-slate-200">In a double-acting cylinder moving at very high speeds, the heavy metal piston slams violently into the metal end-caps of the cylinder at the end of its stroke. This causes massive noise, vibration, and destroys the cylinder over time.</p>
+                    </div>
+                    
+                    <div class="bg-emerald-500/20 p-5 rounded-2xl border border-emerald-400/30">
+                        <strong class="text-emerald-300 block mb-2 text-lg"><i class="fa-solid fa-shield mr-2"></i> The Solution & How it works:</strong>
+                        <p class="text-slate-200 mb-2">It is a built-in shock absorber.</p>
+                        <p class="text-slate-200 leading-relaxed">Just before the piston reaches the very end of its stroke, a small plunger on the piston blocks the main exhaust port. The escaping air is trapped in a small pocket. This trapped air acts like an <strong>"air spring"</strong> or a cushion. It can only escape through a tiny, adjustable needle valve.</p>
+                    </div>
+
+                    <div class="bg-cyan-900/40 p-4 rounded-xl border border-cyan-500/30 text-cyan-100 font-bold">
+                        <i class="fa-solid fa-check-double text-cyan-400 mr-2"></i> Result: This smoothly and gently slows the piston down in the last few millimeters of its journey, ensuring a soft, quiet stop instead of a violent metal-on-metal crash.
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="symbols" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-shapes"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. System Components & Graphic Representations (Symbols)</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain the standard graphical symbols used in pneumatic circuits.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium">In mechatronics, engineers do not draw realistic pictures of compressors and valves. They use standard ISO graphic symbols to design circuits. <em class="text-teal-600 bg-teal-50 px-2 py-1 rounded">(Note for exam: Describe these shapes accurately or sketch them).</em></p>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 border-2 border-slate-800 rounded-full relative flex items-center justify-center">
+                        <!-- Hollow Triangle pointing UP for pneumatic compressor -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-slate-800">
+                            <polygon points="12,4 20,20 4,20" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Pneumatic Compressor</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">A circle with a hollow (unfilled) triangle pointing upwards. (Note: A filled/black triangle means hydraulic oil; hollow means air).</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-end justify-center pb-2">
+                        <!-- Hollow Triangle pointing DOWN for exhaust -->
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-slate-800">
+                            <polygon points="12,20 20,4 4,4" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Pneumatic Exhaust</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">A small triangle pointing downwards (showing air escaping to the atmosphere).</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-20 h-10 mx-auto mb-4 border-2 border-slate-800 rounded-full mt-3"></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Air Receiver (Tank)</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">A capsule shape (a rectangle with semi-circles on the left and right ends).</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 relative flex items-center justify-center">
+                        <div class="w-12 h-12 border-2 border-slate-800 rotate-45 flex items-center justify-center"></div>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">FRL Unit (Simplified)</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">A diamond shape. Inside: vertical dashed line (Filter), straight horizontal line on top (Lubricator), and a line crossing it with a spring symbol (Regulator).</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-20 h-10 mx-auto mb-4 border-2 border-slate-800 relative mt-3">
+                        <div class="absolute left-10 top-0 bottom-0 w-0.5 bg-slate-800"></div>
+                        <div class="absolute left-10 top-1/2 w-10 h-0.5 bg-slate-800"></div>
+                        <!-- Spring zigzag representation -->
+                        <div class="absolute left-2 top-1/2 w-8 h-2 border-t-2 border-slate-800" style="border-image: repeating-linear-gradient(45deg, #1e293b 0, #1e293b 2px, transparent 2px, transparent 4px) 2;"></div>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Single-Acting Cylinder</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Rectangle containing a T-shaped piston/rod. A zig-zag line (spring) is drawn inside the front. Only one connection line enters the back.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-20 h-10 mx-auto mb-4 border-2 border-slate-800 relative mt-3">
+                        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-800"></div>
+                        <div class="absolute left-6 top-1/2 w-14 h-0.5 bg-slate-800"></div>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Double-Acting Cylinder</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Rectangle with a T-shaped piston and rod. NO spring. Two connection lines: one at the back and one at the front.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="circuit" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-code-branch"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Design of Systems (Basic Pneumatic Circuit)</h2>
+            </div>
+            
+            <p class="text-slate-600 mb-8 font-medium">To tie it all together, here is how a basic pneumatic circuit is designed to operate a Single-Acting Cylinder.</p>
+
+            <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-gears absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-6 relative z-10 border-b border-slate-700 pb-3">The Circuit Flow:</h3>
+                
+                <div class="space-y-6 relative z-10">
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">1</div>
+                        <p class="text-sm text-slate-300 mt-1">The <strong>Compressor</strong> generates air and stores it in the <strong>Receiver</strong>.</p>
+                    </div>
+                    
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-emerald-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">2</div>
+                        <p class="text-sm text-slate-300 mt-1">The air flows through the <strong>FRL Unit</strong>, becoming clean, pressure-regulated, and lubricated.</p>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-rose-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">3</div>
+                        <p class="text-sm text-slate-300 mt-1">The air waits at the 'P' (Pressure) port of a <strong>3/2 Push-Button Direction Control Valve</strong>.</p>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-purple-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">4</div>
+                        <p class="text-sm text-slate-300 mt-1">When the human operator presses the button, the valve shifts. Air travels from 'P' to 'A' (Actuator port).</p>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-amber-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">5</div>
+                        <p class="text-sm text-slate-300 mt-1">The air enters the <strong>Single-Acting Cylinder</strong>, pushing the piston out to stamp a box.</p>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-cyan-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">6</div>
+                        <p class="text-sm text-slate-300 mt-1">When the operator releases the button, a spring inside the valve shifts it back. The air inside the cylinder escapes to the atmosphere via the <strong>Exhaust</strong> port, and the cylinder's internal spring retracts the piston.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-teal-600 to-cyan-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 5 Notes</h2>
+                    <p class="text-teal-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Pay highly specific attention to the <strong>"FRL Unit"</strong>, the concept of <strong>"End Position Cushioning"</strong>, and the difference between <strong>"Pneumatic vs Hydraulic"</strong> systems, as these are the most critical 6-mark questions in your syllabus! Best of luck for your Semester 6 Exams!
+                    </p>
+                </div>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-teal-50', 'text-teal-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-teal-50', 'text-teal-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
