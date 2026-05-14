@@ -1,10 +1,672 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-4-Hydraulic-Systems</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 4 Hydraulic Systems</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechatronics Notes - Unit 4</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .math-box { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-teal-200 selection:text-teal-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Hydraulics / Machinery Background Image -->
+            <img src="https://images.unsplash.com/photo-1504917595217-d4bf5010cbc2?auto=format&fit=crop&q=80&w=2070" alt="Heavy Machinery and Hydraulics" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-emerald-200 to-cyan-200 mb-6 drop-shadow-sm">
+                Hydraulic Systems
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-IV. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-teal-600 hover:bg-teal-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-teal-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#intro" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-water text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 1. Intro & Pascal's Law
+                    </a>
+                    <a href="#pumps" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gear text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 2. Hydraulic Pumps
+                    </a>
+                    <a href="#valves" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-arrows-split-up-and-left text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 3. Valves & Control
+                    </a>
+                    <a href="#actuators" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-truck-moving text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 4. Actuators
+                    </a>
+                    <a href="#circuits" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-diagram-project text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 5. Circuit Design
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-teal prose-headings:font-bold prose-a:text-teal-600">
+
+            <!-- Section 1 -->
+            <div id="intro" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-water"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Introduction to Hydraulic Systems & Pascal's Law</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain Pascal's law. Explain the components of a hydraulic system with a neat diagram. Explain various components of an hydraulic system.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-teal-600">A.</span> What is a Hydraulic System?
+                </h3>
+                <p class="text-slate-600 mb-6 text-base">A Hydraulic System uses pressurized, incompressible liquid (usually special hydraulic oil) to transmit force, power, and motion.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-6">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Think of hydraulics as <strong>"Liquid Muscle."</strong> Because you cannot squish or compress water/oil, if you push oil in at one end of a pipe, it will immediately push out with massive force at the other end.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-sm text-blue-900">
+                    <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-truck-pickup text-blue-600"></i> Real-Life Examples:</strong>
+                    The heavy lifting arms of a JCB excavator, car brakes, and airplane landing gear.
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Pascal's Law <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+            <p class="mb-4 text-slate-600">The entire foundation of hydraulic systems relies on Pascal's Law.</p>
+
+            <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-compress absolute right-[-20px] top-[-20px] text-[10rem] text-white opacity-5"></i>
+                
+                <div class="relative z-10 space-y-6">
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                        <strong class="text-teal-300 block mb-2 text-lg"><i class="fa-solid fa-quote-left mr-2"></i> Statement:</strong>
+                        <p class="text-slate-200 text-lg leading-relaxed italic">"Pressure applied to any part of a confined, incompressible fluid is transmitted equally and undiminished in all directions, acting with equal force on equal areas."</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-6">
+                        <div class="bg-black/40 p-4 rounded-xl border border-teal-500 shadow-inner flex-shrink-0 w-full sm:w-auto text-center">
+                            <span class="text-slate-400 text-sm block mb-1">Formula:</span>
+                            <span class="font-mono text-2xl text-emerald-400 font-bold">P = F / A</span>
+                            <span class="text-xs text-slate-500 block mt-1">(Pressure = Force / Area)</span>
+                        </div>
+                        <div class="bg-gradient-to-r from-emerald-900/40 to-teal-900/40 p-4 rounded-xl border border-emerald-500/30">
+                            <strong class="text-emerald-300 block mb-1"><i class="fa-solid fa-bolt mr-1"></i> How it helps:</strong>
+                            <p class="text-sm text-slate-300">By using a small cylinder to push fluid into a very large cylinder, you can multiply your force massively. Pushing with 10 kg of force on a small piston can lift a 1000 kg car on a large piston!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">C. Components of a Hydraulic System <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            
+            <div class="bg-white p-6 rounded-3xl border-2 border-indigo-100 shadow-sm mb-8">
+                <strong class="text-indigo-800 block mb-3 text-lg"><i class="fa-solid fa-pen-nib mr-2"></i> Diagram Description (To draw in Exam):</strong>
+                <p class="text-sm text-slate-600 mb-4">Draw a block diagram in this sequence:</p>
+                <div class="overflow-x-auto whitespace-nowrap bg-slate-50 p-4 rounded-xl border border-slate-200 mb-4 math-box text-sm text-slate-800 font-bold flex flex-wrap gap-2 items-center justify-center">
+                    <span class="bg-indigo-100 px-3 py-2 rounded">[ Electric Motor ]</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="bg-emerald-100 px-3 py-2 rounded">[ Hydraulic Pump ]</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="bg-amber-100 px-3 py-2 rounded">[ Control Valves ]</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="bg-rose-100 px-3 py-2 rounded">[ Actuator (Cylinder) ]</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="bg-slate-200 px-3 py-2 rounded">[ Load ]</span>
+                </div>
+                <p class="text-xs text-slate-500 italic text-center">(Below the pump, draw a tank [ Reservoir ] and connect a pipe from the tank to the pump, and a return pipe from the valves back to the tank).</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 mb-12">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-plug text-indigo-500 w-5"></i> Electric Motor / Engine</strong>
+                    <p class="text-sm text-slate-600">Provides the initial mechanical power to spin the pump.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-heart-pulse text-rose-500 w-5"></i> Hydraulic Pump (The Heart)</strong>
+                    <p class="text-sm text-slate-600">Sucks oil from the tank and pushes it into the pipes at high pressure.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-traffic-light text-amber-500 w-5"></i> Control Valves (Traffic Cops)</strong>
+                    <p class="text-sm text-slate-600">Controls the pressure, flow rate, and direction of the pressurized oil.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-dumbbell text-emerald-500 w-5"></i> Actuators (The Muscles)</strong>
+                    <p class="text-sm text-slate-600">Converts the fluid energy back into mechanical movement (e.g., a hydraulic cylinder pushing a heavy block).</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-database text-blue-500 w-5"></i> Reservoir (Tank)</strong>
+                    <p class="text-sm text-slate-600">Stores the hydraulic oil, cools it down, and allows air bubbles to escape.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <strong class="text-slate-800 block mb-1 text-base"><i class="fa-solid fa-filter text-slate-500 w-5"></i> Supporting Elements</strong>
+                    <p class="text-sm text-slate-600">Filters (to remove dirt from oil), Hoses/Pipes (to carry oil).</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="pumps" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Hydraulic Pumps & Power Packs</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Main function and role of a hydraulic pump. Compare gear, vane, and piston pump. Construction and working of balanced vane pump.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Role and Main Function of a Hydraulic Pump <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <ul class="space-y-4 text-sm text-slate-600">
+                    <li class="bg-slate-50 p-4 rounded-lg border border-slate-100"><strong class="text-teal-700 text-base block mb-1">Function:</strong> A hydraulic pump converts mechanical energy (from a rotating electric motor) into hydraulic energy (fluid flow and pressure).</li>
+                    <li class="bg-slate-50 p-4 rounded-lg border border-slate-100"><strong class="text-cyan-700 text-base block mb-1">Role in the System:</strong> It acts as the "Heart" of the system. It creates a vacuum at its inlet to suck oil from the reservoir and physically pushes the oil out through its outlet to overcome the resistance of the load.</li>
+                </ul>
+                <p class="text-xs text-rose-600 bg-rose-50 p-3 rounded-lg border border-rose-100 mt-4 font-bold uppercase tracking-wide">
+                    <i class="fa-solid fa-circle-info mr-1"></i> Note: Pumps create FLOW, not pressure. Pressure is created by the resistance to that flow.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-3xl font-sans shadow-lg mb-12 border-2 border-emerald-500 relative overflow-hidden">
+                <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                <i class="fa-solid fa-fan absolute right-[-20px] bottom-[-20px] text-[12rem] text-white opacity-5"></i>
+                
+                <h3 class="text-2xl font-bold text-emerald-300 mb-4 relative z-10">B. Construction and Working of a Balanced Vane Pump</h3>
+                <p class="text-slate-300 text-sm mb-6 relative z-10">A vane pump uses sliding blades (vanes) inside a rotor to move fluid. A "Balanced" vane pump is an improved design.</p>
+                
+                <div class="bg-black/40 p-5 rounded-xl border border-white/10 mb-6 text-sm relative z-10">
+                    <strong class="text-amber-300 block mb-2"><i class="fa-solid fa-pen-nib mr-1"></i> Construction (For Exam Diagram):</strong>
+                    <p class="text-slate-300 leading-relaxed">Draw an elliptical (oval-shaped) outer cam ring. Inside it, draw a perfectly circular rotor with slots. Inside the slots, draw rectangular vanes pushed outward by springs. Draw TWO inlets directly opposite each other, and TWO outlets directly opposite each other.</p>
+                </div>
+
+                <div class="relative z-10">
+                    <h4 class="text-lg font-bold text-white mb-3 border-b border-white/10 pb-1">Working Principle:</h4>
+                    <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-300">
+                        <li>The electric motor spins the central rotor. Centrifugal force pushes the vanes outwards to constantly touch the inner surface of the oval cam ring.</li>
+                        <li>Because the ring is oval, the space between the rotor and the ring increases and decreases twice per rotation.</li>
+                        <li>Where the space <strong>increases</strong>, a vacuum is formed, sucking oil IN (Inlet).</li>
+                        <li>Where the space <strong>decreases</strong>, the oil is squeezed and pushed OUT (Outlet).</li>
+                    </ol>
+                </div>
+                
+                <div class="bg-gradient-to-r from-emerald-900/50 to-teal-900/50 border border-emerald-500/30 p-4 rounded-xl mt-6 relative z-10">
+                    <strong class="text-emerald-300 block mb-1"><i class="fa-solid fa-scale-balanced mr-1"></i> Why "Balanced"?</strong>
+                    <p class="text-sm text-slate-200">Because it has two inlets and two outlets perfectly opposite each other, the high-pressure forces pushing against the rotor cancel each other out. This means zero side-load on the bearings, extending the pump's life massively!</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">C. Comparison: Gear, Vane, and Piston Pumps <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ Table</span></h3>
+            
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-4 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-4 font-bold text-sm text-cyan-300 border-r border-slate-700">Gear Pump</th>
+                            <th class="p-4 font-bold text-sm text-emerald-300 border-r border-slate-700">Vane Pump</th>
+                            <th class="p-4 font-bold text-sm text-purple-300">Piston Pump</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-sm">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Construction</td>
+                            <td class="p-4 text-slate-700 border-r border-slate-200">Uses two meshing gears rotating inside a casing.</td>
+                            <td class="p-4 text-slate-700 border-r border-slate-200">Uses sliding vanes in a slotted rotor inside a cam ring.</td>
+                            <td class="p-4 text-slate-700">Uses reciprocating pistons moving back and forth inside cylinders.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Pressure Handling</td>
+                            <td class="p-4 text-slate-700 border-r border-slate-200">Low to Medium pressure.</td>
+                            <td class="p-4 text-slate-700 border-r border-slate-200">Medium pressure.</td>
+                            <td class="p-4 text-purple-700 font-bold">Very High pressure.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Performance / Efficiency</td>
+                            <td class="p-4 text-rose-600 border-r border-slate-200">Low efficiency (fluid can leak back between gear teeth).</td>
+                            <td class="p-4 text-slate-700 border-r border-slate-200">Moderate efficiency. Smooth flow.</td>
+                            <td class="p-4 text-emerald-600 font-bold">Highest efficiency. Excellent performance under heavy loads.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Cost</td>
+                            <td class="p-4 text-emerald-600 font-bold border-r border-slate-200">Very cheap.</td>
+                            <td class="p-4 text-slate-700 border-r border-slate-200">Medium cost.</td>
+                            <td class="p-4 text-rose-600 font-bold">Very expensive and complex.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Noise Level</td>
+                            <td class="p-4 text-rose-600 border-r border-slate-200">Very noisy.</td>
+                            <td class="p-4 text-emerald-600 font-bold border-r border-slate-200">Quiet operation.</td>
+                            <td class="p-4 text-slate-700">Moderate to High noise.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-4 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Application</td>
+                            <td class="p-4 text-slate-700 border-r border-slate-200 italic">Lubrication systems, low-cost machinery.</td>
+                            <td class="p-4 text-slate-700 border-r border-slate-200 italic">Plastic injection molding, medium machine tools.</td>
+                            <td class="p-4 text-slate-700 italic">Heavy excavators (JCBs), aerospace.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm mb-12 flex gap-4 items-start">
+                <div class="bg-teal-100 text-teal-700 w-12 h-12 flex items-center justify-center rounded-full flex-shrink-0 text-xl"><i class="fa-solid fa-box-archive"></i></div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">D. Hydraulic Power Pack</h3>
+                    <p class="text-sm text-slate-600">A Hydraulic Power Pack is a standalone, compact unit that contains the Reservoir, Electric Motor, Pump, and basic relief valves all mounted together in one box. You just plug it into the wall, connect two hoses to your machine, and you have instant hydraulic power.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="valves" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Valves: Direction, Pressure, and Flow Control</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Classification of valves. Direction control valves working & types. Spool vs Poppet valve. 4/2 & 4/3 DCV symbols. Commonly used pressure control valves.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium text-lg">Valves are the "Traffic Cops" of the hydraulic system. They are classified into three main types:</p>
+            <div class="grid sm:grid-cols-3 gap-4 mb-10">
+                <div class="bg-indigo-50 border border-indigo-100 p-4 rounded-xl text-center shadow-sm">
+                    <i class="fa-solid fa-signs-post text-2xl text-indigo-500 mb-2"></i>
+                    <strong class="block text-indigo-900 text-sm mb-1">Direction Control (DCV)</strong>
+                    <p class="text-xs text-indigo-800">Directs <em>where</em> the oil goes.</p>
+                </div>
+                <div class="bg-rose-50 border border-rose-100 p-4 rounded-xl text-center shadow-sm">
+                    <i class="fa-solid fa-gauge-high text-2xl text-rose-500 mb-2"></i>
+                    <strong class="block text-rose-900 text-sm mb-1">Pressure Control</strong>
+                    <p class="text-xs text-rose-800">Controls <em>how hard</em> the oil pushes.</p>
+                </div>
+                <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-center shadow-sm">
+                    <i class="fa-solid fa-water text-2xl text-emerald-500 mb-2"></i>
+                    <strong class="block text-emerald-900 text-sm mb-1">Flow Control</strong>
+                    <p class="text-xs text-emerald-800">Controls <em>how fast</em> the oil moves.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-2">A. Direction Control Valves (DCV) & Types <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <p class="text-sm text-slate-600 mb-6"><strong>Working Principle:</strong> A DCV works by opening, closing, or changing the internal paths connecting various ports. It uses a moving internal mechanism to block fluid from entering one pipe and route it into another, allowing an actuator to extend, retract, or stop.</p>
+                
+                <h4 class="font-bold text-slate-800 text-lg mb-4">Types of DCV based on Internal Mechanism:</h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                        <strong class="text-teal-700 text-lg block mb-2"><i class="fa-solid fa-caret-up mr-2"></i> Poppet Valve</strong>
+                        <p class="text-sm text-slate-600 mb-3">Uses a small ball or a cone pressed against a circular seat by a spring to block flow. When a lever is pushed, the ball is forced off the seat, letting fluid pass.</p>
+                        <p class="text-xs text-emerald-700 bg-emerald-100 p-2 rounded"><strong><i class="fa-solid fa-check mr-1"></i> Advantage:</strong> Zero leakage because the pressure forces the cone tighter into the seat.</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                        <strong class="text-blue-700 text-lg block mb-2"><i class="fa-solid fa-grip-lines-vertical mr-2"></i> Spool Valve</strong>
+                        <p class="text-sm text-slate-600 mb-3">Uses a solid cylindrical metal shaft (spool) with thick sections (lands) and thin sections (grooves) sliding inside a tube. As it slides, grooves connect different ports, lands block others.</p>
+                        <p class="text-xs text-emerald-700 bg-emerald-100 p-2 rounded"><strong><i class="fa-solid fa-check mr-1"></i> Advantage:</strong> A single spool can easily control complex 4-way, 5-way routing without massive force.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-shapes absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-4 relative z-10">B. Symbolic Representation of DCVs (4/2 and 4/3 DCV) <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider ml-2 shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 text-sm mb-8 relative z-10">In hydraulic circuit diagrams, DCVs are drawn using squares (boxes). The number of boxes equals the number of "Positions". The number of connection points on one box equals the number of "Ports".<br/>
+                <span class="text-cyan-300 italic mt-2 block">Ports are usually: <strong>P</strong> (Pump), <strong>T</strong> (Tank/Reservoir), <strong>A</strong> (Actuator side A), <strong>B</strong> (Actuator side B).</span></p>
+
+                <div class="space-y-10 relative z-10">
+                    <!-- 4/2 DCV -->
+                    <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+                        <h4 class="text-xl font-bold text-white mb-4">1. 4/2 DCV <span class="text-sm font-normal text-slate-400 ml-2">(4 Ports, 2 Positions)</span></h4>
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <!-- Visual Box Representation -->
+                            <div class="flex border-2 border-white bg-slate-800 shrink-0">
+                                <!-- Position 1 -->
+                                <div class="w-20 h-20 border-r-2 border-white relative flex items-center justify-center">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" stroke="white" stroke-width="2" fill="none">
+                                        <!-- P to A (Bottom left to top left) -->
+                                        <path d="M 10,35 L 10,5" marker-end="url(#arrowhead)"/>
+                                        <!-- B to T (Top right to bottom right) -->
+                                        <path d="M 30,5 L 30,35" marker-end="url(#arrowhead)"/>
+                                    </svg>
+                                </div>
+                                <!-- Position 2 -->
+                                <div class="w-20 h-20 relative flex items-center justify-center">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" stroke="white" stroke-width="2" fill="none">
+                                        <!-- P to B (Bottom left to top right) -->
+                                        <path d="M 10,35 L 30,5" marker-end="url(#arrowhead)"/>
+                                        <!-- A to T (Top left to bottom right) -->
+                                        <path d="M 10,5 L 30,35" marker-end="url(#arrowhead)"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-300">
+                                <p class="mb-2"><strong class="text-amber-200">Explanation:</strong> It has 2 square boxes side-by-side.</p>
+                                <ul class="list-disc pl-5 mb-2 space-y-1">
+                                    <li>Inside Box 1, draw an arrow from P &rarr; A, and an arrow from B &rarr; T.</li>
+                                    <li>Inside Box 2, draw an arrow from P &rarr; B, and an arrow from A &rarr; T.</li>
+                                </ul>
+                                <p><strong class="text-emerald-300">Usage:</strong> Used to push a cylinder fully outward, and then fully backward. There is no stopping in the middle.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4/3 DCV -->
+                    <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+                        <h4 class="text-xl font-bold text-white mb-4">2. 4/3 DCV <span class="text-sm font-normal text-slate-400 ml-2">(4 Ports, 3 Positions)</span></h4>
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <!-- Visual Box Representation -->
+                            <div class="flex border-2 border-white bg-slate-800 shrink-0">
+                                <!-- Position 1 (Left) -->
+                                <div class="w-16 h-16 border-r-2 border-white relative flex items-center justify-center">
+                                    <svg width="30" height="30" viewBox="0 0 40 40" stroke="white" stroke-width="2" fill="none">
+                                        <path d="M 10,35 L 10,5" marker-end="url(#arrowhead)"/>
+                                        <path d="M 30,5 L 30,35" marker-end="url(#arrowhead)"/>
+                                    </svg>
+                                </div>
+                                <!-- Position 2 (Center - Blocked) -->
+                                <div class="w-16 h-16 border-r-2 border-white relative flex items-center justify-center">
+                                    <svg width="30" height="30" viewBox="0 0 40 40" stroke="white" stroke-width="2" fill="none">
+                                        <!-- T shapes for blocked ports -->
+                                        <path d="M 5,10 L 15,10 M 10,10 L 10,18" />
+                                        <path d="M 25,10 L 35,10 M 30,10 L 30,18" />
+                                        <path d="M 5,30 L 15,30 M 10,30 L 10,22" />
+                                        <path d="M 25,30 L 35,30 M 30,30 L 30,22" />
+                                    </svg>
+                                </div>
+                                <!-- Position 3 (Right) -->
+                                <div class="w-16 h-16 relative flex items-center justify-center">
+                                    <svg width="30" height="30" viewBox="0 0 40 40" stroke="white" stroke-width="2" fill="none">
+                                        <path d="M 10,35 L 30,5" marker-end="url(#arrowhead)"/>
+                                        <path d="M 10,5 L 30,35" marker-end="url(#arrowhead)"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-300">
+                                <p class="mb-2"><strong class="text-amber-200">Explanation:</strong> It has 3 square boxes side-by-side.</p>
+                                <ul class="list-disc pl-5 mb-2 space-y-1">
+                                    <li><strong>Left Box:</strong> Arrow P &rarr; A, B &rarr; T (Extend).</li>
+                                    <li><strong>Right Box:</strong> Arrow P &rarr; B, A &rarr; T (Retract).</li>
+                                    <li><strong>Center Box:</strong> All ports blocked with a 'T' symbol (&perp;), meaning fluid cannot go anywhere.</li>
+                                </ul>
+                                <p><strong class="text-emerald-300">Usage:</strong> Used to extend, retract, AND stop the cylinder in the middle of its stroke.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SVG Definitions for arrows -->
+                <svg width="0" height="0" class="hidden">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                            <polygon points="0 0, 6 2, 0 4" fill="white" />
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-12">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">C. Pressure Control Valves <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 mb-6 text-sm">If fluid pressure gets too high, pipes will explode. Pressure control valves protect the system.</p>
+                
+                <div class="space-y-4">
+                    <div class="bg-rose-50 p-5 rounded-2xl border border-rose-100 flex items-start gap-4">
+                        <div class="bg-rose-100 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-rose-600"><i class="fa-solid fa-gauge-simple-high"></i></div>
+                        <div>
+                            <strong class="text-rose-900 block mb-1 text-lg">Pressure Relief Valve (Most Common)</strong>
+                            <p class="text-sm text-rose-800">It is installed immediately after the pump. It acts as a safety fuse. If a machine gets jammed, pressure builds up. Once the pressure hits the safe limit (e.g., 200 bar), the relief valve forces a spring open and dumps the excess oil safely back into the tank.</p>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100 flex items-start gap-4">
+                        <div class="bg-blue-100 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600"><i class="fa-solid fa-compress"></i></div>
+                        <div>
+                            <strong class="text-blue-900 block mb-1 text-lg">Pressure Reducing Valve</strong>
+                            <p class="text-sm text-blue-800">Used when one specific part of the machine requires a lower pressure than the main system. It reduces the pressure locally.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="actuators" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-truck-moving"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Actuators and Supporting Elements</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define actuation and how actuation systems are used.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-2">A. Define Actuation and Actuation Systems <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 mb-6 text-sm"><strong class="text-slate-800">Definition:</strong> Actuation is the physical process of triggering a mechanical movement or causing a machine part to operate. An <strong>Actuation System</strong> is the combination of devices (like pumps, valves, and actuators) that work together to convert stored energy (electrical, hydraulic, or pneumatic) into direct mechanical work.</p>
+                
+                <h4 class="font-bold text-slate-800 text-lg mb-4">How they are used (Examples):</h4>
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 shadow-sm text-sm">
+                        <strong class="text-teal-700 block mb-2"><i class="fa-solid fa-truck-pickup mr-1"></i> 1. Heavy Machinery</strong>
+                        <p class="text-slate-600">A hydraulic actuation system in a dump truck pushes a massive cylinder to tilt the bed and dump sand.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 shadow-sm text-sm">
+                        <strong class="text-indigo-700 block mb-2"><i class="fa-solid fa-robot mr-1"></i> 2. Mechatronics/Robotics</strong>
+                        <p class="text-slate-600">An electrical actuation system (servo motor) is used in an industrial robotic arm to rotate a joint by exactly 45 degrees.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 shadow-sm text-sm">
+                        <strong class="text-blue-700 block mb-2"><i class="fa-solid fa-gears mr-1"></i> 3. Manufacturing</strong>
+                        <p class="text-slate-600">Used in CNC machines to hydraulically clamp a block of metal firmly onto the cutting table so it doesn't move during milling.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Types of Hydraulic Actuators</h3>
+            
+            <div class="space-y-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-blue-500">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3"><i class="fa-solid fa-arrows-up-down-left-right text-blue-500 mr-2"></i> Linear Actuators (Hydraulic Cylinders)</h4>
+                    <p class="text-sm text-slate-600 mb-4">Provide push-and-pull straight-line motion.</p>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm">
+                            <strong class="text-slate-800 block mb-1">Single-Acting Cylinder</strong>
+                            <p class="text-slate-600">Oil pushes the piston outward. A mechanical spring pushes it back in when oil pressure is released.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm">
+                            <strong class="text-slate-800 block mb-1">Double-Acting Cylinder</strong>
+                            <p class="text-slate-600">Oil is pushed into Port A to extend the piston, and then oil is pushed into Port B to forcefully retract the piston.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-emerald-500 flex items-start gap-4">
+                    <div class="text-emerald-500 text-2xl mt-1"><i class="fa-solid fa-rotate"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">Rotary Actuators (Hydraulic Motors)</h4>
+                        <p class="text-sm text-slate-600">Provide continuous rotational motion (spinning). They work exactly like a pump but in reverse (oil goes in, causes the shaft to spin, oil goes out).</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="circuits" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-500 to-teal-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Design of Hydraulic Circuits</h2>
+            </div>
+            
+            <p class="text-slate-600 mb-8 font-medium">While drawing full complex circuits requires graphic software, you must understand the basic design logic for an exam.</p>
+
+            <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-code-branch absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-6 relative z-10 border-b border-slate-700 pb-3">Basic Circuit Design: Controlling a Double-Acting Cylinder</h3>
+                
+                <div class="space-y-6 relative z-10">
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">1</div>
+                        <div>
+                            <strong class="text-blue-300 block mb-1">Start at the bottom:</strong>
+                            <p class="text-sm text-slate-300">Draw a <strong>Tank</strong> symbol.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-emerald-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">2</div>
+                        <div>
+                            <strong class="text-emerald-300 block mb-1">The Power source:</strong>
+                            <p class="text-sm text-slate-300">Draw a <strong>Pump</strong> pulling oil from the Tank, driven by an <strong>Electric Motor</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-rose-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">3</div>
+                        <div>
+                            <strong class="text-rose-300 block mb-1">Safety First:</strong>
+                            <p class="text-sm text-slate-300">Immediately after the pump, draw a line branching off to a <strong>Pressure Relief Valve</strong> that dumps back to the Tank.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-purple-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">4</div>
+                        <div>
+                            <strong class="text-purple-300 block mb-1">The Brain:</strong>
+                            <p class="text-sm text-slate-300">Connect the main pressure line to the 'P' port of a <strong>4/3 Direction Control Valve (DCV)</strong>. Connect the 'T' port of the DCV back to the Tank.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-amber-500 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0 shadow-md">5</div>
+                        <div>
+                            <strong class="text-amber-300 block mb-1">The Muscle:</strong>
+                            <p class="text-sm text-slate-300">Connect port 'A' of the DCV to the rear of a <strong>Double-Acting Cylinder</strong>. Connect port 'B' of the DCV to the front of the cylinder.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gradient-to-r from-teal-900/80 to-emerald-900/80 p-6 rounded-2xl border border-teal-500/30 relative z-10 shadow-inner">
+                    <strong class="text-teal-300 block mb-3 text-lg"><i class="fa-solid fa-microchip mr-2"></i> Circuit Logic:</strong>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-slate-200">
+                        <li>When the operator shifts the valve to <strong>Position 1</strong>, oil flows P &rarr; A, pushing the cylinder out. Oil in the front escapes B &rarr; T.</li>
+                        <li>When shifted to <strong>Position 2</strong>, oil flows P &rarr; B, pushing the cylinder back in.</li>
+                        <li>When in the <strong>Center Position</strong>, all ports are blocked, locking the cylinder firmly in place!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-teal-600 to-cyan-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 4 Notes</h2>
+                    <p class="text-teal-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Please practice drawing the <strong>"Balanced Vane Pump"</strong>, the <strong>"Square Box Symbols for 4/2 & 4/3 DCVs"</strong>, and the <strong>basic Hydraulic Block Diagram</strong> to guarantee maximum marks in the exam!
+                    </p>
+                </div>
+                <i class="fa-solid fa-truck-pickup absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-teal-50', 'text-teal-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-teal-50', 'text-teal-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
