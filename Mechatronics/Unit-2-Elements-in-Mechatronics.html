@@ -1,10 +1,698 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-2-Elements-in-Mechatronics</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 2 Elements in Mechatronics</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechatronics Notes - Unit 2</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .math-box { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-teal-200 selection:text-teal-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Robotics / PCB Background Image -->
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070" alt="Electronics and Robotics" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-emerald-200 to-cyan-200 mb-6 drop-shadow-sm">
+                Elements in <br/>Mechatronics
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-II. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-teal-600 hover:bg-teal-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-teal-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#sensors" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-satellite-dish text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 1. Sensors & Actuators
+                    </a>
+                    <a href="#signal" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-wave-square text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 2. Signal Processing
+                    </a>
+                    <a href="#timers" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-stopwatch text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 3. Timers
+                    </a>
+                    <a href="#microcontrollers" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-microchip text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 4. Microcontrollers
+                    </a>
+                    <a href="#pid" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gamepad text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 5. PID Controllers
+                    </a>
+                    <a href="#plc" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-industry text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 6. PLCs
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-teal prose-headings:font-bold prose-a:text-teal-600">
+
+            <!-- Section 1 -->
+            <div id="sensors" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-satellite-dish"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Sensors, Transducers, and Actuators</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Role and importance of sensors and actuators with examples. Difference between active and passive transducer. Micro-sensors working and applications.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Role of Sensors and Actuators in Mechatronics <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 mb-6 text-base">A mechatronic system interacts with the physical world. It needs to "feel" the environment and "act" upon it.</p>
+                
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-cyan-50 p-6 rounded-2xl border border-cyan-100 shadow-sm">
+                        <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-600 text-xl mb-4"><i class="fa-solid fa-eye"></i></div>
+                        <h4 class="font-bold text-cyan-900 mb-2">Sensors (The Senses)</h4>
+                        <p class="text-sm text-cyan-800 mb-3">A sensor is a device that detects changes in the physical environment (like heat, pressure, or motion) and converts them into an electrical signal that the microcontroller can read.</p>
+                        <ul class="text-sm text-cyan-900 space-y-1 bg-white/50 p-3 rounded-xl border border-cyan-200">
+                            <li><strong>Importance:</strong> Without sensors, the system is blind and cannot take feedback.</li>
+                            <li><strong>Example:</strong> An IR sensor in an automatic sliding door detects a person approaching.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-rose-50 p-6 rounded-2xl border border-rose-100 shadow-sm">
+                        <div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center text-rose-600 text-xl mb-4"><i class="fa-solid fa-dumbbell"></i></div>
+                        <h4 class="font-bold text-rose-900 mb-2">Actuators (The Muscles)</h4>
+                        <p class="text-sm text-rose-800 mb-3">An actuator takes the electrical command signal from the microcontroller and converts it back into physical, mechanical action (movement).</p>
+                        <ul class="text-sm text-rose-900 space-y-1 bg-white/50 p-3 rounded-xl border border-rose-200">
+                            <li><strong>Importance:</strong> Without actuators, the system can think, but it cannot move or do physical work.</li>
+                            <li><strong>Example:</strong> The DC Motor that actually slides the automatic door open.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4 text-center">B. Transducers: Active vs Passive <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ Table</span></h3>
+            <p class="text-center text-slate-600 mb-6 text-sm">A Transducer is any device that converts one form of energy into another. (All sensors are transducers).</p>
+
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-emerald-300 border-r border-slate-700"><i class="fa-solid fa-bolt mr-1"></i> Active Transducers</th>
+                            <th class="p-5 font-bold text-sm text-amber-300"><i class="fa-solid fa-battery-half mr-1"></i> Passive Transducers</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Definition</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Generates an electrical output entirely on its own without needing external power.</td>
+                            <td class="p-5 text-slate-700 text-sm">Requires an external power source (excitation voltage) to operate.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Working Principle</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Draws energy from the physical quantity being measured itself to generate voltage.</td>
+                            <td class="p-5 text-slate-700 text-sm">Changes its internal properties (like resistance or capacitance) which is then measured using an external battery.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Design</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Usually simpler in design.</td>
+                            <td class="p-5 text-slate-700 text-sm">Slightly complex as it needs an external power circuit.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Examples</td>
+                            <td class="p-5 text-emerald-700 font-medium border-r border-slate-200 text-sm bg-emerald-50/50">Thermocouple (generates mV from heat), Piezoelectric crystal (generates voltage when pressed).</td>
+                            <td class="p-5 text-amber-700 font-medium text-sm bg-amber-50/50">LDR (Light Dependent Resistor), Thermistor, Strain Gauge.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-microchip absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-teal-400 mb-4 relative z-10 flex items-center gap-3">C. Micro-sensors <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider shadow-sm">PYQ</span></h3>
+                
+                <div class="space-y-4 relative z-10 text-sm text-slate-300">
+                    <p><strong class="text-teal-200">What are they?</strong> Micro-sensors are microscopic sensors fabricated using <strong>MEMS</strong> (Micro-Electro-Mechanical Systems) technology on tiny silicon chips.</p>
+                    
+                    <p><strong class="text-teal-200">Working Principle:</strong> They use microscopic physical structures (like tiny suspended silicon beams or diaphragms). When a physical force (like acceleration or pressure) acts on the chip, these tiny beams bend. This bending changes the electrical capacitance or resistance inside the chip, generating a signal.</p>
+                    
+                    <div class="bg-purple-900/40 p-4 rounded-xl border border-purple-500/30 flex items-start gap-4 my-4">
+                        <div class="bg-purple-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-purple-800 text-lg"><i class="fa-solid fa-brain"></i></div>
+                        <div>
+                            <strong class="text-purple-300 block mb-1">Easy Word Explanation</strong>
+                            <p class="text-purple-100">It is a mechanical sensor shrunk down to the size of a grain of rice, built right onto a computer chip.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-black/30 p-5 rounded-xl border border-white/10 mt-4">
+                        <strong class="text-amber-300 block mb-2 text-base border-b border-white/10 pb-2"><i class="fa-solid fa-mobile-screen-button"></i> Applications (PYQ):</strong>
+                        <ul class="list-disc pl-5 space-y-2 mt-2">
+                            <li><strong>Smartphones:</strong> Micro-accelerometers detect when you tilt your phone to rotate the screen.</li>
+                            <li><strong>Automobiles:</strong> Used in airbag deployment systems to instantly detect a crash.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="signal" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-wave-square"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Signal Processing and Data Conversion</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Block diagram of D.C signal conditioning system and its working. Flash type analog to digital converter with circuit diagram.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">A. D.C. Signal Conditioning System <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 mb-6 font-medium">Sensors often produce very weak or noisy analog signals (e.g., a thermocouple produces only 2 milliVolts). The microcontroller cannot read this directly. <strong>Signal Conditioning</strong> is the process of modifying the raw sensor signal to make it suitable for the microcontroller.</p>
+
+            <div class="bg-slate-900 text-white p-6 rounded-2xl font-mono text-center shadow-lg mb-8 border-2 border-teal-500 overflow-x-auto whitespace-nowrap">
+                <p class="text-teal-300 font-sans font-bold text-xs uppercase mb-3 text-left">Block Diagram (To draw in Exam):</p>
+                <span class="bg-slate-700 px-2 py-1 rounded">Physical Input</span> &rarr;
+                <span class="bg-indigo-600 px-2 py-1 rounded">Sensor/Transducer</span> &rarr;
+                <span class="bg-emerald-600 px-2 py-1 rounded">Amplifier</span> &rarr;
+                <span class="bg-cyan-600 px-2 py-1 rounded">Low-Pass Filter</span> &rarr;
+                <span class="bg-purple-600 px-2 py-1 rounded">ADC</span> &rarr;
+                <span class="bg-slate-700 px-2 py-1 rounded">Microcontroller</span>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-12">
+                <h4 class="text-lg font-bold text-slate-800 mb-4 border-b pb-2">Working Principle of Blocks:</h4>
+                <div class="space-y-4 text-sm text-slate-600">
+                    <div class="flex items-start gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-indigo-100 text-indigo-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"><i class="fa-solid fa-eye"></i></div>
+                        <div><strong class="text-slate-800 block">Sensor:</strong> Converts the physical variable (temperature) into a weak DC voltage.</div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-emerald-100 text-emerald-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"><i class="fa-solid fa-volume-high"></i></div>
+                        <div><strong class="text-slate-800 block">Amplifier:</strong> Boosts the weak milliVolt signal up to a usable level (e.g., 0 to 5 Volts) using an Operational Amplifier (Op-Amp).</div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-cyan-100 text-cyan-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"><i class="fa-solid fa-filter"></i></div>
+                        <div><strong class="text-slate-800 block">Filter:</strong> Removes high-frequency electrical noise from the amplified signal so the reading is clean and stable.</div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div class="bg-purple-100 text-purple-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"><i class="fa-solid fa-right-left"></i></div>
+                        <div><strong class="text-slate-800 block">ADC (Analog to Digital Converter):</strong> Converts the continuous analog 5V signal into binary (1s and 0s) for the microcontroller.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border-2 border-indigo-200 shadow-md mb-10 relative overflow-hidden">
+                <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                <h3 class="text-2xl font-bold text-indigo-900 mb-3"><i class="fa-solid fa-bolt text-indigo-500 mr-2"></i> B. Flash Type Analog to Digital Converter</h3>
+                <p class="text-sm text-slate-600 mb-6 font-medium">The Flash ADC is the absolute fastest type of data conversion device available.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-3 border-b border-slate-100 pb-2">Circuit Diagram Description:</h4>
+                        <ol class="list-decimal pl-5 text-sm text-slate-600 space-y-2 mb-6">
+                            <li>Draw a reference voltage (V<sub>ref</sub>) connected to a resistor ladder (series of equal resistors).</li>
+                            <li>Draw several Op-Amp Comparators in parallel. Connect their inverting (-) terminals to the nodes of the resistor ladder.</li>
+                            <li>Connect the analog input voltage (V<sub>in</sub>) to all the non-inverting (+) terminals of the comparators.</li>
+                            <li>The outputs of all comparators go into a Priority Encoder, which outputs the final binary code.</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="space-y-4 text-sm">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <strong class="text-indigo-800 block mb-1">Working Principle:</strong>
+                            <p class="text-slate-600 leading-relaxed">The resistor ladder divides the reference voltage into multiple levels (like 1V, 2V, 3V). All comparators compare the input voltage against these levels simultaneously (in parallel). If V<sub>in</sub> is 2.5V, the comparators for 1V and 2V output '1', and the rest output '0'. The priority encoder instantly turns this into a binary code.</p>
+                        </div>
+                        <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                            <strong class="text-rose-800 block mb-1">Special Feature / Drawback:</strong>
+                            <p class="text-slate-600 leading-relaxed">Because it works in parallel, its conversion time is extremely fast (nanoseconds). However, it requires a massive number of comparators (<strong>2<sup>n</sup> - 1</strong>), making it very expensive for high resolutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="timers" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-green-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-stopwatch"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Timers in Mechatronics</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain the role/function of timers in mechatronics system. (i) Timer.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-12">
+                <p class="text-slate-600 text-lg mb-6"><strong>Definition:</strong> A Timer is a specialized hardware component inside a microcontroller (or a standalone IC like the 555 timer) that measures time intervals, counts external events, or generates precise delays.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-8">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">A timer is the internal stopwatch and alarm clock of the machine. It tells the machine "Wait 5 seconds", "Count how many times the wheel turned", or "Turn the motor on and off 100 times a second."</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">Role and Functions in Mechatronics <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h4>
+                <ul class="space-y-4 text-sm text-slate-600 mb-6">
+                    <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <i class="fa-solid fa-hourglass-half text-emerald-500 mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800 block">Generating Precise Delays:</strong> Ensuring a robotic arm waits exactly 2 seconds before releasing a package.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <i class="fa-solid fa-wave-square text-emerald-500 mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800 block">Pulse Width Modulation (PWM):</strong> Timers are used to generate PWM signals, which are essential for controlling the speed of DC motors or the brightness of LEDs.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <i class="fa-solid fa-arrow-up-1-9 text-emerald-500 mt-1"></i>
+                        <div>
+                            <strong class="text-slate-800 block">Event Counting:</strong> Counting the number of pulses from an optical encoder to determine how far a robot has traveled.
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-sm text-blue-900">
+                    <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-shirt text-blue-600"></i> Real-Life Example:</strong>
+                    In an automatic washing machine, timers control exactly how long the wash cycle, rinse cycle, and spin cycle should last.
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="microcontrollers" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Microprocessors & Microcontrollers</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Architecture of a typical microprocessor (8085). Architecture of a microcontroller. Compare microprocessor and microcontroller (differences). Function of microcontroller. Applications.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">A. Microprocessor vs Microcontroller <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">Crucial PYQ Table</span></h3>
+            
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-cyan-300 border-r border-slate-700"><i class="fa-solid fa-desktop mr-1"></i> Microprocessor (e.g., 8085, Core i7)</th>
+                            <th class="p-5 font-bold text-sm text-teal-300"><i class="fa-solid fa-microchip mr-1"></i> Microcontroller (e.g., 8051, Arduino)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Definition</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">It is <em>only</em> the CPU (Central Processing Unit) on a single chip.</td>
+                            <td class="p-5 text-slate-700 text-sm font-bold text-teal-700">It is an <em>entire computer</em> on a single chip (CPU + RAM + ROM + Timers + I/O).</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">External Components</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Requires external RAM, ROM, and I/O ports to function on a bulky motherboard.</td>
+                            <td class="p-5 text-slate-700 text-sm">Does not require external components; memory and ports are built inside.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Size & Cost</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Bulky motherboard required, making the overall system expensive.</td>
+                            <td class="p-5 text-teal-600 font-bold text-sm">Highly compact and very cheap.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Power Consumption</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">High power consumption.</td>
+                            <td class="p-5 text-slate-700 text-sm">Very low power consumption (often runs on small batteries).</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Application</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">General-purpose tasks like PCs, laptops, and complex data processing.</td>
+                            <td class="p-5 text-slate-700 text-sm italic">Dedicated, specific tasks like washing machines, ACs, and microwaves.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 border-b pb-2">B. Function & Apps of Microcontroller <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-1 align-middle">PYQ</span></h3>
+                    <div class="text-sm text-slate-600 space-y-4">
+                        <p><strong class="text-slate-800 block"><i class="fa-solid fa-brain text-teal-500 mr-2"></i>Function in Mechatronics:</strong> It acts as the "Brain" of the mechatronic system. It fetches data from sensors via its input ports, executes the pre-written logic program stored in its ROM, and sends command signals through its output ports to drive actuators.</p>
+                        <p><strong class="text-slate-800 block"><i class="fa-solid fa-mobile-screen text-teal-500 mr-2"></i>Applications:</strong> Engine Control Units (ECUs) in cars, smartwatches, digital cameras, automatic washing machines, and robotics.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 border-b pb-2">D. Architecture of a Microcontroller</h3>
+                    <p class="text-xs text-slate-500 italic mb-4">Draw a large square block (the chip). Inside it, draw smaller blocks:</p>
+                    <ul class="text-sm text-slate-600 space-y-3">
+                        <li class="bg-slate-50 p-2 rounded border border-slate-100"><strong class="text-slate-800">CPU:</strong> The core that executes instructions.</li>
+                        <li class="bg-slate-50 p-2 rounded border border-slate-100"><strong class="text-slate-800">ROM (Flash):</strong> Non-volatile memory to store permanent program code.</li>
+                        <li class="bg-slate-50 p-2 rounded border border-slate-100"><strong class="text-slate-800">RAM:</strong> Volatile memory to store temporary variables.</li>
+                        <li class="bg-slate-50 p-2 rounded border border-slate-100"><strong class="text-slate-800">I/O Ports:</strong> Pins that connect to the outside world (LEDs, sensors).</li>
+                        <li class="bg-slate-50 p-2 rounded border border-slate-100"><strong class="text-slate-800">Timers & ADC:</strong> Built-in blocks for delays and reading analog sensors.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-microchip absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-teal-400 mb-4 relative z-10">C. Architecture of 8085 Microprocessor <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 mb-6 relative z-10 text-sm">The Intel 8085 is an 8-bit microprocessor. Its architecture consists of:</p>
+                
+                <div class="grid sm:grid-cols-2 gap-4 relative z-10">
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-teal-200 block mb-1">ALU (Arithmetic Logic Unit)</strong>
+                        <p class="text-sm text-slate-300">Performs mathematical operations (addition, subtraction) and logical operations (AND, OR, NOT).</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-teal-200 block mb-1">Timing and Control Unit</strong>
+                        <p class="text-sm text-slate-300">Generates timing signals to synchronize operations and control the flow of data inside the chip.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-teal-200 block mb-1">Registers</strong>
+                        <p class="text-sm text-slate-300">Temporary storage locations. Includes Accumulator (A), General purpose registers (B, C, D, E, H, L).</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-teal-200 block mb-1">Program Counter (PC)</strong>
+                        <p class="text-sm text-slate-300">A 16-bit register that holds the memory address of the next instruction to be executed.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 sm:col-span-2">
+                        <strong class="text-teal-200 block mb-1">Stack Pointer (SP)</strong>
+                        <p class="text-sm text-slate-300">A 16-bit register that points to the top of the stack memory.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="pid" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. PID Controllers</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain working principle & operation of PID. How each component contributes. Errors in PID.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. What is a PID Controller?</h3>
+                <p class="text-slate-600 mb-6">PID stands for <strong>Proportional-Integral-Derivative</strong>. It is the most common control algorithm used in industrial closed-loop systems to keep a machine running precisely at a target setpoint, despite external disturbances.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (Driving a Car)</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Imagine driving a car at exactly 80 km/h. If you hit a hill, the speed drops (Error). A PID controller is the mathematical driver that presses the accelerator perfectly—not too much, not too little—to get exactly back to 80 km/h smoothly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Working Principles: How P, I, and D Contribute <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">Crucial PYQ</span></h3>
+            <p class="text-slate-600 mb-8 font-medium">The controller calculates the Error (E) = Desired Setpoint - Actual Output. It then uses three mathematical actions to fix the error:</p>
+
+            <div class="space-y-6 mb-12">
+                <!-- Proportional -->
+                <div class="bg-white border-l-8 border-l-blue-500 p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
+                    <h4 class="text-xl font-black text-blue-800 mb-3">Proportional (P) - <span class="font-normal italic text-slate-500">"The Present"</span></h4>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li><strong>Action:</strong> It generates an output directly proportional to the current error. If the error is huge, it pushes the actuator hard.</li>
+                        <li><strong class="text-emerald-600">Contribution:</strong> It speeds up the system's response.</li>
+                        <li><strong class="text-rose-600">Problem:</strong> It can never reach the exact target perfectly; it always leaves a tiny gap called <em>Steady-State Error</em>.</li>
+                    </ul>
+                </div>
+
+                <!-- Integral -->
+                <div class="bg-white border-l-8 border-l-purple-500 p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
+                    <h4 class="text-xl font-black text-purple-800 mb-3">Integral (I) - <span class="font-normal italic text-slate-500">"The Past"</span></h4>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li><strong>Action:</strong> It continuously adds up (integrates) the past errors over time. Even if the error is tiny, it builds up and pushes the system to eliminate it completely.</li>
+                        <li><strong class="text-emerald-600">Contribution:</strong> It forces the Steady-State Error to Zero.</li>
+                        <li><strong class="text-rose-600">Problem:</strong> It can cause the system to push too hard and "Overshoot" past the target.</li>
+                    </ul>
+                </div>
+
+                <!-- Derivative -->
+                <div class="bg-white border-l-8 border-l-amber-500 p-6 rounded-r-2xl shadow-sm border-t border-b border-r border-slate-200">
+                    <h4 class="text-xl font-black text-amber-800 mb-3">Derivative (D) - <span class="font-normal italic text-slate-500">"The Future"</span></h4>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li><strong>Action:</strong> It looks at the rate of change of the error. If the system is approaching the target too fast, the Derivative acts like a brake to slow it down before it crosses the line.</li>
+                        <li><strong class="text-emerald-600">Contribution:</strong> It dampens the system, reduces overshoot, and improves stability.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-chart-line absolute right-[-20px] top-[-20px] text-[10rem] opacity-5"></i>
+                <h3 class="text-2xl font-bold text-teal-400 mb-6 relative z-10">C. Errors in PID Controllers <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider ml-2 shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 text-sm mb-6 relative z-10">When tuning a PID controller, engineers deal with these common errors:</p>
+                
+                <div class="grid sm:grid-cols-2 gap-4 relative z-10 text-sm">
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                        <strong class="text-rose-300 block mb-1">Steady-State Error (Offset)</strong>
+                        <p class="text-slate-300">The final difference between the desired setpoint and the actual output when the system has settled down (eliminated by the 'I' component).</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                        <strong class="text-rose-300 block mb-1">Overshoot</strong>
+                        <p class="text-slate-300">When the system pushes too hard and goes past the target before coming back down (reduced by the 'D' component).</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                        <strong class="text-rose-300 block mb-1">Rise Time Delay</strong>
+                        <p class="text-slate-300">The time it takes for the system to go from 10% to 90% of the target.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                        <strong class="text-rose-300 block mb-1">Settling Time Delay</strong>
+                        <p class="text-slate-300">The time it takes for the oscillations to stop and the system to completely stabilize at the target.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="plc" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-green-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-industry"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. Programmable Logic Controllers (PLCs)</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Architecture and components of a PLC. Explain special features.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. What is a PLC?</h3>
+                <p class="text-slate-600 text-base mb-6">A Programmable Logic Controller (PLC) is a specialized, rugged industrial digital computer used to automate manufacturing processes, such as assembly lines, robotic devices, or any activity that requires high-reliability control.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Microcontrollers (like Arduino) are delicate and used in small gadgets. PLCs are heavy-duty, bulletproof microcontrollers designed to survive inside dirty, hot, noisy factories without crashing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Architecture and Components of a PLC <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-teal-600 text-xl"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Power Supply</h4>
+                        <p class="text-sm text-slate-600">Converts the factory AC voltage (220V) into safe, low DC voltage (24V or 5V) for the internal electronics.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-teal-600 text-xl"><i class="fa-solid fa-microchip"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">CPU (Processor)</h4>
+                        <p class="text-sm text-slate-600">The brain of the PLC. It continuously reads the inputs, executes the user-written logic program, and updates the outputs.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-teal-600 text-xl"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Programming Device</h4>
+                        <p class="text-sm text-slate-600">A PC or specialized handheld terminal used by the engineer to write the code (usually in "Ladder Logic") and download it.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-teal-600 text-xl"><i class="fa-solid fa-right-left"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">I/O Modules</h4>
+                        <ul class="text-xs text-slate-600 space-y-1 mt-1">
+                            <li><strong>Input:</strong> Receive signals from heavy switches/sensors. Have optical isolators to protect CPU.</li>
+                            <li><strong>Output:</strong> Send control signals to heavy motors and valves.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-star absolute right-[-20px] top-[-20px] text-[10rem] opacity-5 text-amber-400"></i>
+                <h3 class="text-2xl font-bold text-teal-400 mb-6 relative z-10">C. Special Features of PLCs <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider ml-2 shadow-sm">PYQ</span></h3>
+                
+                <ul class="space-y-4 relative z-10 text-sm">
+                    <li class="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <i class="fa-solid fa-shield-halved text-teal-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Industrial Ruggedness</strong>
+                            <span class="text-slate-300">Designed to withstand extreme temperatures, vibrations, humidity, and severe electrical noise found in factories.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <i class="fa-solid fa-code text-teal-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Ladder Logic Programming</strong>
+                            <span class="text-slate-300">Programmed using a visual language that looks like an electrical relay circuit diagram, making it extremely easy for electrical engineers to understand and write code.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <i class="fa-solid fa-clock-fast text-teal-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block mb-1">High Reliability & Real-Time Operation</strong>
+                            <span class="text-slate-300">Unlike a Windows PC which can freeze, a PLC guarantees real-time, instantaneous execution of its code, ensuring safety.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <i class="fa-solid fa-puzzle-piece text-teal-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Modularity</strong>
+                            <span class="text-slate-300">You can easily snap on extra input/output modules if the factory expands, without changing the main CPU.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-teal-600 to-cyan-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 2 Notes</h2>
+                    <p class="text-teal-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Pay close attention to the <strong>P-I-D contributions</strong> and the <strong>Microprocessor vs Microcontroller table</strong>, as these are virtually guaranteed to appear as 6-mark questions!
+                    </p>
+                </div>
+                <i class="fa-solid fa-robot absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-teal-50', 'text-teal-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-teal-50', 'text-teal-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
