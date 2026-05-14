@@ -1,10 +1,609 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-1-Introduction-to-Mechatronics</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 1 Introduction to Mechatronics</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechatronics Notes - Unit 1</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .math-box { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-teal-200 selection:text-teal-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2070" alt="Robotics and Automation" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-emerald-200 to-cyan-200 mb-6 drop-shadow-sm">
+                Introduction to <br/>Mechatronics
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-I. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-teal-600 hover:bg-teal-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-teal-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#intro" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-robot text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 1. What is Mechatronics?
+                    </a>
+                    <a href="#system-concepts" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gears text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 2. System Concepts
+                    </a>
+                    <a href="#structure" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-diagram-project text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 3. Basic Structure
+                    </a>
+                    <a href="#control-systems" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gamepad text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 4. Control Systems
+                    </a>
+                    <a href="#electronics" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-microchip text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 5. Sequential Circuits
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-teal prose-headings:font-bold prose-a:text-teal-600">
+
+            <!-- Section 1 -->
+            <div id="intro" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Intro to Mechatronics & Multidisciplinary Scenario</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Using suitable block diagram explain multidisciplinary scenario in mechatronics. List out the advantages and disadvantages of mechatronics system.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-teal-600">A.</span> What is Mechatronics?
+                </h3>
+                <p class="text-slate-600 mb-6 text-base">The term "Mechatronics" was coined by Tetsuro Mori, a Japanese engineer, in 1969. It is not a single branch of engineering. Rather, it is a synergistic integration (a combined mixture) of Mechanical Engineering, Electronics Engineering, Computer Science, and Control Engineering to design and manufacture intelligent products and processes.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-6">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Think of a pure mechanical machine as a "dumb" body with bones and muscles (gears and motors). Mechatronics is the art of adding a "brain" (microcontroller) and a "nervous system" (sensors and electronic wires) to that body so it can think and act smartly on its own.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-sm text-blue-900">
+                    <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-cogs text-blue-600"></i> Real-Life Examples:</strong>
+                    Modern washing machines, ATMs, Anti-lock Braking Systems (ABS) in cars, Drones, and CNC milling machines.
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Multidisciplinary Scenario in Mechatronics <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+            <p class="mb-4 text-slate-600">Mechatronics is depicted as the intersection of four major engineering disciplines.</p>
+            <p class="text-sm text-emerald-600 italic bg-emerald-50 p-2 rounded mb-6 inline-block"><i class="fa-solid fa-pen-nib mr-1"></i> To explain this in an exam, you should draw an overlapping Venn diagram (four intersecting circles) and explain each part.</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-slate-100 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-slate-600"><i class="fa-solid fa-wrench"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">1. Mechanical Engineering</h4>
+                        <p class="text-sm text-slate-600">Provides the physical structure, chassis, gears, links, and mechanisms. It is the "body" of the system.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-emerald-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-emerald-600"><i class="fa-solid fa-microchip"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">2. Electronics Engineering</h4>
+                        <p class="text-sm text-slate-600">Provides the power supply, sensors, actuators, motors, and circuit boards. It acts as the "muscles and nerves."</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">3. Computer/Software Engg.</h4>
+                        <p class="text-sm text-slate-600">Provides the programming (C/C++, Python) embedded into the microcontroller. It is the "brain."</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-purple-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-purple-600"><i class="fa-solid fa-gamepad"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">4. Control Engineering</h4>
+                        <p class="text-sm text-slate-600">Provides the mathematical logic and feedback algorithms (like PID controllers) to ensure the machine works accurately without human intervention.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Advantages & Disadvantages of Mechatronic Systems <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-emerald-50/50 p-6 rounded-3xl border border-emerald-100 shadow-sm">
+                    <h4 class="text-xl font-bold text-emerald-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Advantages</h4>
+                    <ul class="space-y-3 text-sm text-emerald-900">
+                        <li><strong>High Precision and Accuracy:</strong> Electronic control ensures the mechanical parts move exactly as intended (e.g., robotic arms in car factories).</li>
+                        <li><strong>High Automation:</strong> Reduces the need for continuous human intervention, saving labor costs.</li>
+                        <li><strong>Flexibility:</strong> Behavior can be changed simply by updating the software code, without changing physical mechanical parts.</li>
+                        <li><strong>Better Reliability and Safety:</strong> Built-in sensors can detect faults instantly and shut down the machine before it breaks.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-rose-50/50 p-6 rounded-3xl border border-rose-100 shadow-sm">
+                    <h4 class="text-xl font-bold text-rose-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> Disadvantages</h4>
+                    <ul class="space-y-3 text-sm text-rose-900">
+                        <li><strong>High Initial Cost:</strong> Integrating computers, sensors, and mechanics is much more expensive than building a purely mechanical tool.</li>
+                        <li><strong>Complex Maintenance and Repair:</strong> If it breaks, a normal mechanic cannot fix it. Requires highly skilled engineers who know both electronics and mechanics.</li>
+                        <li><strong>Power Dependency:</strong> It completely relies on electricity. A power failure stops the entire system.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="system-concepts" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. System Concepts, Analysis, and Design</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define system in the context of Mechatronics.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2"><span class="text-teal-600">A.</span> What is a "System"?</h3>
+                <p class="text-slate-600 mb-6 text-base">In the context of Mechatronics, a System is defined as a bounded collection of interconnected components or elements that work together harmoniously to perform a specific, intended task. A system takes some physical or digital <strong>Inputs</strong>, processes them, and produces desired <strong>Outputs</strong>.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-6">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">A system is like a cricket team. A bowler alone isn't a team, a batsman alone isn't a team. But when players (components) interact together under certain rules (programming) to win a match (output), they form a system.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 p-5 rounded-xl">
+                    <strong class="text-blue-900 block mb-2 text-lg"><i class="fa-solid fa-snowflake text-blue-500 mr-2"></i> Mechatronics System Example (An Air Conditioner)</strong>
+                    <ul class="text-sm text-blue-800 space-y-1">
+                        <li><strong>Input:</strong> User setting the remote to 22°C.</li>
+                        <li><strong>Process:</strong> Thermostat checks room temperature and logic board triggers the compressor.</li>
+                        <li><strong>Output:</strong> Cold air blowing into the room.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">B. System Analysis</h3>
+                    <p class="text-sm text-slate-600">Before building a machine, engineers study the problem. They analyze what inputs are available, what output is required, what the physical limits are, and what mathematical models govern the behavior.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">C. System Design</h3>
+                    <p class="text-sm text-slate-600">Choosing the right components (which motor? which sensor? which microcontroller?) and writing the software code to bring the system to life.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="structure" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-green-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Basic Structure of a Mechatronic System</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Discuss the basic structure of a Mechatronic system with suitable block diagram. List out the main components. Draw and explain block-diagram of mechatronic System.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium text-lg">Every mechatronic system, whether it is a small smart-watch or a massive factory robot, consists of 5 fundamental functional blocks.</p>
+
+            <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-xl math-box overflow-x-auto whitespace-nowrap mb-12 border-2 border-teal-500 relative">
+                <div class="absolute top-0 left-0 bg-teal-500 text-white px-4 py-1 rounded-br-2xl font-sans font-bold text-xs uppercase tracking-widest shadow-md">Block Diagram Structure (To draw in Exam)</div>
+                <br/>
+                <div class="text-center font-bold text-teal-300 text-lg flex flex-col items-center gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white/10 p-3 rounded border border-white/20">[ User Interface ]</div>
+                        <i class="fa-solid fa-arrows-left-right text-slate-500"></i>
+                        <div class="bg-white/10 p-3 rounded border border-white/20">[ Digital Controller ]</div>
+                    </div>
+                    
+                    <div class="w-0.5 h-6 bg-slate-500 relative">
+                        <i class="fa-solid fa-arrow-down absolute -bottom-3 -left-1.5 text-slate-500"></i>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 text-sm text-emerald-300">
+                        <div class="bg-emerald-900/40 p-3 rounded border border-emerald-500/30">[ Actuators ]</div>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>(Control Signal)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <div class="bg-slate-700 p-3 rounded border border-slate-500">[ Mechanical System ]</div>
+                    </div>
+                    
+                    <div class="w-0.5 h-6 bg-slate-500 relative">
+                        <i class="fa-solid fa-arrow-down absolute -bottom-3 -left-1.5 text-slate-500"></i>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 text-sm text-cyan-300">
+                        <div class="bg-slate-700 p-3 rounded border border-slate-500">[ Mechanical System ]</div>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>(Physical changes)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <div class="bg-cyan-900/40 p-3 rounded border border-cyan-500/30">[ Sensors ]</div>
+                    </div>
+
+                    <div class="w-0.5 h-6 bg-slate-500 relative">
+                        <i class="fa-solid fa-arrow-down absolute -bottom-3 -left-1.5 text-slate-500"></i>
+                    </div>
+
+                    <div class="flex items-center gap-4 text-sm text-amber-300">
+                        <div class="bg-cyan-900/40 p-3 rounded border border-cyan-500/30">[ Sensors ]</div>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>(Feedback Signal)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <div class="bg-white/10 p-3 rounded border border-white/20">[ Digital Controller ]</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Main Components (Explanation of Blocks)</h3>
+            
+            <div class="space-y-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition">
+                    <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-teal-600 text-xl"><i class="fa-solid fa-desktop"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-1">1. User Interface (HMI - Human Machine Interface)</h4>
+                        <p class="text-sm text-slate-600 mb-1"><strong>Function:</strong> Allows the human operator to give commands and view the status of the machine.</p>
+                        <p class="text-sm text-slate-500"><strong>Examples:</strong> Touchscreens, LED displays, keypads, switches.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition">
+                    <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-teal-600 text-xl"><i class="fa-solid fa-microchip"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-1">2. Digital Controller (The Brain)</h4>
+                        <p class="text-sm text-slate-600 mb-1"><strong>Function:</strong> It reads the inputs from the user and sensors, processes them using the embedded software program, and generates command signals for the actuators.</p>
+                        <p class="text-sm text-slate-500"><strong>Examples:</strong> Microcontrollers (Arduino, 8051), PLCs (Programmable Logic Controllers), Microprocessors.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition border-l-4 border-l-rose-400">
+                    <div class="bg-rose-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-rose-600 text-xl"><i class="fa-solid fa-dumbbell"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-1">3. Actuators (The Muscles)</h4>
+                        <p class="text-sm text-slate-600 mb-1"><strong>Function:</strong> Actuators convert the electrical control signals from the microcontroller into actual physical motion or mechanical energy.</p>
+                        <p class="text-sm text-slate-500"><strong>Examples:</strong> DC Motors, Stepper Motors, Servo motors, Hydraulic pistons, Pneumatic cylinders, and Relays.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition">
+                    <div class="bg-teal-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-teal-600 text-xl"><i class="fa-solid fa-gears"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-1">4. Mechanical System (The Body)</h4>
+                        <p class="text-sm text-slate-600 mb-1"><strong>Function:</strong> The physical moving parts of the machine that do the actual work.</p>
+                        <p class="text-sm text-slate-500"><strong>Examples:</strong> Gears, belts, wheels, pulleys, robotic arms, and levers.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition border-l-4 border-l-blue-400">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-600 text-xl"><i class="fa-solid fa-eye"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-1">5. Sensors (The Senses)</h4>
+                        <p class="text-sm text-slate-600 mb-1"><strong>Function:</strong> Sensors measure physical quantities (like temperature, speed, position, or pressure) from the mechanical system and convert them into electrical signals to feed back to the digital controller.</p>
+                        <p class="text-sm text-slate-500"><strong>Examples:</strong> Thermistors (Temperature), IR Sensors (Obstacles), Encoders (Motor Speed), LVDT (Displacement).</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="control-systems" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Control Systems: Open Loop vs Closed Loop</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define control system. State its various types. Classify control systems on the basis of applications. Define open loop and closed loop systems. Difference between them. What is closed-loop control system? Write few examples.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is a Control System?</h3>
+                <p class="text-slate-600 text-base">A Control System is a device, or a set of devices, that manages, commands, directs, or regulates the behavior of other devices or systems to achieve a desired output.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">B. Classification based on Applications <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <ul class="grid sm:grid-cols-2 gap-4 mb-12">
+                <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                    <i class="fa-solid fa-flask text-teal-500 w-5"></i>
+                    <span class="text-sm text-slate-700"><strong>Process Control:</strong> Chemical plants (temp, pressure).</span>
+                </li>
+                <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                    <i class="fa-solid fa-motorcycle text-teal-500 w-5"></i>
+                    <span class="text-sm text-slate-700"><strong>Motion Control:</strong> Motor speed/position (CNC).</span>
+                </li>
+                <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                    <i class="fa-solid fa-robot text-teal-500 w-5"></i>
+                    <span class="text-sm text-slate-700"><strong>Robotics Control:</strong> Industrial robot joints/paths.</span>
+                </li>
+                <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                    <i class="fa-solid fa-house-signal text-teal-500 w-5"></i>
+                    <span class="text-sm text-slate-700"><strong>Home Automation:</strong> ACs, washing machines.</span>
+                </li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">C. Types of Control Systems</h3>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <!-- Open Loop -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-rose-50 rounded-bl-full -z-10"></div>
+                    <h4 class="text-xl font-bold text-rose-600 mb-3"><i class="fa-solid fa-eye-slash mr-2"></i> 1. Open-Loop System</h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Definition:</strong> A system in which the control action is totally independent of the output. The system does not measure the output and does not correct any errors. There is no feedback path.</p>
+                    
+                    <div class="bg-purple-50 p-4 rounded-xl text-xs text-purple-900 mb-4">
+                        <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-brain text-purple-600"></i> Easy Explanation</strong>
+                        It's like walking with your eyes closed. You take 10 steps thinking you reached the door, but you don't actually look (no feedback) to see if you hit a wall.
+                    </div>
+                    
+                    <div class="bg-rose-50 p-3 rounded-lg border border-rose-100 text-sm text-rose-900">
+                        <strong class="block mb-1">Examples:</strong>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li><strong>Toaster:</strong> Toasts bread for 2 min and stops. Doesn't care if bread is burnt.</li>
+                            <li><strong>Traffic Lights:</strong> Change colors based on a timer, ignoring actual traffic.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Closed Loop -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-emerald-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full -z-10"></div>
+                    <span class="absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">PYQ Focus</span>
+                    <h4 class="text-xl font-bold text-emerald-600 mb-3"><i class="fa-solid fa-eye mr-2"></i> 2. Closed-Loop System</h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Definition:</strong> A system in which the control action depends heavily on the output. It uses a <strong>Feedback Loop</strong> to constantly measure the actual output, compare it with the desired target (set-point), find the error, and automatically correct it.</p>
+                    
+                    <div class="bg-purple-50 p-4 rounded-xl text-xs text-purple-900 mb-4">
+                        <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-brain text-purple-600"></i> Easy Explanation</strong>
+                        Walking with your eyes open. If you drift left, your eyes (sensor) tell your brain (controller) to correct your path (actuator) to stay on the road.
+                    </div>
+                    
+                    <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 text-sm text-emerald-900">
+                        <strong class="block mb-1">Examples:</strong>
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li><strong>Air Conditioner:</strong> Cools room until sensor hits 22°C, then shuts off. Turns back on if room gets hot.</li>
+                            <li><strong>Human Sweating:</strong> Brain senses rising temp and releases sweat to cool down.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">D. Differences: Open Loop vs. Closed Loop <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">6 Marks Table</span></h3>
+            
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-rose-300 border-r border-slate-700"><i class="fa-solid fa-eye-slash mr-1"></i> Open Loop Control System</th>
+                            <th class="p-5 font-bold text-sm text-emerald-300"><i class="fa-solid fa-eye mr-1"></i> Closed Loop Control System</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Feedback Mechanism</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm font-bold text-rose-600">Absent. No feedback is taken from the output.</td>
+                            <td class="p-5 text-slate-700 text-sm font-bold text-emerald-600">Present. Output is continuously fed back to the input.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Accuracy</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Generally inaccurate and unreliable.</td>
+                            <td class="p-5 text-slate-700 text-sm font-bold">Highly accurate and reliable.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Complexity & Cost</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Very simple design and cheap to build.</td>
+                            <td class="p-5 text-slate-700 text-sm">Complex design (requires sensors) and expensive.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Error Correction</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm text-rose-600">Cannot automatically correct errors or external disturbances.</td>
+                            <td class="p-5 text-slate-700 text-sm text-emerald-600">Automatically corrects errors and adjusts to disturbances.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Stability</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm text-emerald-600">Highly stable (since it just runs a fixed command).</td>
+                            <td class="p-5 text-slate-700 text-sm text-rose-600">Can become unstable if the feedback loop is poorly designed (oscillations).</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Examples</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm italic">Standard ceiling fan, timer-washing machine.</td>
+                            <td class="p-5 text-slate-700 text-sm italic">Inverter AC, Auto-pilot in airplanes, Cruise control.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="electronics" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Electronics Fundamentals Review</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">What do you mean by sequential circuit? Write its few examples.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">Because Mechatronics heavily relies on digital electronics, a quick review is necessary. Digital electronic circuits are divided into two types: Combinational and Sequential.</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Combinational -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 text-center border-b pb-2">A. Combinational Circuits</h3>
+                    <p class="text-sm text-slate-600 mb-4 text-center">In these circuits, the present output depends <strong>only</strong> on the present input. They have no memory.</p>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                        <strong class="text-slate-800 block text-sm mb-1">Examples:</strong>
+                        <span class="text-xs text-slate-600">Logic Gates (AND, OR, NOT), Multiplexers, Adders.</span>
+                    </div>
+                </div>
+
+                <!-- Sequential -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border-2 border-teal-300 relative overflow-hidden transform hover:-translate-y-1 transition-transform">
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                    <h3 class="text-xl font-bold text-teal-700 mb-3 text-center border-b border-teal-100 pb-2">B. Sequential Circuits</h3>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> A Sequential Circuit is a digital logic circuit whose present output depends not only on the present input but also on the <strong>past history of inputs</strong> (past states).</p>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Key Feature:</strong> Sequential circuits possess <strong>Memory</strong>. They use a clock signal to synchronize operations and feedback loops to remember data.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-10">
+                <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (Calculator vs ATM)</h4>
+                    <p class="text-purple-900 leading-relaxed text-sm">A <strong>combinational</strong> circuit is like a calculator doing 2+2=4; it just looks at the numbers you press right now. A <strong>sequential</strong> circuit is like a bank ATM asking for your PIN; it <em>remembers</em> the digits you pressed previously to check the complete 4-digit password.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl">
+                <h3 class="text-xl font-bold text-teal-400 mb-6 border-b border-slate-700 pb-2">Examples of Sequential Circuits (PYQ):</h3>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-white block text-sm mb-1"><i class="fa-solid fa-toggle-on text-teal-400 mr-2"></i> Flip-Flops:</strong>
+                        <p class="text-xs text-slate-300">The most basic memory element (can store 1 bit of data, e.g., D-Flip Flop, JK-Flip Flop).</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-white block text-sm mb-1"><i class="fa-solid fa-layer-group text-teal-400 mr-2"></i> Registers:</strong>
+                        <p class="text-xs text-slate-300">A group of flip-flops used to store binary data (e.g., Shift registers).</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-white block text-sm mb-1"><i class="fa-solid fa-stopwatch text-teal-400 mr-2"></i> Counters:</strong>
+                        <p class="text-xs text-slate-300">Circuits that count the number of clock pulses (e.g., Digital watches, timers).</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                        <strong class="text-white block text-sm mb-1"><i class="fa-solid fa-memory text-teal-400 mr-2"></i> RAM (Random Access Memory):</strong>
+                        <p class="text-xs text-slate-300">Used extensively in microcontrollers to store running program variables.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-teal-600 to-cyan-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 1 Notes</h2>
+                    <p class="text-teal-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Ensure you practice drawing the overlapping <strong>Mechatronics Venn Diagram</strong> and the <strong>5-block Mechatronics System Diagram</strong>, as these guarantee maximum marks in your long-answer questions!
+                    </p>
+                </div>
+                <i class="fa-solid fa-robot absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-teal-50', 'text-teal-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-teal-50', 'text-teal-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
