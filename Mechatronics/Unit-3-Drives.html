@@ -1,10 +1,559 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-3-Drives</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 3 Drives</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechatronics Notes - Unit 3</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .math-box { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-teal-200 selection:text-teal-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- CNC / Automation Background Image -->
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070" alt="Robotics and Drives" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-emerald-200 to-cyan-200 mb-6 drop-shadow-sm">
+                Drives in <br/>Mechatronics
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-III. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-teal-600 hover:bg-teal-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-teal-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#stepper" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gear text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 1. Stepper Motors
+                    </a>
+                    <a href="#servo" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-robot text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 2. Servo Drives
+                    </a>
+                    <a href="#cams" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-arrows-spin text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 3. Cams & Followers
+                    </a>
+                    <a href="#ecams" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-scale-balanced text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 4. Mech vs E-Cams
+                    </a>
+                    <a href="#tool-mag" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 hover:bg-teal-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-toolbox text-slate-400 group-hover:text-teal-600 w-4 text-center"></i> 5. Tool Magazines
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-teal prose-headings:font-bold prose-a:text-teal-600">
+
+            <!-- Section 1 -->
+            <div id="stepper" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Stepper Motors</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain with neat sketch working of permanent magnet stepper motor. Name two applications of stepper motors in mechatronic systems.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-teal-600">A.</span> What is a Stepper Motor?
+                </h3>
+                <p class="text-slate-600 mb-6 text-base">A Stepper Motor is a brushless DC electric motor that divides a full rotation into a number of equal, discrete "steps." Unlike a regular DC motor that spins continuously when power is applied, a stepper motor rotates by a specific angle (e.g., 1.8&deg;) for every electrical pulse it receives.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Think of a regular motor as a smooth-flowing river, and a stepper motor as the ticking hands of a wall clock. It moves precisely tick-by-tick (step-by-step).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-magnet absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-teal-400 mb-6 relative z-10 flex items-center gap-3">B. Working Principle of Permanent Magnet (PM) Stepper Motor <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider shadow-sm">PYQ</span></h3>
+                
+                <div class="space-y-6 relative z-10 text-sm text-slate-300">
+                    <div class="bg-black/30 p-5 rounded-xl border border-white/10">
+                        <strong class="text-amber-300 block mb-2 text-base border-b border-white/10 pb-2"><i class="fa-solid fa-pen-nib mr-2"></i> 1. Diagram Description (For Exam):</strong>
+                        <ul class="list-disc pl-5 space-y-2 mt-2 text-slate-200">
+                            <li>Draw a central circular rotor labeled with <strong>N</strong> and <strong>S</strong> poles (indicating a permanent magnet).</li>
+                            <li>Draw four electromagnetic stators (coils wrapped around iron cores) surrounding the rotor at 90-degree intervals (Top, Bottom, Left, Right). Label them <strong>A, B, C, D</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10">
+                        <strong class="text-emerald-300 block mb-2 text-base border-b border-white/10 pb-2"><i class="fa-solid fa-bolt mr-2"></i> 2. Working Principle:</strong>
+                        <ul class="list-decimal pl-5 space-y-3 mt-3 text-slate-200">
+                            <li>The rotor is a permanent magnet. The stator consists of electromagnets.</li>
+                            <li>The motor works on the basic magnetic principle: <strong>Unlike poles attract, and Like poles repel.</strong></li>
+                            <li>When <strong>phase A</strong> (Top stator) is energized, it becomes a North pole. It attracts the South pole of the rotor, locking it into position.</li>
+                            <li>To make the motor step, the controller turns OFF phase A and turns ON <strong>phase B</strong> (Right stator). The rotor is magnetically pulled and turns 90 degrees clockwise to align with phase B.</li>
+                            <li>By turning the stator electromagnets ON and OFF in a specific sequence (A &rarr; B &rarr; C &rarr; D), the magnetic field rotates, dragging the permanent magnet rotor along with it in precise steps.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Applications of Stepper Motors <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 mb-6 text-sm">Since stepper motors provide highly precise positioning without needing a feedback sensor, they are widely used in:</p>
+            
+            <div class="grid sm:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center text-cyan-600 text-xl mb-4"><i class="fa-solid fa-cube"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">3D Printers & CNC</h4>
+                    <p class="text-xs text-slate-600">To move the printing nozzle accurately by fractions of a millimeter.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 text-xl mb-4"><i class="fa-solid fa-hard-drive"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Hard Disk Drives</h4>
+                    <p class="text-xs text-slate-600">To precisely position the magnetic read/write head over the spinning disk.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 text-xl mb-4"><i class="fa-solid fa-robot"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Robotics</h4>
+                    <p class="text-xs text-slate-600">Used in the joints of small robotic arms for precise angular movement.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="servo" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Servo Drives and Servo Motors</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define a servo drive. Describe the working principle of a servo drive system/DC servo motor. Write advantages and disadvantages of Servomotor. Discuss the mechanical aspects of motor selection.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    A. What is a Servo Drive / Servo Motor? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span>
+                </h3>
+                <ul class="space-y-3 text-sm text-slate-700 mb-6">
+                    <li class="bg-slate-50 p-3 rounded-lg border border-slate-100"><strong class="text-emerald-700">Servo Motor:</strong> A rotary or linear actuator that allows for precise control of angular or linear position, velocity, and acceleration.</li>
+                    <li class="bg-slate-50 p-3 rounded-lg border border-slate-100"><strong class="text-blue-700">Servo Drive:</strong> A special electronic amplifier used to power electric servomechanisms. It monitors the feedback signal from the motor and continuously adjusts the voltage and current to correct any errors.</li>
+                </ul>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">A stepper motor runs blind (Open-loop). A Servo Motor runs with its <strong>"eyes open" (Closed-loop)</strong>. If you tell a servo motor to turn 90 degrees, it turns, looks at an internal sensor to confirm it hit exactly 90 degrees, and corrects itself if it missed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-3xl font-sans shadow-lg mb-10 border-2 border-teal-500 relative">
+                <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                <h3 class="text-2xl font-bold text-teal-300 mb-4">B. Working Principle of D.C. Servo Motor System</h3>
+                <p class="text-slate-300 text-sm mb-6">A DC Servo motor is essentially a normal DC motor coupled with a sensor (encoder) and a sophisticated PID controller circuit.</p>
+                
+                <p class="text-teal-400 font-bold text-xs uppercase tracking-widest mb-3">Block Diagram (To draw in Exam):</p>
+                <div class="overflow-x-auto whitespace-nowrap bg-black/40 p-4 rounded-xl border border-white/10 mb-6 math-box text-sm">
+                    [ Input Command ] &rarr; <span class="bg-rose-900/50 px-2 py-1 rounded border border-rose-500/50">[ Error Detector ]</span> &rarr; [ Servo Amplifier ] &rarr; [ DC Motor ] &rarr; [ Load ]<br/>
+                    <span class="text-slate-400 text-xs italic mt-2 block">(Draw a feedback line from the Motor/Load back to the Error Detector, passing through an [ Encoder/Sensor ])</span>
+                </div>
+
+                <div class="space-y-3 text-sm text-slate-300">
+                    <h4 class="text-lg font-bold text-white mb-2 border-b border-white/10 pb-1">Working Principle:</h4>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li>The user inputs a desired position (Setpoint).</li>
+                        <li>The <strong>Encoder</strong> (sensor attached to the motor shaft) constantly reads the actual position of the motor and sends this feedback to the Error Detector.</li>
+                        <li>The Error Detector compares the actual position with the desired position and calculates the <strong>Error Signal</strong>.</li>
+                        <li>The Servo Amplifier boosts this weak error signal and sends power to the DC Motor.</li>
+                        <li>The motor turns in the direction that reduces the error. Once the error reaches zero (motor is at the exact target), the amplifier stops the power, and the motor brakes instantly.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-emerald-50/50 p-6 rounded-3xl border border-emerald-100 shadow-sm">
+                    <h4 class="text-xl font-bold text-emerald-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> C. Advantages</h4>
+                    <ul class="space-y-3 text-sm text-emerald-900">
+                        <li><strong>High Precision:</strong> Feedback guarantees 100% accurate positioning.</li>
+                        <li><strong>High Speed and Torque:</strong> Can operate at very high speeds without losing steps (unlike stepper motors).</li>
+                        <li><strong>High Efficiency:</strong> Consumes power only proportional to the load.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-rose-50/50 p-6 rounded-3xl border border-rose-100 shadow-sm">
+                    <h4 class="text-xl font-bold text-rose-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> Disadvantages</h4>
+                    <ul class="space-y-3 text-sm text-rose-900">
+                        <li><strong>High Cost:</strong> Much more expensive than stepper motors due to the complex encoder and drive electronics.</li>
+                        <li><strong>Tuning Required:</strong> The PID controller must be carefully tuned; otherwise, the motor will vibrate/oscillate.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">D. Mechanical Aspects of Motor Selection <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 text-sm mb-6">When an engineer buys a motor for a mechatronics project, they must analyze:</p>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <strong class="text-slate-800 block mb-1 text-sm"><i class="fa-solid fa-weight-hanging text-amber-500 mr-2"></i> Torque Requirements</strong>
+                    <p class="text-xs text-slate-600">How much heavy lifting/turning force does the machine need? (Starting vs. Running torque).</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <strong class="text-slate-800 block mb-1 text-sm"><i class="fa-solid fa-gauge-high text-blue-500 mr-2"></i> Speed Requirements</strong>
+                    <p class="text-xs text-slate-600">What is the maximum RPM (Revolutions Per Minute) needed?</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <strong class="text-slate-800 block mb-1 text-sm"><i class="fa-solid fa-sync text-emerald-500 mr-2"></i> Inertia Matching</strong>
+                    <p class="text-xs text-slate-600">The inertia of the motor rotor must be matched closely to the load for smooth starts/stops.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <strong class="text-slate-800 block mb-1 text-sm"><i class="fa-solid fa-ruler-combined text-indigo-500 mr-2"></i> Physical Size & Weight</strong>
+                    <p class="text-xs text-slate-600">Does the motor fit inside the machine chassis?</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm sm:col-span-2 lg:col-span-1">
+                    <strong class="text-slate-800 block mb-1 text-sm"><i class="fa-solid fa-temperature-arrow-up text-rose-500 mr-2"></i> Operating Environment</strong>
+                    <p class="text-xs text-slate-600">Does it need to be waterproof, dustproof, or heat resistant?</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="cams" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-arrows-spin"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Cams and Followers</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Draw the schematic diagram of a CAM and explain its functioning. What is a follower? Explain different types of cam. Explain how CAMS are classified.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. What are Cams and Followers? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                
+                <ul class="space-y-3 text-sm text-slate-700 mb-6">
+                    <li class="bg-slate-50 p-4 rounded-lg border border-slate-100"><strong class="text-teal-700">Cam:</strong> A mechanical component, usually an irregularly shaped rotating wheel or cylinder, used to transmit variable motion to another part.</li>
+                    <li class="bg-slate-50 p-4 rounded-lg border border-slate-100"><strong class="text-cyan-700">Follower:</strong> A mechanical part that is held against the surface of the cam. As the cam rotates, the irregular shape of the cam forces the follower to move up and down (oscillate or translate).</li>
+                </ul>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-4">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Think of a Cam as a wheel with a "bump" on it. When the wheel spins, the bump pushes up a rod (the follower) resting on it.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-sm text-blue-900">
+                    <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-car text-blue-600"></i> Real-Life Example:</strong>
+                    Inside a car engine, the camshaft spins and the "bumps" (cams) push the engine valves (followers) open to let fuel in and exhaust out at exact timings.
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-3xl font-sans shadow-lg mb-10 border-2 border-emerald-500 relative">
+                <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                <h3 class="text-2xl font-bold text-emerald-300 mb-4">B. Functioning and Schematic Diagram</h3>
+                
+                <div class="bg-black/40 p-4 rounded-xl border border-white/10 mb-6 text-sm">
+                    <strong class="text-amber-300 block mb-2"><i class="fa-solid fa-pen-nib mr-1"></i> Diagram Description:</strong>
+                    <ul class="list-disc pl-5 space-y-1 text-slate-300">
+                        <li>Draw a circular wheel with an egg-like extension on one side (This is the Radial Cam). Draw a center axis dot.</li>
+                        <li>Resting directly on top of this wheel, draw a vertical rod with a pointed or roller end (This is the Follower).</li>
+                        <li>Draw a spring pushing the follower down to ensure it always touches the cam.</li>
+                    </ul>
+                </div>
+
+                <h4 class="text-lg font-bold text-white mb-2 border-b border-white/10 pb-1">Functioning:</h4>
+                <p class="text-sm text-slate-300 leading-relaxed">The cam is connected to a motor and rotates at a constant speed. Due to its irregular egg-like profile, the distance from the center axis to the edge constantly changes. As the wider part of the cam rotates under the follower, it pushes the follower upwards. As the narrow part comes around, the spring pushes the follower back down. <strong>Result:</strong> Rotary motion is converted into precise linear up-down motion.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Classification / Types of Cams <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            
+            <div class="grid sm:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 text-xl mb-4"><i class="fa-solid fa-circle"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">1. Radial / Plate Cam</h4>
+                    <p class="text-xs text-slate-600">A flat, plate-like cam. The follower moves in a direction perpendicular to the axis of rotation of the cam. (Most common).</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 text-xl mb-4"><i class="fa-solid fa-database"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">2. Cylindrical Cam</h4>
+                    <p class="text-xs text-slate-600">A cylinder with a groove cut into its curved surface. The follower rides inside this groove, moving parallel to the axis of rotation.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 text-xl mb-4"><i class="fa-solid fa-play fa-rotate-270"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">3. Wedge Cam</h4>
+                    <p class="text-xs text-slate-600">A wedge shape that moves back and forth linearly, pushing a follower up and down.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="ecams" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-cyan-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Camshaft-Based vs. Electronic Cams</h2>
+            </div>
+            
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Compare camshaft-based systems and electronic cam systems.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 text-base">In modern mechatronics, heavy mechanical cams are being replaced by "Electronic Cams."</p>
+            <ul class="space-y-2 text-sm text-slate-700 mb-8 bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <li><strong class="text-slate-900">Mechanical Camshaft:</strong> A physical solid metal shaft with shaped metal lumps.</li>
+                <li><strong class="text-teal-700">Electronic Cam (E-Cam):</strong> A system where a Servo Motor replaces the physical metal cam. A computer program tells the servo motor exactly how fast and far to move to perfectly mimic the motion of a physical cam.</li>
+            </ul>
+
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-slate-300 border-r border-slate-700"><i class="fa-solid fa-gear mr-1"></i> Mechanical Camshaft</th>
+                            <th class="p-5 font-bold text-sm text-teal-300"><i class="fa-solid fa-laptop-code mr-1"></i> Electronic Cam (E-Cam)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-sm">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Physical Form</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200">Solid, heavy, precisely machined metal.</td>
+                            <td class="p-5 text-slate-700">A servo motor controlled by a software program.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Flexibility / Changes</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200"><span class="text-rose-600 font-bold">Zero flexibility.</span> To change the motion, you must throw away the metal cam and manufacture a new one.</td>
+                            <td class="p-5 text-slate-700"><span class="text-teal-600 font-bold">Highly flexible.</span> To change the motion, the engineer just types a new code into the computer.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Wear and Tear</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-rose-600">High friction leads to physical wear and tear over time.</td>
+                            <td class="p-5 text-slate-700 text-teal-600">Virtually no mechanical wear since the motion profile is software-based.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200">Speed and Vibration</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200">At very high speeds, mechanical followers can "bounce" off the cam, causing severe vibration.</td>
+                            <td class="p-5 text-slate-700">Smooth, mathematical motion profiles eliminate bouncing and vibration.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="tool-mag" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-toolbox"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Tool Magazines and Indexing Mechanisms</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">State the function of a tool magazine in CNC. Explain tool magazine types. Explain construction of disc type tool magazine. Define indexing mechanism. Explain ratchet and pawl mechanism.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Tool Magazine in CNC Machines <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 mb-6 text-sm"><strong>Function:</strong> A Tool Magazine is a storage unit integrated into a CNC (Computer Numerical Control) machine. Its primary function is to securely hold multiple different cutting tools (like drills, milling cutters, taps) and deliver the correct tool to the Automatic Tool Changer (ATC) arm exactly when the machining program requests it.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">It is like an artist's pencil box. Instead of the human operator stopping the machine to change the drill bit manually, the machine automatically picks a new bit from the "magazine" and keeps working.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">B. Types of Tool Magazines</h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-compact-disc text-teal-500 mt-1 text-lg"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Disc/Drum Type:</strong>
+                                <span>Tools are arranged in a circle on a rotating disc.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i class="fa-solid fa-link text-teal-500 mt-1 text-lg"></i>
+                            <div>
+                                <strong class="text-slate-800 block">Chain Type:</strong>
+                                <span>Used when a massive number of tools (50 to 100+) are needed. Tools are mounted on a long looping chain.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900 text-white p-6 rounded-3xl shadow-xl relative overflow-hidden">
+                    <h3 class="text-xl font-bold text-teal-400 mb-4 border-b border-slate-700 pb-2 relative z-10">C. Construction of Disc Type <span class="bg-red-500 text-white px-2 py-0.5 rounded text-[10px] uppercase ml-1">PYQ</span></h3>
+                    <div class="text-sm text-slate-300 space-y-4 relative z-10">
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                            <strong class="text-amber-300 block mb-1">Diagram Description:</strong> Draw a large horizontal or vertical circular plate. Around the outer edge (periphery) of this plate, draw evenly spaced U-shaped slots or gripper clips. Inside these clips, draw various tools (drill bits). Draw a central motor that rotates this disc.
+                        </div>
+                        <p><strong>Construction & Working:</strong> It consists of a circular drum or disc driven by an indexing motor. The periphery holds spring-loaded tool grippers. When the CNC program calls for Tool #5, the central motor rotates the disc until Tool #5 aligns perfectly with the tool-changing arm. It is highly reliable but usually limited to holding 12 to 30 tools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">D. Indexing Mechanisms <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 text-base mb-8 bg-slate-50 p-5 rounded-2xl border border-slate-200"><strong>Definition:</strong> An Indexing Mechanism is a mechanical device used to rotate a machine part (like a tool magazine or a workpiece table) by a highly precise, pre-defined mathematical angle, and then securely lock it in that position so an operation can be performed.</p>
+
+            <div class="bg-white p-8 rounded-3xl border-2 border-indigo-200 shadow-md relative overflow-hidden mb-12">
+                <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider shadow-sm">PYQ Focus</span>
+                <h3 class="text-2xl font-bold text-indigo-900 mb-4 flex items-center gap-3"><i class="fa-solid fa-gear"></i> E. Ratchet and Pawl Mechanism</h3>
+                <p class="text-sm text-slate-600 mb-6">This is one of the simplest and most famous indexing/locking mechanisms.</p>
+                
+                <div class="flex items-start gap-4 bg-purple-50 p-5 rounded-2xl border border-purple-100 mb-6">
+                    <div class="bg-purple-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-purple-700 text-lg"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <strong class="text-purple-900 block mb-1">Easy Word Explanation</strong>
+                        <p class="text-purple-800 text-sm">It works exactly like a plastic zip-tie or the clicking sound you hear when a roller coaster climbs the first hill. It allows movement in only one direction and physically blocks movement in reverse.</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                        <strong class="text-indigo-800 block mb-2"><i class="fa-solid fa-pen-nib mr-1"></i> Diagram Description:</strong>
+                        <ul class="list-disc pl-4 space-y-2 text-slate-600">
+                            <li>Draw a gear wheel with asymmetrical teeth (teeth that are sloped on one side and flat/vertical on the other). This is the <strong>Ratchet</strong>.</li>
+                            <li>Above the wheel, draw a small metal finger or lever pivoting on a pin, dropping into the gap between the teeth. This is the <strong>Pawl</strong>.</li>
+                            <li>Draw a small spring pushing down on the Pawl.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                        <strong class="text-indigo-800 block mb-2"><i class="fa-solid fa-rotate mr-1"></i> Working Principle:</strong>
+                        <p class="text-slate-600 leading-relaxed">As the ratchet wheel rotates in the "forward" direction, the sloped side of the teeth pushes the pawl gently up and out of the way. The wheel spins freely. However, if the wheel tries to spin backward, the flat/vertical face of the tooth violently crashes into the pawl. The pawl firmly locks the wheel, preventing any reverse motion.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-teal-600 to-cyan-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 3 Notes</h2>
+                    <p class="text-teal-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Please ensure you practice sketching the <strong>"Disc Type Tool Magazine"</strong>, the <strong>"Ratchet & Pawl"</strong>, and the <strong>"PM Stepper Motor"</strong> block diagrams, as they frequently carry heavy marks!
+                    </p>
+                </div>
+                <i class="fa-solid fa-robot absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-teal-50', 'text-teal-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-teal-50', 'text-teal-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
