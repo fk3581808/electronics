@@ -1,10 +1,611 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-3-Product-Design-and-Innovation</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 3 Product Design and Innovation</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Design Notes - Unit 3</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Drafting/Design Background Image -->
+            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&q=80&w=2070" alt="Product Design Process" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-orange-200 to-amber-200 mb-6 drop-shadow-sm">
+                Design, Morphology & <br/>Aesthetics
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-III. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-rose-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#factors" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-pen-ruler text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 1. Design & Key Factors
+                    </a>
+                    <a href="#approaches" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-lightbulb text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 2. Approaches to Design
+                    </a>
+                    <a href="#standards" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-leaf text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 3. Standards & Environment
+                    </a>
+                    <a href="#iteration" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-rotate text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 4. Decision & Iteration
+                    </a>
+                    <a href="#morphology" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-layer-group text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 5. Morphology of Design
+                    </a>
+                    <a href="#aesthetics" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-palette text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 6. Role of Aesthetics
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-rose prose-headings:font-bold prose-a:text-rose-600">
+
+            <!-- Section 1 -->
+            <div id="factors" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-pen-ruler"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Intro to Product Design and Key Factors</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define Product Design. Explain the key factors affecting product design with examples.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1200" alt="Product Sketching and Design" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-rose-600">A.</span> What is Product Design? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span>
+                </h3>
+                <p class="text-slate-600 mb-6 text-base">Product Design is the comprehensive process of imagining, creating, and iterating products that solve users' problems or address specific needs in a given market. It translates a raw idea into a tangible (physical) or intangible (software) product.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">It is the bridge between a customer saying "I have a problem" and the factory producing a machine that fixes it. It decides how the product will look, feel, and function.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Factors Affecting Product Design <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">Crucial PYQ</span></h3>
+            <p class="mb-6 text-slate-600">Designing a product is not just about making it look good. An engineer must consider several critical factors:</p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600 mb-3"><i class="fa-solid fa-users"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">1. Customer Requirements</h4>
+                    <p class="text-xs text-slate-600">The product must fulfill the actual need. (e.g., A customer wants a phone with a 2-day battery life; the design must accommodate a large 5000mAh battery).</p>
+                </div>
+                
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-emerald-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-emerald-600 mb-3"><i class="fa-solid fa-gear"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">2. Functionality & Performance</h4>
+                    <p class="text-xs text-slate-600">The primary factor is that the product must work reliably under normal conditions.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-amber-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-amber-600 mb-3"><i class="fa-solid fa-cubes"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">3. Materials & Mfg Processes</h4>
+                    <p class="text-xs text-slate-600">Must use materials available and suitable for factory machines. (e.g., Titanium is useless if the factory only has plastic molds).</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-green-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-green-600 mb-3"><i class="fa-solid fa-money-bill-wave"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">4. Cost / Economic Factors</h4>
+                    <p class="text-xs text-slate-600">The product must be designed so it can be manufactured cheaply and sold at a profit.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-purple-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-purple-600 mb-3"><i class="fa-solid fa-hand"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">5. Ergonomics (Human Factors)</h4>
+                    <p class="text-xs text-slate-600">Must fit the human body comfortably. (e.g., A gaming controller curved to fit natural grip).</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-rose-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-rose-600 mb-3"><i class="fa-solid fa-palette"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">6. Aesthetics</h4>
+                    <p class="text-xs text-slate-600">The visual appeal, color, symmetry, and finish of the product.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform sm:col-span-2 lg:col-span-3">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-teal-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-teal-600"><i class="fa-solid fa-leaf"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">7. Environmental Factors</h4>
+                            <p class="text-xs text-slate-600">Designing products that do not harm the planet (e-waste management).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="approaches" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Approaches to Design</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain design by evolution, innovation, and imitation with examples. Compare design by evolution and innovation (Advantages/Limitations).</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium">Designers create new products using three main approaches.</p>
+
+            <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?auto=format&fit=crop&q=80&w=1200" alt="Innovation and Tech Idea" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="space-y-8 mb-12">
+                <!-- Evolution -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-blue-500"></div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-chart-line text-blue-500"></i> A. Design by Evolution <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> This is a slow, gradual, step-by-step improvement of an existing product over a long period of time. It involves making minor modifications to fix flaws or add small features to an already proven design.</p>
+                    <div class="bg-purple-50 p-3 rounded-lg border border-purple-100 text-xs text-purple-900 mb-3">
+                        <i class="fa-solid fa-brain mr-1 text-purple-600"></i> <strong>Easy Explanation:</strong> It is taking last year's model and making it 5% better.
+                    </div>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Electronics Example:</strong> The evolution of the smartphone from the iPhone 13 to iPhone 14, or the gradual evolution of a bicycle over the last 100 years.</p>
+                    <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                        <div class="bg-emerald-50 p-3 rounded-lg text-emerald-800"><strong><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Advantages:</strong> Very low risk, low R&D cost, guaranteed customer acceptance.</div>
+                        <div class="bg-rose-50 p-3 rounded-lg text-rose-800"><strong><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> Limitations:</strong> Slow growth, high risk of being wiped out by a brand new breakthrough technology.</div>
+                    </div>
+                </div>
+
+                <!-- Innovation -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-amber-500"></div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-rocket text-amber-500"></i> B. Design by Innovation <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> This involves a radical, sudden breakthrough. It is the creation of a completely new, original product or technology that has never existed before, often creating an entirely new market.</p>
+                    <div class="bg-purple-50 p-3 rounded-lg border border-purple-100 text-xs text-purple-900 mb-3">
+                        <i class="fa-solid fa-brain mr-1 text-purple-600"></i> <strong>Easy Explanation:</strong> It is throwing away the old rules and inventing something from scratch. It changes the way people live.
+                    </div>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Electronics Example:</strong> The invention of the very first Touchscreen Smartphone, or the first Digital Camera (which killed film cameras).</p>
+                    <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                        <div class="bg-emerald-50 p-3 rounded-lg text-emerald-800"><strong><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Advantages:</strong> Huge profit margins, establishes a monopoly, creates immense brand prestige.</div>
+                        <div class="bg-rose-50 p-3 rounded-lg text-rose-800"><strong><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> Limitations:</strong> Extremely high risk (customers might reject it), massive R&D costs, high failure rate.</div>
+                    </div>
+                </div>
+
+                <!-- Imitation -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-slate-500"></div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-copy text-slate-500"></i> C. Design by Imitation <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h4>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> Also known as the "Me-Too" approach. It involves taking a successful product designed by a competitor, reverse-engineering it, and creating a highly similar product (often cheaper or with slight variations) without illegally copying patents.</p>
+                    <p class="text-sm text-slate-600 bg-slate-50 p-3 rounded-lg"><strong>Electronics Example:</strong> When Apple launched the "AirPods," multiple electronic brands (like boAt, Noise) imitated the exact design and launched their own True Wireless Earbuds (TWS) at a cheaper price.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">D. Comparison: Evolution vs. Innovation <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ Table</span></h3>
+            
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-blue-300 border-r border-slate-700"><i class="fa-solid fa-chart-line mr-1"></i> Design by Evolution</th>
+                            <th class="p-5 font-bold text-sm text-amber-300"><i class="fa-solid fa-rocket mr-1"></i> Design by Innovation</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Pace of Change</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Slow, gradual, and continuous.</td>
+                            <td class="p-5 text-slate-700 text-sm">Sudden, radical, and disruptive.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Starting Point</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Uses an existing product as a base.</td>
+                            <td class="p-5 text-slate-700 text-sm">Starts from a completely blank slate.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Financial Risk</td>
+                            <td class="p-5 text-emerald-600 font-bold border-r border-slate-200 text-sm">Very Low.</td>
+                            <td class="p-5 text-rose-600 font-bold text-sm">Extremely High.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">R&D Cost</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Low.</td>
+                            <td class="p-5 text-rose-600 font-bold text-sm">Extremely High (requires years of research).</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Market Impact</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Retains existing market share.</td>
+                            <td class="p-5 text-amber-600 font-bold text-sm">Creates entirely new markets.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="standards" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-amber-500 to-green-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Standards & Environmental Factors</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Discuss the importance of standards of performance. Explain how environmental factors influence product design decisions. Impact of sustainability.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">A. Standards of Performance <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 text-sm mb-6"><strong>Definition:</strong> Standards of performance are benchmark rules, criteria, and tests that a product must pass to ensure it is safe, reliable, and functional before it reaches the customer.</p>
+                
+                <h4 class="font-bold text-slate-800 mb-3 text-lg border-b pb-2">Importance:</h4>
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100 text-sm">
+                        <strong class="text-rose-900 block mb-1"><i class="fa-solid fa-shield-virus text-rose-500"></i> Safety</strong>
+                        <span class="text-rose-800">Ensures product won't harm user (e.g., A charger must meet BIS/ISI standards so it doesn't catch fire).</span>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-sm">
+                        <strong class="text-blue-900 block mb-1"><i class="fa-solid fa-link text-blue-500"></i> Interoperability</strong>
+                        <span class="text-blue-800">Ensures products work with other systems (e.g., Designing a USB port to universal standards).</span>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-sm">
+                        <strong class="text-emerald-900 block mb-1"><i class="fa-solid fa-anchor text-emerald-500"></i> Reliability</strong>
+                        <span class="text-emerald-800">Ensures durability (e.g., IP68 standard guarantees a smartphone can survive underwater).</span>
+                    </div>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1532996122724-c0ce46ce51b4?auto=format&fit=crop&q=80&w=1200" alt="Eco Friendly Technology Design" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-gradient-to-br from-green-800 to-emerald-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-recycle absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-10"></i>
+                <h3 class="text-2xl font-bold text-green-300 mb-4 relative z-10 flex items-center gap-3">B. Environmental Factors & Sustainability <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider ml-1 shadow-sm">PYQ</span></h3>
+                <p class="text-slate-200 mb-6 relative z-10 text-sm">Modern engineers cannot just design a product; they must design a product that respects the Earth. This is called <strong>Green Design</strong> or Sustainable Design.</p>
+                
+                <div class="relative z-10">
+                    <h4 class="text-lg font-bold text-white mb-4 border-b border-white/20 pb-2">Influence on Design Decisions:</h4>
+                    <ul class="space-y-4 text-sm text-slate-200">
+                        <li class="bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                            <strong class="text-green-200 block mb-1"><i class="fa-solid fa-flask-vial mr-2"></i> Material Selection (Banning Toxins):</strong>
+                            <span><strong>Electronics Example:</strong> The RoHS directive forces electronics engineers to use "Lead-free" solder instead of traditional Lead-Tin solder because lead poisons the soil.</span>
+                        </li>
+                        <li class="bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                            <strong class="text-green-200 block mb-1"><i class="fa-solid fa-plug-circle-bolt mr-2"></i> Energy Efficiency:</strong>
+                            <span>Designing circuits that consume ultra-low power to reduce the burning of fossil fuels at power plants (e.g., 5-Star rated ACs or BLDC fans).</span>
+                        </li>
+                        <li class="bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                            <strong class="text-green-200 block mb-1"><i class="fa-solid fa-screwdriver-wrench mr-2"></i> Design for Disassembly (E-Waste Management):</strong>
+                            <span>Products are now designed with screws instead of permanent industrial glue so they can be easily opened, repaired, and recycled at the end of their life to reduce E-waste.</span>
+                        </li>
+                        <li class="bg-white/10 p-4 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
+                            <strong class="text-green-200 block mb-1"><i class="fa-solid fa-bottle-water mr-2"></i> Recycled Plastics:</strong>
+                            <span>Using ocean-bound recycled plastic for laptop casings.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="iteration" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-rotate"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Decision Making and Iteration</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Describe the decision making and iteration process in product design.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200" alt="Team Planning Iteration" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">A. Decision Making in Design</h3>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Concept:</strong> Product design is essentially a continuous chain of decision-making. At every step, the engineer faces multiple choices and must pick the best one.</p>
+                    <div class="bg-indigo-50 p-4 rounded-xl text-sm border border-indigo-100 text-indigo-900">
+                        <strong class="block mb-1">Example:</strong> Should the laptop casing be Aluminum or Plastic? Aluminum is strong and premium but expensive and heavy. Plastic is cheap and light but looks cheap and breaks easily. The designer uses tools like a "Decision Matrix" to weigh the pros and cons and make a final choice.
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-rose-50 rounded-bl-full -z-10"></div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">B. Iteration (The Loop of Perfection)</h3>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Concept:</strong> Iteration is a cyclic, repetitive process. A perfect product is never created on the first try. Iteration means designing a prototype, testing it, finding flaws, redesigning it, and testing it again until it is perfect.</p>
+                    <div class="bg-purple-50 p-4 rounded-xl text-xs text-purple-900 mb-3">
+                        <strong><i class="fa-solid fa-brain text-purple-600 mr-1"></i> Easy Explanation:</strong> Think of writing a college essay. You write a rough draft, read it, fix mistakes (Iteration 1), show it to a teacher, rewrite a paragraph (Iteration 2), and finally print it.
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 text-white p-8 rounded-3xl shadow-xl text-center mb-12">
+                <h4 class="text-lg font-bold text-cyan-400 mb-4 uppercase tracking-widest">The Iteration Cycle</h4>
+                <div class="flex flex-wrap items-center justify-center gap-2 font-mono text-sm md:text-base font-bold bg-black/40 p-4 rounded-2xl border border-slate-600 mb-6">
+                    <span class="text-emerald-400">Idea</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="text-blue-400">Prototype</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="text-amber-400">Test</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="text-rose-400">Evaluate</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="text-purple-400">Modify</span> <i class="fa-solid fa-arrow-right text-slate-400"></i>
+                    <span class="text-slate-300 italic">(Back to Prototype)</span>
+                </div>
+                <p class="text-sm text-slate-300"><strong>Significance:</strong> It catches fatal flaws early in the lab, preventing the company from manufacturing 10,000 defective units and suffering massive financial losses.</p>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="morphology" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Morphology of Design</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">Crucial 6-Mark Question</h4>
+                    <p class="text-red-900 font-medium">What is morphology of design? Describe morphology of design and its different phases.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">A. What is Morphology of Design? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 text-base">The word "Morphology" means the study of form and structure. In engineering, the Morphology of Design refers to the study of the <strong>chronological (time-based) structure of a design project</strong>. It breaks down the entire lifespan of a product project—from the moment the idea is born to the moment the product is thrown into the garbage by the consumer—into distinct vertical phases.</p>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?auto=format&fit=crop&q=80&w=1200" alt="Blueprint Planning" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-12 border border-slate-700">
+                <i class="fa-solid fa-sitemap absolute right-[-20px] top-[-20px] text-[15rem] opacity-5"></i>
+                <h3 class="text-3xl font-bold text-orange-400 mb-4 relative z-10 flex flex-wrap items-center gap-3">
+                    B. The 7 Phases of Morphology (Asimow's Model)
+                    <span class="bg-red-500 text-white text-sm px-3 py-1 rounded-full uppercase tracking-widest font-bold shadow-lg">6-Mark PYQ</span>
+                </h3>
+                <p class="text-rose-300 mb-8 relative z-10 text-sm italic border-l-2 border-rose-400 pl-3">(Memorize these 7 phases in exact order for your exam!)</p>
+                
+                <div class="relative max-w-3xl mx-auto z-10">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-6 top-4 bottom-4 w-1 bg-orange-400/30 rounded"></div>
+
+                    <div class="space-y-6 text-sm">
+                        <!-- Phase 1 -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">1</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2">Phase 1: Feasibility Study</h4>
+                                <p class="text-slate-300">A market need is identified. The engineering team checks if the idea is technically possible and financially profitable. If it's a bad idea, the project is killed here to save money.</p>
+                            </div>
+                        </div>
+                        <!-- Phase 2 -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">2</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2">Phase 2: Preliminary Design</h4>
+                                <p class="text-slate-300">The core concept is decided. The engineers draw rough sketches, select the main components, and decide the general architecture of the product.</p>
+                            </div>
+                        </div>
+                        <!-- Phase 3 -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">3</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2">Phase 3: Detailed Design</h4>
+                                <p class="text-slate-300">The heaviest engineering phase. Every single nut, bolt, resistor, and plastic curve is finalized using CAD software. Master engineering drawings and exact blueprints are prepared.</p>
+                            </div>
+                        </div>
+                        <!-- Phase 4 -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">4</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2">Phase 4: Planning for Production</h4>
+                                <p class="text-slate-300">The focus shifts to the factory. Engineers decide which machines (CNC, Injection molding) will be used to manufacture the parts. Assembly lines are planned, and tools are purchased.</p>
+                            </div>
+                        </div>
+                        <!-- Phase 5 -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">5</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2">Phase 5: Planning for Distribution</h4>
+                                <p class="text-slate-300">Designing the packaging (boxes, thermocol) to ensure the product survives transport in trucks and ships, and planning the warehouse storage.</p>
+                            </div>
+                        </div>
+                        <!-- Phase 6 -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">6</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2">Phase 6: Planning for Consumption (Use)</h4>
+                                <p class="text-slate-300">Designing user manuals, ensuring the product is easy to maintain, and setting up customer service repair centers for the users.</p>
+                            </div>
+                        </div>
+                        <!-- Phase 7 -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10"><i class="fa-solid fa-trash-can"></i></div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-rose-500/50 hover:border-rose-500 transition-colors w-full bg-rose-900/10">
+                                <h4 class="font-bold text-rose-300 text-lg mb-2">Phase 7: Planning for Retirement (Disposal)</h4>
+                                <p class="text-slate-300">Planning what happens when the product breaks or gets old. Designing it so that batteries can be safely removed and metals recycled without destroying the environment (E-waste management).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="aesthetics" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. The Role of Aesthetics in Design</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Discuss the role of aesthetics in design. Describe the role of aesthetics in product design.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?auto=format&fit=crop&q=80&w=1200" alt="Aesthetic Apple Product Design" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is Aesthetics?</h3>
+                <p class="text-sm text-slate-600 mb-0">Aesthetics is the branch of philosophy that deals with the nature of beauty and taste. In product design, aesthetics refers to the visual and sensory appeal of a product—how it looks, feels, sounds, and smells. It involves elements like color, shape, texture, symmetry, and proportion.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Role and Importance of Aesthetics <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 mb-6">Why do companies care so much about how a product looks?</p>
+
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-rose-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-rose-600 mb-3"><i class="fa-solid fa-eye"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">1. First Impressions & Attraction</h4>
+                    <p class="text-xs text-slate-600">Consumers "buy with their eyes" first. Given 10 identical blenders, the customer picks the one that looks sleek and modern.</p>
+                </div>
+                
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-amber-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-amber-600 mb-3"><i class="fa-solid fa-crown"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">2. Brand Identity & Premium Value</h4>
+                    <p class="text-xs text-slate-600">Aesthetics communicate quality. Apple commands a price premium because the cold, minimalist finish feels like luxury.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600 mb-3"><i class="fa-solid fa-hand-pointer"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">3. Form Follows Function</h4>
+                    <p class="text-xs text-slate-600">Good aesthetics improve usability. A smooth, rounded mouse is beautiful and ergonomically designed to fit the human hand.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-purple-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-purple-600 mb-3"><i class="fa-solid fa-heart"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">4. Emotional Connection</h4>
+                    <p class="text-xs text-slate-600">Beautiful products evoke emotions. A bulky medical device makes a patient scared; a sleek, softly colored one makes them calm.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition sm:col-span-2">
+                    <div class="bg-emerald-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-emerald-600 mb-3"><i class="fa-solid fa-star"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1 text-sm">5. Product Differentiation</h4>
+                    <p class="text-xs text-slate-600">In a mature market where every smartphone has a fast processor, the only way to stand out is through unique aesthetics (e.g., the glowing back of the Nothing Phone).</p>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-rose-500 to-orange-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 3 Notes</h2>
+                    <p class="text-rose-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Pay highly specific attention to the <strong>"7 Phases of Morphology"</strong> and the <strong>"Evolution vs Innovation" table</strong>, as these are the most repeated 6-mark questions in your syllabus! Best of luck!
+                    </p>
+                </div>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-rose-50', 'text-rose-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-rose-50', 'text-rose-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
