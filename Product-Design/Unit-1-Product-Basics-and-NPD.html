@@ -1,10 +1,567 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-1-Product-Basics-and-NPD</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 1 Product Basics and NPD</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Design Notes - Unit 1</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Product Design Background Image -->
+            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=2070" alt="Product Design and Prototyping" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-orange-200 to-amber-200 mb-6 drop-shadow-sm">
+                Product Design & <br/>Idea Generation
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-I. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-rose-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#concept" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-box-open text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 1. Concept of a Product
+                    </a>
+                    <a href="#types-levels" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-layer-group text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 2. Types & Levels
+                    </a>
+                    <a href="#mix-4ps" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-chart-pie text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 3. The 4Ps (Market Mix)
+                    </a>
+                    <a href="#npd-process" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gears text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 4. NPD Process
+                    </a>
+                    <a href="#creativity" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-lightbulb text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 5. Idea Generation
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-rose prose-headings:font-bold prose-a:text-rose-600">
+
+            <!-- Section 1 -->
+            <div id="concept" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Concept of a Product</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define the term product. State its characteristics. Significance in marketing.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&q=80&w=1200" alt="Electronic Product Design" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-rose-600">A.</span> What is a Product? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span>
+                </h3>
+                <p class="text-slate-600 mb-6 text-base">In engineering and marketing, a Product is anything that can be offered to a market to satisfy a want or a need. It is a bundle of physical, chemical, and psychological attributes that provide utility (usefulness) to the buyer.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-6">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">A product is not just a physical object made of metal or plastic. If a customer has a problem (like being bored), the product is the solution you sell them (a PlayStation, or even a Netflix subscription). It includes physical goods, digital software, and services.</p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 border border-orange-100 p-4 rounded-xl text-sm text-orange-900">
+                    <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-microchip text-orange-600"></i> Electronics Example:</strong>
+                    An Arduino Uno board is a <em>physical</em> product. A PCB design software (like Altium) is a <em>digital</em> product. An electronics repair service is a <em>service</em> product.
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Characteristics of a Product <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+            
+            <div class="grid sm:grid-cols-2 gap-4 mb-12">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="bg-rose-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-rose-600"><i class="fa-solid fa-hand-dots"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">1. Tangibility</h4>
+                        <p class="text-sm text-slate-600">Most products (like a smartphone) can be touched, seen, and felt. (Services are intangible).</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="bg-amber-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-amber-600"><i class="fa-solid fa-gem"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">2. Value / Utility</h4>
+                        <p class="text-sm text-slate-600">It must solve a specific problem or fulfill a need for the customer.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="bg-emerald-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-emerald-600"><i class="fa-solid fa-tags"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">3. Exchange Value</h4>
+                        <p class="text-sm text-slate-600">It must have a monetary price attached to it; people must be willing to pay for it.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                    <div class="bg-blue-50 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-600"><i class="fa-solid fa-recycle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">4. Lifecycle</h4>
+                        <p class="text-sm text-slate-600">Every product is born (launched), grows, matures, and eventually dies (becomes obsolete, like DVD players).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-bullhorn absolute right-[-20px] top-[-20px] text-[10rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-orange-400 mb-4 relative z-10 flex items-center gap-3">C. Significance in Marketing <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 relative z-10 text-lg leading-relaxed">
+                    The product is the absolute heart of marketing. Without a product, there is no price to set, no advertisement to run, and no customer to serve. 
+                    <strong class="text-white block mt-4 bg-white/10 p-3 rounded-lg border border-white/20">"A great marketing campaign cannot save a terrible product, but a great product often markets itself."</strong>
+                </p>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="types-levels" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Types and Levels of Product</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Classify the types of products with examples. Explain different levels of product with examples.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">A. Types of Products <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 mb-6">Products are broadly classified into two categories based on who is buying them:</p>
+
+            <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=1200" alt="Consumer and Industrial Goods" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="space-y-8 mb-12">
+                <!-- B2C -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-orange-100 shadow-sm">
+                    <h4 class="text-2xl font-bold text-orange-600 mb-2 flex items-center gap-2"><i class="fa-solid fa-cart-shopping"></i> 1. Consumer Products (B2C)</h4>
+                    <p class="text-sm text-slate-500 mb-6 uppercase tracking-wider font-bold">Bought by final consumers for personal use.</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-slate-800 block mb-1">Convenience Products</strong>
+                            <p class="text-sm text-slate-600">Bought frequently, immediately, and with minimal effort (e.g., AA batteries, bread, soap).</p>
+                        </li>
+                        <li class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-slate-800 block mb-1">Shopping Products</strong>
+                            <p class="text-sm text-slate-600">Consumers spend time comparing quality, price, and style before buying (e.g., Laptops, TVs, smartphones).</p>
+                        </li>
+                        <li class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-slate-800 block mb-1">Specialty Products</strong>
+                            <p class="text-sm text-slate-600">Have unique characteristics or brand identification. Consumers make a special effort to buy them (e.g., Apple Vision Pro, Rolex watch, a high-end gaming PC).</p>
+                        </li>
+                        <li class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-slate-800 block mb-1">Unsought Products</strong>
+                            <p class="text-sm text-slate-600">Consumers do not know about them or normally don't think of buying them until needed (e.g., Fire extinguishers, life insurance).</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- B2B -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 shadow-sm border-t-8 border-t-slate-800">
+                    <h4 class="text-2xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-industry"></i> 2. Industrial Products (B2B)</h4>
+                    <p class="text-sm text-slate-500 mb-6 uppercase tracking-wider font-bold">Bought by companies for further processing or for business use.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-slate-800 block mb-1">Materials and Parts</strong>
+                            <p class="text-sm text-slate-600">Raw materials (e.g., bare copper wire, raw silicon) or manufactured parts (e.g., a batch of 10,000 microcontrollers).</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-slate-800 block mb-1">Capital Items</strong>
+                            <p class="text-sm text-slate-600">Heavy industrial products that aid in production (e.g., SMT Pick-and-Place machines in a PCB factory).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Levels of a Product -->
+            <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-layer-group absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-3xl font-bold text-rose-400 mb-4 relative z-10">B. Levels of a Product <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-sm ml-2">Crucial PYQ</span></h3>
+                <p class="text-slate-300 mb-6 relative z-10 text-lg">When product designers create a product, they must think about it on three different levels.</p>
+                
+                <div class="flex items-start gap-4 bg-white/10 border border-white/20 p-5 rounded-2xl mb-8 relative z-10">
+                    <div class="bg-rose-500 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xl"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <strong class="text-rose-200 block mb-1">Easy Word Explanation (The Onion Analogy)</strong>
+                        <p class="text-slate-300 text-sm">Think of a product like an onion with 3 layers. The customer doesn't just buy the outer skin; they buy all the layers together.</p>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=1200" alt="DSLR Camera as Product Example" class="w-full h-48 object-cover rounded-2xl shadow-inner border border-white/10 mb-8 relative z-10 opacity-90" />
+
+                <div class="space-y-6 relative z-10">
+                    <div class="bg-black/40 p-5 rounded-xl border border-rose-500/50">
+                        <h4 class="text-xl font-bold text-white mb-2"><span class="text-rose-400">1. Core Product</span> <span class="text-sm font-normal text-slate-400">(The innermost layer)</span></h4>
+                        <p class="text-sm text-slate-300 mb-2"><strong>Definition:</strong> This is the fundamental benefit or problem-solving service the customer is actually buying.</p>
+                        <p class="text-sm text-slate-300 bg-white/5 p-2 rounded"><strong>Real-Life Example:</strong> When you buy an expensive DSLR camera, you aren't buying plastic and glass; the core product is <em>"capturing beautiful memories."</em> When a factory buys an industrial drill, they aren't buying the drill; they are buying <em>"holes in metal."</em></p>
+                    </div>
+                    
+                    <div class="bg-black/40 p-5 rounded-xl border border-orange-500/50">
+                        <h4 class="text-xl font-bold text-white mb-2"><span class="text-orange-400">2. Actual Product</span> <span class="text-sm font-normal text-slate-400">(The physical layer)</span></h4>
+                        <p class="text-sm text-slate-300 mb-2"><strong>Definition:</strong> The physical, tangible item that delivers the core benefit. This includes the design, quality level, brand name, and packaging.</p>
+                        <p class="text-sm text-slate-300 bg-white/5 p-2 rounded"><strong>Real-Life Example:</strong> The actual DSLR camera itself (the Nikon D850), its black metallic body, its 45-megapixel sensor, and the Nikon logo.</p>
+                    </div>
+
+                    <div class="bg-black/40 p-5 rounded-xl border border-amber-500/50">
+                        <h4 class="text-xl font-bold text-white mb-2"><span class="text-amber-400">3. Augmented Product</span> <span class="text-sm font-normal text-slate-400">(The outer layer)</span></h4>
+                        <p class="text-sm text-slate-300 mb-2"><strong>Definition:</strong> The additional non-physical services and benefits built around the actual product to make it more attractive than competitors.</p>
+                        <p class="text-sm text-slate-300 bg-white/5 p-2 rounded"><strong>Real-Life Example:</strong> The 2-year warranty on the camera, the free customer service hotline, free home delivery, and zero-interest EMI payment options.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="mix-4ps" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Product-Market Mix (The 4Ps)</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define product market mix / marketing mix. Describe the 4Ps and elements of the product-market mix.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" alt="Marketing Strategy and Mix" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. What is the Product-Market Mix?</h3>
+                <p class="text-slate-600 mb-6">The Product-Market Mix (commonly called the Marketing Mix) is the set of tactical, controllable marketing tools that a company blends and balances together to produce the desired response in the target market.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Cake Recipe)</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">It is a recipe. Just like baking a perfect cake requires the exact mix of flour, sugar, butter, and heat; selling a product perfectly requires the exact mix of the 4Ps. If one P is wrong, the product fails.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">B. The 4Ps of Marketing <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-sm ml-2">Crucial PYQ</span></h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <!-- Product -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow border-t-8 border-t-rose-500">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-box-open text-rose-500 w-6 text-center"></i> Product</h4>
+                    <p class="text-sm text-slate-600 mb-3">The physical item or service being sold. Decisions here involve the design, features, brand name, packaging, and quality.</p>
+                    <p class="text-xs text-rose-800 bg-rose-50 p-2 rounded"><strong>Ex:</strong> Designing a sleek, waterproof smartwatch.</p>
+                </div>
+                
+                <!-- Price -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow border-t-8 border-t-emerald-500">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-tag text-emerald-500 w-6 text-center"></i> Price</h4>
+                    <p class="text-sm text-slate-600 mb-3">The amount of money customers must pay. Decisions involve retail price, discounts, EMI options. If too high, nobody buys; if too low, loss occurs.</p>
+                    <p class="text-xs text-emerald-800 bg-emerald-50 p-2 rounded"><strong>Ex:</strong> Pricing the smartwatch at ₹2,999 to target college students.</p>
+                </div>
+
+                <!-- Place -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow border-t-8 border-t-blue-500">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-shop text-blue-500 w-6 text-center"></i> Place (Distribution)</h4>
+                    <p class="text-sm text-slate-600 mb-3">Activities that make the product available to target consumers. Decisions include choosing retail locations, inventory, transport, and logistics.</p>
+                    <p class="text-xs text-blue-800 bg-blue-50 p-2 rounded"><strong>Ex:</strong> Selling the watch exclusively on Flipkart and in Reliance Digital stores.</p>
+                </div>
+
+                <!-- Promotion -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow border-t-8 border-t-amber-500">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-bullhorn text-amber-500 w-6 text-center"></i> Promotion</h4>
+                    <p class="text-sm text-slate-600 mb-3">Activities that communicate the merits of the product and persuade customers to buy it. Decisions include advertising, PR, social media, and salesmen.</p>
+                    <p class="text-xs text-amber-800 bg-amber-50 p-2 rounded"><strong>Ex:</strong> Hiring Virat Kohli to wear the watch in a TV commercial.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="npd-process" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. New Product Development (NPD) Process</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">State the meaning of NPD. Explain the stages involved in the NPD process and the importance of each stage.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is New Product Development?</h3>
+                <p class="text-slate-600 text-sm">NPD is the complete process of bringing a new product or service to the market. It transforms a raw idea in an engineer's head into a physical product on a store shelf.</p>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=1200" alt="Team Designing New Product" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-12 border border-slate-700">
+                <i class="fa-solid fa-list-check absolute right-[-20px] top-[-20px] text-[15rem] opacity-5"></i>
+                <h3 class="text-3xl font-bold text-orange-400 mb-4 relative z-10 flex flex-wrap items-center gap-3">
+                    B. The Stages of the NPD Process
+                    <span class="bg-red-500 text-white text-sm px-3 py-1 rounded-full uppercase tracking-widest font-bold shadow-lg">Crucial 6-Mark PYQ</span>
+                </h3>
+                <p class="text-rose-300 mb-8 relative z-10 text-sm italic border-l-2 border-rose-400 pl-3">(Memorize these steps in exact order!)</p>
+                
+                <div class="space-y-6 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors">
+                        <h4 class="font-bold text-orange-300 text-lg mb-2 flex items-center gap-3"><span class="bg-orange-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span> Idea Generation</h4>
+                        <p class="text-sm text-slate-300 mb-1"><strong class="text-white">What happens:</strong> Brainstorming hundreds of ideas for a new product using internal (employees) and external (customers, competitors) sources.</p>
+                        <p class="text-sm text-slate-400"><strong class="text-emerald-400">Importance:</strong> To create a massive pool of ideas without judging them yet.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors">
+                        <h4 class="font-bold text-orange-300 text-lg mb-2 flex items-center gap-3"><span class="bg-orange-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span> Idea Screening</h4>
+                        <p class="text-sm text-slate-300 mb-1"><strong class="text-white">What happens:</strong> Evaluating the hundreds of ideas and throwing away the bad, expensive, or impossible ones, keeping only the best 2 or 3.</p>
+                        <p class="text-sm text-slate-400"><strong class="text-emerald-400">Importance:</strong> Saves the company from wasting millions of dollars trying to develop a useless idea.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors">
+                        <h4 class="font-bold text-orange-300 text-lg mb-2 flex items-center gap-3"><span class="bg-orange-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span> Concept Development and Testing</h4>
+                        <p class="text-sm text-slate-300 mb-1"><strong class="text-white">What happens:</strong> The surviving idea is turned into a detailed "Product Concept" (a detailed description or 3D drawing). This concept is shown to a small group of consumers to ask, "Would you buy this?"</p>
+                        <p class="text-sm text-slate-400"><strong class="text-emerald-400">Importance:</strong> Validates if the customer actually likes the idea before the factory starts building it.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors">
+                        <h4 class="font-bold text-orange-300 text-lg mb-2 flex items-center gap-3"><span class="bg-orange-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">4</span> Business Analysis</h4>
+                        <p class="text-sm text-slate-300 mb-1"><strong class="text-white">What happens:</strong> The finance team calculates the estimated sales, manufacturing costs, and potential profit.</p>
+                        <p class="text-sm text-slate-400"><strong class="text-emerald-400">Importance:</strong> Ensures the product will actually make money. If it costs ₹5000 to make but people will only pay ₹3000, the project is killed here.</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors">
+                        <h4 class="font-bold text-orange-300 text-lg mb-2 flex items-center gap-3"><span class="bg-orange-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">5</span> Product Development (Prototyping)</h4>
+                        <p class="text-sm text-slate-300 mb-1"><strong class="text-white">What happens:</strong> The engineering team finally builds the first working physical model (Prototype). For electronics, this means soldering the first PCB and writing the firmware.</p>
+                        <p class="text-sm text-slate-400"><strong class="text-emerald-400">Importance:</strong> Proves that the idea is technically possible to manufacture.</p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors">
+                        <h4 class="font-bold text-orange-300 text-lg mb-2 flex items-center gap-3"><span class="bg-orange-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">6</span> Test Marketing</h4>
+                        <p class="text-sm text-slate-300 mb-1"><strong class="text-white">What happens:</strong> The product is manufactured in small batches and sold in a few selected cities (e.g., only in Pune and Bangalore) to see how real people react.</p>
+                        <p class="text-sm text-slate-400"><strong class="text-emerald-400">Importance:</strong> Identifies unexpected problems (like a battery draining too fast) before a nationwide launch.</p>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors">
+                        <h4 class="font-bold text-orange-300 text-lg mb-2 flex items-center gap-3"><span class="bg-orange-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">7</span> Commercialization (Launch)</h4>
+                        <p class="text-sm text-slate-300 mb-1"><strong class="text-white">What happens:</strong> The product goes into mass production, massive advertising begins, and it is launched nationwide.</p>
+                        <p class="text-sm text-slate-400"><strong class="text-emerald-400">Importance:</strong> The final execution where the company starts recovering its investment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="creativity" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Creativity and Idea Generation Methods</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define creativity. Role of brainstorming and rules. Morphological analysis. Interconnected decision areas. Compare idea generation methods.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" alt="Brainstorming with Sticky Notes" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Creativity & Creative Attitude <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1">PYQ</span></h3>
+                <ul class="space-y-4 text-sm text-slate-600">
+                    <li class="bg-slate-50 p-4 rounded-lg border border-slate-100"><strong class="text-slate-800 block mb-1">Definition:</strong> Creativity is the mental ability to generate novel (new), original, and useful ideas or solutions to problems.</li>
+                    <li class="bg-slate-50 p-4 rounded-lg border border-slate-100"><strong class="text-slate-800 block mb-1">Role in Product Development:</strong> Without creativity, engineers would just build the same old products forever. Creativity leads to innovation, which gives a company a competitive edge (e.g., inventing the touchscreen phone).</li>
+                    <li class="bg-slate-50 p-4 rounded-lg border border-slate-100"><strong class="text-slate-800 block mb-1">Creative Attitude:</strong> It is a mindset. A person with a creative attitude embraces curiosity, is not afraid to fail or sound stupid, constantly questions the status quo ("Why do we do it this way?"), and connects unrelated concepts together.</li>
+                </ul>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Idea Generation Methods <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ Comparison</span></h3>
+            <p class="text-slate-600 mb-6 font-medium">Engineers use specific techniques to force their brains to be creative:</p>
+
+            <div class="space-y-8 mb-12">
+                <!-- Brainstorming -->
+                <div class="bg-rose-50 p-6 rounded-3xl border border-rose-100 shadow-sm relative overflow-hidden">
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-3xl uppercase tracking-wider shadow-sm">Highly Important PYQ</span>
+                    <h4 class="text-xl font-bold text-rose-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-bolt text-rose-500"></i> 1. Brainstorming</h4>
+                    <p class="text-sm text-rose-900 mb-4"><strong>What it is:</strong> A group creativity technique where a team sits in a room and spontaneously shouts out as many ideas as possible to solve a problem.</p>
+                    
+                    <strong class="text-rose-950 block mb-2 text-sm">Key Rules for Effective Brainstorming:</strong>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-rose-800">
+                        <li><strong class="bg-rose-200 px-1 rounded">NO CRITICISM:</strong> The golden rule. Nobody is allowed to say "That's a stupid idea." Judgment kills creativity.</li>
+                        <li><strong>Quantity over Quality:</strong> The goal is to get 100 ideas on the board in 20 minutes.</li>
+                        <li><strong>Wild ideas are encouraged:</strong> Crazy ideas often spark practical, brilliant ones.</li>
+                        <li><strong>Combine and Improve:</strong> Take someone else's idea and add to it.</li>
+                    </ul>
+                </div>
+
+                <!-- Morphological Analysis -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">2. Morphological Analysis <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-normal ml-2">PYQ Focus</span></h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>What it is:</strong> A highly structured, engineering-based method for generating ideas. Instead of just shouting out ideas, you break the product down into its essential features/functions, list all possible solutions for each feature, and then combine them in unique ways.</p>
+                    
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm">
+                        <strong class="text-slate-800 block mb-2"><i class="fa-solid fa-bicycle text-slate-500 mr-2"></i> Example (Designing a new Personal Transport Vehicle):</strong>
+                        <ul class="space-y-1 text-slate-600 pl-6 list-disc mb-3">
+                            <li><strong>Feature A (Power Source):</strong> Electric Battery, Petrol Engine, Solar.</li>
+                            <li><strong>Feature B (Number of Wheels):</strong> One, Two, Three, Four.</li>
+                            <li><strong>Feature C (Rider Position):</strong> Standing, Sitting, Lying down.</li>
+                        </ul>
+                        <p class="bg-emerald-50 text-emerald-800 p-2 rounded inline-block font-medium"><strong>Combination Idea:</strong> (Battery + Two Wheels + Standing) = The Segway!</p>
+                    </div>
+                </div>
+
+                <!-- AIDA -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">3. Analysis of Interconnected Decision Areas (AIDA) <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-normal ml-2">PYQ Focus</span></h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>What it is:</strong> In complex product design (like an airplane or a smartphone), decisions are highly interconnected. If you change one thing, it affects everything else. AIDA is a technique to map out these connections before making a choice.</p>
+                    
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm">
+                        <strong class="text-slate-800 block mb-2"><i class="fa-solid fa-mobile-screen text-slate-500 mr-2"></i> Example (Designing a Smartphone):</strong>
+                        <ul class="space-y-1 text-slate-600 pl-6 list-disc mb-3">
+                            <li><strong>Area 1:</strong> Battery Size.</li>
+                            <li><strong>Area 2:</strong> Screen Resolution.</li>
+                            <li><strong>Area 3:</strong> Phone Thickness.</li>
+                        </ul>
+                        <p class="bg-blue-50 text-blue-800 p-3 rounded font-medium leading-relaxed"><strong>Analysis:</strong> If you decide to put a massive 4K screen (Area 2), it will drain power rapidly. Therefore, you must choose a huge battery (Area 1). But a huge battery means you cannot make the phone ultra-thin (Area 3). AIDA helps designers see these conflicts early and find the best compromise.</p>
+                    </div>
+                </div>
+
+                <!-- Imitation -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">4. Design by Imitation</h4>
+                    <p class="text-sm text-slate-600"><strong>What it is:</strong> Also known as Reverse Engineering or "Me-too" products. The company buys a competitor's highly successful product, tears it down, studies how it works, and designs a similar product (often cheaper or with slight improvements) without copying the patents illegally. <br/><br/><span class="italic text-slate-500">(e.g., Boat making smartwatches that look exactly like the Apple Watch).</span></p>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-rose-500 to-orange-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 1 Notes</h2>
+                    <p class="text-rose-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Pay extremely close attention to the <strong>7 stages of the NPD Process</strong>, the <strong>3 Levels of a Product</strong>, and the <strong>4Ps of the Marketing Mix</strong>, as they are guaranteed to appear in your final paper!
+                    </p>
+                </div>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-rose-50', 'text-rose-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-rose-50', 'text-rose-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
