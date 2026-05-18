@@ -1,10 +1,702 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-4-Optimization-and-Manufacturing</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 4 Optimization and Manufacturing</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Design Notes - Unit 4</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Advanced Design Background Image -->
+            <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?auto=format&fit=crop&q=80&w=2070" alt="Advanced Product Engineering" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-orange-200 to-amber-200 mb-6 drop-shadow-sm leading-tight">
+                Optimization, Reliability <br/>& Advanced Design
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-IV. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-rose-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#optimization" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gauge-high text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 1. Optimization in Design
+                    </a>
+                    <a href="#economics" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-money-bill-wave text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 2. Economic Factors
+                    </a>
+                    <a href="#reliability" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-shield-virus text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 3. Safety & Reliability
+                    </a>
+                    <a href="#simulation" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-laptop-code text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 4. Modeling & Simulation
+                    </a>
+                    <a href="#concurrent" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-people-arrows text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 5. Concurrent Design
+                    </a>
+                    <a href="#six-sigma" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-check-double text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 6. Six Sigma & DFSS
+                    </a>
+                    <a href="#prototyping" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-cubes text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 7-8. DFM & Rapid Prototyping
+                    </a>
+                    <a href="#comparison" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-code-compare text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 9. Design vs. Development
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-rose prose-headings:font-bold prose-a:text-rose-600">
+
+            <!-- Section 1 -->
+            <div id="optimization" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Optimization in Design</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain optimization in design. Discuss its significance in improving product performance and efficiency.</p>
+                </div>
+            </div>
+
+            <!-- Image 1 -->
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200" alt="Engineer optimizing design" class="w-full h-72 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-rose-600">A.</span> What is Optimization in Design?
+                </h3>
+                <p class="text-slate-600 mb-4 text-base">Optimization is the mathematical and engineering process of finding the "best possible" solution or design among many alternatives, under a given set of strict constraints.</p>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 mb-6">
+                    <strong>Concept:</strong> An engineer must maximize the desired effects (like speed, strength, battery life) while minimizing the undesired effects (like weight, cost, heat generation).
+                </div>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">It is getting the absolute maximum "juice" out of a lemon with the least amount of squeezing effort. It’s making a product as good, cheap, and fast as physically possible without breaking the rules of physics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Significance in Improving Performance and Efficiency <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+            
+            <div class="grid sm:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-rose-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-rose-600 mb-4 text-xl"><i class="fa-solid fa-down-left-and-up-right-to-center"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-base">Material & Cost Reduction</h4>
+                    <p class="text-sm text-slate-600">Optimizing the shape removes unnecessary material, making it lighter and significantly cheaper to manufacture.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-600 mb-4 text-xl"><i class="fa-solid fa-microchip"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-base">Performance Maximization</h4>
+                    <p class="text-sm text-slate-600">In electronics, optimizing a PCB layout minimizes trace lengths, which reduces signal delay and prevents overheating.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="bg-emerald-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-emerald-600 mb-4 text-xl"><i class="fa-solid fa-leaf"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-base">Energy Efficiency</h4>
+                    <p class="text-sm text-slate-600">Optimizing aerodynamic shapes (like a drone's body) reduces air resistance, meaning the battery lasts 20% longer.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="economics" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Economic Factors and Financial Feasibility</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Discuss the economic factors considered during the design phase. Impact of production costs, market demand, and budget constraints.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">Designing a product is not just an engineering challenge; it is a massive financial risk. An engineer must consider:</p>
+
+            <!-- Image 2 -->
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200" alt="Financial Charts and Budgeting" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="space-y-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-rose-500 flex gap-4 items-start">
+                    <div class="text-rose-500 text-2xl mt-1"><i class="fa-solid fa-industry"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-2">Production and Tooling Costs</h4>
+                        <p class="text-sm text-slate-600">Making custom plastic injection molds for a new electronics casing can cost lakhs of rupees. If the designer creates a highly complex shape, the tooling cost will skyrocket, making the product too expensive to sell.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-amber-500 flex gap-4 items-start">
+                    <div class="text-amber-500 text-2xl mt-1"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-2">Market Demand & Target Price</h4>
+                        <p class="text-sm text-slate-600">Before designing, the company must ask, <em>"Will the customer pay ₹5000 for this?"</em> If the market demand is only for a ₹2000 product, the engineer is constrained to use cheaper materials and simpler circuits.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-emerald-500 flex gap-4 items-start">
+                    <div class="text-emerald-500 text-2xl mt-1"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-2">Budget Constraints (Financial Feasibility)</h4>
+                        <p class="text-sm text-slate-600">Does the company have enough money to spend 2 years researching this product? The design phase must calculate the <strong>Return on Investment (ROI)</strong>. If the cost of development is higher than the expected profit from sales, the project is killed immediately.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="reliability" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-shield-virus"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Design for Safety and Reliability</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define Product Reliability. Explain the bathtub curve. Give two reliable design examples. Importance of designing for safety.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is Product Reliability? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 text-sm mb-6">Reliability is the probability that a product, system, or component will perform its intended function without failing for a specified period of time, under normal operating conditions.</p>
+                
+                <div class="flex items-start gap-4 bg-purple-50 border border-purple-100 p-4 rounded-xl shadow-sm">
+                    <div class="bg-purple-200 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-purple-700">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-1 text-sm">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-xs">Reliability is how much you can trust your smartphone not to suddenly die in the middle of an urgent phone call after using it for 2 years.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 3: Testing/Reliability -->
+            <img src="https://images.unsplash.com/photo-1580983546877-6288591c2557?auto=format&fit=crop&q=80&w=1200" alt="Testing Circuit Board Reliability" class="w-full h-72 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-12 border border-slate-700">
+                <i class="fa-solid fa-chart-area absolute right-[-20px] top-[-20px] text-[15rem] opacity-5"></i>
+                <h3 class="text-3xl font-bold text-rose-400 mb-4 relative z-10 flex flex-wrap items-center gap-3">
+                    B. The Bathtub Curve of Reliability
+                    <span class="bg-red-500 text-white text-sm px-3 py-1 rounded-full uppercase tracking-widest font-bold shadow-lg">Crucial 6-Mark PYQ</span>
+                </h3>
+                <p class="text-rose-200 mb-8 relative z-10 text-sm">The failure rate of most engineered products follows a graph that looks exactly like a bathtub. It has three distinct phases.</p>
+                
+                <div class="bg-white/10 p-4 rounded-xl border border-white/20 mb-8 relative z-10 text-center font-bold text-amber-300 italic">
+                    (Note for exam: Draw a U-shaped curve. X-axis is 'Time', Y-axis is 'Failure Rate'.)
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 relative z-10 text-sm">
+                    <div class="bg-black/40 p-5 rounded-2xl border-t-4 border-t-rose-500">
+                        <h4 class="font-bold text-rose-300 text-lg mb-2">Phase 1: Infant Mortality</h4>
+                        <p class="text-xs text-rose-200 uppercase tracking-widest mb-3">(Decreasing Failure Rate)</p>
+                        <p class="text-slate-300">This happens immediately after the product is bought. High failure rates occur due to manufacturing defects or faulty soldering. If it survives the first month, the failure rate drops sharply.</p>
+                    </div>
+                    
+                    <div class="bg-black/40 p-5 rounded-2xl border-t-4 border-t-emerald-500">
+                        <h4 class="font-bold text-emerald-300 text-lg mb-2">Phase 2: Useful Life</h4>
+                        <p class="text-xs text-emerald-200 uppercase tracking-widest mb-3">(Constant Failure Rate)</p>
+                        <p class="text-slate-300">The bottom, flat part of the bathtub. The product works perfectly for years. Failures here are rare and completely random (e.g., a power surge destroys the circuit).</p>
+                    </div>
+
+                    <div class="bg-black/40 p-5 rounded-2xl border-t-4 border-t-amber-500">
+                        <h4 class="font-bold text-amber-300 text-lg mb-2">Phase 3: Wear-out Phase</h4>
+                        <p class="text-xs text-amber-200 uppercase tracking-widest mb-3">(Increasing Failure Rate)</p>
+                        <p class="text-slate-300">The product gets old. Materials degrade, batteries lose capacity, and gears wear out. The failure rate climbs rapidly until the product completely dies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">C. Two Reliable Design Examples <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-blue-700 block mb-1">1. Redundancy in Aerospace Electronics:</strong>
+                            An airplane has three separate flight-control computers. If Computer A fails, Computer B instantly takes over. This makes the overall system highly reliable.
+                        </li>
+                        <li class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <strong class="text-blue-700 block mb-1">2. Derating Components:</strong>
+                            An engineer designs a power supply. The circuit requires a 10V capacitor, but the engineer installs a 25V capacitor instead. Running a component well below its maximum limit massively increases its lifespan and reliability.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">D. Design for Safety</h3>
+                    <p class="text-sm text-slate-600 mb-4">Safety ensures the product does not harm the user, even if it fails.</p>
+                    <div class="bg-rose-50 p-5 rounded-xl border border-rose-100">
+                        <strong class="text-rose-900 block mb-2 text-base"><i class="fa-solid fa-fire-extinguisher text-rose-500 mr-2"></i> Example (Fail-Safe):</strong>
+                        <p class="text-sm text-rose-800 leading-relaxed">A "Fail-Safe" design in an electric iron. If the thermostat breaks (failure), a thermal fuse permanently burns out and cuts the power (fail-safe), preventing the iron from catching fire and burning the user's house down.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="simulation" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Role of Computers, Modeling, and Simulation</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Describe the role of modeling and simulation in product design. Role of models in engineering design.</p>
+                </div>
+            </div>
+
+            <!-- Image 4: CAD/Simulation -->
+            <img src="https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?auto=format&fit=crop&q=80&w=1200" alt="Computer Aided Design and Simulation" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">A. Role of Computers in Design</h3>
+                <p class="text-slate-600 text-sm mb-0">Modern design is entirely reliant on <strong>CAD</strong> (Computer-Aided Design), <strong>CAE</strong> (Computer-Aided Engineering), and <strong>CAM</strong> (Computer-Aided Manufacturing). Computers allow engineers to draw 3D models with micromillimeter accuracy and store them digitally, eliminating paper blueprints.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Modeling and Simulation <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h4 class="font-bold text-indigo-700 text-lg mb-3"><i class="fa-solid fa-cubes text-indigo-500 mr-2"></i> Modeling</h4>
+                    <p class="text-sm text-slate-600 mb-3">It is the process of creating a mathematical, digital, or physical representation of a product before it is actually built.</p>
+                    <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+                        <li><strong>Mathematical Modeling:</strong> Using equations to describe how a circuit will behave.</li>
+                        <li><strong>Scale Models:</strong> Building a mini 1:10 physical plastic model of a car to test in a wind tunnel.</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h4 class="font-bold text-blue-700 text-lg mb-3"><i class="fa-solid fa-vr-cardboard text-blue-500 mr-2"></i> Simulation</h4>
+                    <p class="text-sm text-slate-600 mb-4">It is the process of putting that digital 3D model into a virtual "real-world" environment inside the computer software to see how it reacts to stress, heat, or electricity.</p>
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 text-xs text-slate-700">
+                        <strong class="text-emerald-600 block mb-1">Significance:</strong> Without simulation, engineers would have to build 50 real physical prototypes and break them to find flaws (costs millions). Simulation finds the breaking point virtually, for free. (e.g., Simulating how hot an LED bulb gets inside plastic casing).
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="concurrent" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-people-arrows"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Concurrent Design (Concurrent Engineering)</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define concurrent design. Explain how it differs from traditional sequential design. State its advantages and challenges.</p>
+                </div>
+            </div>
+
+            <!-- Image 5: Teamwork Concurrent Design -->
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" alt="Team collaborating simultaneously" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">A. What is Concurrent Design? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 text-base mb-6">Concurrent Design is a modern product development strategy where all the different departments (Design, Manufacturing, Marketing, Finance, and Quality) work together <strong>simultaneously</strong> from Day 1 of the project.</p>
+                
+                <div class="flex items-start gap-4 bg-purple-50 border border-purple-100 p-5 rounded-2xl shadow-sm">
+                    <div class="bg-purple-200 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-purple-700 text-lg">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-1 text-sm">Easy Word Explanation (The Kitchen Analogy)</h4>
+                        <p class="text-purple-900 leading-relaxed text-xs">Instead of one person cooking, then one cleaning, then one serving (which takes hours), everyone is in the kitchen at the same time, coordinating and talking, to get the food out to the customer in 10 minutes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">B. Traditional Sequential vs. Concurrent Design <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ Table</span></h3>
+            
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-rose-300 border-r border-slate-700"><i class="fa-solid fa-stairs mr-1"></i> Sequential Design (Traditional)</th>
+                            <th class="p-5 font-bold text-sm text-emerald-300"><i class="fa-solid fa-people-carry-box mr-1"></i> Concurrent Design (Modern)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Workflow</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Step-by-step. Department A finishes, throws it to Department B ("Over-the-wall" approach).</td>
+                            <td class="p-5 text-emerald-700 font-bold text-sm bg-emerald-50/30">Simultaneous. All departments work on the project at the exact same time.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Communication</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Very poor. The factory team has no idea what the design team is drawing until it's finished.</td>
+                            <td class="p-5 text-slate-700 text-sm">Extremely high. Daily meetings between designers, marketing, and factory engineers.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Time to Market</td>
+                            <td class="p-5 text-rose-600 border-r border-slate-200 text-sm font-bold">Very slow.</td>
+                            <td class="p-5 text-emerald-600 text-sm font-bold">Very fast (cuts development time by 30-50%).</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Redesigns</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">High. The design team makes a shape the factory cannot build, forcing a total redesign.</td>
+                            <td class="p-5 text-slate-700 text-sm">Low. The factory engineer corrects the designer during the drawing phase.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">C. Advantages and Challenges of Concurrent Design</h3>
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h4 class="text-lg font-bold text-emerald-800 mb-3"><i class="fa-solid fa-check-circle text-emerald-500 mr-2"></i> Advantages</h4>
+                    <p class="text-sm text-emerald-900 leading-relaxed">Radically reduces time-to-market, lowers development costs, improves product quality, and prevents expensive late-stage manufacturing errors.</p>
+                </div>
+                <div class="bg-rose-50 p-6 rounded-2xl border border-rose-100 shadow-sm">
+                    <h4 class="text-lg font-bold text-rose-800 mb-3"><i class="fa-solid fa-triangle-exclamation text-rose-500 mr-2"></i> Challenges</h4>
+                    <p class="text-sm text-rose-900 leading-relaxed">Requires massive cultural change in the company. Getting 5 different departments with big egos to communicate and agree on a single software platform is highly difficult and can lead to team conflicts.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="six-sigma" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-check-double"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. Six Sigma and Design for Six Sigma (DFSS)</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">What is six sigma? Explain principles and DMAIC phases of six sigma.</p>
+                </div>
+            </div>
+
+            <!-- Image 6: Precision/Six Sigma -->
+            <img src="https://images.unsplash.com/photo-1507925922837-326f46606252?auto=format&fit=crop&q=80&w=1200" alt="Precision and Quality Chart" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-12">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">A. What is Six Sigma? <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+                <p class="text-sm text-slate-600 mb-4">Six Sigma is a highly disciplined, data-driven, and statistical methodology used by companies to eliminate defects in any process—from manufacturing to transactional and from product to service.</p>
+                
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm mb-4">
+                    <strong class="text-slate-800">The Goal:</strong> To achieve a manufacturing process so perfect that it produces only <strong>3.4 defects per one million opportunities (99.99966% perfect)</strong>.
+                </div>
+
+                <div class="flex items-start gap-4 bg-purple-50 border border-purple-100 p-5 rounded-xl shadow-sm">
+                    <div class="bg-purple-200 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-purple-700 text-lg">
+                        <i class="fa-solid fa-cookie-bite"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-1 text-sm">Easy Word Explanation (Burnt Biscuits)</h4>
+                        <p class="text-purple-900 leading-relaxed text-xs">If you bake 1 million biscuits, Six Sigma ensures that only 3 of those biscuits are slightly burnt, and the remaining 999,997 are absolutely flawless.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-12 border border-slate-700">
+                <i class="fa-solid fa-chart-bar absolute right-[-20px] top-[-20px] text-[15rem] opacity-5"></i>
+                <h3 class="text-3xl font-bold text-rose-400 mb-4 relative z-10 flex flex-wrap items-center gap-3">
+                    B. The DMAIC Phases of Six Sigma
+                    <span class="bg-red-500 text-white text-sm px-3 py-1 rounded-full uppercase tracking-widest font-bold shadow-lg">Crucial 6-Mark PYQ</span>
+                </h3>
+                <p class="text-slate-300 mb-8 relative z-10 text-sm">When fixing an existing flawed product or process, companies use the DMAIC methodology:</p>
+                
+                <div class="space-y-4 relative z-10">
+                    <div class="flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-rose-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white shrink-0 shadow-md text-xl">D</div>
+                        <div>
+                            <strong class="text-rose-300 block mb-1">Define</strong>
+                            <p class="text-sm text-slate-300">Define the exact problem, the customer's requirements, and the project goals. <span class="italic text-slate-400">(e.g., "Customers are complaining that the phone battery drains in 2 hours").</span></p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-orange-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white shrink-0 shadow-md text-xl">M</div>
+                        <div>
+                            <strong class="text-orange-300 block mb-1">Measure</strong>
+                            <p class="text-sm text-slate-300">Measure the current performance of the process to establish a baseline. Collect data on exactly how the battery is being used.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-amber-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white shrink-0 shadow-md text-xl">A</div>
+                        <div>
+                            <strong class="text-amber-300 block mb-1">Analyze</strong>
+                            <p class="text-sm text-slate-300">Analyze the data to find the root cause of the defect. <span class="italic text-slate-400">(e.g., Discovering that a specific microchip is drawing too much standby power).</span></p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-emerald-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white shrink-0 shadow-md text-xl">I</div>
+                        <div>
+                            <strong class="text-emerald-300 block mb-1">Improve</strong>
+                            <p class="text-sm text-slate-300">Develop, test, and implement solutions to eliminate the root cause. <span class="italic text-slate-400">(e.g., Rewriting the firmware or changing the chip).</span></p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-white/5 p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="bg-cyan-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white shrink-0 shadow-md text-xl">C</div>
+                        <div>
+                            <strong class="text-cyan-300 block mb-1">Control</strong>
+                            <p class="text-sm text-slate-300">Ensure the improvements are permanent. Set up monitoring systems so the problem never comes back in future manufacturing batches.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 text-xs text-slate-400 italic relative z-10 border-t border-slate-700 pt-4">
+                    (Note: <strong>DFSS - Design for Six Sigma</strong> is used when designing a completely NEW product from scratch, aiming for zero defects from Day 1, using the DMADV phases).
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 7 & 8 -->
+            <div id="prototyping" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-cubes"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">7. DFM & 8. Rapid Prototyping</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain the concept of design for manufacturing (DFM). Define rapid prototyping. State the applications. Importance of prototyping and testing.</p>
+                </div>
+            </div>
+
+            <!-- Image 7: 3D Printing / RP -->
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200" alt="3D Printing Rapid Prototyping" class="w-full h-72 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- DFM -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 border-b pb-2">7. Design for Manufacturing (DFM)</h3>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Concept:</strong> DFM is the engineering practice of designing products in such a way that they are incredibly easy, fast, and cheap to manufacture in a factory.</p>
+                    
+                    <strong class="text-slate-800 block text-sm mb-2">Core Principles:</strong>
+                    <ol class="list-decimal pl-5 text-sm text-slate-600 space-y-1 mb-4">
+                        <li>Minimize the total number of parts.</li>
+                        <li>Use standard parts instead of custom ones.</li>
+                        <li>Design parts to be easily assembled in one direction (top-down assembly).</li>
+                    </ol>
+                    
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-xs text-slate-600">
+                        <strong class="text-slate-800 block mb-1">Significance:</strong> A designer might draw a beautiful laptop casing, but if it requires a factory worker 2 hours to screw it together using 5 different screwdrivers, the product will fail economically. DFM ensures the worker can snap it together in 2 minutes using standard clips.
+                    </div>
+                </div>
+
+                <!-- Rapid Prototyping -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 border-b pb-2">8. Rapid Prototyping (RP)</h3>
+                    <p class="text-sm text-slate-600 mb-4"><strong>What is it?</strong> Rapid Prototyping is a group of advanced manufacturing techniques used to quickly fabricate a scale model or a physical part of a product directly from 3D Computer-Aided Design (CAD) data. It heavily utilizes 3D Printing (Additive Manufacturing).</p>
+                    
+                    <div class="bg-purple-50 p-4 rounded-xl border border-purple-100 text-xs text-purple-900 mb-4">
+                        <strong class="flex items-center gap-2 mb-1"><i class="fa-solid fa-brain text-purple-600"></i> Easy Explanation</strong>
+                        Instead of spending a month carving a prototype out of wood or metal, you send your 3D digital file to a 3D printer, and it literally "prints" out a physical plastic model of your product overnight.
+                    </div>
+
+                    <strong class="text-slate-800 block text-sm mb-2">Applications (PYQ):</strong>
+                    <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                        <li><strong>Concept Verification:</strong> Holding the physical product to see if it looks attractive.</li>
+                        <li><strong>Form and Fit Testing:</strong> Printing custom casings to check if the PCB and battery fit perfectly inside.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-2xl mb-12 shadow-sm">
+                <h4 class="text-lg font-bold text-amber-900 mb-2">Importance of Prototyping and Testing <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-1 align-middle">PYQ</span></h4>
+                <p class="text-sm text-amber-800 leading-relaxed">Why do we build prototypes? Because digital simulations aren't perfect. Physical testing reveals fatal flaws (like a button being too hard to press, or the plastic cracking when dropped from 2 meters). Catching these flaws in a prototype saves the company from manufacturing 10,000 defective units and facing a massive public recall.</p>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 9 -->
+            <div id="comparison" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-code-compare"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">9. Product Development vs. Product Design</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Compare and contrast product development and design. Write the difference between product development and product design.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium">Many people use these terms interchangeably, but they are entirely different in scope.</p>
+
+            <div class="overflow-x-auto shadow-xl rounded-3xl border border-slate-800 mb-12">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="p-5 font-bold text-sm border-r border-slate-700">Feature</th>
+                            <th class="p-5 font-bold text-sm text-rose-300 border-r border-slate-700"><i class="fa-solid fa-compass-drafting mr-1"></i> Product Design</th>
+                            <th class="p-5 font-bold text-sm text-emerald-300"><i class="fa-solid fa-city mr-1"></i> Product Development</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Definition</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">The specific process of conceptualizing, creating, and refining the actual physical (or digital) product itself.</td>
+                            <td class="p-5 text-slate-700 text-sm">The overarching, massive business process of bringing an entire product from an idea to the final market launch.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Scope / Range</td>
+                            <td class="p-5 text-rose-600 font-medium border-r border-slate-200 text-sm">Very narrow. It is a subset (a small part) of Product Development.</td>
+                            <td class="p-5 text-emerald-600 font-bold text-sm">Very broad. It is the parent process that includes Product Design inside it.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Focus Area</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm">Focuses purely on aesthetics, engineering, CAD drawings, ergonomics, and functionality.</td>
+                            <td class="p-5 text-slate-700 text-sm">Focuses on the whole business: Market research, financing, designing, manufacturing, legal patents, and advertising.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-5 font-bold text-slate-800 bg-slate-50 border-r border-slate-200 text-sm">Professionals Involved</td>
+                            <td class="p-5 text-slate-700 border-r border-slate-200 text-sm italic">Industrial designers, Mechanical/Electronics engineers, UI/UX designers.</td>
+                            <td class="p-5 text-slate-700 text-sm italic">Project managers, investors, marketing teams, accountants, and design engineers.</td>
+                        </tr>
+                        <tr class="hover:bg-purple-50 transition-colors bg-purple-50/50">
+                            <td class="p-5 font-bold text-purple-900 border-r border-slate-200 text-sm"><i class="fa-solid fa-brain mr-2"></i> Easy Word Analogy</td>
+                            <td class="p-5 text-purple-800 border-r border-slate-200 text-sm">It is an architect meticulously drawing the blueprints and deciding the colors for a new car.</td>
+                            <td class="p-5 text-purple-800 text-sm font-bold">It is the entire company building the factory, setting the price, making the car, running TV ads, and selling it in a showroom.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-rose-500 to-orange-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 4 Notes</h2>
+                    <p class="text-rose-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Please pay close attention to the <strong>Six Sigma (DMAIC)</strong>, <strong>Bathtub Curve</strong>, and <strong>Product Design vs. Development comparison</strong>, as they are guaranteed to appear as long-answer questions in your finals! Best of luck!
+                    </p>
+                </div>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-rose-50', 'text-rose-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-rose-50', 'text-rose-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
