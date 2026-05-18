@@ -1,10 +1,462 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-5-Simple-Product-Design</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 5 Simple Product Design</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Design Notes - Unit 5</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- End to End Design Background Image -->
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=2070" alt="Product Development Lifecycle" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-orange-200 to-amber-200 mb-6 drop-shadow-sm leading-tight">
+                End-to-End Design & <br/>Additional Aspects
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-V. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-rose-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#stages" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-list-check text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 1. The Stages to Manufacture
+                    </a>
+                    <a href="#materials" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-cubes text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 2. Material Selection
+                    </a>
+                    <a href="#ergonomics" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-hand-pointer text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 3. Ergonomics in Design
+                    </a>
+                    <a href="#case-study" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-fire text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 4. Case Study: Soldering Iron
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-rose prose-headings:font-bold prose-a:text-rose-600">
+
+            <!-- Section 1 -->
+            <div id="stages" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Stages from Need till Manufacture</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Describe the stages from need till the manufacture of the product. (6 Marks)</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium text-lg">This topic acts as a grand summary of the entire Product Design subject. The journey of a product starts with a human problem and ends on a factory assembly line.</p>
+
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-10">
+                <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                    <p class="text-purple-900 leading-relaxed text-sm">It is the complete journey of a product from being just a "thought" in an engineer's brain to becoming a physical "thing" packed in a box, ready to be sold.</p>
+                </div>
+            </div>
+
+            <!-- Image 1 -->
+            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=1200" alt="Product Development Journey" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-12 border border-slate-700">
+                <i class="fa-solid fa-timeline absolute right-[-20px] top-[-20px] text-[15rem] text-white opacity-5"></i>
+                <h3 class="text-3xl font-bold text-orange-400 mb-8 relative z-10 flex flex-wrap items-center gap-3">
+                    The 7 Stages of End-to-End Product Development
+                    <span class="bg-red-500 text-white text-sm px-3 py-1 rounded-full uppercase tracking-widest font-bold shadow-lg">6-Mark PYQ</span>
+                </h3>
+                
+                <div class="relative max-w-3xl mx-auto z-10">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-6 top-4 bottom-4 w-1 bg-orange-400/30 rounded hidden sm:block"></div>
+
+                    <div class="space-y-6 text-sm text-slate-300">
+                        <!-- Stage 1 -->
+                        <div class="flex items-start gap-6">
+                            <div class="hidden sm:flex w-12 h-12 bg-orange-500 text-white rounded-full items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">1</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2"><span class="sm:hidden mr-2">1.</span>Identification of Need (The Trigger)</h4>
+                                <p class="mb-2">Every product starts because a customer has an unfulfilled need or a problem. The company conducts market research, surveys, and focus groups to identify this exact gap in the market.</p>
+                                <p class="text-xs text-orange-200 bg-orange-900/30 p-2 rounded"><strong>Example:</strong> People complain that their phone batteries die during long train journeys, and there are no plug points. <em>The Need is portable power.</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Stage 2 -->
+                        <div class="flex items-start gap-6">
+                            <div class="hidden sm:flex w-12 h-12 bg-orange-500 text-white rounded-full items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">2</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2"><span class="sm:hidden mr-2">2.</span>Conceptualization & Idea Generation</h4>
+                                <p class="mb-2">The engineering and design teams brainstorm hundreds of possible solutions to solve the need. They use techniques like morphological analysis to generate rough concepts.</p>
+                                <p class="text-xs text-orange-200 bg-orange-900/30 p-2 rounded"><strong>Example:</strong> Should we make a solar-powered hat? A hand-crank charger? Or a lithium-ion Power Bank? <em>The Power Bank concept is chosen.</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Stage 3 -->
+                        <div class="flex items-start gap-6">
+                            <div class="hidden sm:flex w-12 h-12 bg-orange-500 text-white rounded-full items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">3</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2"><span class="sm:hidden mr-2">3.</span>Feasibility Study</h4>
+                                <p>The chosen concept is tested for technical and financial viability. Can we actually build this with today's electronics? Will it cost less than ₹1000 to manufacture so we can sell it for a profit? If yes, the project proceeds.</p>
+                            </div>
+                        </div>
+
+                        <!-- Stage 4 -->
+                        <div class="flex items-start gap-6">
+                            <div class="hidden sm:flex w-12 h-12 bg-orange-500 text-white rounded-full items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">4</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2"><span class="sm:hidden mr-2">4.</span>Detailed Design & Material Selection</h4>
+                                <p class="mb-2">This is the heavy engineering phase. For an electronic product, this involves:</p>
+                                <ul class="list-disc pl-5 space-y-1 text-slate-400">
+                                    <li>Designing the schematic and PCB layout using software like Altium/KiCad.</li>
+                                    <li>Designing the outer 3D casing using CAD software (SolidWorks/AutoCAD).</li>
+                                    <li>Selecting exact components (e.g., a 10,000mAh Li-Po battery, a specific charging IC).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Stage 5 -->
+                        <div class="flex items-start gap-6">
+                            <div class="hidden sm:flex w-12 h-12 bg-orange-500 text-white rounded-full items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">5</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2"><span class="sm:hidden mr-2">5.</span>Prototyping and Testing</h4>
+                                <p>The digital CAD files are brought to life using Rapid Prototyping (3D printing). The PCB is chemically etched and soldered by hand. This physical model (Prototype) is tested to see if it overheats, if it charges properly, and if the case fits together. Fatal errors are fixed here.</p>
+                            </div>
+                        </div>
+
+                        <!-- Stage 6 -->
+                        <div class="flex items-start gap-6">
+                            <div class="hidden sm:flex w-12 h-12 bg-orange-500 text-white rounded-full items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10">6</div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-colors w-full">
+                                <h4 class="font-bold text-orange-300 text-lg mb-2"><span class="sm:hidden mr-2">6.</span>Design for Manufacturing (DFM) & Tooling</h4>
+                                <p>The design is adjusted so that factory machines can build it quickly and cheaply. Custom steel molds are ordered for plastic injection molding. The SMT (Surface Mount Technology) pick-and-place machines are programmed to drop microchips onto the PCBs.</p>
+                            </div>
+                        </div>
+
+                        <!-- Stage 7 -->
+                        <div class="flex items-start gap-6">
+                            <div class="hidden sm:flex w-12 h-12 bg-emerald-500 text-white rounded-full items-center justify-center font-bold shadow-md shrink-0 border-4 border-slate-900 relative z-10"><i class="fa-solid fa-check"></i></div>
+                            <div class="bg-gradient-to-r from-emerald-900/40 to-teal-900/40 p-5 rounded-2xl border border-emerald-500/30 hover:border-emerald-500 transition-colors w-full">
+                                <h4 class="font-bold text-emerald-300 text-lg mb-2"><span class="sm:hidden mr-2 text-emerald-500"><i class="fa-solid fa-check"></i></span>7. Final Manufacturing & Assembly</h4>
+                                <p>Mass production begins. Plastic casings are molded by the thousands. PCBs are baked in reflow ovens. Workers on an assembly line snap the battery and PCB into the plastic casing, screw it shut, test it, and put it in the final cardboard packaging.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="materials" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-cubes"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Impact of Material Selection</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Discuss the impact of material selection in product design. (6 Marks)</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium">Material selection is one of the most critical decisions an engineer makes. You cannot build a submarine out of cardboard, and you wouldn't build a disposable spoon out of gold.</p>
+
+            <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-10">
+                <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation (The Recipe Analogy)</h4>
+                    <p class="text-purple-900 leading-relaxed text-sm">Material selection is choosing the exact "ingredients" for your recipe. If you use cheap ingredients, the food tastes bad. If you use the wrong materials, the product breaks, melts, or becomes too expensive to sell.</p>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&q=80&w=1200" alt="Material Selection Laptops" class="w-full h-72 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">The Impact of Material Selection on a Product: <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">6-Mark PYQ</span></h3>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition border-l-4 border-l-blue-500">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-shield-halved text-blue-500"></i> Performance & Durability</h4>
+                    <p class="text-sm text-slate-600 mb-2">The material dictates how strong the product is.</p>
+                    <div class="bg-blue-50 p-3 rounded-lg text-xs text-blue-900">
+                        <strong>Electronics Example:</strong> A laptop casing made of Aluminum (like a MacBook) can survive drops and dissipates heat excellently. A laptop made of cheap ABS plastic might crack if dropped.
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition border-l-4 border-l-rose-500">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-money-bill-wave text-rose-500"></i> Cost & Profitability</h4>
+                    <p class="text-sm text-slate-600 mb-2">Exotic materials eat into the company's profit. Titanium is incredibly strong and light, but it costs 100 times more than plastic.</p>
+                    <div class="bg-rose-50 p-3 rounded-lg text-xs text-rose-900">
+                        <strong>Impact:</strong> To sell a budget smartphone for ₹8,000, the engineer must select polycarbonate (plastic) for the back cover. If they choose aerospace aluminum, the phone would cost ₹30,000, and the budget customer won't buy it.
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition border-l-4 border-l-emerald-500">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-feather text-emerald-500"></i> Weight & Portability</h4>
+                    <p class="text-sm text-slate-600">For portable electronics (like drones, smartwatches, or wireless earphones), weight is critical. Engineers select materials like Carbon Fiber or Magnesium alloys because they offer maximum strength at minimum weight.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition border-l-4 border-l-amber-500">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-gem text-amber-500"></i> Aesthetics & "Feel"</h4>
+                    <p class="text-sm text-slate-600">Materials trigger psychological reactions in customers. Cold metal and glass feel "premium" and "expensive." Hollow, glossy plastic feels "cheap." Apple uses stainless steel and glass to justify charging ₹1 Lakh for a phone.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition border-l-4 border-l-orange-500">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-temperature-arrow-up text-orange-500"></i> Thermal & Electrical Props</h4>
+                    <p class="text-sm text-slate-600">In electronics, material selection directly affects safety. The main circuit board must be made of FR4 (a flame-retardant fiberglass) so it doesn't catch fire if a short circuit happens. Heat sinks must be made of Copper or Aluminum because they are excellent thermal conductors.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition border-l-4 border-l-green-600">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-leaf text-green-600"></i> Environment & Sustainability</h4>
+                    <p class="text-sm text-slate-600">Modern design requires eco-friendly materials. Choosing biodegradable plastics or ocean-bound recycled plastics reduces the product's environmental footprint (Green Design).</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="ergonomics" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-hand-pointer"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. Role of Ergonomics in Product Design</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Discuss the role of ergonomics in product design. (6 Marks)</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">A. What is Ergonomics?</h3>
+                <p class="text-slate-600 mb-4 text-sm">Ergonomics (also known as Human Factors Engineering) is the applied science of designing and arranging things so that the people who use them interact with them safely, comfortably, and efficiently.</p>
+                
+                <div class="bg-purple-50 p-4 rounded-xl text-sm text-purple-900 flex items-start gap-3">
+                    <i class="fa-solid fa-brain text-purple-600 mt-1"></i>
+                    <span><strong>Easy Explanation:</strong> Ergonomics is designing the product to fit the human body, rather than forcing the human body to twist and hurt itself to fit the product.</span>
+                </div>
+            </div>
+
+            <!-- Image 3: Ergonomics -->
+            <img src="https://images.unsplash.com/photo-1615663245857-ac93bb9c551c?auto=format&fit=crop&q=80&w=1200" alt="Ergonomic Controller Design" class="w-full h-72 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Role and Importance of Ergonomics <span class="bg-red-500 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">6-Mark PYQ</span></h3>
+            
+            <div class="space-y-6 mb-12">
+                <!-- Physical -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-rose-300 transition-colors">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-person text-rose-500"></i> 1. Maximizing User Comfort (Physical Ergonomics)</h4>
+                    <p class="text-sm text-slate-600 mb-2">A product must not cause physical pain or fatigue during prolonged use.</p>
+                    <div class="bg-slate-50 p-3 rounded-lg text-xs text-slate-700">
+                        <strong>Electronics Example:</strong> A standard computer mouse forces your wrist to twist uncomfortably. An Ergonomic Mouse is sculpted vertically to match the natural resting position of the human hand, preventing Carpal Tunnel Syndrome (wrist pain).
+                    </div>
+                </div>
+
+                <!-- Cognitive -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-brain text-blue-500"></i> 2. Enhancing Usability & Efficiency (Cognitive)</h4>
+                    <p class="text-sm text-slate-600 mb-2">It ensures the product is easy to understand without a manual.</p>
+                    <div class="bg-slate-50 p-3 rounded-lg text-xs text-slate-700">
+                        <strong>Electronics Example:</strong> On a smartphone screen, the most frequently used buttons (like the spacebar or 'send' button) are placed at the bottom center—the exact ergonomic "thumb-reach zone" where a human thumb naturally rests.
+                    </div>
+                </div>
+
+                <!-- Safety -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-emerald-300 transition-colors">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-shield text-emerald-500"></i> 3. Ensuring User Safety</h4>
+                    <p class="text-sm text-slate-600">Poor ergonomics can lead to fatal accidents. Emergency stop buttons on heavy factory machines are always made massive, bright red, and placed exactly at waist height so a worker can slam it instantly in a panic without looking.</p>
+                </div>
+
+                <!-- Human Error -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-amber-300 transition-colors">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-500"></i> 4. Reducing Human Error</h4>
+                    <p class="text-sm text-slate-600">In complex electronics, like an airplane cockpit or a medical ventilator, ergonomic design ensures that switches are shaped differently or spaced far apart so a doctor or pilot doesn't accidentally flip the wrong switch in a stressful situation.</p>
+                </div>
+
+                <!-- Competitive -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-purple-300 transition-colors">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-trophy text-purple-500"></i> 5. Market Competitiveness</h4>
+                    <p class="text-sm text-slate-600">If two companies make a gaming controller with the exact same electronics inside, the customer will always buy the one that has rubberized grips and curved triggers that "hug" the fingers perfectly (Ergonomics).</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="case-study" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Case Study: Design of a Simple Product</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">Syllabus Focus</h4>
+                    <p class="text-red-900 font-medium">Design of simple products dealing with various aspects of product development.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">To understand the syllabus practically, let us trace the end-to-end design of a simple electronic product: <strong class="text-rose-600">A Smart Soldering Iron for Diploma Students.</strong></p>
+
+            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-12 border-2 border-rose-500">
+                <i class="fa-solid fa-fire-burner absolute right-[-20px] top-[-20px] text-[15rem] opacity-5"></i>
+                
+                <div class="relative max-w-3xl mx-auto z-10 space-y-8 text-sm">
+                    
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                        <strong class="text-rose-400 block mb-2 text-xl border-b border-white/10 pb-1">Step 1: Identifying the Need</strong>
+                        <p class="text-slate-300 mb-2"><strong>The Problem:</strong> Diploma students frequently burn their PCBs because traditional cheap soldering irons get too hot, and professional soldering stations are too big to carry in a college bag.</p>
+                        <p class="text-emerald-300 bg-emerald-900/30 p-2 rounded"><strong>The Need:</strong> A portable, pen-sized soldering iron with exact temperature control.</p>
+                    </div>
+
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                        <strong class="text-rose-400 block mb-2 text-xl border-b border-white/10 pb-1">Step 2: Idea Generation & Conceptualization</strong>
+                        <p class="text-slate-300">The design team decides the iron should be powered by a standard USB Type-C laptop charger, have a tiny OLED screen to show temperature, and two buttons (+ and -) to adjust the heat.</p>
+                    </div>
+
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                        <strong class="text-rose-400 block mb-2 text-xl border-b border-white/10 pb-1">Step 3: Material Selection & Ergonomics</strong>
+                        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                            <li><strong>Ergonomics:</strong> The body must be shaped like a thick pen with a rubberized grip near the tip so students can hold it steady for precise SMD (Surface Mount Device) soldering without hand fatigue.</li>
+                            <li><strong>Materials:</strong> The tip must be Copper (excellent heat transfer). The grip must be high-temperature Silicone (so fingers don't burn). The outer casing should be Aluminum (lightweight and durable).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                        <strong class="text-rose-400 block mb-2 text-xl border-b border-white/10 pb-1">Step 4: Detailed Design</strong>
+                        <p class="text-slate-300">Electronics engineers design a tiny PCB using a microcontroller and a PID control algorithm to precisely regulate the heat. Mechanical engineers design the aluminum shell in CAD.</p>
+                    </div>
+
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                        <strong class="text-rose-400 block mb-2 text-xl border-b border-white/10 pb-1">Step 5: Prototyping</strong>
+                        <p class="text-slate-300 mb-2">A 3D printer creates a plastic mock-up of the body to test if it feels comfortable in the hand. The PCB is printed and tested.</p>
+                        <p class="text-amber-300 bg-amber-900/30 p-2 rounded"><strong>Iteration:</strong> During testing, they realize the buttons are too close to the hot tip. They redesign the PCB to move the buttons higher up.</p>
+                    </div>
+
+                    <div class="bg-white/10 p-5 rounded-2xl border border-emerald-500/50">
+                        <strong class="text-emerald-400 block mb-2 text-xl border-b border-white/10 pb-1">Step 6: Manufacture</strong>
+                        <p class="text-slate-300">The final design is sent to the factory. The aluminum bodies are CNC machined. The PCBs are assembled by pick-and-place machines. The product is boxed and shipped to electronics stores for students to buy.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-rose-500 to-orange-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-white/30">
+                        <i class="fa-solid fa-graduation-cap text-5xl text-white"></i>
+                    </div>
+                    <h2 class="text-4xl font-extrabold mb-4">End of Unit 5 Notes</h2>
+                    <h3 class="text-2xl font-bold mb-6 text-amber-300">Congratulations on completing your syllabus!</h3>
+                    <p class="text-rose-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Focus heavily on the <strong>"Impact of Material Selection"</strong> and <strong>"Ergonomics,"</strong> as they are the standard theoretical questions for this final unit! Best of luck in your exams!
+                    </p>
+                </div>
+                <i class="fa-solid fa-flag-checkered absolute bottom-[-50px] right-[-20px] text-[20rem] text-white opacity-10"></i>
+                <i class="fa-solid fa-certificate absolute top-[20px] left-[40px] text-[8rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-rose-50', 'text-rose-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-rose-50', 'text-rose-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
