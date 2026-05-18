@@ -1,10 +1,623 @@
 <!DOCTYPE html>
-<html>
-<head><title>Unit-2-Product-Life-Cycle-and-Development</title></head>
-<body>
-<a href="../index.html">🏠 Home</a> |
-<a href="index.html">📚 Units</a>
-<h1>Unit 2 Product Life Cycle and Development</h1>
-<p>Paste your notes here.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Design Notes - Unit 2</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Business/Strategy Background Image -->
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070" alt="Strategy and Analysis" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-orange-200 to-amber-200 mb-6 drop-shadow-sm">
+                Product Life Cycle & <br/>Analysis
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-II. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-rose-500/30 flex items-center gap-2">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#plc" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-chart-line text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 1. Product Life Cycle
+                    </a>
+                    <a href="#needs" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-user-check text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 2. Identifying Needs
+                    </a>
+                    <a href="#challenges" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-mountain-sun text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 3. Challenges
+                    </a>
+                    <a href="#success" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-trophy text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 4. Success Characteristics
+                    </a>
+                    <a href="#phases" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-list-ol text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 5. Generic Phases
+                    </a>
+                    <a href="#analysis" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-gem text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 6. Product Analysis
+                    </a>
+                    <a href="#economics" class="flex items-center gap-3 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-money-bill-trend-up text-slate-400 group-hover:text-rose-600 w-4 text-center"></i> 7. Economics & Marketing
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-rose prose-headings:font-bold prose-a:text-rose-600">
+
+            <!-- Section 1 -->
+            <div id="plc" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1. Product Life Cycle (PLC)</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define Product Life Cycle. Explain the different stages involved. Discuss the concept of PLC including its stages for marketing strategy. Explain factors: Product Cost, Sale, Profit and Marketing strategy.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-bl-full -z-10"></div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <span class="text-rose-600">A.</span> What is the Product Life Cycle (PLC)?
+                </h3>
+                <p class="text-slate-600 mb-6 text-base">The Product Life Cycle is the course that a product's sales and profits take over its lifetime. It traces the journey of a product from its initial introduction into the market until it is eventually removed or replaced.</p>
+                
+                <div class="flex items-start gap-4 bg-gradient-to-br from-purple-50 to-fuchsia-50 border border-purple-100 p-6 rounded-2xl shadow-sm mb-6">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="fa-solid fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-2">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-sm">Just like a human being is born, grows into a teenager, reaches mature adulthood, and eventually grows old and dies, a product goes through the exact same journey in the market.</p>
+                    </div>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" alt="Graph showing growth" class="w-full h-72 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Stages of the Product Life Cycle <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2 align-middle shadow-sm">Crucial 6-Mark PYQ</span></h3>
+            <p class="mb-8 text-slate-600 italic border-l-4 border-rose-500 pl-4 bg-rose-50 p-3 rounded-r-lg">A standard PLC has four distinct stages. In exams, explain how Sales, Profits, Costs, and Marketing Strategies change in each stage.</p>
+
+            <div class="space-y-8 mb-12">
+                <!-- Stage 1 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-indigo-100 shadow-sm relative overflow-hidden">
+                    <h4 class="text-2xl font-bold text-indigo-700 mb-4 flex items-center gap-3"><i class="fa-solid fa-baby"></i> 1. Introduction Stage <span class="text-sm font-normal text-slate-500">(The "Birth")</span></h4>
+                    <p class="text-slate-700 text-sm mb-4">The product is launched into the market for the very first time.</p>
+                    <ul class="space-y-2 text-sm text-slate-600 mb-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <li><strong class="text-slate-800">Sales:</strong> Very low, because people don't know about it yet.</li>
+                        <li><strong class="text-slate-800">Cost:</strong> Extremely high per customer (due to heavy R&D and manufacturing setup costs).</li>
+                        <li><strong class="text-rose-600">Profit:</strong> Negative (The company is losing money at this stage).</li>
+                        <li><strong class="text-indigo-600">Marketing Strategy:</strong> Create heavy product awareness. Spend massive amounts of money on advertising to educate early adopters.</li>
+                    </ul>
+                    <div class="text-sm text-indigo-800 bg-indigo-50 p-2 rounded inline-block"><i class="fa-solid fa-microchip mr-1"></i> <strong>Electronics Ex:</strong> When Apple launched the very first Apple Vision Pro.</div>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-emerald-100 shadow-sm relative overflow-hidden">
+                    <h4 class="text-2xl font-bold text-emerald-700 mb-4 flex items-center gap-3"><i class="fa-solid fa-child-reaching"></i> 2. Growth Stage <span class="text-sm font-normal text-slate-500">(The "Teenage Years")</span></h4>
+                    <p class="text-slate-700 text-sm mb-4">If the new product satisfies the market, sales start climbing quickly as more people buy it.</p>
+                    <ul class="space-y-2 text-sm text-slate-600 mb-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <li><strong class="text-emerald-600">Sales:</strong> Rapidly rising.</li>
+                        <li><strong class="text-slate-800">Cost:</strong> Cost per customer drops as the factory produces more units (Economies of scale).</li>
+                        <li><strong class="text-emerald-600">Profit:</strong> Profits start rising and hit their peak towards the end of this stage.</li>
+                        <li><strong class="text-slate-800">Marketing Strategy:</strong> Maximize market share. Shift advertising from "awareness" to "building brand preference." Competitors start entering the market.</li>
+                    </ul>
+                    <div class="text-sm text-emerald-800 bg-emerald-50 p-2 rounded inline-block"><i class="fa-solid fa-microchip mr-1"></i> <strong>Electronics Ex:</strong> Smartwatches and True Wireless Earbuds (TWS) a few years ago.</div>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-amber-100 shadow-sm relative overflow-hidden">
+                    <h4 class="text-2xl font-bold text-amber-700 mb-4 flex items-center gap-3"><i class="fa-solid fa-user-tie"></i> 3. Maturity Stage <span class="text-sm font-normal text-slate-500">(The "Adulthood")</span></h4>
+                    <p class="text-slate-700 text-sm mb-4">The product is established. Most potential buyers already own it. Sales growth slows down and levels off.</p>
+                    <ul class="space-y-2 text-sm text-slate-600 mb-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <li><strong class="text-slate-800">Sales:</strong> Peak sales (highest volume), but growth has stopped.</li>
+                        <li><strong class="text-emerald-600">Cost:</strong> Lowest cost per customer. Production is highly efficient.</li>
+                        <li><strong class="text-slate-800">Profit:</strong> High profits, but they start dropping because you have to lower prices to fight competitors.</li>
+                        <li><strong class="text-amber-600">Marketing Strategy:</strong> Defend market share. Add new features, change packaging, and offer massive discounts or warranties to steal customers from rival brands.</li>
+                    </ul>
+                    <div class="text-sm text-amber-800 bg-amber-50 p-2 rounded inline-block"><i class="fa-solid fa-microchip mr-1"></i> <strong>Electronics Ex:</strong> Smartphones today (iPhone 15). Companies add slightly better cameras to keep selling.</div>
+                </div>
+
+                <!-- Stage 4 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-rose-200 shadow-sm relative overflow-hidden">
+                    <h4 class="text-2xl font-bold text-rose-700 mb-4 flex items-center gap-3"><i class="fa-solid fa-person-cane"></i> 4. Decline Stage <span class="text-sm font-normal text-slate-500">(The "Old Age")</span></h4>
+                    <p class="text-slate-700 text-sm mb-4">Sales drop drastically because of new technological advances or changes in customer tastes.</p>
+                    <ul class="space-y-2 text-sm text-slate-600 mb-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <li><strong class="text-rose-600">Sales:</strong> Rapidly falling.</li>
+                        <li><strong class="text-slate-800">Cost:</strong> Low cost, but inefficient due to low volume.</li>
+                        <li><strong class="text-rose-600">Profit:</strong> Drops to zero or becomes negative again.</li>
+                        <li><strong class="text-slate-800">Marketing Strategy:</strong> Reduce spending entirely. "Harvest" the product by milking the last few loyal customers, or phase it out completely.</li>
+                    </ul>
+                    <div class="text-sm text-rose-800 bg-rose-50 p-2 rounded inline-block"><i class="fa-solid fa-microchip mr-1"></i> <strong>Electronics Ex:</strong> DVD Players, wired earphones, and physical calculators.</div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 2 -->
+            <div id="needs" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">2. Customer Need Identification</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain customer need identification in product design. Importance. How can organizations effectively identify customer needs. Describe the process/role of market research.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" alt="Customer Research sticky notes" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">A. What is Customer Need Identification?</h3>
+                <p class="text-slate-600 mb-4 text-sm">It is the process of discovering, understanding, and documenting exactly what the customer requires from a product before the engineering team starts designing it.</p>
+                
+                <div class="flex items-start gap-4 bg-purple-50 border border-purple-100 p-4 rounded-xl shadow-sm">
+                    <div class="bg-purple-200 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-purple-700">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-1 text-sm">Easy Word Explanation</h4>
+                        <p class="text-purple-900 leading-relaxed text-xs">It is asking the user "What is your actual problem?" instead of just guessing. If you guess wrong, you will spend millions designing a perfect product that nobody wants to buy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">B. Importance of Customer Need Identification <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ml-2 align-middle">PYQ</span></h3>
+            
+            <div class="grid sm:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-rose-600 text-xl mb-3"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Prevents Market Failure</h4>
+                    <p class="text-xs text-slate-600">Ensures the product solves a real problem. (e.g., Making a highly complex TV remote when older people just want large, simple buttons).</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 text-xl mb-3"><i class="fa-solid fa-compass"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Guides Engineering</h4>
+                    <p class="text-xs text-slate-600">Gives clear targets. (e.g., The customer wants a phone that lasts 2 days &rarr; Engineering knows they must use a 5000mAh battery).</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 text-xl mb-3"><i class="fa-solid fa-eye-slash"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2 text-sm">Hidden Needs (Latent)</h4>
+                    <p class="text-xs text-slate-600">Customers often don't know what they want until you ask the right questions. Identifying these creates breakthrough products.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-list-check absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-orange-400 mb-6 relative z-10 flex items-center gap-3">C. The Process: How to Effectively Identify Needs <span class="bg-red-500 text-white text-[10px] px-2 py-1 rounded uppercase tracking-wider shadow-sm ml-2">PYQ</span></h3>
+                <p class="text-slate-300 relative z-10 text-sm mb-6">To properly identify needs, organizations use a 4-step process relying heavily on Market Research:</p>
+
+                <div class="space-y-4 relative z-10 text-sm">
+                    <div class="bg-white/10 p-5 rounded-xl border border-white/20">
+                        <strong class="text-amber-300 block mb-2 text-lg">1. Gather Raw Data from Customers:</strong>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-200">
+                            <li><strong>Interviews:</strong> Sitting 1-on-1 with a customer and asking them how they use a product.</li>
+                            <li><strong>Focus Groups:</strong> Putting 10 people in a room and letting them discuss their frustrations with current products.</li>
+                            <li><strong>Observation:</strong> Just watching a customer use a product silently. (You might notice a mechanic struggling to hold a flashlight while soldering—Boom! A need for a soldering iron with a built-in LED light is identified).</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/10 p-5 rounded-xl border border-white/20">
+                        <strong class="text-amber-300 block mb-1 text-lg">2. Interpret Raw Data into "Needs":</strong>
+                        <p class="text-slate-200">Translate the customer's exact words into an engineering statement. <br/><span class="italic text-slate-400">(Customer says: "This laptop gets too hot on my lap." &rarr; Need: "The laptop must dissipate heat away from the bottom").</span></p>
+                    </div>
+                    <div class="bg-white/10 p-5 rounded-xl border border-white/20">
+                        <strong class="text-amber-300 block mb-1 text-lg">3. Organize the Needs into a Hierarchy:</strong>
+                        <p class="text-slate-200">Group similar needs together into Primary (Main) and Secondary (Detailed) needs.</p>
+                    </div>
+                    <div class="bg-white/10 p-5 rounded-xl border border-white/20">
+                        <strong class="text-amber-300 block mb-1 text-lg">4. Establish Relative Importance:</strong>
+                        <p class="text-slate-200">Ask customers to rate which needs are absolute "Must-Haves" vs "Nice-to-Haves."</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 3 -->
+            <div id="challenges" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">3. The Challenges of Product Development</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Identify and explain three major challenges commonly encountered in product development in detail.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 font-medium">Developing a new product is incredibly difficult. An engineer faces three major challenges:</p>
+
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200" alt="Planning and Challenges" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="space-y-8 mb-12">
+                <!-- Challenge 1 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-2 bg-blue-500 h-full"></div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-blue-500"></i> 1. Trade-offs (The Balancing Act)</h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Explanation:</strong> A trade-off is when you must sacrifice one good feature to gain another. An engineer cannot have everything perfectly.</p>
+                    <div class="bg-blue-50 p-4 rounded-xl text-sm border border-blue-100">
+                        <strong class="text-blue-900 block mb-1">Electronics Example:</strong>
+                        <span class="text-blue-800">You want to design an ultra-thin, lightweight smartphone. But you also want a battery that lasts 3 days. <strong>The Challenge:</strong> A massive battery is heavy and thick. You cannot have both. You must make a painful trade-off and find a compromise.</span>
+                    </div>
+                </div>
+
+                <!-- Challenge 2 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-2 bg-rose-500 h-full"></div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-3"><i class="fa-solid fa-stopwatch text-rose-500"></i> 2. Time Pressure (The Race)</h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Explanation:</strong> Technology changes at lightning speed. A complex electronic product can take 2 to 3 years to design and manufacture.</p>
+                    <div class="bg-rose-50 p-4 rounded-xl text-sm border border-rose-100">
+                        <strong class="text-rose-900 block mb-1">The Challenge:</strong>
+                        <span class="text-rose-800">By the time you finish building your cutting-edge product and launch it, a competitor might have released something better, or the technology might already be outdated. Teams must work under immense stress to shrink development time without reducing quality.</span>
+                    </div>
+                </div>
+
+                <!-- Challenge 3 -->
+                <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-2 bg-emerald-500 h-full"></div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-3"><i class="fa-solid fa-money-bill-wave text-emerald-500"></i> 3. Economics and Cost Limitations</h4>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Explanation:</strong> An engineer could design the greatest smartwatch in the world using titanium and diamond glass. But if it costs ₹5 Lakhs to manufacture, nobody will buy it.</p>
+                    <div class="bg-emerald-50 p-4 rounded-xl text-sm border border-emerald-100">
+                        <strong class="text-emerald-900 block mb-1">The Challenge:</strong>
+                        <span class="text-emerald-800">The product must be designed not only to be high quality and feature-rich, but it must be cheap enough to produce in factories so the company can sell it at a reasonable price and still make a profit.</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 4 -->
+            <div id="success" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">4. Characteristics of Successful Product Development</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Discuss the key characteristics that contribute to a successful product development.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium">How does a company know if their product development project was a success? It is judged on 5 key characteristics:</p>
+
+            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&q=80&w=1200" alt="Success and Quality" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-amber-100 text-amber-600 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0"><i class="fa-solid fa-gem"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">1. Product Quality</h4>
+                        <p class="text-xs text-slate-600">Does it actually work? Is it reliable? Does it satisfy the customer's needs? A high-quality product leads to high market share.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-emerald-100 text-emerald-600 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0"><i class="fa-solid fa-tag"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">2. Product Cost</h4>
+                        <p class="text-xs text-slate-600">What is the manufacturing cost? This determines how much profit the company makes on every unit sold.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-100 text-blue-600 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0"><i class="fa-solid fa-clock"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">3. Development Time</h4>
+                        <p class="text-xs text-slate-600">How fast did the team complete the project? Fast time means beating competitors to market and recovering investment quickly.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+                    <div class="bg-rose-100 text-rose-600 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0"><i class="fa-solid fa-money-bill-wave"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">4. Development Cost</h4>
+                        <p class="text-xs text-slate-600">How much money did the company burn on R&D, salaries, and prototyping? This must be kept within budget.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4 sm:col-span-2">
+                    <div class="bg-purple-100 text-purple-600 w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">5. Development Capability</h4>
+                        <p class="text-xs text-slate-600">Did the team learn new skills during this project? A successful project makes the team smarter, meaning their next product will be developed even faster and better.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 5 -->
+            <div id="phases" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-list-ol"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">5. Phases of a Generic Product Development Process</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Describe the phases of a generic product development process in brief.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-8 text-sm">Creating a product from scratch follows a structured, step-by-step process. (This expands on the 7-step NPD process from Unit 1, focusing heavily on engineering and design).</p>
+
+            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=1200" alt="Prototyping and Engineering" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="relative max-w-3xl mx-auto mb-16">
+                <!-- Vertical Line -->
+                <div class="absolute left-6 top-4 bottom-4 w-1 bg-rose-200 rounded"></div>
+
+                <div class="space-y-8 relative z-10 text-sm">
+                    <!-- Phase 0 -->
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-white">0</div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm w-full">
+                            <h4 class="font-bold text-rose-700 text-lg mb-2">Phase 0: Planning (Pre-Project)</h4>
+                            <p class="text-slate-600">Happens before the project is officially approved. Management decides the general market target (e.g., "Let's build a smart fitness ring").</p>
+                        </div>
+                    </div>
+                    <!-- Phase 1 -->
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-white">1</div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm w-full">
+                            <h4 class="font-bold text-rose-700 text-lg mb-2">Phase 1: Concept Development</h4>
+                            <p class="text-slate-600">Target market needs are identified. Alternative concepts are generated and evaluated, and one is selected. (e.g., Drawing sketches of the ring, deciding it tracks heart rate and sleep).</p>
+                        </div>
+                    </div>
+                    <!-- Phase 2 -->
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-white">2</div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm w-full">
+                            <h4 class="font-bold text-rose-700 text-lg mb-2">Phase 2: System-Level Design</h4>
+                            <p class="text-slate-600 mb-2">The product is broken down into separate subsystems. General architecture is defined.</p>
+                            <p class="text-xs text-rose-800 bg-rose-50 p-2 rounded"><strong>Electronics Ex:</strong> Deciding the ring will have 3 subsystems: (1) Bluetooth module, (2) Optical sensor board, and (3) Battery charging circuit.</p>
+                        </div>
+                    </div>
+                    <!-- Phase 3 -->
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-white">3</div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm w-full">
+                            <h4 class="font-bold text-rose-700 text-lg mb-2">Phase 3: Detail Design</h4>
+                            <p class="text-slate-600">The heavy engineering phase. Every single part is explicitly defined. CAD models are drawn. Exact resistors, capacitors, PCB layout finalized. Tolerances and materials chosen.</p>
+                        </div>
+                    </div>
+                    <!-- Phase 4 -->
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-white">4</div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm w-full">
+                            <h4 class="font-bold text-rose-700 text-lg mb-2">Phase 4: Testing and Refinement</h4>
+                            <p class="text-slate-600 mb-2">Multiple prototypes are built.</p>
+                            <ul class="list-disc pl-5 text-slate-500 space-y-1">
+                                <li><strong>Alpha Prototypes:</strong> Built with prototype parts just to see if electronics work.</li>
+                                <li><strong>Beta Prototypes:</strong> Built using factory machines and given to real customers to test for bugs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Phase 5 -->
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold shadow-md shrink-0 border-4 border-white"><i class="fa-solid fa-check"></i></div>
+                        <div class="bg-white p-5 rounded-2xl border border-emerald-200 shadow-sm w-full border-l-4 border-l-emerald-500">
+                            <h4 class="font-bold text-emerald-700 text-lg mb-2">Phase 5: Production Ramp-Up</h4>
+                            <p class="text-slate-600">The product is made using the intended production system. Purpose is to train the factory workforce and work out bugs in manufacturing machines before mass launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 6 -->
+            <div id="analysis" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">6. Product Analysis and Characteristics</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Write any four key product characteristics that influence consumer choice. Explain the characteristics of product.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium">When a consumer stands in an electronics shop, why do they pick Product A over Product B? They analyze specific characteristics.</p>
+
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=1200" alt="Premium Headphones Aesthetics" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Four Key Product Characteristics Influencing Consumer Choice:</h3>
+
+            <div class="grid sm:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-rose-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-rose-500 text-xl mb-3"><i class="fa-solid fa-palette"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2">1. Aesthetics and Design (Form)</h4>
+                    <p class="text-sm text-slate-600">How the product looks, feels, and sounds. Apple products sell massively because of their premium metallic feel and clean design.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-blue-500 text-xl mb-3"><i class="fa-solid fa-microchip"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2">2. Functionality and Performance</h4>
+                    <p class="text-sm text-slate-600">Does it do what it is supposed to do efficiently? (e.g., A gamer chooses a laptop based purely on the high performance of its graphics card).</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-emerald-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-emerald-500 text-xl mb-3"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2">3. Reliability and Durability</h4>
+                    <p class="text-sm text-slate-600">Consumers want a product that will not break down after a month. A brand known for tough, long-lasting products (like a Casio G-Shock) heavily influences choice.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-amber-50 w-12 h-12 flex items-center justify-center rounded-xl flex-shrink-0 text-amber-500 text-xl mb-3"><i class="fa-solid fa-hand-pointer"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-2">4. Usability and Ergonomics</h4>
+                    <p class="text-sm text-slate-600">How easy is it to use? If a smart-TV has a remote with 100 confusing buttons, consumers will avoid it. A simple, intuitive user interface wins.</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 7 -->
+            <div id="economics" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">7. Economic, Production, and Marketing Aspects</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain the economic considerations that impact product development. Briefly explain the relationship between production and marketing aspects.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1200" alt="Business Meeting Teamwork" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Economic Considerations in Product Design <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+                <p class="text-slate-600 mb-6 text-sm">Designing a product isn't just about engineering; it's about money.</p>
+                
+                <ul class="space-y-4 text-sm text-slate-600">
+                    <li class="bg-slate-50 p-4 rounded-xl border border-slate-100"><strong class="text-slate-800 block mb-1">Tooling Cost vs. Unit Cost:</strong> Making custom plastic injection molds (tooling) costs lakhs of rupees. If you only plan to sell 100 units, the tooling cost makes the product too expensive.</li>
+                    <li class="bg-slate-50 p-4 rounded-xl border border-slate-100"><strong class="text-slate-800 block mb-1">Return on Investment (ROI):</strong> The company must calculate: "If we spend ₹1 Crore developing this drone, will we make ₹5 Crores back in 2 years?"</li>
+                    <li class="bg-slate-50 p-4 rounded-xl border border-slate-100"><strong class="text-slate-800 block mb-1">Break-Even Point:</strong> Calculating exactly how many units must be sold before the company stops losing money and starts making a profit.</li>
+                </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-people-pulling absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-orange-400 mb-6 relative z-10 flex items-center gap-3">B. Relationship Between Production and Marketing <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded uppercase tracking-wider ml-1 shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 relative z-10 text-sm mb-6">There is always a massive tug-of-war (relationship) between these two departments.</p>
+
+                <div class="grid md:grid-cols-2 gap-6 relative z-10 mb-6 text-sm">
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/20">
+                        <strong class="text-rose-300 block mb-2 text-lg"><i class="fa-solid fa-bullhorn mr-2"></i> The Marketing Team</strong>
+                        <p class="text-slate-200">Wants to offer the customer 50 different colors, unlimited customized features, and the lowest possible price to boost sales.</p>
+                    </div>
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/20">
+                        <strong class="text-emerald-300 block mb-2 text-lg"><i class="fa-solid fa-industry mr-2"></i> The Production Team</strong>
+                        <p class="text-slate-200">Hates customization. They want to produce exactly one color with exactly one standard feature because it is cheaper, faster, and reduces factory errors.</p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-500/20 border-l-4 border-orange-400 p-5 rounded-r-xl relative z-10">
+                    <strong class="text-orange-300 block text-lg mb-1"><i class="fa-solid fa-handshake-angle mr-2"></i> The Relationship/Balance:</strong>
+                    <p class="text-slate-200 text-sm leading-relaxed">Successful product development requires a compromise. They might agree to use a modular design—the production team builds one standard electronic base, and the marketing team sells easily swappable colored outer cases to satisfy the customer.</p>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-rose-500 to-orange-600 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 2 Notes</h2>
+                    <p class="text-rose-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Ensure you thoroughly memorize the <strong>4 Stages of the Product Life Cycle</strong> and the <strong>3 Major Challenges of Product Development</strong>, as these are highly repeated 6-Mark questions!
+                    </p>
+                </div>
+                <i class="fa-solid fa-graduation-cap absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-rose-50', 'text-rose-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-rose-50', 'text-rose-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
