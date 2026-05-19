@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Python Basics Notes - Unit 1</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .code-block { font-family: 'Courier New', Courier, monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans selection:bg-blue-200 selection:text-blue-900">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-blue-500 via-sky-500 to-amber-500 transition-all duration-150 ease-out" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Python/IoT Background Image -->
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070" alt="Technology and Code" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900/95"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-sm tracking-wide uppercase backdrop-blur-sm shadow-md">
+                Diploma Electronics Engineering - Sem 6
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-sky-200 to-amber-200 mb-6 drop-shadow-sm leading-tight">
+                Python Basics <br/>for IoT
+            </h1>
+            <p class="text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                Unit-I. Prepared based on Full Syllabus + Previous Year Questions Analysis (Scaled for 6-Mark long-answer questions).
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-blue-500/30 flex items-center gap-2">
+                    Start Coding <i class="fa-solid fa-code"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12" id="start">
+        
+        <!-- Left Sidebar Navigation (Sticky) -->
+        <aside class="hidden lg:block w-72 flex-shrink-0">
+            <div class="sticky top-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Table of Contents</h3>
+                <nav class="space-y-3">
+                    <a href="#install" class="flex items-center gap-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-download text-slate-400 group-hover:text-blue-600 w-4 text-center"></i> 1.1 Python Installation
+                    </a>
+                    <a href="#variables" class="flex items-center gap-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-font text-slate-400 group-hover:text-blue-600 w-4 text-center"></i> 1.2 Variables & Print
+                    </a>
+                    <a href="#structures" class="flex items-center gap-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-list text-slate-400 group-hover:text-blue-600 w-4 text-center"></i> 1.3 Tuple & Dictionary
+                    </a>
+                    <a href="#arrays1d" class="flex items-center gap-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-bars text-slate-400 group-hover:text-blue-600 w-4 text-center"></i> 1.4 Python Arrays (1D)
+                    </a>
+                    <a href="#arrays2d" class="flex items-center gap-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-table-cells text-slate-400 group-hover:text-blue-600 w-4 text-center"></i> 1.5 2D Arrays
+                    </a>
+                    <a href="#conditionals" class="flex items-center gap-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors group text-sm font-medium">
+                        <i class="fa-solid fa-code-branch text-slate-400 group-hover:text-blue-600 w-4 text-center"></i> 1.6 Conditional Statements
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <article class="flex-1 max-w-4xl prose prose-slate prose-lg prose-blue prose-headings:font-bold prose-a:text-blue-600">
+
+            <!-- Section 1.1 -->
+            <div id="install" class="flex items-center gap-3 mb-6 mt-4 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-sky-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-download"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1.1 Installation of Python</h2>
+            </div>
+
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">Syllabus Focus</h4>
+                    <p class="text-red-900 font-medium">Write the steps to install Python.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium text-lg">Python is a high-level, interpreted programming language widely used in IoT for writing backend scripts and analyzing data.</p>
+
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bfce8?auto=format&fit=crop&q=80&w=1200" alt="Code Installation Concept" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 mb-10 relative overflow-hidden">
+                <h3 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">Steps to Install Python on Windows <span class="bg-red-500 text-white px-2 py-0.5 rounded text-[10px] uppercase ml-1 shadow-sm">6-Mark Exam</span></h3>
+                
+                <div class="space-y-6 relative z-10">
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-blue-300 transition-colors">
+                        <div class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0 shadow-md">1</div>
+                        <div>
+                            <strong class="text-blue-800 block mb-1">Download the Installer:</strong>
+                            <p class="text-sm text-slate-600">Open a web browser and go to the official Python website: <code class="bg-slate-200 px-1 rounded">python.org/downloads</code>. Click on the "Download Python [latest version]" button. The installer .exe file will be downloaded.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-blue-300 transition-colors">
+                        <div class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0 shadow-md">2</div>
+                        <div>
+                            <strong class="text-blue-800 block mb-1">Run the Installer:</strong>
+                            <p class="text-sm text-slate-600">Double-click the downloaded .exe file to open the setup wizard.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-amber-50 p-4 rounded-xl border-2 border-amber-200 hover:border-amber-400 transition-colors">
+                        <div class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0 shadow-md"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <strong class="text-amber-800 block mb-1">Critical Checkbox:</strong>
+                            <p class="text-sm text-amber-900">At the very bottom of the first setup screen, make sure to check the box that says <strong>"Add Python [version] to PATH"</strong>. (This is crucial so you can run Python from the command prompt).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-blue-300 transition-colors">
+                        <div class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0 shadow-md">3</div>
+                        <div>
+                            <strong class="text-blue-800 block mb-1">Install Now:</strong>
+                            <p class="text-sm text-slate-600">Click on "Install Now". The setup will copy all necessary files.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start bg-emerald-50 p-4 rounded-xl border border-emerald-100 hover:border-emerald-300 transition-colors">
+                        <div class="bg-emerald-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0 shadow-md"><i class="fa-solid fa-check"></i></div>
+                        <div>
+                            <strong class="text-emerald-800 block mb-1">Verify Installation:</strong>
+                            <p class="text-sm text-slate-700">Open the Command Prompt (cmd). Type <code class="bg-slate-800 text-green-400 px-2 py-0.5 rounded font-mono">python --version</code> and press Enter. If installed correctly, it will print the Python version number.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 1.2 -->
+            <div id="variables" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-font"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1.2 Variables, Print() & Escape Characters</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Define escape character and provide two examples of escape character used in python. Prepare a python program using print() function.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1200" alt="Code on Screen" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Variables in Python</h3>
+                <p class="text-slate-600 text-sm mb-4">A variable is a reserved memory location to store values. In Python, you do not need to declare a variable's type (like <code>int</code> or <code>float</code> in C++). The type is automatically assigned based on the value you give it.</p>
+                
+                <div class="flex items-start gap-4 bg-purple-50 border border-purple-100 p-4 rounded-xl shadow-sm mb-6">
+                    <div class="bg-purple-200 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-purple-700">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-1 text-sm">Easy Word Explanation</h4>
+                        <p class="text-purple-900 text-sm leading-relaxed">Think of a variable as a labeled storage box. If you write <code>age = 20</code>, you created a box labeled "age" and put the number 20 inside it.</p>
+                    </div>
+                </div>
+
+                <h4 class="font-bold text-slate-800 mb-3 text-lg border-b pb-2">Types of Variables / Data Types:</h4>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm">
+                        <strong class="text-blue-700 block mb-1">Integers (int)</strong>
+                        <span class="text-slate-600">Whole numbers. (e.g., <code class="text-slate-800 font-bold">a = 10</code>)</span>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm">
+                        <strong class="text-blue-700 block mb-1">Floating-Point (float)</strong>
+                        <span class="text-slate-600">Decimal numbers. (e.g., <code class="text-slate-800 font-bold">pi = 3.14</code>)</span>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm">
+                        <strong class="text-blue-700 block mb-1">String (str)</strong>
+                        <span class="text-slate-600">Text enclosed in quotes. (e.g., <code class="text-slate-800 font-bold">name = "SBTE"</code>)</span>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-sm">
+                        <strong class="text-blue-700 block mb-1">Boolean (bool)</strong>
+                        <span class="text-slate-600">True or False values. (e.g., <code class="text-slate-800 font-bold">is_valid = True</code>)</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">B. The Print() Function <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+            <p class="text-slate-600 text-sm mb-4">The <code>print()</code> function prints the specified message to the screen.</p>
+            
+            <div class="bg-slate-900 rounded-xl p-5 mb-10 shadow-md font-mono text-sm code-block border-l-4 border-l-blue-500">
+                <span class="text-slate-400"># Example Program:</span><br/>
+                <span class="text-sky-300">name</span> = <span class="text-amber-300">"Diploma Student"</span><br/>
+                <span class="text-sky-300">semester</span> = <span class="text-purple-400">6</span><br/>
+                <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Hello"</span>, <span class="text-sky-300">name</span>)<br/>
+                <span class="text-emerald-400">print</span>(<span class="text-amber-300">"You are in semester:"</span>, <span class="text-sky-300">semester</span>)
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12">
+                <i class="fa-solid fa-slash absolute right-[-20px] top-[-20px] text-[12rem] text-white opacity-5"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-4 relative z-10">C. Escape Character Sequence <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded uppercase tracking-wider ml-1 shadow-sm">6-Mark PYQ</span></h3>
+                
+                <div class="space-y-4 relative z-10 text-sm">
+                    <p><strong class="text-amber-200">Definition:</strong> An escape character is a backslash <code class="bg-white/20 px-1 rounded">\</code> followed by the character you want to insert. It is used to insert characters into a string that are normally illegal or difficult to type, such as a newline, a tab, or a double quote inside a string.</p>
+                    <p><strong class="text-amber-200">Why it is used:</strong> If you write <code class="bg-rose-900/60 text-rose-200 px-1 rounded">print("He said "Hello" to me")</code>, Python will throw an error because of the extra quotes. Escape characters fix this: <code class="bg-emerald-900/60 text-emerald-200 px-1 rounded">print("He said \"Hello\" to me")</code>.</p>
+                    
+                    <h4 class="text-lg font-bold text-white mt-6 border-b border-white/20 pb-2">Two Examples (PYQ):</h4>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-white/10 p-5 rounded-xl border border-white/10">
+                            <strong class="text-sky-300 block mb-2 text-base">1. Newline (\n)</strong>
+                            <p class="text-slate-300 mb-3">Moves the text to the next line.</p>
+                            <div class="bg-black/50 p-3 rounded-lg font-mono text-xs mb-2">
+                                <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Hello\nWorld"</span>)
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded text-slate-300 text-xs border-l-2 border-slate-500">
+                                <strong>Output:</strong><br/>Hello<br/>World
+                            </div>
+                        </div>
+
+                        <div class="bg-white/10 p-5 rounded-xl border border-white/10">
+                            <strong class="text-sky-300 block mb-2 text-base">2. Tab (\t)</strong>
+                            <p class="text-slate-300 mb-3">Inserts a horizontal space (like pressing the Tab key).</p>
+                            <div class="bg-black/50 p-3 rounded-lg font-mono text-xs mb-2">
+                                <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Name:\tRahul"</span>)
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded text-slate-300 text-xs border-l-2 border-slate-500">
+                                <strong>Output:</strong><br/>Name:&nbsp;&nbsp;&nbsp;&nbsp;Rahul
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 1.3 -->
+            <div id="structures" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-list"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1.3 Python Tuple, Dictionary, and Operators</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain Tuple in Python with example and write a python program to create a tuple and access its elements using indexing. List the property of Python Tuple.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=1200" alt="Data Nodes Network" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-12">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. Python Tuple <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h3>
+                <p class="text-sm text-slate-600 mb-4"><strong>Definition:</strong> A Tuple is an ordered collection of items separated by commas and enclosed in round brackets <code>()</code>.</p>
+                
+                <h4 class="font-bold text-slate-800 mb-2">Properties of Tuple:</h4>
+                <ul class="grid sm:grid-cols-2 gap-3 text-sm text-slate-600 mb-6">
+                    <li class="bg-slate-50 p-3 rounded border border-slate-100"><strong class="text-indigo-700">Ordered:</strong> The items have a defined order that will not change.</li>
+                    <li class="bg-slate-50 p-3 rounded border border-slate-100"><strong class="text-rose-600">Immutable (Unchangeable):</strong> Once a tuple is created, you cannot change, add, or remove items.</li>
+                    <li class="bg-slate-50 p-3 rounded border border-slate-100"><strong class="text-indigo-700">Allows Duplicates:</strong> Tuples can have items with the same value.</li>
+                    <li class="bg-slate-50 p-3 rounded border border-slate-100"><strong class="text-indigo-700">Indexed:</strong> Elements are accessed using index numbers starting from 0.</li>
+                </ul>
+
+                <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 text-sm text-emerald-900 mb-6 inline-block">
+                    <strong><i class="fa-solid fa-satellite-dish mr-1"></i> Importance in IoT:</strong> Used to store fixed data that shouldn't be altered by accident, like the static GPS coordinates of a sensor node.
+                </div>
+
+                <h4 class="font-bold text-slate-800 mb-3 text-lg border-b pb-2">Python Program (Create and Access Tuple):</h4>
+                <div class="bg-slate-900 rounded-xl p-5 shadow-md font-mono text-sm code-block border-l-4 border-l-emerald-500">
+                    <span class="text-slate-400"># 1. Creating a Tuple</span><br/>
+                    <span class="text-sky-300">sensor_data</span> = (<span class="text-purple-400">25.5</span>, <span class="text-purple-400">60</span>, <span class="text-amber-300">"Active"</span>)<br/><br/>
+                    
+                    <span class="text-slate-400"># 2. Accessing elements using indexing</span><br/>
+                    <span class="text-sky-300">temperature</span> = <span class="text-sky-300">sensor_data</span>[<span class="text-purple-400">0</span>] <span class="text-slate-500"># Index 0 gets the first item</span><br/>
+                    <span class="text-sky-300">status</span> = <span class="text-sky-300">sensor_data</span>[<span class="text-purple-400">2</span>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500"># Index 2 gets the third item</span><br/><br/>
+                    
+                    <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Temperature is:"</span>, <span class="text-sky-300">temperature</span>)<br/>
+                    <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Sensor Status is:"</span>, <span class="text-sky-300">status</span>)
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">B. Python Dictionary</h3>
+                    <p class="text-sm text-slate-600 mb-3"><strong>Definition:</strong> A Dictionary is an unordered collection of data stored as <code>Key:Value</code> pairs, enclosed in curly brackets <code>{}</code>.</p>
+                    <p class="text-sm text-slate-600 mb-4"><strong>Properties:</strong> Mutable (changeable), does not allow duplicate keys.</p>
+                    <div class="bg-purple-50 p-3 rounded-lg text-xs text-purple-900 mb-4">
+                        <strong><i class="fa-solid fa-brain mr-1 text-purple-600"></i> Easy Explanation:</strong> Like a real dictionary where you search for a word (Key) to find its meaning (Value).
+                    </div>
+                    <div class="bg-slate-900 rounded-xl p-4 shadow-md font-mono text-xs code-block">
+                        <span class="text-sky-300">device</span> = {<br/>
+                        &nbsp;&nbsp;<span class="text-amber-300">"name"</span>: <span class="text-amber-300">"Temperature Sensor"</span>,<br/>
+                        &nbsp;&nbsp;<span class="text-amber-300">"pin"</span>: <span class="text-purple-400">4</span>,<br/>
+                        &nbsp;&nbsp;<span class="text-amber-300">"status"</span>: <span class="text-amber-300">"ON"</span><br/>
+                        }<br/>
+                        <span class="text-slate-400"># Accessing value using key</span><br/>
+                        <span class="text-emerald-400">print</span>(<span class="text-sky-300">device</span>[<span class="text-amber-300">"status"</span>]) <span class="text-slate-500"># Output: ON</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">C. Operators in Python</h3>
+                    <p class="text-sm text-slate-600 mb-4">Operators are special symbols used to perform operations on variables.</p>
+                    <ul class="space-y-4 text-sm">
+                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <strong class="text-blue-700 block mb-1">Arithmetic Operators:</strong>
+                            <code class="bg-white px-1 border border-slate-200 rounded">+</code> (Add), <code class="bg-white px-1 border border-slate-200 rounded">-</code> (Subtract), <code class="bg-white px-1 border border-slate-200 rounded">*</code> (Multiply), <code class="bg-white px-1 border border-slate-200 rounded">/</code> (Divide), <code class="bg-white px-1 border border-slate-200 rounded">%</code> (Modulus/Remainder).
+                        </li>
+                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <strong class="text-blue-700 block mb-1">Comparison Operators:</strong>
+                            <code class="bg-white px-1 border border-slate-200 rounded">==</code> (Equal to), <code class="bg-white px-1 border border-slate-200 rounded">!=</code> (Not equal to), <code class="bg-white px-1 border border-slate-200 rounded">&gt;</code> (Greater), <code class="bg-white px-1 border border-slate-200 rounded">&lt;</code> (Less).
+                        </li>
+                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <strong class="text-blue-700 block mb-1">Logical Operators:</strong>
+                            <code class="bg-white px-1 border border-slate-200 rounded font-bold">and</code>, <code class="bg-white px-1 border border-slate-200 rounded font-bold">or</code>, <code class="bg-white px-1 border border-slate-200 rounded font-bold">not</code>. (Used heavily in if statements).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 1.4 -->
+            <div id="arrays1d" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1.4 Python Arrays: Create, Reverse, Append</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Write a python program to create an array of integers, reverses it, then appends a new integer to the array and print the final Array using different functions.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium text-lg">In standard Python, we generally use <strong>Lists</strong> to act as arrays. (To use strict C-style arrays, we must import the array module). For diploma exams, List operations are accepted as array operations.</p>
+
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" alt="Server Rows representing 1D Array" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <ul class="text-sm text-slate-600 mb-6 space-y-2">
+                    <li><strong>Properties:</strong> They are ordered, mutable (changeable), and enclosed in square brackets <code>[]</code>.</li>
+                    <li><strong class="text-emerald-700"><i class="fa-solid fa-satellite-dish mr-1"></i> Importance in IoT:</strong> Used to store a sequence of sensor readings collected over time.</li>
+                </ul>
+
+                <h4 class="font-bold text-slate-800 mb-3 text-lg border-b pb-2">Python Program for Array Operations <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-[10px] uppercase ml-1 align-middle">PYQ</span></h4>
+                <div class="bg-slate-900 rounded-xl p-5 shadow-md font-mono text-sm code-block border-l-4 border-l-blue-500 mb-4">
+                    <span class="text-slate-400"># 1. Create an array of integers</span><br/>
+                    <span class="text-sky-300">my_array</span> = [<span class="text-purple-400">10</span>, <span class="text-purple-400">20</span>, <span class="text-purple-400">30</span>, <span class="text-purple-400">40</span>, <span class="text-purple-400">50</span>]<br/>
+                    <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Original Array:"</span>, <span class="text-sky-300">my_array</span>)<br/><br/>
+
+                    <span class="text-slate-400"># 2. Reverse the array using the reverse() function</span><br/>
+                    <span class="text-sky-300">my_array</span>.<span class="text-emerald-300">reverse</span>()<br/>
+                    <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Reversed Array:"</span>, <span class="text-sky-300">my_array</span>)<br/><br/>
+
+                    <span class="text-slate-400"># 3. Append a new integer using the append() function</span><br/>
+                    <span class="text-sky-300">my_array</span>.<span class="text-emerald-300">append</span>(<span class="text-purple-400">60</span>)<br/><br/>
+
+                    <span class="text-slate-400"># 4. Print the final array</span><br/>
+                    <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Final Array after appending 60:"</span>, <span class="text-sky-300">my_array</span>)
+                </div>
+                
+                <div class="bg-slate-100 p-4 rounded-xl border border-slate-200 text-xs font-mono text-slate-700">
+                    <strong>Output:</strong><br/>
+                    Original: [10, 20, 30, 40, 50]<br/>
+                    Reversed: [50, 40, 30, 20, 10]<br/>
+                    Final: [50, 40, 30, 20, 10, 60]
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 1.5 -->
+            <div id="arrays2d" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-table-cells"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1.5 Python 2-Dimensional Arrays</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Explain 2-Dimensional array with example. Write a Python program which takes two digits, m (row) and n (column) as input and generates a two-dimensional array.</p>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1502089552194-e3db784eb9bc?auto=format&fit=crop&q=80&w=1200" alt="Matrix Grid Pattern" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A. What is a 2-Dimensional Array?</h3>
+                <p class="text-sm text-slate-600 mb-4"><strong>Definition:</strong> A 2-Dimensional (2D) array is an array within an array. It is structured like a table or a grid consisting of rows and columns.</p>
+                
+                <div class="flex items-start gap-4 bg-purple-50 border border-purple-100 p-5 rounded-2xl shadow-sm mb-4">
+                    <div class="bg-purple-200 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-purple-700">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-purple-800 font-bold mb-1 text-sm">Easy Word Explanation (The Post Office)</h4>
+                        <p class="text-purple-900 leading-relaxed text-xs">A normal array is like a single row of mailboxes. A 2D array is like an entire wall of mailboxes in a post office, where you need a row number AND a column number to find a specific box.</p>
+                    </div>
+                </div>
+                <p class="text-xs text-emerald-700 bg-emerald-50 p-2 rounded inline-block"><strong><i class="fa-solid fa-satellite-dish mr-1"></i> Importance in IoT:</strong> Used to store coordinate mapping data or pixel data for a camera module.</p>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mb-12 border border-slate-700">
+                <i class="fa-solid fa-code absolute right-[-20px] top-[-20px] text-[10rem] opacity-5"></i>
+                <h3 class="text-2xl font-bold text-amber-400 mb-6 relative z-10">B. Python Program to Generate a 2D Array <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded uppercase tracking-wider ml-2 align-middle shadow-sm">PYQ</span></h3>
+                <p class="text-slate-300 text-sm mb-6 relative z-10">This program asks the user for the number of rows (m) and columns (n), and fills the 2D array with <code>row &times; col</code> multiplication values.</p>
+
+                <div class="bg-black/60 rounded-xl p-5 shadow-inner font-mono text-sm code-block border-l-4 border-l-amber-400 relative z-10">
+                    <span class="text-slate-400"># Take input for rows (m) and columns (n)</span><br/>
+                    <span class="text-sky-300">m</span> = <span class="text-emerald-300">int</span>(<span class="text-emerald-300">input</span>(<span class="text-amber-300">"Enter number of rows (m): "</span>))<br/>
+                    <span class="text-sky-300">n</span> = <span class="text-emerald-300">int</span>(<span class="text-emerald-300">input</span>(<span class="text-amber-300">"Enter number of columns (n): "</span>))<br/><br/>
+
+                    <span class="text-slate-400"># Create an empty 2D array</span><br/>
+                    <span class="text-sky-300">two_d_array</span> = []<br/><br/>
+
+                    <span class="text-slate-400"># Generate the 2D array using nested loops</span><br/>
+                    <span class="text-pink-400 font-bold">for</span> <span class="text-sky-300">i</span> <span class="text-pink-400 font-bold">in</span> <span class="text-emerald-300">range</span>(<span class="text-sky-300">m</span>):<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-sky-300">row</span> = [] <span class="text-slate-500"># Create an empty row</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400 font-bold">for</span> <span class="text-sky-300">j</span> <span class="text-pink-400 font-bold">in</span> <span class="text-emerald-300">range</span>(<span class="text-sky-300">n</span>):<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500"># Calculate value (example: i * j) and add to row</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-sky-300">row</span>.<span class="text-emerald-300">append</span>(<span class="text-sky-300">i</span> * <span class="text-sky-300">j</span>) <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500"># Add the completed row to the main array</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-sky-300">two_d_array</span>.<span class="text-emerald-300">append</span>(<span class="text-sky-300">row</span>)<br/><br/>
+
+                    <span class="text-slate-400"># Print the generated 2D array</span><br/>
+                    <span class="text-emerald-400">print</span>(<span class="text-amber-300">"Generated 2D Array:"</span>)<br/>
+                    <span class="text-emerald-400">print</span>(<span class="text-sky-300">two_d_array</span>)
+                </div>
+            </div>
+
+            <hr class="border-slate-200 my-12" />
+
+            <!-- Section 1.6 -->
+            <div id="conditionals" class="flex items-center gap-3 mb-6 mt-16 scroll-mt-24">
+                <div class="bg-gradient-to-r from-blue-500 to-cyan-500 p-3 rounded-xl shadow-lg text-white w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-code-branch"></i>
+                </div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">1.6 Python Conditional Statements</h2>
+            </div>
+            
+            <!-- PYQ Alert -->
+            <div class="flex items-start gap-3 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4 shadow-sm mb-8">
+                <i class="fa-solid fa-circle-exclamation text-red-500 text-2xl flex-shrink-0 mt-1"></i>
+                <div>
+                    <h4 class="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">PYQ Focus</h4>
+                    <p class="text-red-900 font-medium">Prepare a python program to check whether the entered number is even or odd.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 mb-6 font-medium">Conditional statements are used to perform different actions based on different conditions. They evaluate a condition (True or False) and execute code accordingly.</p>
+
+            <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&q=80&w=1200" alt="Code Logic and Paths" class="w-full h-64 object-cover rounded-3xl shadow-sm mb-10" />
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">Types of Conditional Statements:</h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100"><strong class="text-blue-700 block mb-1">if statement:</strong> Executes a block of code ONLY if the condition is true.</li>
+                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100"><strong class="text-blue-700 block mb-1">if-else statement:</strong> Executes one block if true, and a different block if false.</li>
+                        <li class="bg-slate-50 p-3 rounded-xl border border-slate-100"><strong class="text-blue-700 block mb-1">if-elif-else statement:</strong> Used to check multiple conditions consecutively.</li>
+                    </ul>
+                    <div class="bg-emerald-50 text-emerald-800 p-3 rounded-lg mt-4 text-xs font-medium">
+                        <strong><i class="fa-solid fa-satellite-dish mr-1"></i> Importance in IoT:</strong> If temperature &gt; 50 (Condition), Turn ON the Fan (Action).
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-6 rounded-3xl shadow-xl relative overflow-hidden">
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-3xl uppercase tracking-wider shadow-sm">PYQ</span>
+                    <h3 class="text-xl font-bold text-sky-400 mb-4 border-b border-slate-700 pb-2">Program: Check Even or Odd</h3>
+                    
+                    <div class="bg-black/40 rounded-xl p-4 shadow-inner font-mono text-xs code-block border-l-4 border-l-sky-400 relative z-10">
+                        <span class="text-slate-400"># Take a number as input</span><br/>
+                        <span class="text-sky-300">num</span> = <span class="text-emerald-300">int</span>(<span class="text-emerald-300">input</span>(<span class="text-amber-300">"Enter a number: "</span>))<br/><br/>
+
+                        <span class="text-slate-400"># Check if perfectly divisible by 2</span><br/>
+                        <span class="text-pink-400 font-bold">if</span> (<span class="text-sky-300">num</span> % <span class="text-purple-400">2</span> == <span class="text-purple-400">0</span>):<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-emerald-400">print</span>(<span class="text-sky-300">num</span>, <span class="text-amber-300">"is an Even number."</span>)<br/>
+                        <span class="text-pink-400 font-bold">else</span>:<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-emerald-400">print</span>(<span class="text-sky-300">num</span>, <span class="text-amber-300">"is an Odd number."</span>)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notes -->
+            <div class="mt-20 p-10 bg-gradient-to-r from-blue-600 to-sky-700 rounded-3xl text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-extrabold mb-6">End of Unit 1 Notes</h2>
+                    <p class="text-blue-50 text-xl max-w-3xl mx-auto bg-black/20 p-6 rounded-2xl border border-white/10 font-medium leading-relaxed shadow-inner">
+                        <i class="fa-solid fa-medal text-yellow-400 text-2xl mr-2 mb-2 block sm:inline"></i> 
+                        Be sure to practice the syntax of the Python programs (especially the <strong>2D array</strong> and <strong>Tuple indexing</strong>) as writing clean code is essential for scoring full marks in this subject!
+                    </p>
+                </div>
+                <i class="fa-brands fa-python absolute bottom-[-40px] right-4 text-[15rem] text-white opacity-10"></i>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight ? (window.scrollY / scrollHeight) * 100 : 0;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Intersection Observer for highlighting sidebar links
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main article > div[id]');
+            const navLinks = document.querySelectorAll('aside nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('bg-blue-50', 'text-blue-600');
+                            link.classList.add('text-slate-600');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.remove('text-slate-600');
+                                link.classList.add('bg-blue-50', 'text-blue-600');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
